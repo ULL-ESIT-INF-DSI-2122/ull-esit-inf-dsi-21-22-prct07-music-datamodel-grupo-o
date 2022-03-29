@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "eje1": "tsc-watch --onSuccess \"node dist/ejercicio-1/combat.js\"",
+    "eje1": "tsc-watch --onSuccess \"node dist/eje1.js\"",
     "mod": "tsc-watch --onSuccess \"node dist/modificacion/Complex.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -rf .nyc_output",
