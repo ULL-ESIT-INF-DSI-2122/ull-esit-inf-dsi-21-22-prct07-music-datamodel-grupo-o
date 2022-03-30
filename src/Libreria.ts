@@ -1,6 +1,6 @@
 import { LiberySystem } from "./LiberySystem";
 
-export type T = 'generos'|'cancion'|'album'|'grupos'|'artistas'|'playlist';
+// export type T = 'generos'|'cancion'|'album'|'grupos'|'artistas'|'playlist';
 
 // XUE
 export abstract class Libreria<T> implements LiberySystem<T>{

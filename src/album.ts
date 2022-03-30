@@ -1,5 +1,6 @@
-import { Libreria } from "./LiberySystem";
+import { Libreria } from "./Libreria";
 import { Cancion } from "./cancion";
+
 // steph
 export class Album extends Libreria<T> {
     constructor(private nombre:string, private artista:string,
