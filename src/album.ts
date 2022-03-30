@@ -1,7 +1,7 @@
 import { Libreria } from "./LiberySystem";
 import { Cancion } from "./cancion";
 // steph
-export class Album extends Libreria<T> {
+export class Album extends Libreria {
     constructor(private nombre:string, private artista:string,
       private year:number, private canciones:Cancion) {
         super();
