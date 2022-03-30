@@ -1,9 +1,9 @@
-import { LiberySystem } from "./LiberySystem";
+import { LibrarySystem} from "./LibrarySystem";
 
 // export type T = 'generos'|'cancion'|'album'|'grupos'|'artistas'|'playlist';
 
 // XUE
-export abstract class Libreria<T> implements LiberySystem<T>{
+export abstract class Libreria<T> implements LibrarySystem<T>{
   
   constructor(private collection:T[]) { }
 

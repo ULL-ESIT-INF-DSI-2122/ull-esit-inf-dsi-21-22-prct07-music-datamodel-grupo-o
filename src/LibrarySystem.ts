@@ -1,4 +1,4 @@
-export interface LiberySystem<T> {
+export interface LibrarySystem<T> {
   addItem(element: T): void;
   getItem(index: number): T;
   removeItem(element: T): void;

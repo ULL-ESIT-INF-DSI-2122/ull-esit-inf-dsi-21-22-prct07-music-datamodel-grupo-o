@@ -18,7 +18,7 @@ export class Playlist {
         // this.generos = generos;     //private generos:GenerosMusicales
     }
 
-    getNombre():string { return this.nombre }
+    getNombre():string { return this.nombre; }
 
     getCanciones():Cancion[] { return this.canciones; }    
 
