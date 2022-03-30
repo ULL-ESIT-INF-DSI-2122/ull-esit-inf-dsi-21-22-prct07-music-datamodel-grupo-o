@@ -1,8 +1,11 @@
 import { Libreria } from "./Libreria";
 
+export type Playlist = {
+
+}
 
 // XUE
-export class Playlist extends Libreria<> {
+export class Playlist extends Libreria<Playlist> {
     constructor() {
         super();
       
