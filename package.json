@@ -8,7 +8,8 @@
     "mod": "tsc-watch --onSuccess \"node dist/modificacion/Complex.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -rf .nyc_output",
-    "doc": "typedoc --includes ./src/**/*.ts"
+    "doc": "typedoc --includes ./src/**/*.ts",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "keywords": [],
   "author": "",
