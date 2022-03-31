@@ -1,39 +1,70 @@
-// import { GenerosMusicales } from "./generosMusical";
+import {GenerosMusicales} from "./generosMusical";
 // import { Libreria } from "./Libreria";
 
 // Andrea
 // export class Cancion extends Libreria<> {
-export class Cancion {
-  constructor(private nombre:string, private autor:string,
-    private duracion:number, private generos:string[],
-    private single:boolean, private numeroProducciones:number) {
-    // super();
-  
-    // Nombre de la canción
-    // Autor de la canción.
-    // Duración en minutos y segundos.
-    // Género(s) al que pertenece.
-    // Single: Flag que determina si la canción fue lanzada como single o no.
-    // Número de reproducciones totales.
 
-    this.nombre = nombre;
-    this.autor = autor;
-    this.duracion = duracion;
-    this.generos = generos;
-    this.single = single;
-    this.numeroProducciones = numeroProducciones;
+/**
+ * Implementación de la clase cancion para almacenar todas las canciones
+ */
+export class Cancion {
+  constructor(private readonly nombre:string, private readonly autor:string, private readonly duracion:number, 
+    private readonly generos:GenerosMusicales[], private readonly single:boolean, private numeroReproducciones:number) {
   }
 
-  getNombre():string { return this.nombre; }
+  /**
+   * Función que retorna el nombre de una canción
+   * @returns Nombre de la canción
+   */
+  getNombre():string { 
+    return this.nombre; 
+  }
 
-  getAutor():string { return this.autor; }
+  /**
+   * Función que retorna el nombre del autor de la canción
+   * @returns Autor de la canción
+   */
+  getAutor():string { 
+    return this.autor; 
+  }
   
-  getDuracion():number { return this.duracion; }
+  /**
+   * Función que retorna la duración de una canción
+   * @returns Duración de la canción
+   */
+  getDuracion():number { 
+    return this.duracion; 
+  }
 
-  getGeneros():string[] { return this.generos; }
+  /**
+   * Función que obtiene los géneros de una canción
+   * @returns Retorna los géneros de la canción
+   */
+  getGeneros(): GenerosMusicales[] { 
+    return this.generos; 
+  }
 
-  getSingle():boolean { return this.single; }
+  /**
+   * Función que indica con un Flag si la canción es un single o no
+   * @returns Verdadero o falso según si la canción es un single o no
+   */
+  getSingle():boolean { 
+    return this.single; 
+  }
 
-  getNumeroProducciones(): number { return this.numeroProducciones; }
+  /**
+   * Función que calcula el número de reproducciones de una canción
+   * @returns Número total de reproducciones
+   */
+  getNumeroReproducciones(): number { 
+    return this.numeroReproducciones;
+  }
 
+  /**
+   * Función que modifica el número de reproducciones de una canción
+   * @param numero Número de reproducciones nuevo
+   */
+  setNumeroReproducciones(numero: number): void {
+    this.numeroReproducciones = numero;
+  }
 }

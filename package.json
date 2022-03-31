@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "console-log-img": "^4.0.2",
+    "inquirer": "^8.2.2",
+    "lowdb": "^3.0.0",
     "prompt": "^1.2.2",
     "scanf": "^1.1.2",
     "typedoc": "^0.22.13"
