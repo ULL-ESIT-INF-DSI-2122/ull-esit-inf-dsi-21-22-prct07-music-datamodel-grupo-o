@@ -1,15 +1,10 @@
-import {GenerosMusicales} from "./generosMusical";
-// import { Libreria } from "./Libreria";
-
 // Andrea
-// export class Cancion extends Libreria<> {
-
 /**
  * Implementación de la clase cancion para almacenar todas las canciones
  */
 export class Cancion {
-  constructor(private readonly nombre:string, private readonly autor:string, private readonly duracion:number, 
-    private readonly generos:GenerosMusicales[], private readonly single:boolean, private numeroReproducciones:number) {
+  constructor(private nombre:string, private autor:string, private duracion:number, 
+    private generos: string[], private single:boolean, private numeroReproducciones:number) {
   }
 
   /**
@@ -40,7 +35,7 @@ export class Cancion {
    * Función que obtiene los géneros de una canción
    * @returns Retorna los géneros de la canción
    */
-  getGeneros(): GenerosMusicales[] { 
+  getGeneros(): string[] { 
     return this.generos; 
   }
 

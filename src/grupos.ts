@@ -1,5 +1,4 @@
-import {Artista} from './artistas';
-import {GenerosMusicales} from './generosMusical';
+import { Artistas } from './artistas';
 import {Album} from './album';
 
 // Andrea
@@ -7,8 +6,8 @@ import {Album} from './album';
  * Implementación de la clase Grupos que contiene toda la información asociada a un grupo musical
  */
 export class Grupos {
-  constructor(private readonly nombre: string, private readonly artistas: Artista[], private readonly year: number,
-    private readonly generos: GenerosMusicales[], private readonly albumes: Album[], private oyentes: number) {
+  constructor(private readonly nombre: string, private readonly artistas: Artistas[], private readonly year: number,
+    private readonly generos: string[], private readonly albumes: Album[], private oyentes: number) {
   }
 
   /**
@@ -23,7 +22,7 @@ export class Grupos {
    * Función que obtiene el nombre de los artistas del grupo
    * @returns Retorna todos los artistas
    */
-  getArtistas(): Artista[] {
+  getArtistas(): Artistas[] {
     return this.artistas;
   }
 
@@ -39,7 +38,7 @@ export class Grupos {
    * Función que obtiene los géneros musicales del grupo
    * @returns Retorna todos los géneros musicales que tiene el grupo
    */
-  getGeneroMusical(): GenerosMusicales[] {
+  getGeneroMusical(): string[] {
     return this.generos;
   }
 
@@ -65,5 +64,29 @@ export class Grupos {
    */
   setOyentes(numero: number): void {
     this.oyentes = numero;
+  }
+
+  /**
+   * Función que añade un artista nuevo al grupo
+   * @param artista Artista nuevo a añadir
+   */
+  addArtistas(artista: Artistas): void {
+    this.artistas.push(artista);
+  }
+
+  /**
+   * Función que añade un album nuevo al grupo
+   * @param album Album que se quiere añadir
+   */
+  addAlbum(album: Album) {
+    this.albumes.push(album);
+  }
+
+  /**
+   * Función que añade un nuevo género musical al grupo
+   * @param genero Nombre del genero a añadir
+   */
+  addGeneroMusical(genero: string) {
+    this.generos.push(genero);
   }
 }

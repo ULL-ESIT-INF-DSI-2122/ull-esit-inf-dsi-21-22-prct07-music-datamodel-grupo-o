@@ -2,14 +2,13 @@ import { Album } from "./album";
 import { Cancion } from "./cancion";
 import { GenerosMusicales } from "./generosMusical";
 import { Grupos } from "./grupos";
-import { Libreria } from "./Libreria";
+// import { Libreria } from "./Libreria";
 
 //Noe
-
 /**
  * Clase Artista para identificar artistas que forman parte de grupos y además tienen carreras en solitario o que están en varios grupos.
  */
-export class Artista {
+export class Artistas {
 
     /**
      * Constructor con los siguientes parámetros
@@ -20,7 +19,9 @@ export class Artista {
      * @param cancionesArtista Canciones publicadas
      * @param oyentesArtista Cantidad de oyentes mensuales
      */
-    constructor(private nombreArtista: string, private gruposArtista: Grupos[], private generosArtista: GenerosMusicales[], private albumesArtista: Album[], private cancionesArtista: Cancion[], private oyentesArtista: number) {}
+    constructor(private nombreArtista: string, private gruposArtista: Grupos[], 
+        private generosArtista: GenerosMusicales[], private albumesArtista: Album[], 
+        private cancionesArtista: Cancion[], private oyentesArtista: number) {}
 
     /**
      * Método que devuelve el nombre de un artista
