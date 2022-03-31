@@ -1,6 +1,8 @@
 import { Cancion } from "./cancion";
+import { cancionColecction } from "./cancionColletion";
 // import { GenerosMusicales } from "./generosMusical";
 // import { Libreria } from "./Libreria";
+
 
 /**
  * _Clase Playlist_
@@ -11,7 +13,7 @@ export class Playlist {
      * @param nombre nombre de Playlist
      * @param canciones canciones que contiene un Playlist
      */
-    constructor(private nombre:string, private canciones:Cancion[]) {
+    constructor(private nombre:string, private cancionesColeccion:Cancion[]) {
         // Nombre de la playlist.
         // Canciones incluidas dentro de la playlist.
         // Duración en horas y minutos.         //private duracion:number, 
@@ -29,7 +31,7 @@ export class Playlist {
      * _Getter para obtener canciones_
      * @returns retorna canciones
      */
-    getCanciones():Cancion[] { return this.canciones; }    
+    getCanciones():Cancion[] { return this.cancionesColeccion; }    
 
 
     /**
@@ -40,7 +42,7 @@ export class Playlist {
 
         let tiempo = 0;
 
-        this.canciones.forEach(element => {
+        this.cancionesColeccion.forEach(element => {
             tiempo += element.getDuracion();
         });
 
@@ -51,22 +53,26 @@ export class Playlist {
      * _Getter para obtener generos de la lista_
      * @returns retorna un string, donde contiene todos los generos de la lista
      */
-    getGenerosMusicales():string[] {
-        let generosPlayList!:string[];
+    // getGenerosMusicales():string[] {
+    //     let generosPlayList!:string[];
 
-        this.canciones.forEach(element => {
-            let genero = "";
-            element.getGeneros().forEach(function(item) {
-                genero = item;
-            });
-            generosPlayList.push(genero);
-        });
-         
-        const dataArr = new Set(generosPlayList);
-        const result = [...dataArr];
+    //     this.cancionesColeccion.forEach(element => {
+    //         // element.getGeneros
+    //         let genero = "";
+    //         element.getGeneros().forEach(value => {
+    //             console.log(`genero = ${value}`);
+    //             genero = value;
+    //         });
+    //         generosPlayList.push(genero);
+    //         console.log(`genero = ${generosPlayList}`);
+    //     });
+    //     const dataArr = new Set(generosPlayList);
+    //     console.log(`${dataArr}`);
+    //     const result = [...dataArr];
 
-        return result;
-    }
+    //     console.log(`${result}`);
+    //     return result;
+    // }
     
     /* Setters */
     /**
@@ -74,7 +80,7 @@ export class Playlist {
      * @param newCancion cancion para añadir a la lista
      */
     setCanciones(newCancion:Cancion):void {
-        this.canciones.push(newCancion);
+        this.cancionesColeccion.push(newCancion);
     }
 }
   
