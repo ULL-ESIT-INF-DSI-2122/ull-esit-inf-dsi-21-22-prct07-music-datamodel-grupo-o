@@ -1,7 +1,5 @@
 import { Album } from "./album";
 import { Cancion } from "./cancion";
-import { GenerosMusicales } from "./generosMusical";
-import { Grupos } from "./grupos";
 // import { Libreria } from "./Libreria";
 
 //Noe
@@ -19,8 +17,8 @@ export class Artistas {
      * @param cancionesArtista Canciones publicadas
      * @param oyentesArtista Cantidad de oyentes mensuales
      */
-    constructor(private nombreArtista: string, private gruposArtista: Grupos[], 
-        private generosArtista: GenerosMusicales[], private albumesArtista: Album[], 
+    constructor(private nombreArtista: string, private gruposArtista: string[], 
+        private generosArtista: string[], private albumesArtista: Album[], 
         private cancionesArtista: Cancion[], private oyentesArtista: number) {}
 
     /**
@@ -35,7 +33,7 @@ export class Artistas {
      * Método que devuelve los grupos a los que pertenece un artista
      * @returns grupos a los que pertenece un artista
      */
-    getGruposArtista(): Grupos[] {
+    getGruposArtista(): string[] {
         return this.gruposArtista;
     }
 
@@ -43,7 +41,7 @@ export class Artistas {
      * Método que devuelve los géneros relacionados con un artista
      * @returns géneros relacionados 
      */
-    getGenerosArtista(): GenerosMusicales[] {
+    getGenerosArtista(): string[] {
         return this.generosArtista;
     }
 
