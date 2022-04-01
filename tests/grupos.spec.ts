@@ -6,13 +6,14 @@ import { Album } from '../src/album';
 import { Cancion } from '../src/cancion';
 
 describe('Test de la clase Grupos', () => {
-  const cancion1 = new Cancion('16 añitos', 'Dani Martin', 4.13, ['pop rock', 'rock en español'], false, 17020329);
-  const cancion2 = new Cancion('Zapatillas', 'Dani Martin', 2.52, ['rock en español'], false, 46992557);
-  const album1 = new Album('Pequeño', 'Dani Martin', 2010, [cancion1], ['pop rock', 'rock en español']);
-  const album2 = new Album('Zapatillas', 'Dani Martin', 2005, [cancion2], ['pop rock', 'rock en español']);
-  const artista1 = new Artistas('Dani Martin', ['El Canto del Loco'], ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602);
-  const artista2 = new Artistas('David Otero', ['El Canto del Loco'], ['pop rock', 'rock'], [album2], [cancion2], 1926306);
+  const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329);
+  const cancion2 = new Cancion('Zapatillas', ['Dani Martin'], 2.52, ['rock en español'], false, 46992557);
+  const album1 = new Album('Pequeño', 2010, [cancion1]);
+  const album2 = new Album('Zapatillas', 2005, [cancion2]);
+  const artista1 = new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602, [grupo1]);
   const grupo1 = new Grupos('El Canto del Loco', [artista1], 2010, ['pop rock', 'rock en español'], [album2], 2610923);
+  const artista2 = new Artistas('David Otero', ['pop rock', 'rock'], [album2], [cancion2], 1926306, ['El Canto del Loco']);
+  
   it('Se crea la clase correctamente', () => {
     expect(new Grupos('El Canto del Loco', [artista1], 2010, ['pop rock', 'rock en español'], [album2], 2610923));
   });

@@ -2,7 +2,6 @@ import 'mocha';
 import { expect } from 'chai';
 import { Playlist } from '../src/playlist'
 import { Cancion } from '../src/cancion';
-import { cancionColecction } from "../src/cancionColletion"
 
 describe('Test para la clase Playlist' , () => {
     

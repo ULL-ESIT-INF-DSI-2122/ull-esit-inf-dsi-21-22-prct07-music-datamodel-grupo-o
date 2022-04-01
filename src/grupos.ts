@@ -6,8 +6,8 @@ import {Album} from './album';
  * Implementación de la clase Grupos que contiene toda la información asociada a un grupo musical
  */
 export class Grupos {
-  constructor(private readonly nombre: string, private readonly artistas: Artistas[], private readonly year: number,
-    private readonly generos: string[], private readonly albumes: Album[], private oyentes: number) {
+  constructor(private nombre: string, private artistas: Artistas[], private year: number,
+    private generos: string[], private albumes: Album[], private oyentes: number) {
   }
 
   /**

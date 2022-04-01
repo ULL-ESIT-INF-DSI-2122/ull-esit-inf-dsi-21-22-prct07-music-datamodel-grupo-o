@@ -1,5 +1,7 @@
 import { Album } from "./album";
 import { Cancion } from "./cancion";
+import { Grupos } from "./grupos";
+
 // import { Libreria } from "./Libreria";
 
 //Noe
@@ -11,15 +13,16 @@ export class Artistas {
     /**
      * Constructor con los siguientes parámetros
      * @param nombreArtista Nombre del artista
-     * @param gruposArtista Grupos a los que pertenece
+     * @param gruposArtista Grupos a los que pertenece (opcional)
      * @param generosArtista Género(s) músicales relacionados
      * @param albumesArtista Álbumes en los que ha participado
      * @param cancionesArtista Canciones publicadas
      * @param oyentesArtista Cantidad de oyentes mensuales
      */
-    constructor(private nombreArtista: string, private gruposArtista: string[], 
+    constructor(private nombreArtista: string, 
         private generosArtista: string[], private albumesArtista: Album[], 
-        private cancionesArtista: Cancion[], private oyentesArtista: number) {}
+        private cancionesArtista: Cancion[], private oyentesArtista: number, 
+        private gruposArtista?: Grupos[]) {}
 
     /**
      * Método que devuelve el nombre de un artista
@@ -33,7 +36,7 @@ export class Artistas {
      * Método que devuelve los grupos a los que pertenece un artista
      * @returns grupos a los que pertenece un artista
      */
-    getGruposArtista(): string[] {
+    getGruposArtista(): Grupos[] | undefined {
         return this.gruposArtista;
     }
 
@@ -68,6 +71,22 @@ export class Artistas {
     getOyentesArtista(): number {
         return this.oyentesArtista;
     }
-
-    //Falta cálculo oyentes
+    
+    /**
+     * Método que calcula los oyentes mensuales de un artista
+     * tanto de su trabajo individual como de ssu trabajo en grupo si es que lo han hecho
+     */
+    calcularOyentes():number {
+        let oyentesMensuales = 0;
+        if(this.gruposArtista){
+            for (let i = 0; i < this.gruposArtista.length; i++) {
+                oyentesMensuales += this.gruposArtista[i].getOyentes();
+            }
+        }
+        for(let i = 0; i < this.cancionesArtista.length; i++){
+            oyentesMensuales += this.cancionesArtista[i].getNumeroReproducciones();
+        }
+        oyentesMensuales /= 12;
+        return oyentesMensuales;
+    }
 }

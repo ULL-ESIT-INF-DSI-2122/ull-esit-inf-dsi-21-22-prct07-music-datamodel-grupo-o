@@ -6,13 +6,14 @@ import { Cancion } from "./cancion";
  * Colección
  */
 export class Album {
-    constructor(private nombre:string, private artista:string, 
-      private year:number, private canciones:Cancion[], private generos:string[]) {
-      this.nombre = nombre;
-      this.artista = artista;
-      this.year = year;
-      this.canciones = canciones;
+
+    private artista:string;
+    private generos:string[] = [];
+    constructor(private nombre:string, 
+      private year:number, private canciones:Cancion[]) {
+      this.artista = canciones[0].getAutor();
     }
+    
     /**
      * Método que retorna el nombre del álbum
      * @returns nombre del álbum

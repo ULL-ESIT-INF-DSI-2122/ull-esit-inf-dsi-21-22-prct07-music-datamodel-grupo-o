@@ -16,5 +16,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "valid-jsdoc": "off",
+        "require-jsdoc": "off",
+        "eol-last": "off",
+        "no-tabs": "off",
+        "max-len": "off",
+        "no-inferrable-types": "false"
     }
 }

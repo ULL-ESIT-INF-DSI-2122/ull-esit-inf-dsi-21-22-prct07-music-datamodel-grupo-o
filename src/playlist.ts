@@ -1,5 +1,4 @@
 import { Cancion } from "./cancion";
-import { cancionColecction } from "./cancionColletion";
 // import { GenerosMusicales } from "./generosMusical";
 // import { Libreria } from "./Libreria";
 
@@ -13,11 +12,17 @@ export class Playlist {
      * @param nombre nombre de Playlist
      * @param canciones canciones que contiene un Playlist
      */
+    private duracion: number = 0;
+    private generos: string[] = [];
     constructor(private nombre:string, private cancionesColeccion:Cancion[]) {
         // Nombre de la playlist.
         // Canciones incluidas dentro de la playlist.
         // Duración en horas y minutos.         //private duracion:number, 
         // Género(s) musicales que se incluyen dentro de la playlist.
+    }
+     
+    addCanciones(newCancion:Cancion):void {
+        this.cancionesColeccion.push(newCancion);
     }
 
     /* Getters */
@@ -39,40 +44,30 @@ export class Playlist {
      * @returns tiempo en total
      */
     getDuracion():number { 
-
-        let tiempo = 0;
-
         this.cancionesColeccion.forEach(element => {
-            tiempo += element.getDuracion();
+            this.duracion += element.getDuracion();
         });
 
-        return tiempo;
+        return this.duracion;
     }    
 
     /**
      * _Getter para obtener generos de la lista_
      * @returns retorna un string, donde contiene todos los generos de la lista
      */
-    // getGenerosMusicales():string[] {
-    //     let generosPlayList!:string[];
+    getGenerosMusicales():string[] {
+        this.cancionesColeccion.forEach(element => {
+            let genero = '';
+            element.getGeneros().forEach(value => {
+                genero = value;
+            });
+            this.generos.push(genero);
+        });
+        const dataArr = new Set(this.generos);
+        this.generos = [...dataArr];
 
-    //     this.cancionesColeccion.forEach(element => {
-    //         // element.getGeneros
-    //         let genero = "";
-    //         element.getGeneros().forEach(value => {
-    //             console.log(`genero = ${value}`);
-    //             genero = value;
-    //         });
-    //         generosPlayList.push(genero);
-    //         console.log(`genero = ${generosPlayList}`);
-    //     });
-    //     const dataArr = new Set(generosPlayList);
-    //     console.log(`${dataArr}`);
-    //     const result = [...dataArr];
-
-    //     console.log(`${result}`);
-    //     return result;
-    // }
+        return this.generos;
+    }
     
     /* Setters */
     /**

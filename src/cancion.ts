@@ -4,7 +4,7 @@
  * Implementación de la clase cancion para almacenar todas las canciones
  */
 export class Cancion {
-  constructor(private nombre:string, private autor:string, private duracion:number, 
+  constructor(private nombre:string, private cantantes:string[], private duracion:number, 
     private generos: string[], private single:boolean, private numeroReproducciones:number) {
   }
 
@@ -17,11 +17,19 @@ export class Cancion {
   }
 
   /**
-   * Función que retorna el nombre del autor de la canción
+   * Función que retorna todos los cantantes de la canción
+   * @returns Cantantes de la canción
+   */
+  getCantantes(): string[] { 
+    return this.cantantes; 
+  }
+
+  /**
+   * Función que retorna el autor (dueño de la canción) de la canción
    * @returns Autor de la canción
    */
-  getAutor():string { 
-    return this.autor; 
+  getAutor(): string {
+    return this.cantantes[0];
   }
   
   /**
