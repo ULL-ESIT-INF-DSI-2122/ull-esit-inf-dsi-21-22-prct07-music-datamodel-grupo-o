@@ -12,7 +12,10 @@ describe('Tests de la clase Cancion', () => {
     expect(cancion1.getNombre()).to.be.equal('Desde mis Ojos');
   });
   it('Se accede al autor de la cancion correctamente', () => {
-    expect(cancion1.getAutor()).to.be.equal(['Chris Lebron']);
+    expect(cancion1.getAutor()).to.be.equal('Chris Lebron');
+  });
+  it('Se accede a los cantantes de la cancion correctamente', () => {
+    expect(cancion1.getCantantes()).to.be.eql(['Chris Lebron']);
   });
   it('Se accede a la duracion de la cancion correctamente', () => {
     expect(cancion1.getDuracion()).to.be.equal(2.49);

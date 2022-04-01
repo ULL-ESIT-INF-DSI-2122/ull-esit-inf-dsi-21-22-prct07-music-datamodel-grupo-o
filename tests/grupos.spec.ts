@@ -10,9 +10,10 @@ describe('Test de la clase Grupos', () => {
   const cancion2 = new Cancion('Zapatillas', ['Dani Martin'], 2.52, ['rock en español'], false, 46992557);
   const album1 = new Album('Pequeño', 2010, [cancion1]);
   const album2 = new Album('Zapatillas', 2005, [cancion2]);
-  const artista1 = new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602, [grupo1]);
+  
+  const artista1 = new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602);
+  const artista2 = new Artistas('David Otero', ['pop rock', 'rock'], [album2], [cancion2], 1926306);
   const grupo1 = new Grupos('El Canto del Loco', [artista1], 2010, ['pop rock', 'rock en español'], [album2], 2610923);
-  const artista2 = new Artistas('David Otero', ['pop rock', 'rock'], [album2], [cancion2], 1926306, ['El Canto del Loco']);
   
   it('Se crea la clase correctamente', () => {
     expect(new Grupos('El Canto del Loco', [artista1], 2010, ['pop rock', 'rock en español'], [album2], 2610923));
