@@ -31,20 +31,20 @@ Lenguaje de programción: TypeScipt
 ```
 
 ## 1. Introducción
+Esta práctica consiste en llevar a cabo un diseño del modelo de datos de un sistema de información que permita almacenar una biblioteca musical. Además, dicho diseño se tendrá que implementar.    
 
 ## 2. Objetivos
+El objetivo de esta práctica es aprender a diseñar e implementar un modelo de datos siguiendo el diseño orientado a objetos. También, se debe aprender a utilizar las herramientas descritas en clase, las cuales son la documentación mediante TypeDoc, las pruebas unitarias del código fuente con Mocha y Chai, siguiendo la metodología TDD o BDD, el uso de Instanbull y Coveralls para el cubrimiento de código, con la integración continua con Github Actions y la comprobación de la calidad del código con Sonar Cloud.  
 
-## 3. Ejericio
+## 3. Biblioteca Musical
 
 ##  4. Conclusiones
 
 En esta práctica, he aprendido más cosas que están relacionado con
 
 ## 5. Bibliografía
-1. [Clases abstractas y interfaces](https://ifgeekthen.everis.com/es/clases-abstractas-e-interfaces)
-
-2. [Relaciones de clases abstractas](https://qastack.mx/programming/597769/how-do-i-create-an-abstract-base-class-in-javascript)
-
-3. [Clases y metodos](https://lenguajejs.com/javascript/caracteristicas/clases-es6/)
-
-4. Apuntes de la clases
+- [Clases abstractas y interfaces](https://ifgeekthen.everis.com/es/clases-abstractas-e-interfaces)
+- [Relaciones de clases abstractas](https://qastack.mx/programming/597769/how-do-i-create-an-abstract-base-class-in-javascript)
+- [Clases y metodos](https://lenguajejs.com/javascript/caracteristicas/clases-es6/)
+- [Apuntes de la clases](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/)
+- [Guión de la práctica](https://ull-esit-inf-dsi-2122.github.io/prct07-music-dataModel/)
