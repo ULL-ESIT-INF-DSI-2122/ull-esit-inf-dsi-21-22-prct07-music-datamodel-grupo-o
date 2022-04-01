@@ -57,7 +57,9 @@ export class Album {
     public setGeneros(cancion:Cancion):void{
       const arrayGeneros:string[] = cancion.getGeneros();
       for(let i = 0; i < arrayGeneros.length; i++){
-        this.generos.push(arrayGeneros[i]);
+        if(this.generos.indexOf(arrayGeneros[i]) == -1){
+          this.generos.push(arrayGeneros[i]);
+        }
       }
     }
     /**

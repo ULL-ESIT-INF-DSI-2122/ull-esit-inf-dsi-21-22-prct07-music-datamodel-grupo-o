@@ -4,7 +4,7 @@ import { Playlist } from '../src/playlist'
 import { Cancion } from '../src/cancion';
 import { cancionColecction } from "../src/cancionColletion"
 
-describe('Test para la clase Album' , () => {
+describe('Test para la clase Playlist' , () => {
     
     // constructor(private nombre:string, private autor:string, private duracion:number, 
     //     private generos: string[], private single:boolean, private numeroReproducciones:number) {
