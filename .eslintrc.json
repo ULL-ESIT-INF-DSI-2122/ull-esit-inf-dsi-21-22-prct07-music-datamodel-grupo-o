@@ -5,8 +5,7 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+        "google"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -16,11 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "valid-jsdoc": "off",
-        "require-jsdoc": "off",
-        "eol-last": "off",
-        "no-tabs": "off",
-        "max-len": "off",
-        "no-inferrable-types": "false"
+        "valid-jsdoc":"off",
+        "require-jsdoc": "off"
     }
 }
