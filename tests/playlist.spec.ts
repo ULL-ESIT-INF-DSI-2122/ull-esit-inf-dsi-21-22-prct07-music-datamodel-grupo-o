@@ -9,8 +9,8 @@ describe('Test para la clase Playlist' , () => {
     //     private generos: string[], private single:boolean, private numeroReproducciones:number) {
     //   }
     
-    const stay:Cancion = new Cancion("stay", "Justin Bieber", 141, ["pop-rock", "hip-hop"], true, 200);
-    const butter:Cancion = new Cancion("butter", "BTS", 164, ["dance-pop", "k-pop"], true, 100);
+    const stay:Cancion = new Cancion('Stay', ['Justin Bieber'], 141, ['pop-rock', 'hip-hop'], true, 200);
+    const butter:Cancion = new Cancion('Butter', ['BTS'], 164, ['dance-pop', 'k-pop'], true, 100);
 
     // constructor(private nombre:string, private canciones:Cancion[]) {
     //     // Nombre de la playlist.
@@ -23,7 +23,7 @@ describe('Test para la clase Playlist' , () => {
     collection1.addCanciones(stay);
     collection1.addCanciones(butter);
 
-    const playlist1 = new Playlist("Mejore canciones 2022", collection1.getCancionColeccion());
+    const playlist1 = new Playlist("Mejores canciones 2022", collection1.getCancionColeccion());
 
     it("Test para la clase Playlist", () => {
         expect(playlist1).not.to.be.null;
