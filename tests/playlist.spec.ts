@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Playlist } from '../src/playlist'
+import { Playlist } from '../src/playlist';
 import { Cancion } from '../src/cancion';
 
 describe('Test para la clase Playlist' , () => {
@@ -19,18 +19,18 @@ describe('Test para la clase Playlist' , () => {
     //     // Género(s) musicales que se incluyen dentro de la playlist.
     // }
 
-    const collection1 = new cancionColecction([]);
-    collection1.addCanciones(stay);
-    collection1.addCanciones(butter);
+    const collection1 = [stay, butter];
+    // collection1.addCanciones(stay);
+    // collection1.addCanciones(butter);
 
-    const playlist1 = new Playlist("Mejores canciones 2022", collection1.getCancionColeccion());
+    const playlist1 = new Playlist("Mejores canciones 2022", collection1);
 
     it("Test para la clase Playlist", () => {
         expect(playlist1).not.to.be.null;
     });
 
     it("Test obtener nombre de la lista", () => {
-        expect(playlist1.getNombre()).to.eq("Mejore canciones 2022");
+        expect(playlist1.getNombre()).to.eq("Mejores canciones 2022");
     });
 
     it("Test obtener la duracion de la lista", () => {

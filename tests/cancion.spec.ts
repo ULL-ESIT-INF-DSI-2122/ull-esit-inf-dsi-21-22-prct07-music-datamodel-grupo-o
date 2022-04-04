@@ -1,6 +1,6 @@
 import 'mocha';
-import { expect } from 'chai';
-import { Cancion } from '../src/cancion';
+import {expect} from 'chai';
+import {Cancion} from '../src/cancion';
 
 describe('Tests de la clase Cancion', () => {
   const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187);
