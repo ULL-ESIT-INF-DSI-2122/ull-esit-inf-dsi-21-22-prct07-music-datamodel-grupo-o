@@ -1,4 +1,4 @@
-import { Artistas } from './artistas';
+import {Artistas} from './artistas';
 import {Album} from './album';
 
 // Andrea

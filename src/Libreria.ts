@@ -4,7 +4,7 @@
 
 // XUE
 // export abstract class Libreria<T> implements LibrarySystem<T>{
-  
+
 //   constructor(private collection:T[]) { }
 
 //   getNumberCollection():number {
@@ -26,8 +26,5 @@
 //   }
 
 // }
-
-
-
 
 
