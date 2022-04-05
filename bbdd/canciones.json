@@ -28,7 +28,7 @@
       "nombre": "Adore You",
       "cantantes": "Harry Styles",
       "duracion": 3.27,
-      "generos": ["Soul", "pop rock", "funk", "disco"],
+      "generos": ["Soul", "pop rock"],
       "single": true,
       "numeroReproducciones": 1065536992
     },
@@ -36,12 +36,7 @@
       "nombre": "Why'd You Only Call Me When You're High",
       "cantantes": "Arctic Monkeys",
       "duracion": 2.41,
-      "generos": [
-        "Indie rock",
-        "rock psicodélico",
-        "blues rock",
-        "R&B contemporáneo"
-      ],
+      "generos": ["Indie rock", "R&B contemporáneo"],
       "single": true,
       "numeroReproducciones": 794130448
     },
@@ -73,7 +68,7 @@
       "nombre": "Radioactive",
       "cantantes": "Imagine Dragons",
       "duracion": 3.06,
-      "generos": ["Rock alternativo", "Rock electonico"],
+      "generos": ["Rock alternativo"],
       "single": true,
       "numeroReproducciones": 1313293362
     },
@@ -81,7 +76,7 @@
       "nombre": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
       "cantantes": "Taylor Swift",
       "duracion": 10.13,
-      "generos": ["Country", "Arena rock", "Pop"],
+      "generos": ["Country", "Pop"],
       "single": true,
       "numeroReproducciones": 262562428
     },
@@ -89,7 +84,7 @@
       "nombre": "Wildest Dreams",
       "cantantes": "Taylor Swift",
       "duracion": 3.4,
-      "generos": ["Pop", "Dream pop", "Synth pop"],
+      "generos": ["Pop", "Synth pop"],
       "single": true,
       "numeroReproducciones": 508110410
     },

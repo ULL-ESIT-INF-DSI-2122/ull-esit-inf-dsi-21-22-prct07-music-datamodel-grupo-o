@@ -1,0 +1,83 @@
+{
+    "generos": [
+      {
+        "genero": "Folk pop",
+        "gruposArtistas": ["Tom Odell"],
+        "generoAlbumes": [" "],
+        "canciones": ["Another Love"]
+      },
+      {
+        "genero": "indie pop",
+        "gruposArtistas": ["Tom Odell"],
+        "generoAlbumes": [" "],
+        "canciones": ["Another Love", "Can't Pretend"]
+      },
+      {
+        "genero": "Soul",
+        "gruposArtistas": ["Tom Odell", "Taylor Swift"],
+        "generoAlbumes": [" "],
+        "canciones": ["Can't Pretend", "Adore You", "Wildest Dreams"]
+      },
+      {
+        "genero": "Synth pop",
+        "gruposArtistas": ["Harry Styles"],
+        "generoAlbumes": [" "],
+        "canciones": ["As It Was"]
+      },
+      {
+        "genero": "pop rock",
+        "gruposArtistas": ["Harry Styles"],
+        "generoAlbumes": [" "],
+        "canciones": ["Adore You"]
+      },
+      {
+        "genero": "Indie rock",
+        "gruposArtistas": ["Arctic Monkeys"],
+        "generoAlbumes": [" "],
+        "canciones": ["Why'd You Only Call Me When You're High"]
+      },
+      {
+        "genero": "R&B contemporáneo",
+        "gruposArtistas": ["Arctic Monkeys"],
+        "generoAlbumes": [" "],
+        "canciones": ["Why'd You Only Call Me When You're High"]
+      },
+      {
+        "genero": "Rock",
+        "gruposArtistas": ["Miley Cyrus", "Imagine Dragons"],
+        "generoAlbumes": [" "],
+        "canciones": ["Angels Like You", "Enemy"]
+      },
+      {
+        "genero": "Hip Hop",
+        "gruposArtistas": ["Miley Cyrus"],
+        "generoAlbumes": [" "],
+        "canciones": ["Wrecking Ball"]
+      },
+      {
+        "genero": "Pop",
+        "gruposArtistas": ["Miley Cyrus", "Taylor Swift", "Billie Eilish"],
+        "generoAlbumes": [" "],
+        "canciones": ["Wrecking Ball", "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)", "Wildest Dreams", "Happier Than Ever"]
+      },
+      {
+        "genero": "Rhythm and Blues",
+        "gruposArtistas": ["Miley Cyrus"],
+        "generoAlbumes": [" "],
+        "canciones": ["Wrecking Ball"]
+      },
+      {
+        "genero": "Rock alternativo",
+        "gruposArtistas": ["Imagine Dragons"],
+        "generoAlbumes": [" "],
+        "canciones": ["Radioactive"]
+      },
+      {
+        "genero": "Country",
+        "gruposArtistas": ["Taylor Swift"],
+        "generoAlbumes": [" "],
+        "canciones": ["All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)"]
+      }
+    ]
+  }
+  
