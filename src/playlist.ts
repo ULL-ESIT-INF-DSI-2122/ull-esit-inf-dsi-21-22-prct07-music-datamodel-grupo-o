@@ -1,4 +1,5 @@
 import { Cancion } from "./cancion";
+import { Gestor } from "./gestor";
 // import { GenerosMusicales } from "./generosMusical";
 // import { Libreria } from "./Libreria";
 
