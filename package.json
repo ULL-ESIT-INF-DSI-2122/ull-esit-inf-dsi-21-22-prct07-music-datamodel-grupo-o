@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node dist/modificacion/Complex.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/dbManager.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "doc": "typedoc --includes ./src/**/*.ts",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/jest": "^27.4.1",
+    "@types/lowdb": "^1.0.11",
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
@@ -24,16 +25,17 @@
     "coveralls": "^3.1.1",
     "eslint": "^8.12.0",
     "eslint-config-google": "^0.14.0",
+    "inquirer": "^8.2.2",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
+    "require": "^2.4.20",
     "ts-node": "^10.7.0",
     "tsc-watch": "^4.6.2",
     "typescript": "^4.6.3"
   },
   "dependencies": {
     "console-log-img": "^4.0.2",
-    "inquirer": "^8.2.2",
-    "lowdb": "^3.0.0",
+    "lowdb": "^1.0.0",
     "prompt": "^1.2.2",
     "scanf": "^1.1.2",
     "typedoc": "^0.22.13"

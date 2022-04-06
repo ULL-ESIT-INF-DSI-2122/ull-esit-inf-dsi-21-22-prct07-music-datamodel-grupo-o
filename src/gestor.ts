@@ -70,5 +70,7 @@ export abstract class Gestor {
       })
     }
   }
+
+  //Command es nuestra clase gestor
   */
 }
