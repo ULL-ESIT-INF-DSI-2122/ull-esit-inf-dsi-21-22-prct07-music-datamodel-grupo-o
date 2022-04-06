@@ -1,0 +1,12 @@
+{
+  "grupos": [
+    {
+      "nombre": "Imagine Dragons",
+      "artistas": ["Dan Reynolds", "Ben McKee", "Daniel Wayne Sermon", "Daniel Platzman"],
+      "year": 2008,
+      "generos": ["Rock pop, Indie pop, Rock Alternativo"],
+      "albumnes": [],
+      "oyentes": 59100146
+    }
+  ]
+}

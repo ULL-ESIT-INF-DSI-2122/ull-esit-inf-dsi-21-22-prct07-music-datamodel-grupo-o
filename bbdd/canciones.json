@@ -2,7 +2,7 @@
   "canciones": [
     {
       "nombre": "Another Love",
-      "cantantes": "Tom Odell",
+      "cantantes": ["Tom Odell"],
       "duracion": 4.04,
       "generos": ["Folk pop", "indie pop"],
       "single": true,
@@ -10,7 +10,7 @@
     },
     {
       "nombre": "Can't Pretend",
-      "cantantes": "Tom Odell",
+      "cantantes":[ "Tom Odell"],
       "duracion": 3.42,
       "generos": ["Soul", "indie pop"],
       "single": true,
@@ -18,7 +18,7 @@
     },
     {
       "nombre": "As It Was",
-      "cantantes": "Harry Styles",
+      "cantantes": ["Harry Styles"],
       "duracion": 2.47,
       "generos": ["Synth pop"],
       "single": true,
@@ -26,15 +26,15 @@
     },
     {
       "nombre": "Adore You",
-      "cantantes": "Harry Styles",
+      "cantantes": ["Harry Styles"],
       "duracion": 3.27,
-      "generos": ["Soul", "pop rock"],
+      "generos": ["Soul", "Pop rock"],
       "single": true,
       "numeroReproducciones": 1065536992
     },
     {
       "nombre": "Why'd You Only Call Me When You're High",
-      "cantantes": "Arctic Monkeys",
+      "cantantes": ["Arctic Monkeys"],
       "duracion": 2.41,
       "generos": ["Indie rock", "R&B contemporáneo"],
       "single": true,
@@ -42,7 +42,7 @@
     },
     {
       "nombre": "Angels Like You",
-      "cantantes": "Miley Cyrus",
+      "cantantes": ["Miley Cyrus"],
       "duracion": 3.16,
       "generos": ["Rock"],
       "single": true,
@@ -50,7 +50,7 @@
     },
     {
       "nombre": "Wrecking Ball",
-      "cantantes": "Miley Cyrus",
+      "cantantes": ["Miley Cyrus"],
       "duracion": 3.41,
       "generos": ["Hip Hop", "Pop", "Rhythm and Blues"],
       "single": true,
@@ -58,7 +58,7 @@
     },
     {
       "nombre": "Enemy",
-      "cantantes": "Imagine Dragons",
+      "cantantes": ["Imagine Dragons"],
       "duracion": 2.53,
       "generos": ["Rock"],
       "single": true,
@@ -66,7 +66,7 @@
     },
     {
       "nombre": "Radioactive",
-      "cantantes": "Imagine Dragons",
+      "cantantes": ["Imagine Dragons"],
       "duracion": 3.06,
       "generos": ["Rock alternativo"],
       "single": true,
@@ -74,7 +74,7 @@
     },
     {
       "nombre": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
-      "cantantes": "Taylor Swift",
+      "cantantes": ["Taylor Swift"],
       "duracion": 10.13,
       "generos": ["Country", "Pop"],
       "single": true,
@@ -82,7 +82,7 @@
     },
     {
       "nombre": "Wildest Dreams",
-      "cantantes": "Taylor Swift",
+      "cantantes": ["Taylor Swift"],
       "duracion": 3.4,
       "generos": ["Pop", "Synth pop"],
       "single": true,
@@ -90,11 +90,107 @@
     },
     {
       "nombre": "Happier Than Ever",
-      "cantantes": "Billie Eilish",
+      "cantantes": ["Billie Eilish"],
       "duracion": 4.58,
       "generos": ["Pop"],
       "single": true,
       "numeroReproducciones": 567548666
+    },
+    {
+      "nombre": "Tu jardín con enanitos",
+      "cantantes": ["Melendi"],
+      "duracion": 3.56,
+      "generos": ["Pop rock"],
+      "single": true,
+      "numeroReproducciones": 134098160
+    },
+    {
+      "nombre": "Caminando por la vida",
+      "cantantes": ["Melendi"],
+      "duracion": 3.57,
+      "generos": ["Pop rock"],
+      "single": true,
+      "numeroReproducciones": 2354227
+    },
+    {
+      "nombre": "Como Camarón",
+      "cantantes": ["Estopa"],
+      "duracion": 3.22,
+      "generos": ["Pop", "Rock en español"],
+      "single": true,
+      "numeroReproducciones": 78432426
+    },
+    {
+      "nombre": "Vino Tinto",
+      "cantantes": ["Estopa"],
+      "duracion": 3.18,
+      "generos": ["Rock en español"],
+      "single": true,
+      "numeroReproducciones": 48050002
+    },
+    {
+      "nombre": "I Gotta Feeling",
+      "cantantes": ["Black Eyed Peas"],
+      "duracion": 4.49,
+      "generos": ["Pop", "Electrónica"],
+      "single": true,
+      "numeroReproducciones": 836892802
+    },
+    {
+      "nombre": "Pump it",
+      "cantantes": ["Black Eyed Peas"],
+      "duracion": 3.33,
+      "generos": ["Hip Hop"],
+      "single": true,
+      "numeroReproducciones": 401152368
+    },
+    {
+      "nombre": "Dile",
+      "cantantes": ["Don Omar"],
+      "duracion": 3.24,
+      "generos": ["Reggaeton"],
+      "single": true,
+      "numeroReproducciones": 306730425
+    },
+    {
+      "nombre": "Bandoleros",
+      "cantantes": ["Don Omar", "Tego Calderon"],
+      "duracion": 5.05,
+      "generos": ["Reggaeton"],
+      "single": false,
+      "numeroReproducciones": 210011575
+    },
+    {
+      "nombre": "Here Comes The Sun",
+      "cantantes": ["The Beatles"],
+      "duracion": 3.05,
+      "generos": ["Pop rock", "Folk rock"],
+      "single": true,
+      "numeroReproducciones": 793882491
+    },
+    {
+      "nombre": "Let It Be",
+      "cantantes": ["The Beatles"],
+      "duracion": 4.03,
+      "generos": ["Rock"],
+      "single": true,
+      "numeroReproducciones": 451071152
+    },
+    {
+      "nombre": "Bohemian Rhapsody",
+      "cantantes": ["Queen"],
+      "duracion": 5.54,
+      "generos": ["Rock", " Rock progresivo"],
+      "single": true,
+      "numeroReproducciones": 1764393830
+    },
+    {
+      "nombre": "Under Pressure",
+      "cantantes": ["Queen", "David Bowie"],
+      "duracion": 3.57,
+      "generos": ["Pop rock"],
+      "single": false,
+      "numeroReproducciones": 1079365314
     }
   ]
 }
