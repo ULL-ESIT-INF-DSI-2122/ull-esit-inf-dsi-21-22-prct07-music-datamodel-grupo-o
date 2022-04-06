@@ -28,7 +28,7 @@
     "inquirer": "^8.2.2",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
-    "require": "^2.4.20",
+    "require": "^0.4.4",
     "ts-node": "^10.7.0",
     "tsc-watch": "^4.6.2",
     "typescript": "^4.6.3"
