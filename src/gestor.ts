@@ -29,7 +29,7 @@ export abstract class Gestor {
       name: 'visualizar',
       message: 'Visualizar todas las playlist',
     });
-
+    // hacer algo
     this.menuUser();
   }
 
@@ -39,8 +39,8 @@ export abstract class Gestor {
       type: 'input',
       name: 'navegar',
       message: 'Navegar un playlist',
+      // hacer algo
     });
-
     this.menuUser();
   }
 
@@ -51,7 +51,7 @@ export abstract class Gestor {
       name: 'crear',
       message: 'Crear un playlist',
     });
-
+    // hacer algo
     this.menuUser();
   }
 
@@ -63,6 +63,7 @@ export abstract class Gestor {
       message: 'Borrar un playlist',
     });
 
+    // hacer algo
     this.menuUser();
   }
 
@@ -133,7 +134,6 @@ export abstract class Gestor {
 // 4. Borrar y guardar playlist
 // Entrar a base de datos, preguntar si borrar o guardar (borrar solo propietario)
 // ATENCION: distinguir entre playlist usuarios y playlist cargadas en el sistema.
-
 
 // BBDD
 // Al menos 50 canciones distintas. Puede ayudarse del siguiente recurso o de la información extraída de Spotify para cumplimentar esta información si lo necesita.
