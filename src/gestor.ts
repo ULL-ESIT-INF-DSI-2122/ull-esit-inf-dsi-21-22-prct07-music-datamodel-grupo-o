@@ -20,12 +20,47 @@ export abstract class Gestor {
   // public mostrarPrincipal() {
 
   // }
-  async Visualizar():Promise<void> {
+
+  // visualizar todas las playlist
+  async visualizar():Promise<void> {
     console.clear();
     await inquirer.prompt({
       type: 'input',
       name: 'visualizar',
       message: 'Visualizar todas las playlist',
+    });
+
+    this.menuUser();
+  }
+
+  async navegar():Promise<void> {
+    console.clear();
+    await inquirer.prompt({
+      type: 'input',
+      name: 'navegar',
+      message: 'Navegar un playlist',
+    });
+
+    this.menuUser();
+  }
+
+  async crear():Promise<void> {
+    console.clear();
+    await inquirer.prompt({
+      type: 'input',
+      name: 'crear',
+      message: 'Crear un playlist',
+    });
+
+    this.menuUser();
+  }
+
+  async borrar():Promise<void> {
+    console.clear();
+    await inquirer.prompt({
+      type: 'input',
+      name: 'borrar',
+      message: 'Borrar un playlist',
     });
 
     this.menuUser();
