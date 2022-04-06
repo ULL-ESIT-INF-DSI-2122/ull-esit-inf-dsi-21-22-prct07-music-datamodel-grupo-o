@@ -1,10 +1,9 @@
-
 // Andrea
 /**
  * Implementación de la clase cancion para almacenar todas las canciones
  */
 export class Cancion {
-  constructor(private nombre:string, private cantantes:string[], private duracion:number, 
+  constructor(private nombre:string, private cantantes:string[], private duracion:number,
     private generos: string[], private single:boolean, private numeroReproducciones:number) {
   }
 
@@ -12,16 +11,16 @@ export class Cancion {
    * Función que retorna el nombre de una canción
    * @returns Nombre de la canción
    */
-  getNombre():string { 
-    return this.nombre; 
+  getNombre():string {
+    return this.nombre;
   }
 
   /**
    * Función que retorna todos los cantantes de la canción
    * @returns Cantantes de la canción
    */
-  getCantantes(): string[] { 
-    return this.cantantes; 
+  getCantantes(): string[] {
+    return this.cantantes;
   }
 
   /**
@@ -31,36 +30,36 @@ export class Cancion {
   getAutor(): string {
     return this.cantantes[0];
   }
-  
+
   /**
    * Función que retorna la duración de una canción
    * @returns Duración de la canción
    */
-  getDuracion():number { 
-    return this.duracion; 
+  getDuracion():number {
+    return this.duracion;
   }
 
   /**
    * Función que obtiene los géneros de una canción
    * @returns Retorna los géneros de la canción
    */
-  getGeneros(): string[] { 
-    return this.generos; 
+  getGeneros(): string[] {
+    return this.generos;
   }
 
   /**
    * Función que indica con un Flag si la canción es un single o no
    * @returns Verdadero o falso según si la canción es un single o no
    */
-  getSingle():boolean { 
-    return this.single; 
+  getSingle():boolean {
+    return this.single;
   }
 
   /**
    * Función que calcula el número de reproducciones de una canción
    * @returns Número total de reproducciones
    */
-  getNumeroReproducciones(): number { 
+  getNumeroReproducciones(): number {
     return this.numeroReproducciones;
   }
 
