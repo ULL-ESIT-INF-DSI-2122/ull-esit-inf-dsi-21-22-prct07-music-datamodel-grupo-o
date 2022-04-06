@@ -95,6 +95,110 @@
       "generos": ["Pop"],
       "single": true,
       "numeroReproducciones": 567548666
+    },
+    {
+      "nombre": "A change of heart",
+      "cantantes": "The 1975",
+      "duracion": 3.58,
+      "generos": ["Electro-pop"],
+      "single": false,
+      "numeroReproducciones": 452548666
+    },
+    {
+      "nombre": "Limbo",
+      "cantantes": "Royal Blood",
+      "duracion": 4.53,
+      "generos": ["Hard rock", "Disco"],
+      "single": true,
+      "numeroReproducciones": 123546327
+    },
+    {
+      "nombre": "Jealousy",
+      "cantantes": "Alice Merton",
+      "duracion": 3.39,
+      "generos": ["pop rock"],
+      "single": false,
+      "numeroReproducciones": 432163875
+    },
+    {
+      "nombre": "Glamorous Indie Rock & Roll",
+      "cantantes": "The Killers",
+      "duracion": 4.08,
+      "generos": ["Rock"],
+      "single": false,
+      "numeroReproducciones": 896426712
+    },
+    {
+      "nombre": "A-punk",
+      "cantantes": "Vampire Weekend",
+      "duracion": 2.17,
+      "generos": ["indie pop"],
+      "single": false,
+      "numeroReproducciones": 313625577
+    },
+    {
+      "nombre": "Copacabana",
+      "cantantes": "Izal",
+      "duracion": 3.36,
+      "generos": ["Indie rock"],
+      "single": true,
+      "numeroReproducciones": 36618203
+    },
+    {
+      "nombre": "Hurt",
+      "cantantes": "Johnny Cash",
+      "duracion": 3.36,
+      "generos": ["Country"],
+      "single": false,
+      "numeroReproducciones": 464738224
+    },
+    {
+      "nombre": "Mamma Mia",
+      "cantantes": "ABBA",
+      "duracion": 3.33,
+      "generos": ["Disco"],
+      "single": false,
+      "numeroReproducciones": 297157715
+    },
+    {
+      "nombre": "Slow Acid",
+      "cantantes": "Calvin Harris",
+      "duracion": 3.41,
+      "generos": ["House"],
+      "single": false,
+      "numeroReproducciones": 7412660
+    },
+    {
+      "nombre": "Hey Boy Hey Girl",
+      "cantantes": "The Chemical Brothers",
+      "duracion": 4.50,
+      "generos": ["Electronica"],
+      "single": false,
+      "numeroReproducciones": 91878338
+    },
+    {
+      "nombre": "Pequeña Gran Revolucion",
+      "cantantes": "Izal",
+      "duracion": 4.35,
+      "generos": ["Indie rock"],
+      "single": false,
+      "numeroReproducciones": 35336078
+    },
+    {
+      "nombre": "En Aire y Hueso",
+      "cantantes": "Izal",
+      "duracion": 4.50,
+      "generos": ["Indie rock"],
+      "single": false,
+      "numeroReproducciones": 14336078
+    },
+    {
+      "nombre": "Supermassive Black Hole",
+      "cantantes": "Muse",
+      "duracion": 3.32,
+      "generos": ["Rock alternativo"],
+      "single": false,
+      "numeroReproducciones": 332811303
     }
   ]
 }
