@@ -1,4 +1,4 @@
-// import * as inquirer from 'inquirer';
+//import * as inquirer from 'inquirer';
 // import { Low, JSONFile } from 'lowdb';
 // import { join } from 'path';
 // import { Cancion } from './cancion';
@@ -47,4 +47,28 @@ export abstract class Gestor {
   // Al menos cinco artistas.
   // Entre cinco y diez álbumes musicales.
   // Incluir tres playlists distintas.
+
+  /*
+  function mostrarPrincipal(): void {
+    enum Commands {
+      Salir = "Salir",
+      Mostrar albumes = "Mostrar albumes"
+    }
+
+    function propptUser(): void {
+      console.clear();
+      mostrarPrincipal(); //lamada a la función mostrar
+      inquirer.prompt({
+        type: "list",
+        name: "command",
+        message: "Elige una opción",
+        choices: Object.values(Commands)
+      }).then(answers => {
+        if(answers["command"] !== Commands.Salir) {
+          proptUser();
+        }
+      })
+    }
+  }
+  */
 }
