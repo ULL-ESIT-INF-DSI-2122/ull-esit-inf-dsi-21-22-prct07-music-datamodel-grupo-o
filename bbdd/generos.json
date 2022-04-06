@@ -8,9 +8,9 @@
       },
       {
         "genero": "indie pop",
-        "gruposArtistas": ["Tom Odell"],
+        "gruposArtistas": ["Tom Odell", "Vampire Weekend"],
         "generoAlbumes": [" "],
-        "canciones": ["Another Love", "Can't Pretend"]
+        "canciones": ["Another Love", "Can't Pretend", "A-punk"]
       },
       {
         "genero": "Soul",
@@ -26,15 +26,15 @@
       },
       {
         "genero": "pop rock",
-        "gruposArtistas": ["Harry Styles"],
+        "gruposArtistas": ["Harry Styles", "Alice Merton"],
         "generoAlbumes": [" "],
-        "canciones": ["Adore You"]
+        "canciones": ["Adore You", "No Roots"]
       },
       {
         "genero": "Indie rock",
-        "gruposArtistas": ["Arctic Monkeys"],
+        "gruposArtistas": ["Arctic Monkeys", "Izal"],
         "generoAlbumes": [" "],
-        "canciones": ["Why'd You Only Call Me When You're High"]
+        "canciones": ["Why'd You Only Call Me When You're High", "Copacabana", "Pequeña Gran Revolucion", "En Aire y Hueso"]
       },
       {
         "genero": "R&B contemporáneo",
@@ -44,9 +44,9 @@
       },
       {
         "genero": "Rock",
-        "gruposArtistas": ["Miley Cyrus", "Imagine Dragons"],
+        "gruposArtistas": ["Miley Cyrus", "Imagine Dragons", "The Killers"],
         "generoAlbumes": [" "],
-        "canciones": ["Angels Like You", "Enemy"]
+        "canciones": ["Angels Like You", "Enemy", "Glamorous Indie Rock & Roll"]
       },
       {
         "genero": "Hip Hop",
@@ -68,15 +68,45 @@
       },
       {
         "genero": "Rock alternativo",
-        "gruposArtistas": ["Imagine Dragons"],
+        "gruposArtistas": ["Imagine Dragons", "Muse"],
         "generoAlbumes": [" "],
-        "canciones": ["Radioactive"]
+        "canciones": ["Radioactive", "Supermassive Black Hole"]
       },
       {
         "genero": "Country",
-        "gruposArtistas": ["Taylor Swift"],
+        "gruposArtistas": ["Taylor Swift", "Johnny Cash"],
         "generoAlbumes": [" "],
-        "canciones": ["All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)"]
+        "canciones": ["All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)", "Hurt"]
+      },
+      {
+        "genero": "Electro-pop",
+        "gruposArtistas": ["The 1975"],
+        "generoAlbumes": [" "],
+        "canciones": ["A change of heart"]
+      },
+      {
+        "genero": "Hard rock",
+        "gruposArtistas": ["Royal Blood"],
+        "generoAlbumes": [" "],
+        "canciones": ["Limbo"]
+      },
+      {
+        "genero": "Disco",
+        "gruposArtistas": ["Royal Blood", "ABBA"],
+        "generoAlbumes": [" "],
+        "canciones": ["Limbo", "Mamma Mia"]
+      },
+      {
+        "genero": "House",
+        "gruposArtistas": ["Calvin Harris"],
+        "generoAlbumes": [" "],
+        "canciones": ["Slow Acid"]
+      },
+      {
+        "genero": "Electronica",
+        "gruposArtistas": ["The Chemical Brothers"],
+        "generoAlbumes": [" "],
+        "canciones": ["Hey Boy Hey Girl"]
       }
     ]
   }
