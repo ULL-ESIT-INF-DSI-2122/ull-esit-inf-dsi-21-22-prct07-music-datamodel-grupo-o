@@ -20,8 +20,18 @@ export abstract class Gestor {
   // public mostrarPrincipal() {
 
   // }
+  async Visualizar():Promise<void> {
+    console.clear();
+    await inquirer.prompt({
+      type: 'input',
+      name: 'visualizar',
+      message: 'Visualizar todas las playlist',
+    });
 
-  async MenuUser(): Promise<void> {
+    this.menuUser();
+  }
+
+  async menuUser(): Promise<void> {
     console.clear();
     // mostrarPrincipal();
     const answers = await inquirer.prompt({
