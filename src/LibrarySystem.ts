@@ -15,7 +15,7 @@ export interface Search<T> {
   // Alfabéticamente por nombre del álbum, ascendente y descendente.
   // Alfabéticamente por nombre de la playlist, ascendente y descendente.
 
-  
+
   // Por año de lanzamiento del álbum, ascendente y descendente.
   // Por número de reproducciones totales, ascendente y descendente.
   // Filtrar para mostrar únicamente los singles lanzados.

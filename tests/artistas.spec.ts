@@ -1,10 +1,10 @@
 import 'mocha';
-import { expect } from 'chai';
-import { GenerosMusicales } from "../src/generosMusical";
-import { Artistas } from "../src/artistas";
-import { Cancion } from "../src/cancion";
-import { Album } from "../src/album";
-import { Grupos } from "../src/grupos";
+import {expect} from 'chai';
+import {GenerosMusicales} from "../src/generosMusical";
+import {Artistas} from "../src/artistas";
+import {Cancion} from "../src/cancion";
+import {Album} from "../src/album";
+import {Grupos} from "../src/grupos";
 
 const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329);
 const cancion2 = new Cancion('Una foto en blanco y negro', ['David Otero'], 2.52, ['pop rock'], false, 46992557);
@@ -15,35 +15,33 @@ const artista1 = new Artistas('Dani Martin', ['pop rock', 'rock en español'], [
 
 const grupo1 = new Grupos('El Canto del Loco', [artista1], 2010, ['pop rock', 'rock en español'], [album1], 2610923);
 
-describe('Test para la clase Artista' , () => {
+describe('Test para la clase Artista', () => {
+  it('Se crea la clase correctamente', () => {
+    expect(new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602));
+  });
 
-    it('Se crea la clase correctamente', () => {
-        expect(new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602));
-    });
+  it("Test nombre del artista", () => {
+    expect(artista1.getNombreArtista()).to.be.equal('Dani Martin');
+  });
 
-    it("Test nombre del artista", () => {
-        expect(artista1.getNombreArtista()).to.be.equal('Dani Martin');
-    });
+  it("Test género del artista", () => {
+    expect(artista1.getGenerosArtista()).to.be.eql(['pop rock', 'rock en español']);
+  });
 
-    it("Test género del artista", () => {
-        expect(artista1.getGenerosArtista()).to.be.eql(['pop rock', 'rock en español']);
-    });
+  it("Test albumes del artista", () => {
+    expect(artista1.getAlbumesArtista()).to.be.eql([album1]);
+  });
 
-    it("Test albumes del artista", () => {
-        expect(artista1.getAlbumesArtista()).to.be.eql([album1]);
-    });
+  it("Test canciones del artista", () => {
+    expect(artista1.getCancionesArtista()).to.be.eql([cancion1]);
+  });
 
-    it("Test canciones del artista", () => {
-        expect(artista1.getCancionesArtista()).to.be.eql([cancion1]);
-    });
+  it("Test oyentes mensuales del artista", () => {
+    expect(artista1.getOyentesArtista()).to.be.equal(3105602);
+  });
 
-    it("Test oyentes mensuales del artista", () => {
-        expect(artista1.getOyentesArtista()).to.be.equal(3105602);
-    });
-
-    //corregir
-    /*it("Test grupos del artista artista", () => {
+  // corregir
+  /* it("Test grupos del artista artista", () => {
         expect(artista1.getGruposArtista()).to.be.eql([grupo1]);
     });*/
-
 });

@@ -1,0 +1,100 @@
+{
+  "canciones": [
+    {
+      "nombre": "Another Love",
+      "cantantes": "Tom Odell",
+      "duracion": 4.04,
+      "generos": ["Folk pop", "indie pop"],
+      "single": true,
+      "numeroReproducciones": 757088750
+    },
+    {
+      "nombre": "Can't Pretend",
+      "cantantes": "Tom Odell",
+      "duracion": 3.42,
+      "generos": ["Soul", "indie pop"],
+      "single": true,
+      "numeroReproducciones": 55338688
+    },
+    {
+      "nombre": "As It Was",
+      "cantantes": "Harry Styles",
+      "duracion": 2.47,
+      "generos": ["Synth pop"],
+      "single": true,
+      "numeroReproducciones": 60114852
+    },
+    {
+      "nombre": "Adore You",
+      "cantantes": "Harry Styles",
+      "duracion": 3.27,
+      "generos": ["Soul", "pop rock"],
+      "single": true,
+      "numeroReproducciones": 1065536992
+    },
+    {
+      "nombre": "Why'd You Only Call Me When You're High",
+      "cantantes": "Arctic Monkeys",
+      "duracion": 2.41,
+      "generos": ["Indie rock", "R&B contemporáneo"],
+      "single": true,
+      "numeroReproducciones": 794130448
+    },
+    {
+      "nombre": "Angels Like You",
+      "cantantes": "Miley Cyrus",
+      "duracion": 3.16,
+      "generos": ["Rock"],
+      "single": true,
+      "numeroReproducciones": 192789258
+    },
+    {
+      "nombre": "Wrecking Ball",
+      "cantantes": "Miley Cyrus",
+      "duracion": 3.41,
+      "generos": ["Hip Hop", "Pop", "Rhythm and Blues"],
+      "single": true,
+      "numeroReproducciones": 598516535
+    },
+    {
+      "nombre": "Enemy",
+      "cantantes": "Imagine Dragons",
+      "duracion": 2.53,
+      "generos": ["Rock"],
+      "single": true,
+      "numeroReproducciones": 101288456
+    },
+    {
+      "nombre": "Radioactive",
+      "cantantes": "Imagine Dragons",
+      "duracion": 3.06,
+      "generos": ["Rock alternativo"],
+      "single": true,
+      "numeroReproducciones": 1313293362
+    },
+    {
+      "nombre": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+      "cantantes": "Taylor Swift",
+      "duracion": 10.13,
+      "generos": ["Country", "Pop"],
+      "single": true,
+      "numeroReproducciones": 262562428
+    },
+    {
+      "nombre": "Wildest Dreams",
+      "cantantes": "Taylor Swift",
+      "duracion": 3.4,
+      "generos": ["Pop", "Synth pop"],
+      "single": true,
+      "numeroReproducciones": 508110410
+    },
+    {
+      "nombre": "Happier Than Ever",
+      "cantantes": "Billie Eilish",
+      "duracion": 4.58,
+      "generos": ["Pop"],
+      "single": true,
+      "numeroReproducciones": 567548666
+    }
+  ]
+}
