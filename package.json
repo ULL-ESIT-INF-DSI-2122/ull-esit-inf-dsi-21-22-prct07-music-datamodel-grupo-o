@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node dist/modificacion/Complex.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/gestor.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "doc": "typedoc --includes ./src/**/*.ts",

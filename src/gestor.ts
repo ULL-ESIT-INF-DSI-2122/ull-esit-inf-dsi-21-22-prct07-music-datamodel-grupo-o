@@ -5,7 +5,14 @@
 
 import {Playlist} from "./playlist";
 
-export abstract class Gestor {
+// type Prueba = {
+//   nombre: string;
+//   canciones: string[];
+//   duracion: number;
+//   generos: string[];
+// }
+
+export class Gestor {
   constructor(private nombrePlaylist: Playlist[]) {
   }
 
@@ -30,6 +37,15 @@ export abstract class Gestor {
   // -Género musical
   // -Nº reproducciones
   // Entrar en la base de datos, pregunta playlist, pregunta el orden (ascendente o descendente), ordena y muestra
+
+  // /**
+  //  * Función que ordena alfabéticamente una playlist
+  //  * @param dato Dato por el que se quiere ordenar (título, nombre, año, ...)
+  //  * @param tipo Tipo de ordenación (ascendente, descendente)
+  //  */
+  // ordenPlaylist(dato: string, tipo: string): Prueba {
+
+  // }
   // steph
   // 3. Crear una nueva playlist
   // Entrar a base de datos, preguntar si crear nueva playlist o a partir de una existente, asignar nombre distinto
@@ -48,3 +64,8 @@ export abstract class Gestor {
   // Entre cinco y diez álbumes musicales.
   // Incluir tres playlists distintas.
 }
+
+// const play: Prueba[] = [{nombre: "Hola", canciones: ["can1", "can2"], duracion: 100, generos: ["gen1", "gen2"]},
+//   {nombre: "mundo", canciones: ["can3", "can4"], duracion: 3000, generos: ["gen4", "gen2"]}];
+// const prueba = new Gestor(play);
+// const ordenado = prueba.ordenPlaylist("nombre", "ascendente");
