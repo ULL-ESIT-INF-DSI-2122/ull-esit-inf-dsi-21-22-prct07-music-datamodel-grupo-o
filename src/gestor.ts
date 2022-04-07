@@ -60,7 +60,7 @@ export class Gestor {
       name: 'nombre',
       type: 'input',
       message: 'Elija el nombre de una playlist existente: ',
-    }]).then((answersNavegar) => {
+    }]).then((answersNavegar: any) => { //se añadió :any -> ¿sería correcta la declaración?
       console.log(answersNavegar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersNavegar["nombre"]) {
@@ -125,7 +125,7 @@ export class Gestor {
       // canciones: 'canciones',
       // type: 'input',
       // message: 'Introduca nombre de las canciones',
-    }).then((answersCrear) => {
+    }).then((answersCrear: any) => { //se añadió :any -> declaración correcta??
       console.log(answersCrear);
       this.playlists.forEach((element) => {
         // if (element.getNombre() == answersCrear["nombre"]) {
@@ -136,13 +136,14 @@ export class Gestor {
     });
   }
 
+  //Arreglar para que funcione correctamente
   async borrar():Promise<void> {
     console.clear();
     const answersBorrar = await inquirer.prompt([{
       name: 'borrar',
       type: 'input',
       message: 'Introduzca el nombre de la playlist que desea borrar: ',
-    }]).then((answersBorrar) => {
+    }]).then((answersBorrar: any) => { //se añadió :any -> declaración correcta?
       console.log(answersBorrar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersBorrar["name"]) {
@@ -177,7 +178,7 @@ export class Gestor {
           name: 'nombre',
           type: 'input',
           message: '¿Qué nombre tendrá la playlist?',
-        }]).then((answers) => {
+        }]).then((answers: any) => { //se añadió :any -> declaración correcta??
           const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
           const newPlaylist = new Playlist(answers.name, [cancion1]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
         });
@@ -242,7 +243,12 @@ const cancion2 = new Cancion('Ojos', ['Lebron'], 2.49, ['Hip'], false, 5237187);
 const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 
-const gestor = new Gestor([newPlay, newPlay2]);
+const cancion3 = new Cancion('Desde', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); 
+const cancion4 = new Cancion('Prueba', ['Lebron'], 2.49, ['Hip'], false, 5237187); 
+const newPlay3 = new Playlist("pruebaplay3", [cancion3, cancion2]); 
+const newPlay4 = new Playlist("pruebaplay4", [cancion4]);
+
+const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
 gestor.menuUser();
 
 // const play: Prueba[] = [{nombre: "Hola", canciones: ["can1", "can2"], duracion: 100, generos: ["gen1", "gen2"]},
