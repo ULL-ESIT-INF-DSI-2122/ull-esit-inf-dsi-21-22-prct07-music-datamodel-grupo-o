@@ -1,14 +1,14 @@
 import inquirer from 'inquirer';
 // import { Low, JSONFile } from 'lowdb';
 // import { join } from 'path';
-// import { Cancion } from './cancion';
+import {Cancion} from './cancion';
 
-// import { Playlist } from "./playlist";
+import {Playlist} from "./playlist";
 
 enum Commands {
   visualizar = "Visualizar todas las playlist",
   navegar = "Navegar una playlist",
-  crear = "Crear una plalist",
+  crear = "Crear una playlist",
   borrar = "Borrar una playlist",
   salir = "Salir el programa"
 }
@@ -85,7 +85,15 @@ export abstract class Gestor {
         break;
 
       case Commands.crear:
-        console.log(`Crear una plalist`);
+        console.clear();
+        inquirer.prompt([{
+          name: 'nombre',
+          type: 'input',
+          message: '¿Qué nombre tendrá la playlist?',
+        }]).then((answers) => {
+          const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
+          const newPlaylist = new Playlist(answers.name, [cancion1]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
+        });
         break;
 
       case Commands.borrar:
