@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node dist/gestor.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/prueba.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "doc": "typedoc --includes ./src/**/*.ts",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.0",
+    "@types/inquirer": "^8.2.1",
     "@types/jest": "^27.4.1",
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.23",
