@@ -146,6 +146,7 @@ export class Gestor {
       console.log(answersBorrar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersBorrar["name"]) {
+          this.playlists.splice(this.playlists.indexOf(answersBorrar.name), 1);
         }
       });
     });
