@@ -13,7 +13,7 @@ export class GenerosMusicales {
      * @param canciones Canciones que hay dentro de la biblioteca de ese género
      */
   constructor(private genero: string, private gruposArtistas: Artistas[],
-        private generoAlbumes: Album[], private canciones: Cancion[] ) {}
+                private generoAlbumes: Album[], private canciones: Cancion[] ) {}
 
   /**
      * Método que devuelve el nombre del género
