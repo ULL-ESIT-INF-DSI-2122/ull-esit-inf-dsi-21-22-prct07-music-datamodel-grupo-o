@@ -1,8 +1,4 @@
 import {Cancion} from "./cancion";
-import {Gestor} from "./gestor";
-// import { GenerosMusicales } from "./generosMusical";
-// import { Libreria } from "./Libreria";
-
 
 /**
  * _Clase Playlist_
@@ -62,25 +58,18 @@ export class Playlist {
      */
   getGenerosMusicales():string[] {
     this.cancionesColeccion.forEach((element) => {
-      let genero = '';
       element.getGeneros().forEach((value) => {
+        let genero = ''; 
         genero = value;
+        this.generos.push(genero);
       });
-      this.generos.push(genero);
     });
     const dataArr = new Set(this.generos);
     this.generos = [...dataArr];
 
+    // console.log(this.generos);
     return this.generos;
   }
 
-  /* Setters */
-  /**
-     * _Setter para añadir nueva cancion_
-     * @param newCancion cancion para añadir a la lista
-     */
-  setCanciones(newCancion:Cancion):void {
-    this.cancionesColeccion.push(newCancion);
-  }
 }
 
