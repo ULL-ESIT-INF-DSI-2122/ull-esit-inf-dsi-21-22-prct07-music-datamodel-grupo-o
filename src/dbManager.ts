@@ -20,16 +20,16 @@ type schemaType = {
 
 export class dbManager extends Gestor {
   private database: lowdb.LowdbSync<schemaType>;
-  constructor(public username:string) {
-    super();
-    // const adapter = new FileSync(`${username}.json`);
-    // this.database = lowdb(adapter);
-    // this.database.defaults({
-    //   userOptions: {
-    //     albumes: [],
-    //     playlist: [],
-    //   },
-    // }).write();
+  constructor(public username:string, playlists: Playlist[]) {
+    super(playlists);
+    const adapter = new FileSync(`${username}.json`);
+    this.database = lowdb(adapter);
+    this.database.defaults({
+      userOptions: {
+        albumes: [],
+        playlist: [],
+      },
+    }).write();
   }
 }
 
@@ -41,7 +41,7 @@ export class dbManager extends Gestor {
 const db: lowdb.LowdbSync<schemaType> = lowdb(new FileSync("song.json"));
 const serializedSong = db.get("song").value();
 
-// const mySong = Song.deserialize(serializedSong);
+// const mySong = Cancion.deserialize(serializedSong);
 // console.log(mySong.getName());
 // console.log(mySong.getBand().getName());
 
