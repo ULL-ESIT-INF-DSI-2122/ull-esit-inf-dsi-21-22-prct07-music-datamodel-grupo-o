@@ -1,6 +1,12 @@
 {
     "out": "./docs",
     "entryPoints": [
-
+        "src/album",
+        "src/artista",
+        "src/cancion",
+        "src/dbManager",
+        "src/generosMusical",
+        "src/gestor",
+        "src/playlist"
     ]        
 }

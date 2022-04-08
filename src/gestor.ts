@@ -1,4 +1,3 @@
-import {Console} from 'console';
 import inquirer from 'inquirer';
 // import input from '@inquirer/input';
 import {convertToObject, getParsedCommandLineOfConfigFile} from 'typescript';
@@ -27,11 +26,6 @@ enum Consulta {
   reproducciones = "Visualizar por número de reproducciones totales"
 }
 
-// enum Orden {
-//   ascendente = "Ordenar de manera ascendente los datos",
-//   descendente = "Ordenar de manera descendente los datos"
-// }
-
 /**
  * Clase Gestora de la aplicación
  */
@@ -44,7 +38,7 @@ export class Gestor {
         Nombre de la playlist: ${element.getNombre()}`);
       element.getCanciones().forEach((cancion, index) => {
         process.stdout.write(`
-            [${index}]: ${cancion.getNombre()}`);
+            [Cancion ${index}]: ${cancion.getNombre()}`);
       });
       console.log(`
         Géneros musicales: ${element.getGenerosMusicales()}
@@ -73,7 +67,6 @@ export class Gestor {
       type: 'input',
       message: 'Elija el nombre de una playlist existente: ',
     }]).then((answersNavegar: any) => { // se añadió :any -> ¿sería correcta la declaración?
-      console.log(answersNavegar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersNavegar["nombre"]) {
           // console.log(`answer1 = ${answers1["nombre"]}`);
@@ -100,7 +93,6 @@ export class Gestor {
       name: 'option',
       message: 'De manera ascendente o descendente',
       choices: ['ascendente', 'descendente'],
-      // choices: Object.values(Orden),
     });
 
     switch (answers['command']) {
@@ -117,6 +109,7 @@ export class Gestor {
         break;
 
       case Consulta.duracion:
+        this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
 
       case Consulta.genero:
@@ -249,11 +242,14 @@ export class Gestor {
           unsortArray.sort().reverse();
           // console.log(playlist.getCanciones().sort().reverse());
         }
+        break;
+
       case Consulta.duracion:
-        if (orden == 'descendente') {
-          console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
+        if (orden == 'ascendente') {
+          console.log(`prueba`);
+          console.log(playlist.getCanciones().sort(((a, b) => b.getDuracion() - a.getDuracion())));
         } else {
-          console.log(playlist.getCanciones().sort(((a, b) => b.getDuracion() - a.getDuracion())).reverse());
+          console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
         }
         break;
     }
@@ -271,7 +267,7 @@ export class Gestor {
   }
 }
 
-const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
+const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
 const cancion2 = new Cancion('Ajos', ['Lebron'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
 const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
