@@ -305,19 +305,19 @@ export class Gestor {
         }
         break;
 
-      // case Consulta.reproducciones:
-      //   if (orden == 'ascendente') {
-      //     console.log(playlist.getCanciones().sort((((a, b) => b.getDuracion() - a.getDuracion())));
-      //   } else {
-      //     console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
-      //   }
-      //   break;
+      case Consulta.reproducciones:
+        if (orden == 'ascendente') {
+          console.log(playlist.getCanciones().sort((((a, b) => b.getNumeroReproducciones() - a.getNumeroReproducciones()))));
+        } else {
+          console.log(playlist.getCanciones().sort(((a, b) => a.getNumeroReproducciones() - b.getNumeroReproducciones())));
+        }
+        break;
     }
   }
 }
 
-const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
-const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
+const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton', 'trap'], false, 5237187); // pensar cómo agregar las canciones
+const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 15537187); // pensar cómo agregar las canciones
 const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 
