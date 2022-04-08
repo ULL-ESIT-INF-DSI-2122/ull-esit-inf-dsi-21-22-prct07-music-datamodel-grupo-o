@@ -113,9 +113,11 @@ export class Gestor {
         break;
 
       case Consulta.genero:
+        this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
 
       case Consulta.reproducciones:
+        this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
     }
 
@@ -217,12 +219,14 @@ export class Gestor {
         });
         playlist.getCanciones().forEach((cancion) => {
           orderNombre.set(cancion.getNombre(), cancion);
-          // console.log(`${cancion.getNombre()}`);
         });
         const unsortArray = [...orderNombre];
         if (orden == 'ascendente') {
           // console.log(`${Object.keys(playlist.getCanciones())}`);
-          console.log(unsortArray.sort());
+          unsortArray.sort();
+          unsortArray.forEach((element) => {
+            console.log(element);
+          });
           // console.log(`${unsortArray.sort()}`);
           // playlist.getCanciones().forEach((cancion) => {
           //   orderNombre.set(cancion.getNombre(), cancion);
@@ -235,7 +239,10 @@ export class Gestor {
           // });
           // console.log(playlist.getCanciones().sort());
         } else {
-          console.log(unsortArray.sort().reverse());
+          unsortArray.sort().reverse();
+          unsortArray.forEach((element) => {
+            console.log(element);
+          });
           // console.log(playlist.getCanciones().sort().reverse());
         }
         break;
@@ -246,7 +253,6 @@ export class Gestor {
         });
         playlist.getCanciones().forEach((cancion) => {
           orderNombre.set(cancion.getAutor(), cancion);
-          console.log(`${cancion.getAutor()}`);
         });
         const unSArray = [...orderNombre];
         if (orden == 'ascendente') {
@@ -262,14 +268,50 @@ export class Gestor {
         }
         break;
 
+      // case Consulta.year:
+      //   if (orden == 'ascendente') {
+      //     console.log(`prueba`);
+      //     console.log(playlist.getCanciones().sort(((a, b) => b.() - a.getDuracion())));
+      //   } else {
+      //     console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
+      //   }
+      //   break;
       case Consulta.duracion:
         if (orden == 'ascendente') {
-          console.log(`prueba`);
           console.log(playlist.getCanciones().sort(((a, b) => b.getDuracion() - a.getDuracion())));
         } else {
           console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
         }
         break;
+
+      case Consulta.genero:
+        playlist.getCanciones().forEach((element) => {
+          orderNombre.set(element.getGenero(), element);
+        });
+        playlist.getCanciones().forEach((cancion) => {
+          orderNombre.set(cancion.getGenero(), cancion);
+        });
+        const array = [...orderNombre];
+        if (orden == 'ascendente') {
+          array.sort();
+          array.forEach((element) => {
+            console.log(element);
+          });
+        } else {
+          array.sort().reverse();
+          array.forEach((element) => {
+            console.log(element);
+          });
+        }
+        break;
+
+      // case Consulta.reproducciones:
+      //   if (orden == 'ascendente') {
+      //     console.log(playlist.getCanciones().sort((((a, b) => b.getDuracion() - a.getDuracion())));
+      //   } else {
+      //     console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
+      //   }
+      //   break;
     }
   }
 }

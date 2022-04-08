@@ -48,6 +48,14 @@ export class Cancion {
   }
 
   /**
+   * Función que retorna el genero principal de la canción
+   * @returns Genero principal de la canción
+   */
+  getGenero(): string {
+    return this.generos[0];
+  }
+
+  /**
    * Función que indica con un Flag si la canción es un single o no
    * @returns Verdadero o falso según si la canción es un single o no
    */
