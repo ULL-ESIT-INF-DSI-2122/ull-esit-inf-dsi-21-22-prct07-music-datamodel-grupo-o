@@ -27,17 +27,31 @@ enum Consulta {
   reproducciones = "Visualizar por número de reproducciones totales"
 }
 
-enum Orden {
-  ascendente = "Ordenar de manera ascendente los datos",
-  descendente = "Ordenar de manera descendente los datos"
-}
+// enum Orden {
+//   ascendente = "Ordenar de manera ascendente los datos",
+//   descendente = "Ordenar de manera descendente los datos"
+// }
 
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-  constructor(protected playlists: Playlist[]) {
+  constructor(protected playlists: Playlist[]) {}
+
+  imprimir():void {
+    this.playlists.forEach((element) => {
+      process.stdout.write(`
+        Nombre de la playlist: ${element.getNombre()}`);
+      element.getCanciones().forEach((cancion, index) => {
+        process.stdout.write(`
+            [${index}]: ${cancion.getNombre()}`);
+      });
+      console.log(`
+        Géneros musicales: ${element.getGenerosMusicales()}
+        Duración: ${element.getDuracion()}`);
+    });
   }
+
 
   /**
    * Método que visualiza todas las playlist según el nombre, el género o la duración
@@ -45,49 +59,48 @@ export class Gestor {
   async visualizar():Promise<void> {
     console.clear();
     console.log('Playlists existentes:');
-    this.playlists.forEach((element) => {
-      console.log(`
-      Nombre de la playlist: ${element.getNombre()}, 
-      Géneros musicales: ${element.getGenerosMusicales()}, 
-      Duración: ${element.getDuracion()}`);
-    });
+    this.imprimir();
     this.menuUser();
   }
 
+  /**
+   * Método que navega un playlist y mostrar la informacion de dicho playlist
+   */
   async navegar():Promise<void> {
     console.clear();
     const answersNavegar = await inquirer.prompt([{
       name: 'nombre',
       type: 'input',
       message: 'Elija el nombre de una playlist existente: ',
-    }]).then((answersNavegar: any) => { //se añadió :any -> ¿sería correcta la declaración?
+    }]).then((answersNavegar: any) => { // se añadió :any -> ¿sería correcta la declaración?
       console.log(answersNavegar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersNavegar["nombre"]) {
           // console.log(`answer1 = ${answers1["nombre"]}`);
           // console.log(`element = ${element.getNombre()}`);
-          console.log(`lista:`);
+          console.log(`Playlist Name: ${element.getNombre()}`);
           myPlaylist = element;
-          console.log(`
-          Nombre de la playlist: ${element.getNombre()}, 
-          Géneros musicales: ${element.getGenerosMusicales()}, 
-          Duración: ${element.getDuracion()}`);
+          // element.getCanciones().forEach((cancion, index) => {
+          //   console.log(`   [${index}]` + `:` + cancion.getNombre());
+          // });
         }
       });
+      // this.menuUser();
     });
 
     const answers = await inquirer.prompt({
       type: 'list',
       name: 'command',
-      message: 'Elige una opción',
+      message: 'Elige una opción para mostrar canciones',
       choices: Object.values(Consulta),
     });
 
     const orden = await inquirer.prompt({
       type: 'list',
       name: 'option',
-      message: 'Elige una opción',
-      choices: Object.values(Orden),
+      message: 'De manera ascendente o descendente',
+      choices: ['ascendente', 'descendente'],
+      // choices: Object.values(Orden),
     });
 
     switch (answers['command']) {
@@ -118,33 +131,47 @@ export class Gestor {
 
   async crear():Promise<void> {
     console.clear();
-    const answersCrear = await inquirer.prompt({
-      name: 'nombre',
-      type: 'input',
-      message: 'Introduzca el nombre de playlist que desea crear:',
-      // canciones: 'canciones',
-      // type: 'input',
-      // message: 'Introduca nombre de las canciones',
-    }).then((answersCrear: any) => { //se añadió :any -> declaración correcta??
-      console.log(answersCrear);
+    const answersCrear = await inquirer.prompt([
+      {
+        name: 'addNombre',
+        type: 'input',
+        message: 'Introduzca el nombre de playlist que desea crear:',
+      },
+      {
+        name: 'cancion',
+        type: 'input',
+        message: 'Que canciones quieres agregar:',
+      },
+    ]).then((answersCrear:any) => { // se añadió :any -> declaración correcta??
+      // console.log(answersCrear['addNombre']);
+      // console.log(answersCrear['cancion']);
+      let poderCrear: boolean = true;
       this.playlists.forEach((element) => {
-        // if (element.getNombre() == answersCrear["nombre"]) {
-        // }
+        if (element.getNombre() == answersCrear['addNombre']) {
+          console.log(`No puedes crear una playlist con el mismo nombre`);
+          poderCrear = false;
+        }
       });
-    // hacer algo
-    // this.menuUser();
+      if ((answersCrear['addNombre'])!== '' && poderCrear) {
+        // Consultar la base de datos sobre canciones
+        // Un ejemplo.
+        const nuevaCancion = new Cancion(answersCrear['cancion'], ['Coldplay', 'BTS'], 3.48, ['k-pop', 'dance-pop'], false, 2458793);
+        const coleccionCanciones = [nuevaCancion];
+        this.playlists.push(new Playlist(answersCrear['addNombre'], coleccionCanciones));
+      }
+      this.menuUser();
     });
   }
 
-  //Arreglar para que funcione correctamente
+  // Arreglar para que funcione correctamente
   async borrar():Promise<void> {
     console.clear();
     const answersBorrar = await inquirer.prompt([{
       name: 'borrar',
       type: 'input',
       message: 'Introduzca el nombre de la playlist que desea borrar: ',
-    }]).then((answersBorrar: any) => { //se añadió :any -> declaración correcta?
-      console.log(answersBorrar);
+    }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
+      // console.log(answersBorrar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersBorrar["name"]) {
           this.playlists.splice(this.playlists.indexOf(answersBorrar.name), 1);
@@ -154,6 +181,7 @@ export class Gestor {
     // hacer algo
     this.menuUser();
   }
+
 
   async menuUser(): Promise<void> {
     console.log();
@@ -174,50 +202,55 @@ export class Gestor {
 
       case Commands.crear:
         console.clear();
-        inquirer.prompt([{
-          name: 'nombre',
-          type: 'input',
-          message: '¿Qué nombre tendrá la playlist?',
-        }]).then((answers: any) => { //se añadió :any -> declaración correcta??
-          const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
-          const newPlaylist = new Playlist(answers.name, [cancion1]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
-        });
+        this.crear();
         break;
 
       case Commands.borrar:
+        this.borrar();
         break;
 
       case Commands.salir:
         console.log(`Salir del programa`);
         break;
     }
-
-    // .then((answers) => {
-    //   switch (answers['command']) {
-    //     case Commands.visualizar:
-    //       console.log(`Visualizar`);
-    //       break;
-    //   }
-    //   console.log(answers);
-    // });
   }
 
   ordenPlaylist(playlist: Playlist, tipo: string, orden: string): void {
     const orderNombre = new Map<string, Cancion>();
+
     playlist.getCanciones().forEach((element) => {
       orderNombre.set(element.getNombre(), element);
     });
 
-    console.log(playlist, tipo, orden);
+    // console.log(playlist, tipo, orden);
+
     switch (tipo) {
       case Consulta.titulo:
-        if (orden == Orden.ascendente) {
-          // console.log(orderNombre.get());
+        playlist.getCanciones().forEach((cancion) => {
+          orderNombre.set(cancion.getNombre(), cancion);
+          // console.log(`${cancion.getNombre()}`);
+        });
+        const unsortArray = [...orderNombre];
+        if (orden == 'ascendente') {
+          // console.log(`${Object.keys(playlist.getCanciones())}`);
+          unsortArray.sort();
+          // console.log(`${unsortArray.sort()}`);
+          // playlist.getCanciones().forEach((cancion) => {
+          //   orderNombre.set(cancion.getNombre(), cancion);
+          //   // console.log(`${cancion.getNombre()}`);
+          // });
+          // playlist.getCanciones().sort();
+          // console.log(`${playlist.getCanciones().sort()}`);
+          // playlist.getCanciones().forEach((cancion) => {
+          //   cancion.getNombre();
+          // });
+          // console.log(playlist.getCanciones().sort());
         } else {
-          console.log(playlist.getCanciones().sort());
+          unsortArray.sort().reverse();
+          // console.log(playlist.getCanciones().sort().reverse());
         }
       case Consulta.duracion:
-        if (orden == Orden.ascendente) {
+        if (orden == 'descendente') {
           console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
         } else {
           console.log(playlist.getCanciones().sort(((a, b) => b.getDuracion() - a.getDuracion())).reverse());
@@ -238,14 +271,14 @@ export class Gestor {
   }
 }
 
-const cancion = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
-const cancion2 = new Cancion('Ojos', ['Lebron'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
+const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
+const cancion2 = new Cancion('Ajos', ['Lebron'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
 const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 
-const cancion3 = new Cancion('Desde', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187); 
-const cancion4 = new Cancion('Prueba', ['Lebron'], 2.49, ['Hip'], false, 5237187); 
-const newPlay3 = new Playlist("pruebaplay3", [cancion3, cancion2]); 
+const cancion3 = new Cancion('Desde', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187);
+const cancion4 = new Cancion('Prueba', ['Lebron'], 2.49, ['Hip'], false, 5237187);
+const newPlay3 = new Playlist("pruebaplay3", [cancion3, cancion2]);
 const newPlay4 = new Playlist("pruebaplay4", [cancion4]);
 
 const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);

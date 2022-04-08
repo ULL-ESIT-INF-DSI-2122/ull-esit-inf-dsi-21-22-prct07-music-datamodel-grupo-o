@@ -59,7 +59,7 @@ export class Playlist {
   getGenerosMusicales():string[] {
     this.cancionesColeccion.forEach((element) => {
       element.getGeneros().forEach((value) => {
-        let genero = ''; 
+        let genero = '';
         genero = value;
         this.generos.push(genero);
       });
@@ -70,6 +70,5 @@ export class Playlist {
     // console.log(this.generos);
     return this.generos;
   }
-
 }
 
