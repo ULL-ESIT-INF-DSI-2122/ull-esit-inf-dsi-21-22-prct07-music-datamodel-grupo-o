@@ -101,7 +101,7 @@ export class Gestor {
         break;
 
       case Consulta.nombre:
-        // this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
+        this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
 
       case Consulta.year:
@@ -210,15 +210,11 @@ export class Gestor {
 
   ordenPlaylist(playlist: Playlist, tipo: string, orden: string): void {
     const orderNombre = new Map<string, Cancion>();
-
-    playlist.getCanciones().forEach((element) => {
-      orderNombre.set(element.getNombre(), element);
-    });
-
-    // console.log(playlist, tipo, orden);
-
     switch (tipo) {
       case Consulta.titulo:
+        playlist.getCanciones().forEach((element) => {
+          orderNombre.set(element.getNombre(), element);
+        });
         playlist.getCanciones().forEach((cancion) => {
           orderNombre.set(cancion.getNombre(), cancion);
           // console.log(`${cancion.getNombre()}`);
@@ -226,7 +222,7 @@ export class Gestor {
         const unsortArray = [...orderNombre];
         if (orden == 'ascendente') {
           // console.log(`${Object.keys(playlist.getCanciones())}`);
-          unsortArray.sort();
+          console.log(unsortArray.sort());
           // console.log(`${unsortArray.sort()}`);
           // playlist.getCanciones().forEach((cancion) => {
           //   orderNombre.set(cancion.getNombre(), cancion);
@@ -239,8 +235,30 @@ export class Gestor {
           // });
           // console.log(playlist.getCanciones().sort());
         } else {
-          unsortArray.sort().reverse();
+          console.log(unsortArray.sort().reverse());
           // console.log(playlist.getCanciones().sort().reverse());
+        }
+        break;
+
+      case Consulta.nombre:
+        playlist.getCanciones().forEach((element) => {
+          orderNombre.set(element.getAutor(), element);
+        });
+        playlist.getCanciones().forEach((cancion) => {
+          orderNombre.set(cancion.getAutor(), cancion);
+          console.log(`${cancion.getAutor()}`);
+        });
+        const unSArray = [...orderNombre];
+        if (orden == 'ascendente') {
+          unSArray.sort();
+          unSArray.forEach((element) => {
+            console.log(element);
+          });
+        } else {
+          unSArray.sort().reverse();
+          unSArray.forEach((element) => {
+            console.log(element);
+          });
         }
         break;
 
@@ -253,22 +271,11 @@ export class Gestor {
         }
         break;
     }
-
-    // this.playlists.forEach((element) => {
-    //   element.getCanciones().forEach((dato) => {
-    //     nombre.push(dato.getNombre());
-    //   });
-    // });
-    // if (orden == Orden.ascendente) {
-    //   console.log(nombre.sort());
-    // } else {
-    //   console.log(nombre.reverse());
-    // }
   }
 }
 
 const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton'], false, 5237187); // pensar cómo agregar las canciones
-const cancion2 = new Cancion('Ajos', ['Lebron'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
+const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 5237187); // pensar cómo agregar las canciones
 const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
 
