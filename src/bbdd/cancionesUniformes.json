@@ -221,8 +221,8 @@
       "cantantes": ["Aretha Franklin"],
       "duracion": 3.02,
       "generos": ["Soul", "Blues"],
-      "single": ,
-      "numeroReproducciones": 
+      "single": false,
+      "numeroReproducciones": 12334575
     },
     {
       "nombre": "Hit the Road Jack",
