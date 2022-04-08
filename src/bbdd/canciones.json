@@ -4,7 +4,7 @@
       "nombre": "Another Love",
       "cantantes": ["Tom Odell"],
       "duracion": 4.04,
-      "generos": ["Folk pop", "indie pop"],
+      "generos": ["Pop", "Folk pop", "indie pop"],
       "single": true,
       "numeroReproducciones": 757088750
     },
@@ -20,7 +20,7 @@
       "nombre": "As It Was",
       "cantantes": ["Harry Styles"],
       "duracion": 2.47,
-      "generos": ["Synth pop"],
+      "generos": ["Pop", "Synth pop"],
       "single": true,
       "numeroReproducciones": 60114852
     },
@@ -164,7 +164,7 @@
       "nombre": "Here Comes The Sun",
       "cantantes": ["The Beatles"],
       "duracion": 3.05,
-      "generos": ["Pop rock", "Folk rock"],
+      "generos": ["Rock", "Pop rock", "Folk rock"],
       "single": true,
       "numeroReproducciones": 793882491
     },
@@ -188,7 +188,7 @@
       "nombre": "Under Pressure",
       "cantantes": ["Queen", "David Bowie"],
       "duracion": 3.57,
-      "generos": ["Pop rock"],
+      "generos": ["Pop", "Pop rock"],
       "single": false,
       "numeroReproducciones": 1079365314
     },
@@ -212,7 +212,7 @@
       "nombre": "Jealousy",
       "cantantes": "Alice Merton",
       "duracion": 3.39,
-      "generos": ["pop rock"],
+      "generos": ["Pop", "pop rock"],
       "single": false,
       "numeroReproducciones": 432163875
     },
@@ -276,7 +276,7 @@
       "nombre": "Pequeña Gran Revolucion",
       "cantantes": "Izal",
       "duracion": 4.35,
-      "generos": ["Indie rock"],
+      "generos": ["Rock", "Indie rock"],
       "single": false,
       "numeroReproducciones": 35336078
     },
@@ -284,7 +284,7 @@
       "nombre": "En Aire y Hueso",
       "cantantes": "Izal",
       "duracion": 4.50,
-      "generos": ["Indie rock"],
+      "generos": ["Rock", "Indie rock"],
       "single": false,
       "numeroReproducciones": 14336078
     },
