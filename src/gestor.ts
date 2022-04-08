@@ -177,7 +177,9 @@ export class Gestor {
     this.menuUser();
   }
 
-
+  /**
+   * Menú del usuario para usar la aplicación
+   */
   async menuUser(): Promise<void> {
     console.log();
     const answers = await inquirer.prompt({
@@ -210,6 +212,12 @@ export class Gestor {
     }
   }
 
+  /**
+   * Método que ordena las canciones de una playlist según unos parámetros
+   * @param playlist Playlist a la que queremos ordenar sus canciones
+   * @param tipo El tipo de orden según el título, el autor, el año, la duracion, ...
+   * @param orden Orden ascendente o descendente
+   */
   ordenPlaylist(playlist: Playlist, tipo: string, orden: string): void {
     const orderNombre = new Map<string, Cancion>();
     switch (tipo) {
@@ -222,28 +230,15 @@ export class Gestor {
         });
         const unsortArray = [...orderNombre];
         if (orden == 'ascendente') {
-          // console.log(`${Object.keys(playlist.getCanciones())}`);
           unsortArray.sort();
           unsortArray.forEach((element) => {
             console.log(element);
           });
-          // console.log(`${unsortArray.sort()}`);
-          // playlist.getCanciones().forEach((cancion) => {
-          //   orderNombre.set(cancion.getNombre(), cancion);
-          //   // console.log(`${cancion.getNombre()}`);
-          // });
-          // playlist.getCanciones().sort();
-          // console.log(`${playlist.getCanciones().sort()}`);
-          // playlist.getCanciones().forEach((cancion) => {
-          //   cancion.getNombre();
-          // });
-          // console.log(playlist.getCanciones().sort());
         } else {
           unsortArray.sort().reverse();
           unsortArray.forEach((element) => {
             console.log(element);
           });
-          // console.log(playlist.getCanciones().sort().reverse());
         }
         break;
 
@@ -329,26 +324,10 @@ const newPlay4 = new Playlist("pruebaplay4", [cancion4]);
 const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
 gestor.menuUser();
 
-// const play: Prueba[] = [{nombre: "Hola", canciones: ["can1", "can2"], duracion: 100, generos: ["gen1", "gen2"]},
-//   {nombre: "mundo", canciones: ["can3", "can4"], duracion: 3000, generos: ["gen4", "gen2"]}];
-// const prueba = new Gestor(play);
-// const ordenado = prueba.ordenPlaylist("nombre", "ascendente");
-// }
-
-// Xue
-// Preguntar al usuario: que quiere hacer:
-// 1. Visualizar todas las playlist, consultar el nombre de playlist
-// Entrar bases de datos,  buscar el nombre de playlist,
-
 // Andrea
 // 2. Navegar por una playlist. Visualizar y decidir el orden:
-// -Alfabéticamente por título
-// -Alfabéticamente por nombre grupo/artista
 // -Año lanzamiento
-// -Duración de la canción
-// -Género musical
-// -Nº reproducciones
-// Entrar en la base de datos, pregunta playlist, pregunta el orden (ascendente o descendente), ordena y muestra
+
 // steph
 // 3. Crear una nueva playlist
 // Entrar a base de datos, preguntar si crear nueva playlist o a partir de una existente, asignar nombre distinto
