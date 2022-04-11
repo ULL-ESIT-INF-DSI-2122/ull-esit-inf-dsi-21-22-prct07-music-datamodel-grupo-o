@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 // import input from '@inquirer/input';
-import {convertToObject, getParsedCommandLineOfConfigFile} from 'typescript';
 // import { Low, JSONFile } from 'lowdb';
 // import { join } from 'path';
 import {Cancion} from './cancion';
