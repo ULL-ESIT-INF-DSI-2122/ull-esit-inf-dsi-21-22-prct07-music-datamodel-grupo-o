@@ -168,7 +168,7 @@ export class Gestor {
     }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
       // console.log(answersBorrar);
       this.playlists.forEach((element) => {
-        if (element.getNombre() == answersBorrar["name"]) {
+        if (element.getNombre() == answersBorrar['borrar']) {
           this.playlists.splice(this.playlists.indexOf(answersBorrar.name), 1);
         }
       });
