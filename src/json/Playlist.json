@@ -38,26 +38,110 @@
       ]
     },
     {
-      "nombre": "pruebaplay4",
+      "nombre": "mundo",
       "cancionesColeccion": [
         {
-          "nombre": "Cesde mis Ojos",
+          "nombre": "Ajos",
+          "cantantes": [
+            "Lebron",
+            "Max"
+          ],
+          "duracion": 2.49,
+          "generos": [
+            "Hip"
+          ],
+          "single": false,
+          "numeroReproducciones": 15537187
+        }
+      ],
+      "duracion": 2.49,
+      "generos": [
+        "Hip"
+      ]
+    },
+    {
+      "nombre": "pruebaplay3",
+      "cancionesColeccion": [
+        {
+          "nombre": "Desde",
           "cantantes": [
             "Chris Lebron"
           ],
-          "duracion": 1.8,
+          "duracion": 2.49,
           "generos": [
-            "Reggaeton",
-            "trap"
+            "Reggaeton"
+          ],
+          "single": false,
+          "numeroReproducciones": 5237187
+        },
+        {
+          "nombre": "Ajos",
+          "cantantes": [
+            "Lebron",
+            "Max"
+          ],
+          "duracion": 2.49,
+          "generos": [
+            "Hip"
+          ],
+          "single": false,
+          "numeroReproducciones": 15537187
+        }
+      ],
+      "duracion": 4.98,
+      "generos": [
+        "Reggaeton",
+        "Hip"
+      ]
+    },
+    {
+      "nombre": "pruebaplay4",
+      "cancionesColeccion": [
+        {
+          "nombre": "Prueba",
+          "cantantes": [
+            "Lebron"
+          ],
+          "duracion": 2.49,
+          "generos": [
+            "Hip"
           ],
           "single": false,
           "numeroReproducciones": 5237187
         }
       ],
-      "duracion": 1.8,
+      "duracion": 2.49,
+      "generos": [
+        "Hip"
+      ]
+    }
+  ],
+  "playlist": [
+    {
+      "duracion": 4.29,
       "generos": [
         "Reggaeton",
-        "trap"
+        "trap",
+        "Hip"
+      ]
+    },
+    {
+      "duracion": 2.49,
+      "generos": [
+        "Hip"
+      ]
+    },
+    {
+      "duracion": 4.98,
+      "generos": [
+        "Reggaeton",
+        "Hip"
+      ]
+    },
+    {
+      "duracion": 2.49,
+      "generos": [
+        "Hip"
       ]
     }
   ]

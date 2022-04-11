@@ -24,7 +24,7 @@ export class jsonPlaylist extends Gestor {
     const low = require('lowdb');
     this.database = low(new FileSync('./src/json/Playlist.json'));
 
-    // Comproba que si la bbdd json esta vació
+    // Comproba que si la bbdd json esta vacio
     if (this.database.has('playlistJ').value()) {
       // Si ya existe el valor playlistJ, entonces lo guardamos en el map
       const dbItem = this.database.get('playlistJ').value();
@@ -35,7 +35,8 @@ export class jsonPlaylist extends Gestor {
     } else {
       this.database.set('playlistJ', this.playlists).write();
       this.playlists.forEach((ele) =>{
-        this.itemMap.set(ele.getNombre(), {canciones: ele.getCanciones(), duracion: ele.getDuracion(), generos: ele.getGenerosMusicales()});
+        this.itemMap.set(ele.getNombre(), {canciones: ele.getCanciones(), 
+          duracion: ele.getDuracion(), generos: ele.getGenerosMusicales()});
       });
     }
   }
@@ -46,6 +47,7 @@ export class jsonPlaylist extends Gestor {
   }
 
   removePlaylist():void {
+    console.log(`entrando`);
     super.borrar();
     this.storePlaylist();
   }
@@ -53,7 +55,6 @@ export class jsonPlaylist extends Gestor {
   getAllPlaylist() {
     return this.database;
   }
-
 
   private storePlaylist() {
     this.database.set("playlist", [...this.itemMap.values()]).write();
@@ -108,13 +109,14 @@ export class jsonPlaylist extends Gestor {
 //   .write()
 
 
-const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton', 'trap'], false, 5237187); // pensar cómo agregar las canciones
-const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 15537187); // pensar cómo agregar las canciones
-const newPlay1 = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
-const newPlay2 = new Playlist("pruebaplay4", [cancion]);
+// const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton', 'trap'], false, 5237187); // pensar cómo agregar las canciones
+// const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 15537187); // pensar cómo agregar las canciones
+// const newPlay1 = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
+// const newPlay2 = new Playlist("pruebaplay4", [cancion]);
 
-const newPlay = [newPlay1, newPlay2];
-// eslint-disable-next-line new-cap
-const db = new jsonPlaylist("playlist1", newPlay);
-// console.log(db);
-console.log(JSON.stringify(db));
+// const newPlay = [newPlay1, newPlay2];
+// // eslint-disable-next-line new-cap
+// const db = new jsonPlaylist("playlist1", newPlay);
+// // console.log(db);
+// db.borrar();
+// console.log(JSON.stringify(db));
