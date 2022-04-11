@@ -77,7 +77,6 @@ export class Gestor {
           // });
         }
       });
-      // this.menuUser();
     });
 
     const answers = await inquirer.prompt({
@@ -158,6 +157,9 @@ export class Gestor {
   }
 
   // Arreglar para que funcione correctamente
+  /**
+   * Método que elimina una playlist elegida por el usuario
+   */
   async borrar():Promise<void> {
     console.clear();
     const answersBorrar = await inquirer.prompt([{
@@ -167,8 +169,9 @@ export class Gestor {
     }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
       // console.log(answersBorrar);
       this.playlists.forEach((element) => {
-        if (element.getNombre() == answersBorrar["name"]) {
-          this.playlists.splice(this.playlists.indexOf(answersBorrar.name), 1);
+        if (element.getNombre() == answersBorrar['borrar']) {
+          // comprobar
+          this.playlists.splice(this.playlists.indexOf(answersBorrar.name)); // splice(0, indexOF)? ó push(indexOf)?
         }
       });
     });
