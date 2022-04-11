@@ -1,0 +1,64 @@
+{
+  "playlistJ": [
+    {
+      "nombre": "hola",
+      "cancionesColeccion": [
+        {
+          "nombre": "Cesde mis Ojos",
+          "cantantes": [
+            "Chris Lebron"
+          ],
+          "duracion": 1.8,
+          "generos": [
+            "Reggaeton",
+            "trap"
+          ],
+          "single": false,
+          "numeroReproducciones": 5237187
+        },
+        {
+          "nombre": "Ajos",
+          "cantantes": [
+            "Lebron",
+            "Max"
+          ],
+          "duracion": 2.49,
+          "generos": [
+            "Hip"
+          ],
+          "single": false,
+          "numeroReproducciones": 15537187
+        }
+      ],
+      "duracion": 4.29,
+      "generos": [
+        "Reggaeton",
+        "trap",
+        "Hip"
+      ]
+    },
+    {
+      "nombre": "pruebaplay4",
+      "cancionesColeccion": [
+        {
+          "nombre": "Cesde mis Ojos",
+          "cantantes": [
+            "Chris Lebron"
+          ],
+          "duracion": 1.8,
+          "generos": [
+            "Reggaeton",
+            "trap"
+          ],
+          "single": false,
+          "numeroReproducciones": 5237187
+        }
+      ],
+      "duracion": 1.8,
+      "generos": [
+        "Reggaeton",
+        "trap"
+      ]
+    }
+  ]
+}

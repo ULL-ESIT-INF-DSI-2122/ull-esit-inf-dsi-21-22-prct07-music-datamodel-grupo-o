@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 // import input from '@inquirer/input';
-import {convertToObject, getParsedCommandLineOfConfigFile} from 'typescript';
 // import { Low, JSONFile } from 'lowdb';
 // import { join } from 'path';
 import {Cancion} from './cancion';
@@ -26,11 +25,22 @@ enum Consulta {
   reproducciones = "Visualizar por número de reproducciones totales"
 }
 
+
+type playlistGestor = {
+  canciones: Cancion[],
+  duracion: number,
+  generos: string[],
+}
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-  constructor(protected playlists: Playlist[]) {}
+  protected itemMap = new Map<string, playlistGestor>();
+  constructor(protected playlists: Playlist[]) {
+    this.playlists.forEach((pList) => {
+      this.itemMap.set(pList.getNombre(), {canciones: pList.getCanciones(), duracion: pList.getDuracion(), generos: pList.getGenerosMusicales()});
+    });
+  }
 
   imprimir():void {
     this.playlists.forEach((element) => {
@@ -78,7 +88,6 @@ export class Gestor {
           // });
         }
       });
-      // this.menuUser();
     });
 
     const answers = await inquirer.prompt({
@@ -159,6 +168,9 @@ export class Gestor {
   }
 
   // Arreglar para que funcione correctamente
+  /**
+   * Método que elimina una playlist elegida por el usuario
+   */
   async borrar():Promise<void> {
     console.clear();
     const answersBorrar = await inquirer.prompt([{
@@ -169,7 +181,12 @@ export class Gestor {
       // console.log(answersBorrar);
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersBorrar['borrar']) {
+<<<<<<< HEAD
           this.playlists.splice(this.playlists.indexOf(answersBorrar.name), 1);
+=======
+          // comprobar
+          this.playlists.splice(this.playlists.indexOf(answersBorrar.name)); // splice(0, indexOF)? ó push(indexOf)?
+>>>>>>> 17646d1c111ab2cbb27bcf80e8b9d75ae73c0e67
         }
       });
     });
