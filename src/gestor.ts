@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import inquirer from 'inquirer';
 // import input from '@inquirer/input';
 // import { Low, JSONFile } from 'lowdb';
@@ -36,18 +37,18 @@ type playlistGestor = {
  */
 export class Gestor {
   protected itemMap = new Map<string, playlistGestor>();
-  
+
   constructor(protected playlists: Playlist[]) {
     this.playlists.forEach((pList) => {
-      this.itemMap.set(pList.getNombre(), {canciones: pList.getCanciones(), 
+      this.itemMap.set(pList.getNombre(), {canciones: pList.getCanciones(),
         duracion: pList.getDuracion(), generos: pList.getGenerosMusicales()});
     });
   }
 
   imprimir():void {
-      // this.itemMap.forEach((element) => {
-      //   console.log();
-      // })
+    // this.itemMap.forEach((element) => {
+    //   console.log();
+    // })
     this.playlists.forEach((element) => {
       process.stdout.write(`
         Nombre de la playlist: ${element.getNombre()}`);
@@ -184,8 +185,8 @@ export class Gestor {
     }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
       // console.log(answersBorrar);
       this.playlists.forEach((element) => {
-        if (element.getNombre() == answersBorrar["borrar"]) { 
-          let index = this.playlists.indexOf(element); // guardamos el índice 
+        if (element.getNombre() == answersBorrar["borrar"]) {
+          const index = this.playlists.indexOf(element); // guardamos el índice
           this.playlists.splice(index, 1); // eliminamos
         }
       });
