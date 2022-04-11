@@ -45,11 +45,11 @@ export class Playlist {
      * @returns tiempo en total
      */
   getDuracion():number {
+    this.duracion = 0;
     this.cancionesColeccion.forEach((element) => {
       this.duracion += element.getDuracion();
     });
-
-    return this.duracion;
+    return parseFloat(this.duracion.toFixed(2));
   }
 
   /**

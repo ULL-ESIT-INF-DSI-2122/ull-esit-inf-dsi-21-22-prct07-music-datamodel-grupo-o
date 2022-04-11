@@ -30,8 +30,12 @@
           "numeroReproducciones": 15537187
         }
       ],
-      "duracion": 0,
-      "generos": []
+      "duracion": 4.29,
+      "generos": [
+        "Reggaeton",
+        "trap",
+        "Hip"
+      ]
     },
     {
       "nombre": "pruebaplay4",
@@ -50,8 +54,11 @@
           "numeroReproducciones": 5237187
         }
       ],
-      "duracion": 0,
-      "generos": []
+      "duracion": 1.8,
+      "generos": [
+        "Reggaeton",
+        "trap"
+      ]
     }
   ]
 }

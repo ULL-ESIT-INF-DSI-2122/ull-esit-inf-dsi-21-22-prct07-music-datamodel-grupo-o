@@ -9,30 +9,32 @@ import {Gestor} from './gestor';
 
 import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
+import {idText} from 'typescript';
+
 
 type schemaType = {
-  playlistJson:{
+  playlistJ:{
     nombre: string;
     canciones: Cancion[];
+    // playlist: Playlist;
     duracion: number;
     generos: string[];
   }[];
-};
+}
 
-type schemaType2 = {
-  playlistJ: {
-    nombre: string;
-    canciones: Cancion[];
-    // Playlist: Playlist;
-    duracion: number;
-    generos: string[];
-  }[]
-};
+type MapType = {
+  canciones:Cancion[];
+  // playlist:Playlist;
+  duracion: number;
+  generos:string[];
+}
 
 export class jsonPlaylist extends Gestor {
-  private database: lowdb.LowdbSync<schemaType2>;
-  private playlistMap = new Map<string, Playlist>();
+  private database: lowdb.LowdbSync<schemaType>;
+  private playlistMap = new Map<string, MapType[]>();
+  // private playlistMap = new Map<string, MapType>();
 
+  // private playlistMap = new Map<string, Playlist>();
   constructor(public username:string, playlists: Playlist[]) {
     super(playlists);
 
@@ -41,69 +43,68 @@ export class jsonPlaylist extends Gestor {
     this.database = low(new FileSync('./src/json/Playlist.json'));
     // Comproba que si json esta vacio
     if (this.database.has('playlistJ').value()) {
-      console.log(`check`);
-      const dbItems = this.database.get('playlistJ').value();
-
-      this.playlists.forEach((item) =>{
-        console.log(`${item.getDuracion()}`);
-        item.getDuracion();
+      const dbItem = this.database.get('playlistJ').value();
+      dbItem.forEach((item) =>{
+        this.itemMap.set(item.nombre,
+            {canciones: item.canciones, duracion: item.duracion, generos: item.generos});
       });
-
-      dbItems.forEach((item) => {
-        // console.log(`${(item)}`);
-
-        this.playlistMap.set(
-            item.nombre,
-            new Playlist(item.nombre, item.canciones))});
     } else {
-      // Si no está vacio, escribe directamente.
-      this.database.set('playlistJ', playlists).write();
-      playlists.forEach((item) => this.playlistMap.set(item.getNombre(), item));
+      this.database.set('playlistJ', this.playlists).write();
+      this.playlists.forEach((ele) =>{
+        this.itemMap.set(ele.getNombre(), {canciones: ele.getCanciones(), duracion: ele.getDuracion(), generos: ele.getGenerosMusicales()});
+      });
+      // this.playlists.forEach((item) => {
+      //   this.playlistMap.set(username, );
+      // })
     }
+    // type MapType = {
+    //   canciones:Cancion[];
+    //   // playlist:Playlist;
+    //   duracion: number;
+    //   generos:string[];
+    // }
 
-    // db.defaults().write();
+    // type schemaType = {
+    //   playlistJ:{
+    //     nombre: string;
+    //     canciones: Cancion[];
+    //     duracion: number;
+    //     generos: string[];
+    //   }[];
+    // }
 
-    // this.database = lowdb(adapter);
-    // this.database.defaults({
-    //   userOptions: {
-    //     albumes: [],
-    //     playlist: [],
-    //   },
+
+    // const low = require('lowdb');
+    // const FileSync = require('lowdb/adapters/FileSync');
+    // const adapter = new FileSync('./src/json/Playlist.json');
+    // const db = low(adapter);
+    // console.log(`adapter`);
+    // db.defaults({
+    //   nombre: ' ',
+    //   canciones: [],
+    //   duracion: 0,
+    //   generos: [],
     // }).write();
+
+    // this.playlists.forEach((element) => {
+    //   // Comproba que si json esta vacio
+    //   if (db !== null) {
+    //     console.log(`--------------------------------` + `${element.getNombre()}`);
+    //     db.set('nombre', element.getNombre()).write();
+    //     db.set('canciones', element.getCanciones()).write();
+    //     db.set('duracion', element.getDuracion()).write();
+    //     db.set('geneneros', element.getGenerosMusicales());
+    //     const dbitem = db.get('nombre').value();
+    //     console.log(`es ` + dbitem);
+    //     db.set(dbitem);
+    //     // const item = db.get('nombre').value();
+    //     // console.log(`zheli + ${item}`);
+    //   } else {
+    //   }
+    // });
   }
-
-
-  // exportData(playlists: Playlist[]) {
-  //   const dbcanciones = playlists.forEach((item) => {
-  //     item.getCanciones();
-  //   });
-  //   const dbgeneros = playlists.forEach((item) => {
-  //     item.getGenerosMusicales();
-  //   });
-
-  //   const dbPlaylist: schemaType = [{nombre: '', canciones: dbcanciones, duracion: 0, generos: dbgeneros}];
-  //   playlists.forEach((playlist) => {
-  //     const nombre: string = playlist.getNombre();
-  //     const canciones: Cancion[] = [];
-  //     playlist.getCanciones().forEach((cancion) => {
-  //       canciones.push(cancion);
-  //     });
-  //     const duracion: number = playlist.getDuracion();
-  //     const generos: string[] = [];
-  //     playlist.getGenerosMusicales().forEach((genero) => {
-  //       generos.push(genero);
-  //     });
-
-  //     dbPlaylist.playlistJson.push({
-  //       nombre: nombre,
-  //       canciones: canciones,
-  //       duracion: duracion,
-  //       generos: generos,
-  //     });
-  //   });
-  //   this.database.set('Playlists', dbPlaylist).write();
-  // }
 }
+
 
 // const file = join('../bbdd/canciones.json' ,'canciones.json');
 // let adapter = new JSONFile(file);
@@ -131,4 +132,6 @@ const newPlay2 = new Playlist("pruebaplay4", [cancion]);
 const newPlay = [newPlay1, newPlay2];
 // eslint-disable-next-line new-cap
 const db = new jsonPlaylist("playlist1", newPlay);
+// db.imprimir();
 // console.log(db);
+console.log(JSON.stringify(db));

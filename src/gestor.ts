@@ -25,11 +25,22 @@ enum Consulta {
   reproducciones = "Visualizar por número de reproducciones totales"
 }
 
+
+type playlistGestor = {
+  canciones: Cancion[],
+  duracion: number,
+  generos: string[],
+}
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-  constructor(protected playlists: Playlist[]) {}
+  protected itemMap = new Map<string, playlistGestor>();
+  constructor(protected playlists: Playlist[]) {
+    this.playlists.forEach((pList) => {
+      this.itemMap.set(pList.getNombre(), {canciones: pList.getCanciones(), duracion: pList.getDuracion(), generos: pList.getGenerosMusicales()});
+    });
+  }
 
   imprimir():void {
     this.playlists.forEach((element) => {
