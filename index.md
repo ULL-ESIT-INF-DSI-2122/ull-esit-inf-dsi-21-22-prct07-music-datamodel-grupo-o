@@ -21,7 +21,7 @@ Lenguaje de programción: TypeScipt
 >>  EMAIL:       alu0101225845@ull.edu.es
 >>               alu0101225555@ull.edu.es
 >>               alu0101119137@ull.edu.es
->>               aluxxxxxxxxxx@ull.edu.es
+>>               alu0101351728@ull.edu.es
 >>  UNIVERSIDAD: Universidad de La Laguna
 >>  ASIGNATURA:  Desarrollo de Sistemas informáticos
 >>  VERSION:     0.0.1
@@ -33,10 +33,12 @@ Lenguaje de programción: TypeScipt
 Esta práctica consiste en llevar a cabo un diseño del modelo de datos de un sistema de información que permita almacenar una biblioteca musical. Además, dicho diseño se tendrá que implementar con el lenguaje de programación TypeScript.    
 
 ## 2. Objetivos
-El objetivo de esta práctica es aprender a diseñar e implementar un modelo de datos siguiendo el diseño orientado a objetos. También, se debe aprender a utilizar las herramientas descritas en clase, las cuales son la documentación mediante TypeDoc, las pruebas unitarias del código fuente con Mocha y Chai, siguiendo la metodología TDD o BDD, el uso de Instanbull y Coveralls para el cubrimiento de código, con la integración continua con Github Actions y la comprobación de la calidad del código mediante Sonar Cloud.  
+El objetivo de esta práctica es aprender a diseñar e implementar un modelo de datos siguiendo el diseño orientado a objetos. También, se debe aprender a utilizar las herramientas descritas en clase, las cuales son la documentación mediante TypeDoc, las pruebas unitarias del código fuente con Mocha y Chai, siguiendo la metodología TDD o BDD, el uso de Instanbull y Coveralls para el cubrimiento de código, con la integración continua con Github Actions y la comprobación de la calidad del código mediante Sonar Cloud. Además, se debe aprender el uso de Inquier y Lowdb para gestionar una base de datos por la consola.
 
 ## 3. Biblioteca Musical
-Para llevar a cabo la biblioteca musical
+
+
+
 ##  4. Conclusiones
 
 En esta práctica, he aprendido más cosas que están relacionado con

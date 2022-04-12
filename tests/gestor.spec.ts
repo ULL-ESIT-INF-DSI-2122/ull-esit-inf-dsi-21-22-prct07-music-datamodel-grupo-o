@@ -41,10 +41,10 @@ describe('Tests de la clase Gestor', () => {
     expect(gestor.ordenPlaylist(newPlay, 'reproducciones', 'descendente'));
   });
 
-  // it('Se navega por una playlist específica correctamente', () => {
-  //   expect(gestor.navegar());
+  // it('Se crea una playlist y se añaden canciones correctamente', () => {
+  //   expect(gestor.crear());
   // });  
-  // it('Se navega por una playlist específica correctamente', () => {
-  //   expect(gestor.navegar());
+  // it('Se borra una playlist específica correctamente', () => {
+  //   expect(gestor.borrar());
   // });
 });

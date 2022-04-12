@@ -181,6 +181,7 @@ export class Gestor {
           poderCrear = false;
         }
       });
+      
       if ((answersCrear['addPlaylist'])!== '' && poderCrear) {
         
         const addPlaylistName:string = answersCrear['addPlaylist'];
@@ -191,43 +192,79 @@ export class Gestor {
         const low = require('lowdb');
         const database = low(new FileSync('./src/json/canciones.json'));
         console.log(database.get('canciones').find({nombre: addCancionName}).value());
+        // const d = async () => {
+        //   const answers = inquirer.prompt({
+        //     type: 'list',
+        //     name: 'command',
+        //     message: 'Elige una opción para mostrar canciones',
+        //     // choices: Object.values(Consulta),
+        //     choices: ['si', 'no'],
+        //   });
+        // }
+        // d();
+
+        // const CrearPlaylist = async () => {
+        //   await inquirer.prompt([
+        //     {
+        //       type: 'list',
+        //       name: 'option',
+        //       message: 'Desea agregar más canciones?:',
+        //       choices: ['si', 'no'],
+        //     },
+        //   ]).then(answers => {
+        //     console.info('Answer:', answers.option);
+        //   });
+        // }
         let stop:boolean = false;
-        // while(stop) {
-        //   console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
-        // }
-        const cancionNombre:string = database.get('canciones').find({nombre: addCancionName}).get('nombre').value();
-        const cancionCantantes:string[] = database.get('canciones').find({nombre: addCancionName}).get('cantantes').value();
-        const cancionDuracion:number = database.get('canciones').find({nombre: addCancionName}).get('duracion').value();
-        const cancionGeneros:string[] = database.get('canciones').find({nombre: addCancionName}).get('generos').value();
-        const cancionSingle:boolean = database.get('canciones').find({nombre: addCancionName}).get('single').value();
-        const cancionNumeroReproducciones:number = database.get('canciones').find({nombre: addCancionName}).get('numeroReproducciones').value();
-        const cancionFecha:number = database.get('canciones').find({nombre: addCancionName}).get('fecha').value();
-        
-        console.log(`${cancionNombre}`);
-        console.log(`${cancionCantantes}`);
-        console.log(`${cancionDuracion}`);
-
-        // Consultar la base de datos sobre canciones
-        // Un ejemplo.
-        const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
-        const coleccionCanciones:Cancion[] = [nuevaCancion];
-        this.playlists.push(new Playlist(addPlaylistName, coleccionCanciones));
-
-        // type playlistGestor = {
-        //   canciones: Cancion[],
-        //   duracion: number,
-        //   generos: string[],
-        // }
-
-        // Nueva playlsit (nombre, crear una nuevo objecto de cancion y luego meter en playlist y map);
-        // .find({nombre: addCancionName}).value();
-        this.itemMap.set(addPlaylistName, {canciones: coleccionCanciones, duracion: cancionDuracion, generos: cancionGeneros});
+        while(stop == false) {
+          const cancionNombre:string = database.get('canciones').find({nombre: addCancionName}).get('nombre').value();
+          const cancionCantantes:string[] = database.get('canciones').find({nombre: addCancionName}).get('cantantes').value();
+          const cancionDuracion:number = database.get('canciones').find({nombre: addCancionName}).get('duracion').value();
+          const cancionGeneros:string[] = database.get('canciones').find({nombre: addCancionName}).get('generos').value();
+          const cancionSingle:boolean = database.get('canciones').find({nombre: addCancionName}).get('single').value();
+          const cancionNumeroReproducciones:number = database.get('canciones').find({nombre: addCancionName}).get('numeroReproducciones').value();
+          const cancionFecha:number = database.get('canciones').find({nombre: addCancionName}).get('fecha').value();
+          // console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
+          console.log(`${cancionNombre}`);
+          console.log(`${cancionCantantes}`);
+  
+          // Consultar la base de datos sobre canciones
+          // Un ejemplo.
+          const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
+          const coleccionCanciones:Cancion[] = [nuevaCancion];
+          this.playlists.push(new Playlist(addPlaylistName, coleccionCanciones));
+          this.itemMap.set(addPlaylistName, {canciones: coleccionCanciones, duracion: cancionDuracion, generos: cancionGeneros});
+          // {
+          //   name: 'addPlaylist',
+          //   type: 'input',
+          //   message: 'Introduzca el nombre de playlist que desea crear:',
+          // },
+          console.log(`Desea agregar más opciones?:`);
+          // this.masCanciones();
+          
+          stop = true;
+        }
         
       }
-      this.menuUser();
+      // this.menuUser();
     });
   }
 
+
+  // async masCanciones(): Promise<void> {
+  //   console.clear();
+  //   const masOperacion = await inquirer.prompt([{
+  //       type: 'confirm',
+  //       name: 'option',
+  //       message: 'Elige una opción para mostrar canciones',
+  //       default: false
+  //   }]).then((masOperacion:any) => {
+  //     console.log(`anser` + masOperacion['option']);
+  //     if(masOperacion['option'] == 'si') {
+  //       return true;
+  //     }
+  //   });
+  // }
   /**
    * Método que elimina una playlist elegida por el usuario
    */
@@ -251,12 +288,13 @@ export class Gestor {
       
       const low = require('lowdb');
       const database = low(new FileSync('./src/json/Playlist.json'));
-      const deletePlaylistName:string = answersBorrar['borrar'];
+      const deletePlaylistName: string = answersBorrar['borrar'];
       //console.log(deletePlaylistName);
-      console.log(database.name)
+      ///console.log(database.get('playlistJ').find({nombre: deletePlaylistName}));
       //const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
-      //console.log(found);
-      //console.log(database.get('Playlist').find({nombre: deletePlaylistName}).value());
+      
+      
+      
       
     });
     this.menuUser();
