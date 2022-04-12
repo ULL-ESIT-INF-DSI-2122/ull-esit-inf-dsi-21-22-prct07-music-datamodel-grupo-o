@@ -26,7 +26,7 @@ describe('Tests de la clase Cancion', () => {
     expect(cancion1.getGeneros()).to.be.eql(['Reggaeton']);
   });
   it('Se accede al género musical principal de la cancion correctamente', () => {
-    expect(cancion1.getGenero()).to.be.eql(['Reggaeton']);
+    expect(cancion1.getGenero()).to.be.eql('Reggaeton');
   });
   it('La canción no es un single', () => {
     expect(cancion1.getSingle()).to.be.equal(false);
