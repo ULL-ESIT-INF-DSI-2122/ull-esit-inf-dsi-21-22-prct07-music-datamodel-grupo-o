@@ -52,12 +52,11 @@ type playlistGestor = {
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-
   protected itemMap = new Map<string, playlistGestor>();
 
   /**
    * Constructor de la clase Gestor
-   * @param playlists Array de playlists que contiene todas las playlist de la aplicación 
+   * @param playlists Array de playlists que contiene todas las playlist de la aplicación
    */
   constructor(protected playlists: Playlist[]) {
     this.playlists.forEach((pList) => {
@@ -181,9 +180,8 @@ export class Gestor {
           poderCrear = false;
         }
       });
-      
+
       if ((answersCrear['addPlaylist'])!== '' && poderCrear) {
-        
         const addPlaylistName:string = answersCrear['addPlaylist'];
         const addCancionName:string = answersCrear['cancion'];
         console.log(`llamar canciones.json + ${addCancionName}`);
@@ -216,7 +214,7 @@ export class Gestor {
         //   });
         // }
         let stop:boolean = false;
-        while(stop == false) {
+        while (stop == false) {
           const cancionNombre:string = database.get('canciones').find({nombre: addCancionName}).get('nombre').value();
           const cancionCantantes:string[] = database.get('canciones').find({nombre: addCancionName}).get('cantantes').value();
           const cancionDuracion:number = database.get('canciones').find({nombre: addCancionName}).get('duracion').value();
@@ -227,7 +225,7 @@ export class Gestor {
           // console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
           console.log(`${cancionNombre}`);
           console.log(`${cancionCantantes}`);
-  
+
           // Consultar la base de datos sobre canciones
           // Un ejemplo.
           const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
@@ -241,10 +239,9 @@ export class Gestor {
           // },
           console.log(`Desea agregar más opciones?:`);
           // this.masCanciones();
-          
+
           stop = true;
         }
-        
       }
       // this.menuUser();
     });
@@ -285,17 +282,13 @@ export class Gestor {
       })
       */
       //
-      
-      const low = require('lowdb');
-      const database = low(new FileSync('./src/json/Playlist.json'));
-      const deletePlaylistName: string = answersBorrar['borrar'];
-      //console.log(deletePlaylistName);
-      ///console.log(database.get('playlistJ').find({nombre: deletePlaylistName}));
-      //const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
-      
-      
-      
-      
+
+      // const low = require('lowdb');
+      // const database = low(new FileSync('./src/json/Playlist.json'));
+      // const deletePlaylistName: string = answersBorrar['borrar'];
+      // console.log(deletePlaylistName);
+      // /console.log(database.get('playlistJ').find({nombre: deletePlaylistName}));
+      // const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
     });
     this.menuUser();
   }

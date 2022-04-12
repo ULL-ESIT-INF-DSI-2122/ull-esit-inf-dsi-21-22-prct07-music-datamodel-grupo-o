@@ -1,3 +1,5 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable spaced-comment */
 /* eslint-disable new-cap */
 import {Cancion} from './cancion';
 import {Playlist} from './playlist';
@@ -24,15 +26,14 @@ const main = async () => {
   const database = low(new FileSync('./src/json/canciones.json'));
 
   const show = JSON.stringify(database, null, "\t");
-  //   const show = JSON.stringify(database);
-
   console.log(show);
 
   const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
   // const json = new jsonPlaylist();
   const db = new jsonPlaylist("playlist1", [newPlay, newPlay2, newPlay3, newPlay4]);
+  console.log(`print db`);
+  db.imprimir();
   gestor.menuUser();
-
   // Opciones..
   // Borrar playlist
   /*
