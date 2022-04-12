@@ -46,7 +46,7 @@ La biblioteca musical almacena la información necesaria para poder representar 
 
 ### Documentación TypeDoc  
 Para la documentación de los ejercicios se utilizó la herramienta TypeDoc que convierte los comentarios en el código fuente de TypeScript en documentación HTML renderizada. A continuación, se adjunta el enlace a la página web creada mediante TypeDoc.  
-[Enlace repositorio documentacion Typedoc]()  
+[Enlace repositorio documentacion Typedoc](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-o/tree/main/docs)  
 
 ### Testing  
 Para la realización del testing de los ejercicios se utilizaron las herramientas Mocha y Chai.  
