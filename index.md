@@ -21,7 +21,7 @@ Lenguaje de programción: TypeScipt
 >>  EMAIL:       alu0101225845@ull.edu.es
 >>               alu0101225555@ull.edu.es
 >>               alu0101119137@ull.edu.es
->>               aluxxxxxxxxxx@ull.edu.es
+>>               alu0101351728@ull.edu.es
 >>  UNIVERSIDAD: Universidad de La Laguna
 >>  ASIGNATURA:  Desarrollo de Sistemas informáticos
 >>  VERSION:     0.0.1
@@ -36,7 +36,12 @@ Esta práctica consiste en llevar a cabo un diseño del modelo de datos de un si
 El objetivo de esta práctica es aprender a diseñar e implementar un modelo de datos siguiendo el diseño orientado a objetos. También, se debe aprender a utilizar las herramientas descritas en clase, las cuales son la documentación mediante TypeDoc, las pruebas unitarias del código fuente con Mocha y Chai, siguiendo la metodología TDD o BDD, el uso de Instanbull y Coveralls para el cubrimiento de código, con la integración continua con Github Actions y la comprobación de la calidad del código mediante Sonar Cloud.  
 
 ## 3. Biblioteca Musical
-Para llevar a cabo la biblioteca musical
+La biblioteca musical almacena la información necesaria para poder representar playlists y canciones, además de reprensentar el género musical, los artitas, los grupos y albumes de ambas. También se encarga de manejar las playlists para que el usuario de la biblioteca pueda ver todos los datos almacenados dentro de ella, así como modificar, añadir y eliminar canciones y playlists.  En primer lugar, para realizar la representación de los datos, se creó una clase para cada tipo de datos a almacenar, las cuales se van a comentar a continuación.  
+- **Clase Genero Musical**: esta clase es la encargada de representar un género musical, los atributos que permiten la representación de dicha clase son el nombre del género musical, un array con todos los grupos o artitas que producen música de ese género, un array con los álbumes que hay relacionados con ese género y un array con todas las canciones que tienen ese género musical.  Los métodos implementados en esta clase son todos métodos que permiten acceder a cada atributo (getters) debido a que todos los atributos son privados en la clase.  
+- **Clase Cancion**: esta clase es la encargada de representar una canción, los atributos que permiten la representación de dicha clase son el nombre de la canción, el autor, la duración, los géneros musicales que tiene dicha canción, un atributo que dice si la canción es un single o no, el número de reproducciones totales y la fecha de lanzamiento de la canción. Los métodos implementados en esta clase son los métodos que permiten acceder a cada atributo (getters) debido a que todos los atributos son privados en la clase y también se implementó un único método que modifica el número de reproducciones (setter) ya que es el único atributo que puede cambiar.  
+- **Clase Álbum**: esta clase es la encargada de representar un álbum, los atributos que permiten la representación de dicha clase son el nombre del álbum, el nombre del grupo o artista que lo publicó, el año de publicación, un array con los géneros musicales que lo componen y un array con todas las canciones que perteneces al album. Los métodos implementados en esta clase son los métodos que permiten acceder a cada atributo (getters) debido a que todos los atributos son privados en la clase. También se implementó un método que añade canciones nuevas, otro método que añade los géneros de una canción y por último, otro método que añade todos los géneros de todas las canciones al album.  
+- **Clase Grupos**: esta clase es la encargada de representar un grupo musical, los atributos que permiten la representación de dicha clase son el nombre del grupo, un array con todos los artistas que forman el grupo, el año de creación, un array con los géneros musicales que produce el grupo, un array con todos los álbumes en los que ha participado, otro array con todas las canciones publicadas por ese grupo y la cantidad de oyentes mensuales.  
+
 ##  4. Conclusiones
 
 En esta práctica, he aprendido más cosas que están relacionado con
