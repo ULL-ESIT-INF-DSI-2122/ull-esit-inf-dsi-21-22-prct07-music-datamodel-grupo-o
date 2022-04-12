@@ -3,10 +3,9 @@ import {expect} from 'chai';
 import {Cancion} from '../src/cancion';
 
 describe('Tests de la clase Cancion', () => {
-  const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187);
-  // const cancion2 = new Cancion('Lágrimas desordenadas', 'Melendi', 3.49, ['Pop rock'], false, 41559577);
+  const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187, 2022);
   it('Se crea correctamente la clase', () => {
-    expect(new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], true, 5237187));
+    expect(new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], true, 5237187, 2022));
   });
   it('Se accede al nombre de la cancion correctamente', () => {
     expect(cancion1.getNombre()).to.be.equal('Desde mis Ojos');
@@ -16,6 +15,9 @@ describe('Tests de la clase Cancion', () => {
   });
   it('Se accede a los cantantes de la cancion correctamente', () => {
     expect(cancion1.getCantantes()).to.be.eql(['Chris Lebron']);
+  });
+  it('Se accede a la fecha de lanzamiento de la cancion correctamente', () => {
+    expect(cancion1.getFecha()).to.be.eql(2022);
   });
   it('Se accede a la duracion de la cancion correctamente', () => {
     expect(cancion1.getDuracion()).to.be.equal(2.49);

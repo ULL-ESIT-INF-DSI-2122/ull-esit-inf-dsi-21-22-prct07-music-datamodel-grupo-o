@@ -1,6 +1,5 @@
 import {Cancion} from "./cancion";
 
-// steph
 /**
  * Implementación clase álbum para almacenar todos los álbumes de la
  * Colección
@@ -8,6 +7,12 @@ import {Cancion} from "./cancion";
 export class Album {
   private artista:string;
   private generos:string[] = [];
+  /**
+   * Constructor de la clase Album
+   * @param nombre Nombre del album
+   * @param year Año del album
+   * @param canciones Array de canciones que contiene el album
+   */
   constructor(private nombre:string,
       private year:number, private canciones:Cancion[]) {
     this.artista = canciones[0].getAutor();

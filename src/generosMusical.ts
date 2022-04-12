@@ -1,9 +1,7 @@
 import {Album} from "./album";
 import {Artistas} from "./artistas";
 import {Cancion} from "./cancion";
-// import { Libreria } from "./Libreria";
 
-// Noe
 export class GenerosMusicales {
   /**
      * Constructor

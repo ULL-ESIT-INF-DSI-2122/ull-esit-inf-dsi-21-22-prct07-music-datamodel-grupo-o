@@ -8,16 +8,18 @@ export class Playlist {
      * _Constructor de la clase Playlist, una lista de produccion_
      * @param nombre nombre de Playlist
      * @param canciones canciones que contiene un Playlist
+     * @param duracion duración total de la playlist
+     * @param generos generos que tiene la playlist
      */
   private duracion: number = 0;
   private generos: string[] = [];
   constructor(private nombre:string, private cancionesColeccion:Cancion[]) {
-    // Nombre de la playlist.
-    // Canciones incluidas dentro de la playlist.
-    // Duración en horas y minutos.         //private duracion:number,
-    // Género(s) musicales que se incluyen dentro de la playlist.
   }
 
+  /**
+   * Método que añade canciones a la playlist
+   * @param newCancion Canción nueva que se quiere añadir
+   */
   addCanciones(newCancion:Cancion):void {
     this.cancionesColeccion.push(newCancion);
   }
@@ -67,7 +69,6 @@ export class Playlist {
     const dataArr = new Set(this.generos);
     this.generos = [...dataArr];
 
-    // console.log(this.generos);
     return this.generos;
   }
 }

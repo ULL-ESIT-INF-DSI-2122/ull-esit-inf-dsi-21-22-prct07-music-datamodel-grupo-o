@@ -2,9 +2,6 @@ import {Album} from "./album";
 import {Cancion} from "./cancion";
 import {Grupos} from "./grupos";
 
-// import { Libreria } from "./Libreria";
-
-// Noe
 /**
  * Clase Artista para identificar artistas que forman parte de grupos y además tienen carreras en solitario o que están en varios grupos.
  */

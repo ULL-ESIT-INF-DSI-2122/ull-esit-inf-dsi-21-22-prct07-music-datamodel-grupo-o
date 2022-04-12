@@ -6,8 +6,8 @@ import {Album} from '../src/album';
 import {Cancion} from '../src/cancion';
 
 describe('Test de la clase Grupos', () => {
-  const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329);
-  const cancion2 = new Cancion('Zapatillas', ['Dani Martin'], 2.52, ['rock en español'], false, 46992557);
+  const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329, 2021);
+  const cancion2 = new Cancion('Zapatillas', ['Dani Martin'], 2.52, ['rock en español'], false, 46992557, 2005);
   const album1 = new Album('Pequeño', 2010, [cancion1]);
   const album2 = new Album('Zapatillas', 2005, [cancion2]);
 

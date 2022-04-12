@@ -6,8 +6,8 @@ import {Cancion} from "../src/cancion";
 import {Album} from "../src/album";
 import {Grupos} from "../src/grupos";
 
-const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329);
-const cancion2 = new Cancion('Una foto en blanco y negro', ['David Otero'], 2.52, ['pop rock'], false, 46992557);
+const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329, 2010);
+const cancion2 = new Cancion('Una foto en blanco y negro', ['David Otero'], 2.52, ['pop rock'], false, 46992557, 2003);
 const album1 = new Album('Pequeño', 2010, [cancion1]);
 const album2 = new Album('Otero y yo', 2020, [cancion2]);
 
@@ -22,6 +22,10 @@ describe('Test para la clase Artista', () => {
 
   it("Test nombre del artista", () => {
     expect(artista1.getNombreArtista()).to.be.equal('Dani Martin');
+  });
+
+  it("Test grupos del artista", () => {
+    expect(artista1.getGruposArtista()).to.be.equal(undefined);
   });
 
   it("Test género del artista", () => {
@@ -39,9 +43,4 @@ describe('Test para la clase Artista', () => {
   it("Test oyentes mensuales del artista", () => {
     expect(artista1.getOyentesArtista()).to.be.equal(3105602);
   });
-
-  // corregir
-  /* it("Test grupos del artista artista", () => {
-        expect(artista1.getGruposArtista()).to.be.eql([grupo1]);
-    });*/
 });

@@ -1,7 +1,6 @@
 import {Artistas} from './artistas';
 import {Album} from './album';
 
-// Andrea
 /**
  * Implementación de la clase Grupos que contiene toda la información asociada a un grupo musical
  */

@@ -3,12 +3,20 @@ import inquirer from 'inquirer';
 // import input from '@inquirer/input';
 // import { Low, JSONFile } from 'lowdb';
 // import { join } from 'path';
+import lowdb from 'lowdb';
+import FileSync from 'lowdb/adapters/FileSync';
 import {Cancion} from './cancion';
-
 import {Playlist} from "./playlist";
 
+/**
+ * Variable global que almanacena una playlist específica
+ */
 let myPlaylist: Playlist = new Playlist('', []);
 
+/**
+ * Enumeración de las opciones del menú para realizar sobre las playlists
+ * @enum
+ */
 enum Commands {
   visualizar = "Visualizar todas las playlist",
   navegar = "Navegar una playlist",
@@ -17,6 +25,10 @@ enum Commands {
   salir = "Salir del programa"
 }
 
+/**
+ * Enumeración de las opciones del menú para realizar sobre las canciones de una playlist
+ * @enum
+ */
 enum Consulta {
   titulo = "Visualizar por título de la canción",
   nombre = "Visualizar por nombre del grupo/artista",
@@ -26,18 +38,27 @@ enum Consulta {
   reproducciones = "Visualizar por número de reproducciones totales"
 }
 
-
+/**
+ * @type {playlistGestor} Tipo de datos de una playlist
+ */
 type playlistGestor = {
   canciones: Cancion[],
   duracion: number,
   generos: string[],
 }
+
+
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
+
   protected itemMap = new Map<string, playlistGestor>();
 
+  /**
+   * Constructor de la clase Gestor
+   * @param playlists Array de playlists que contiene todas las playlist de la aplicación 
+   */
   constructor(protected playlists: Playlist[]) {
     this.playlists.forEach((pList) => {
       this.itemMap.set(pList.getNombre(), {canciones: pList.getCanciones(),
@@ -45,6 +66,9 @@ export class Gestor {
     });
   }
 
+  /**
+   * Método que muestra todas las playlist
+   */
   imprimir():void {
     // this.itemMap.forEach((element) => {
     //   console.log();
@@ -64,7 +88,7 @@ export class Gestor {
 
 
   /**
-   * Método que visualiza todas las playlist según el nombre, el género o la duración
+   * Método que visualiza las playlist existentes
    */
   async visualizar():Promise<void> {
     console.clear();
@@ -82,27 +106,20 @@ export class Gestor {
       name: 'nombre',
       type: 'input',
       message: 'Elija el nombre de una playlist existente: ',
-    }]).then((answersNavegar: any) => { // se añadió :any -> ¿sería correcta la declaración?
+    }]).then((answersNavegar: any) => {
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersNavegar["nombre"]) {
-          // console.log(`answer1 = ${answers1["nombre"]}`);
-          // console.log(`element = ${element.getNombre()}`);
           console.log(`Playlist Name: ${element.getNombre()}`);
           myPlaylist = element;
-          // element.getCanciones().forEach((cancion, index) => {
-          //   console.log(`   [${index}]` + `:` + cancion.getNombre());
-          // });
         }
       });
     });
-
     const answers = await inquirer.prompt({
       type: 'list',
       name: 'command',
       message: 'Elige una opción para mostrar canciones',
       choices: Object.values(Consulta),
     });
-
     const orden = await inquirer.prompt({
       type: 'list',
       name: 'option',
@@ -120,7 +137,7 @@ export class Gestor {
         break;
 
       case Consulta.year:
-        // this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
+        this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
 
       case Consulta.duracion:
@@ -135,15 +152,17 @@ export class Gestor {
         this.ordenPlaylist(myPlaylist, answers['command'], orden['option']);
         break;
     }
-
     this.menuUser();
   }
 
+  /**
+   * Método que crea una playlist y le añade canciones
+   */
   async crear():Promise<void> {
     console.clear();
     const answersCrear = await inquirer.prompt([
       {
-        name: 'addNombre',
+        name: 'addPlaylist',
         type: 'input',
         message: 'Introduzca el nombre de playlist que desea crear:',
       },
@@ -157,17 +176,53 @@ export class Gestor {
       // console.log(answersCrear['cancion']);
       let poderCrear: boolean = true;
       this.playlists.forEach((element) => {
-        if (element.getNombre() == answersCrear['addNombre']) {
+        if (element.getNombre() == answersCrear['addPlaylist']) {
           console.log(`No puedes crear una playlist con el mismo nombre`);
           poderCrear = false;
         }
       });
-      if ((answersCrear['addNombre'])!== '' && poderCrear) {
+      if ((answersCrear['addPlaylist'])!== '' && poderCrear) {
+        
+        const addPlaylistName:string = answersCrear['addPlaylist'];
+        const addCancionName:string = answersCrear['cancion'];
+        console.log(`llamar canciones.json + ${addCancionName}`);
+        console.log(`nuevoplaylist + ${addPlaylistName}`);
+
+        const low = require('lowdb');
+        const database = low(new FileSync('./src/json/canciones.json'));
+        console.log(database.get('canciones').find({nombre: addCancionName}).value());
+        let stop:boolean = false;
+        // while(stop) {
+        //   console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
+        // }
+        const cancionNombre:string = database.get('canciones').find({nombre: addCancionName}).get('nombre').value();
+        const cancionCantantes:string[] = database.get('canciones').find({nombre: addCancionName}).get('cantantes').value();
+        const cancionDuracion:number = database.get('canciones').find({nombre: addCancionName}).get('duracion').value();
+        const cancionGeneros:string[] = database.get('canciones').find({nombre: addCancionName}).get('generos').value();
+        const cancionSingle:boolean = database.get('canciones').find({nombre: addCancionName}).get('single').value();
+        const cancionNumeroReproducciones:number = database.get('canciones').find({nombre: addCancionName}).get('numeroReproducciones').value();
+        const cancionFecha:number = database.get('canciones').find({nombre: addCancionName}).get('fecha').value();
+        
+        console.log(`${cancionNombre}`);
+        console.log(`${cancionCantantes}`);
+        console.log(`${cancionDuracion}`);
+
         // Consultar la base de datos sobre canciones
         // Un ejemplo.
-        const nuevaCancion = new Cancion(answersCrear['cancion'], ['Coldplay', 'BTS'], 3.48, ['k-pop', 'dance-pop'], false, 2458793);
-        const coleccionCanciones = [nuevaCancion];
-        this.playlists.push(new Playlist(answersCrear['addNombre'], coleccionCanciones));
+        const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
+        const coleccionCanciones:Cancion[] = [nuevaCancion];
+        this.playlists.push(new Playlist(addPlaylistName, coleccionCanciones));
+
+        // type playlistGestor = {
+        //   canciones: Cancion[],
+        //   duracion: number,
+        //   generos: string[],
+        // }
+
+        // Nueva playlsit (nombre, crear una nuevo objecto de cancion y luego meter en playlist y map);
+        // .find({nombre: addCancionName}).value();
+        this.itemMap.set(addPlaylistName, {canciones: coleccionCanciones, duracion: cancionDuracion, generos: cancionGeneros});
+        
       }
       this.menuUser();
     });
@@ -184,14 +239,26 @@ export class Gestor {
       message: 'Introduzca el nombre de la playlist que desea borrar: ',
     }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
       // console.log(answersBorrar);
+      /* Esto funciona pero no guarda los cambios en JSON
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersBorrar["borrar"]) {
           const index = this.playlists.indexOf(element); // guardamos el índice
           this.playlists.splice(index, 1); // eliminamos
         }
-      });
+      })
+      */
+      //
+      
+      const low = require('lowdb');
+      const database = low(new FileSync('./src/json/Playlist.json'));
+      const deletePlaylistName:string = answersBorrar['borrar'];
+      //console.log(deletePlaylistName);
+      console.log(database.name)
+      //const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
+      //console.log(found);
+      //console.log(database.get('Playlist').find({nombre: deletePlaylistName}).value());
+      
     });
-    // hacer algo
     this.menuUser();
   }
 
@@ -226,6 +293,7 @@ export class Gestor {
 
       case Commands.salir:
         console.log(`Salir del programa`);
+        process.exit();
         break;
     }
   }
@@ -281,14 +349,14 @@ export class Gestor {
         }
         break;
 
-      // case Consulta.year:
-      //   if (orden == 'ascendente') {
-      //     console.log(`prueba`);
-      //     console.log(playlist.getCanciones().sort(((a, b) => b.() - a.getDuracion())));
-      //   } else {
-      //     console.log(playlist.getCanciones().sort(((a, b) => a.getDuracion() - b.getDuracion())));
-      //   }
-      //   break;
+      case Consulta.year:
+        if (orden == 'ascendente') {
+          console.log(playlist.getCanciones().sort(((a, b) => b.getFecha() - a.getFecha())));
+        } else {
+          console.log(playlist.getCanciones().sort(((a, b) => a.getFecha() - b.getFecha())));
+        }
+        break;
+
       case Consulta.duracion:
         if (orden == 'ascendente') {
           console.log(playlist.getCanciones().sort(((a, b) => b.getDuracion() - a.getDuracion())));
@@ -342,9 +410,6 @@ export class Gestor {
 // const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
 // gestor.menuUser();
 
-// Andrea
-// 2. Navegar por una playlist. Visualizar y decidir el orden:
-// -Año lanzamiento
 
 // steph
 // 3. Crear una nueva playlist

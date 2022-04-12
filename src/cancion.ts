@@ -1,10 +1,9 @@
-// Andrea
 /**
  * Implementación de la clase cancion para almacenar todas las canciones
  */
 export class Cancion {
   constructor(private nombre:string, private cantantes:string[], private duracion:number,
-    private generos: string[], private single:boolean, private numeroReproducciones:number) {
+    private generos: string[], private single:boolean, private numeroReproducciones:number, private fecha: number) {
   }
 
   /**
@@ -69,6 +68,13 @@ export class Cancion {
    */
   getNumeroReproducciones(): number {
     return this.numeroReproducciones;
+  }
+
+  /**
+   * Función que devuelve el año de lanazamiento de una canción
+   */
+  getFecha(): number {
+    return this.fecha;
   }
 
   /**

@@ -4,7 +4,9 @@ import {Gestor} from './gestor';
 import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 
-
+/**
+ * @type {schemaType} Tipo de datos de un array de playlists
+ */
 type schemaType = {
   playlistJ:{
     nombre: string;
@@ -14,10 +16,16 @@ type schemaType = {
   }[];
 }
 
+/**
+ * Clase jsonPlaylist que extiende de Gestor
+ */
 export class jsonPlaylist extends Gestor {
-  // Crear base de datos
   private database: lowdb.LowdbSync<schemaType>;
-
+  /**
+   * Constructor de la clase
+   * @param username Nombre del usuario que utiliza la aplicación
+   * @param playlists Array de todas las playlists de la aplicación
+   */
   constructor(public username:string, playlists: Playlist[]) {
     super(playlists);
 
@@ -57,19 +65,6 @@ export class jsonPlaylist extends Gestor {
   }
 
   private storePlaylist() {
-    this.database.set("playlist", [...this.itemMap.values()]).write();
+    this.database.set("playlistJ", [...this.itemMap.values()]).write();
   }
 }
-
-
-// const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton', 'trap'], false, 5237187); // pensar cómo agregar las canciones
-// const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 15537187); // pensar cómo agregar las canciones
-// const newPlay1 = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
-// const newPlay2 = new Playlist("pruebaplay4", [cancion]);
-
-// const newPlay = [newPlay1, newPlay2];
-// // eslint-disable-next-line new-cap
-// const db = new jsonPlaylist("playlist1", newPlay);
-// // console.log(db);
-// db.borrar();
-// console.log(JSON.stringify(db));

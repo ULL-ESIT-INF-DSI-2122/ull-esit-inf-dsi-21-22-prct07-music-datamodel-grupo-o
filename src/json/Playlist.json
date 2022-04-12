@@ -115,34 +115,5 @@
         "Hip"
       ]
     }
-  ],
-  "playlist": [
-    {
-      "duracion": 4.29,
-      "generos": [
-        "Reggaeton",
-        "trap",
-        "Hip"
-      ]
-    },
-    {
-      "duracion": 2.49,
-      "generos": [
-        "Hip"
-      ]
-    },
-    {
-      "duracion": 4.98,
-      "generos": [
-        "Reggaeton",
-        "Hip"
-      ]
-    },
-    {
-      "duracion": 2.49,
-      "generos": [
-        "Hip"
-      ]
-    }
   ]
 }
