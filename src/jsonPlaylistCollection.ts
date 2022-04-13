@@ -1,6 +1,6 @@
 import {Cancion} from './cancion';
 import {Playlist} from './playlist';
-import {Gestor} from './gestor';
+import {PlaylistCollection} from './gestor';
 import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 
@@ -19,7 +19,7 @@ type schemaType = {
 /**
  * Clase jsonPlaylist que extiende de Gestor
  */
-export class jsonPlaylist extends Gestor {
+export class jsonPlaylist extends PlaylistCollection {
   private database: lowdb.LowdbSync<schemaType>;
   /**
    * Constructor de la clase
