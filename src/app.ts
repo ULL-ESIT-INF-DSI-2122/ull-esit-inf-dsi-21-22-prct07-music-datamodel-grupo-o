@@ -643,7 +643,38 @@ export class App {
 
 
   // Noelia
-  borraArtista() {}
+  borraArtista() {
+    console.log(`=====================Proceso de Eliminar Artista=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'artistaEliminar',
+        message: 'Qué artista desea eliminar:',
+      },
+    ]).then((answers) =>{
+      const artistaEliminar:string = answers['artistaEliminar'];
+      console.log(JSON.stringify(this.database.get('artistas').find({nombre: artistaEliminar}).value()));
+      if (this.database.get('artistas').find({nombre: artistaEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar eliminar el artista`);
+        this.database.get('artistas').remove({nombre: artistaEliminar}).write();
+      } else {
+        console.log(`No existe dicho artista`);
+        this.borraArtista();
+      }
+      console.log(`eliminar artista + ` + answers['artistaEliminar']);
+      console.log('Successfully eliminar artista');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: '¿Quieres eliminar otro artista?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borraArtista();
+        else this.userMenu();
+      });
+    });
+  }
+
   borrarGenero() {
     console.log(`=====================Proceso de Eliminar Genero=================`);
   }
