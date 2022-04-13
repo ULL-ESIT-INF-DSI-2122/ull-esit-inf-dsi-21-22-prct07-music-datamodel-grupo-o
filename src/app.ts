@@ -127,22 +127,23 @@ export class App {
                         switch (option['orden']) {
                           case 'ascendente':
                             // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('year').value(), null, '\t'));
                           break;
 
                           case 'descendente':
-
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('year').reverse().value(), null, '\t'));
                           break;
                         }
                       break;
                       
-                      case 'Según artista':
+                      case 'Según artista': //comprobar
                         switch (option['orden']) {
                           case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('artista').value(), null, '\t'));
                           break;
 
                           case 'descendente':
-
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('artista').reverse().value(), null, '\t'));
                           break;
                         }
                       break;
@@ -164,19 +165,150 @@ export class App {
               break;
 
             case 'canciones':
-              console.log(JSON.stringify(this.database.get('canciones').values(), null, "\t"));
+              //Ordenadas según:
+              //Nombre
+              //Fecha
+              //Nº de reproducciones
+              //console.log(JSON.stringify(this.database.get('canciones').values(), null, "\t"));
+
               inquirer.prompt([
                 {
                   type: 'list',
-                  name: 'continue',
-                  message: 'Desea hacer otra operacion canciones?:',
-                  choices: ['Yes', 'No'],
-                },
+                  name: 'visualizar',
+                  message: 'De qué manera deseas visualizar canciones?:',
+                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según numero de reproducciones'],
+                }, 
               ]).then((answers) => {
-                if (answers['continue'] == 'Yes') this.operacion('canciones');
-                else this.userMenu();
+                if (answers['visualizar'] !== 'Normal') {
+                  inquirer.prompt([
+                    {
+                      type: 'list',
+                      name: 'orden',
+                      message: 'ascendente o descendente:',
+                      choices: ['ascendente', 'descendente'],        
+                    },
+                  ]).then((option) => {
+                    switch (answers['visualizar']) {
+                      case 'Según nombre':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').value(), null, '\t'));
+                            break;
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').reverse().value(), null, '\t'));
+                            break;
+                        }
+                      break;
+                      
+                      case 'Según año de lanzamiento':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('fecha').value(), null, '\t'));
+                          break;
+
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('fecha').reverse().value(), null, '\t'));
+                          break;
+                        }
+                      break;
+                      
+                      case 'Según numero de reproducciones': 
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').value(), null, '\t'));
+                          break;
+
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').reverse().value(), null, '\t'));
+                          break;
+                        }
+                      break;
+                    }
+                    inquirer.prompt([
+                      {
+                        type: 'list',
+                        name: 'continue',
+                        message: 'Desea hacer otra operacion canciones?:',
+                        choices: ['Yes', 'No'],
+                      },
+                    ]).then((answers) => {
+                      if (answers['continue'] == 'Yes') this.operacion('canciones');
+                      else this.userMenu();
+                    });
+                  });
+                }
               });
               break;
+              /*
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'visualizar',
+                  message: 'De qué manera deseas visualizar canciones?:',
+                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según numero de reproducciones'],
+                }, 
+              ]).then((answers) => {
+                if (answers['visualizar'] !== 'Normal') {
+                  inquirer.prompt([
+                    {
+                      type: 'list',
+                      name: 'orden',
+                      message: 'ascendente o descendente:',
+                      choices: ['ascendente', 'descendente'],        
+                    },
+                  ]).then((option) => {
+                    switch (answers['visualizar']) {
+                      case 'Según nombre':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').value(), null, '\t'));
+                            break;
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').reverse().value(), null, '\t'));
+                            break;
+                        }
+                      break;
+                      
+                      case 'Según año de lanzamiento':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('year').value(), null, '\t'));
+                          break;
+
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('year').reverse().value(), null, '\t'));
+                          break;
+                        }
+                      break;
+                      
+                      case 'Según numero de reproducciones': //comprobar
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').value(), null, '\t'));
+                          break;
+
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').reverse().value(), null, '\t'));
+                          break;
+                        }
+                      break;
+
+                    inquirer.prompt([
+                      {
+                        type: 'list',
+                        name: 'continue',
+                        message: 'Desea hacer otra operacion canciones?:',
+                        choices: ['Yes', 'No'],
+                      },
+                    ]).then((answers) => {
+                      if (answers['continue'] == 'Yes') this.operacion('canciones');
+                      else this.userMenu();
+                    });
+                    break;*/
 
             case 'generos':
               console.log(JSON.stringify(this.database.get('generos').values(), null, "\t"));
