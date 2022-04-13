@@ -641,8 +641,6 @@ export class App {
     });
   }
 
-
-  // Noelia
   borraArtista() {
     console.log(`=====================Proceso de Eliminar Artista=================`);
     inquirer.prompt([
@@ -676,7 +674,35 @@ export class App {
   }
 
   borrarGenero() {
-    console.log(`=====================Proceso de Eliminar Genero=================`);
+    console.log(`=====================Proceso de Eliminar Género=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'generoEliminar',
+        message: 'Qué género desea eliminar:',
+      },
+    ]).then((answers) =>{
+      const generoEliminar:string = answers['generoEliminar'];
+      console.log(JSON.stringify(this.database.get('generosMusical').find({nombre: generoEliminar}).value()));
+      if (this.database.get('generosMusical').find({nombre: generoEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar eliminar el género`);
+        this.database.get('generosMusical').remove({nombre: generoEliminar}).write();
+      } else {
+        console.log(`No existe dicho género`);
+        this.borrarGenero();
+      }
+      console.log(`eliminar género + ` + answers['generoEliminar']);
+      console.log('Successfully eliminar género');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: '¿Quieres eliminar otro género?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarGenero();
+        else this.userMenu();
+      });
+    });
   }
 
 
