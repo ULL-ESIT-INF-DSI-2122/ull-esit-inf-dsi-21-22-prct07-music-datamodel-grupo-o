@@ -120,19 +120,23 @@ export class App {
               break;
 
             case 'canciones':
-              this.addAlbum();
+              this.addCancion();
               break;
 
             case 'generos':
-              this.addAlbum();
+              this.addGenero();
               break;
 
             case 'grupos':
-              this.addAlbum();
+              this.addGrupo();
+              break;
+
+            case 'artistas':
+              this.addArtista();
               break;
 
             case 'playlist':
-              this.addAlbum();
+              // Operacion concreta con playlist llamando a la clase gestor
               break;
             
           }
