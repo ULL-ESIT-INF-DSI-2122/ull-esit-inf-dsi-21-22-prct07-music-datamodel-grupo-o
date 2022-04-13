@@ -136,7 +136,7 @@ export class App {
                         }
                       break;
                       
-                      case 'Según artista': //comprobar
+                      case 'Según artista':
                         switch (option['orden']) {
                           case 'ascendente':
                             console.log(JSON.stringify(this.database.get('albumes').sortBy('artista').value(), null, '\t'));
@@ -165,12 +165,6 @@ export class App {
               break;
 
             case 'canciones':
-              //Ordenadas según:
-              //Nombre
-              //Fecha
-              //Nº de reproducciones
-              //console.log(JSON.stringify(this.database.get('canciones').values(), null, "\t"));
-
               inquirer.prompt([
                 {
                   type: 'list',

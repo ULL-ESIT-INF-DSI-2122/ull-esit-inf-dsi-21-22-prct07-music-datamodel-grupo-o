@@ -85,9 +85,9 @@ En el método `borrar()`, igual que el método anterior, usando **inquirer** par
 En el método `Modificar()`, usamos **inquirer** preguntamos qué **(album, cancion, genero, artista, grupo)** desea cambiar el dato.
 **por ejemplo en le caso de album**: 
 `this.database.get('albumes').find({nombre: albumMoficar}).set(tipoDatoMoficar, dataMoficar).write();`
-`get()` para acceder objetos que están dentro de **albumnes**.
-`find()` para encontrar el objeto con el nombre introducido.
-`set()` para modificar el datos que desea cambiar el usuario.
+`get()` para acceder **albumnes**, 
+`find()` para encontrar el objeto con el nombre introducido
+`set()` para modificar el datos que desea cambiar el usuario
 `write()` para guardar el cambio.
 
 
