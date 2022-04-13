@@ -524,7 +524,41 @@ export class App {
   }
 
   
-  borrarCancion() {}
+  borrarCancion() {
+    console.log(`=====================Proceso de Eliminar Cancion=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'albumEliminar',
+        message: 'Qué album deseas eliminar:',
+      },
+    ]).then((answers) =>{
+      const albumEliminar:string = answers['albumEliminar'];
+      console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumEliminar}).value()));
+      if (this.database.get('albumes').find({nombre: albumEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar album`);
+
+        this.database.get('albumes').remove({nombre: albumEliminar}).write();
+
+      } else {
+        console.log(`No existe dicho album`);
+        this.borrarAlbum();
+      }
+      console.log(`eliminar album + ` + answers['albumMoficar']);
+      // this.database.get('albumes')
+
+      console.log('Successfully eliminar album');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres eliminar otro album?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarAlbum();
+        else this.userMenu();
+      });
+    });
+  }
   borrarGrupo() {}
 
 
