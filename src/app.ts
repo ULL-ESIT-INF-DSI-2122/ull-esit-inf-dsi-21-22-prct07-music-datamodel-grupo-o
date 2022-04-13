@@ -507,8 +507,7 @@ export class App {
         console.log(`No existe dicho album`);
         this.borrarAlbum();
       }
-      console.log(`eliminar album + ` + answers['albumMoficar']);
-      // this.database.get('albumes')
+      console.log(`eliminar album + ` + answers['albumEliminar']); 
 
       console.log('Successfully eliminar album');
       inquirer.prompt([{
@@ -529,37 +528,63 @@ export class App {
     inquirer.prompt([
       {
         type: 'input',
-        name: 'albumEliminar',
-        message: 'Qué album deseas eliminar:',
+        name: 'cancionEliminar',
+        message: 'Qué Canción desea eliminar:',
       },
     ]).then((answers) =>{
-      const albumEliminar:string = answers['albumEliminar'];
-      console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumEliminar}).value()));
-      if (this.database.get('albumes').find({nombre: albumEliminar}).value() !== undefined) {
-        console.log(`Voy a borrar album`);
-
-        this.database.get('albumes').remove({nombre: albumEliminar}).write();
-
+      const cancionEliminar:string = answers['cancionEliminar'];
+      console.log(JSON.stringify(this.database.get('canciones').find({nombre: cancionEliminar}).value()));
+      if (this.database.get('canciones').find({nombre: cancionEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar eliminar la canción`);
+        this.database.get('canciones').remove({nombre: cancionEliminar}).write();
       } else {
-        console.log(`No existe dicho album`);
-        this.borrarAlbum();
+        console.log(`No existe dicha canción`);
+        this.borrarCancion();
       }
-      console.log(`eliminar album + ` + answers['albumMoficar']);
-      // this.database.get('albumes')
-
-      console.log('Successfully eliminar album');
+      console.log(`eliminar cancion + ` + answers['cancionEliminar']);
+      console.log('Successfully eliminar cancion');
       inquirer.prompt([{
         type: 'list',
         name: 'continue',
-        message: 'Quieres eliminar otro album?:',
+        message: 'Quieres eliminar otra canción?:',
         choices: ['Yes', 'No'],
       }]).then((answers) => {
-        if (answers['continue'] == 'Yes') this.borrarAlbum();
+        if (answers['continue'] == 'Yes') this.borrarCancion();
         else this.userMenu();
       });
     });
   }
-  borrarGrupo() {}
+  borrarGrupo() {
+    console.log(`=====================Proceso de Eliminar Grupo=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'grupoEliminar',
+        message: 'Qué Grupo desea eliminar:',
+      },
+    ]).then((answers) =>{
+      const grupoEliminar:string = answers['grupoEliminar'];
+      console.log(JSON.stringify(this.database.get('grupos').find({nombre: grupoEliminar}).value()));
+      if (this.database.get('grupos').find({nombre: grupoEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar eliminar el grupo`);
+        this.database.get('grupos').remove({nombre: grupoEliminar}).write();
+      } else {
+        console.log(`No existe dicho grupo`);
+        this.borrarGrupo();
+      }
+      console.log(`eliminar grupo + ` + answers['grupoEliminar']);
+      console.log('Successfully eliminar grupo');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: '¿Quieres eliminar otro grupo?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarGrupo();
+        else this.userMenu();
+      });
+    });
+  }
 
 
   // Noelia
