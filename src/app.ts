@@ -1,10 +1,8 @@
-/* eslint-disable indent */
-/* eslint-disable no-multiple-empty-lines */
 /* eslint-disable padded-blocks */
+/* eslint-disable indent */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable no-unused-vars */
 import inquirer from 'inquirer';
-import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 import {PlaylistCollection} from './gestor';
 // import {PlaylistCollection} from './gestor';
@@ -12,12 +10,12 @@ import {PlaylistCollection} from './gestor';
 // import {Playlist} from './playlist';
 
 enum appComandos {
-  album = 'Operacion con albumes',
-  cancion = 'Operacion con canciones',
-  genero = 'Operacion con generos',
-  grupo = 'Operacion con grupos',
-  artista = 'Operacion con artistas',
-  playlist = 'Operacion especial con playlists',
+  album = 'Operación con albumes',
+  cancion = 'Operación con canciones',
+  genero = 'Operación con generos',
+  grupo = 'Operación con grupos',
+  artista = 'Operación con artistas',
+  playlist = 'Operación especial con playlists',
   salir = 'Salir del programa'
 }
 
@@ -33,10 +31,9 @@ enum operacionComandos {
  */
 export class App {
   private low = require('lowdb');
-  private database = this.low(new FileSync('./src/json/jsonDatabase.json')); 
+  private database = this.low(new FileSync('./src/json/jsonDatabase.json'));
   constructor() {
   }
-  
   userMenu():void {
     console.log(`===========================Bienvenido al XNSA Music==============================`);
     console.clear();
@@ -44,7 +41,7 @@ export class App {
         {
           name: 'option',
           type: 'list',
-          message: 'Que Operacion quieres hacer:',
+          message: 'Qué Operación deseas hacer:',
           choices: Object.values(appComandos),
         }).then((answers) => {
       switch (answers['option']) {
@@ -64,48 +61,108 @@ export class App {
           this.operacion('artistas');
           break;
         case appComandos.playlist:
-          // this.operacion('playlist');
           const playlistOperacion = new PlaylistCollection([]);
           playlistOperacion.menuUser();
           break;
         case appComandos.salir:
           console.log('Thank you for using our application');
           return;
-        }
-      });
-    }
+      }
+    });
+  }
 
-  // Para hacer operacion con géneros, canciones, álbumes, grupos y artistas.
   operacion(option: string):void {
     console.clear();
-    console.log(`opcion + ` + option);
+    // console.log(`opcion + ` + option);
     inquirer.prompt({
       name: 'operacion',
       type: 'list',
       message: 'Que operacion quieres hacer con ' + option,
       choices: Object.values(operacionComandos),
     }).then((answers) => {
-      console.log(answers['operacion'] + ` ` + option);
+      // console.log(answers['operacion'] + ` ` + option);
       switch (answers['operacion']) {
         case operacionComandos.visualiza:
-          // Visualizar 
+          // Visualizar
           switch (option) {
             case 'albumes':
-              console.log(`visualizar albumes`);
-              console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+              // console.log(`visualizar albumes`);
+              
+              // Alfabéticamente por título de la canción, ascendente y descendente.
+              // Por número de reproducciones totales, ascendente y descendente.
+              // Filtrar para mostrar únicamente los singles lanzados.
+
+              // Alfabéticamente por nombre de la playlist, ascendente y descendente.
+
               inquirer.prompt([
                 {
                   type: 'list',
-                  name: 'continue',
-                  message: 'Desea hacer otra operacion albumes?:',
-                  choices: ['Yes', 'No'],
-                },
+                  name: 'visualizar',
+                  message: 'De qué manera deseas visualizar album?:',
+                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según artista'],
+                }, 
               ]).then((answers) => {
-                if (answers['continue'] == 'Yes') this.operacion('albumes');
-                else this.userMenu();
+                if (answers['visualizar'] !== 'Normal') {
+                  inquirer.prompt([
+                    {
+                      type: 'list',
+                      name: 'orden',
+                      message: 'ascendente o descendente:',
+                      choices: ['ascendente', 'descendente'],        
+                    },
+                  ]).then((option) => {
+                    switch (answers['visualizar']) {
+                      case 'Según nombre':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('nombre').value(), null, '\t'));
+                            break;
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('albumes').sortBy('nombre').reverse().value(), null, '\t'));
+                            break;
+                        }
+                      break;
+                      
+                      case 'Según año de lanzamiento':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                          break;
+
+                          case 'descendente':
+
+                          break;
+                        }
+                      break;
+                      
+                      case 'Según artista':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+                          break;
+
+                          case 'descendente':
+
+                          break;
+                        }
+                      break;
+                    }
+                    inquirer.prompt([
+                      {
+                        type: 'list',
+                        name: 'continue',
+                        message: 'Desea hacer otra operacion albumes?:',
+                        choices: ['Yes', 'No'],
+                      },
+                    ]).then((answers) => {
+                      if (answers['continue'] == 'Yes') this.operacion('albumes');
+                      else this.userMenu();
+                    });
+                  });
+                }
               });
               break;
-              
+
             case 'canciones':
               console.log(JSON.stringify(this.database.get('canciones').values(), null, "\t"));
               inquirer.prompt([
@@ -120,7 +177,7 @@ export class App {
                 else this.userMenu();
               });
               break;
-              
+
             case 'generos':
               console.log(JSON.stringify(this.database.get('generos').values(), null, "\t"));
               inquirer.prompt([
@@ -134,7 +191,7 @@ export class App {
                 if (answers['continue'] == 'Yes') this.operacion('generos');
                 else this.userMenu();
               });
-            break;
+              break;
 
             case 'grupos':
               console.log(JSON.stringify(this.database.get('grupos').values(), null, "\t"));
@@ -169,8 +226,8 @@ export class App {
             case 'playlist':
               console.log(JSON.stringify(this.database.get('playlist').values(), null, "\t"));
               break;
-            }
-        break;
+          }
+          break;
 
         case operacionComandos.añadir:
           switch (option) {
@@ -194,7 +251,7 @@ export class App {
               this.addArtista();
               break;
           }
-        break;
+          break;
 
         case operacionComandos.borrar:
           switch (option) {
@@ -219,7 +276,7 @@ export class App {
               this.borrarGrupo();
               break;
           }
-        break;
+          break;
 
         case operacionComandos.modificar:
           switch (option) {
@@ -244,7 +301,7 @@ export class App {
               this.modificarGrupo();
               break;
           }
-        break;
+          break;
       }
     });
   }
@@ -406,7 +463,7 @@ export class App {
       {
         type: 'input',
         name: 'nombreArtista',
-        message: 'Nombre del artista:', 
+        message: 'Nombre del artista:',
       }, {
         type: 'input',
         name: 'grupoArtista',
@@ -442,9 +499,8 @@ export class App {
         else this.userMenu();
       });
     });
-
   }
-  
+
   addGenero():void {
     console.clear();
     console.log(`=================Proceso de añadir un Genero==================`);
@@ -502,12 +558,11 @@ export class App {
         console.log(`Voy a borrar album`);
 
         this.database.get('albumes').remove({nombre: albumEliminar}).write();
-
       } else {
         console.log(`No existe dicho album`);
         this.borrarAlbum();
       }
-      console.log(`eliminar album + ` + answers['albumEliminar']); 
+      console.log(`eliminar album + ` + answers['albumEliminar']);
 
       console.log('Successfully eliminar album');
       inquirer.prompt([{
@@ -522,7 +577,7 @@ export class App {
     });
   }
 
-  
+
   borrarCancion() {
     console.log(`=====================Proceso de Eliminar Cancion=================`);
     inquirer.prompt([
@@ -591,7 +646,6 @@ export class App {
   borraArtista() {}
   borrarGenero() {
     console.log(`=====================Proceso de Eliminar Genero=================`);
-    
   }
 
 
@@ -759,7 +813,7 @@ export class App {
       const artistaModificar:string = answers['artistModificar'];
       const tipoDatoModificar:string = answers['tipoArtistaModificar'];
       const dataModificar:string = answers['dataArtistaModificar'];
-      
+
       console.log(JSON.stringify(this.database.get('grupos').find({nombre: artistaModificar}).value()));
       if (this.database.get('canciones').find({nombre: artistaModificar}).value() !== undefined) {
         console.log(`Voy a modificar un grupo`);
@@ -826,7 +880,6 @@ export class App {
       });
     });
   }
-  
 }
 
 const app = new App();

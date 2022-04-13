@@ -79,6 +79,7 @@
       ]
     }
   ],
+
   "grupos": [
     {
       "nombre": "Imagine Dragons",
@@ -96,6 +97,7 @@
       "oyentes": 59100146
     }
   ],
+
   "canciones": [
     {
       "nombre": "Angels Like You",
@@ -778,6 +780,7 @@
       "fecha": 1978
     }
   ],
+
   "generos": [
     {
       "genero": "Folk pop",
@@ -1023,6 +1026,7 @@
       ]
     }
   ],
+
   "artistas": [
     {
       "nombre": "Justin Bieber",
@@ -1135,6 +1139,7 @@
       "oyentesArtista": 12355678
     }
   ],
+  
   "playlistJ": [
     {
       "nombre": "hola",
