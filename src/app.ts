@@ -176,7 +176,7 @@ export class App {
                   type: 'list',
                   name: 'visualizar',
                   message: 'De qué manera deseas visualizar canciones?:',
-                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según numero de reproducciones'],
+                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según numero de reproducciones', 'Según single'],
                 }, 
               ]).then((answers) => {
                 if (answers['visualizar'] !== 'Normal') {
@@ -192,6 +192,7 @@ export class App {
                       case 'Según nombre':
                         switch (option['orden']) {
                           case 'ascendente':
+                            //console.log(JSON.stringify(this.database.get('canciones').get({single: true}).value()));
                             console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').value(), null, '\t'));
                             break;
                           case 'descendente':
@@ -216,13 +217,22 @@ export class App {
                       case 'Según numero de reproducciones': 
                         switch (option['orden']) {
                           case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
                             console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').value(), null, '\t'));
                           break;
-
                           case 'descendente':
                             console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').reverse().value(), null, '\t'));
                           break;
+                        }
+                      break;
+
+                      case 'Según single':
+                        switch (option['orden']) {
+                          case 'ascendente':
+                            console.log(JSON.stringify(this.database.get('canciones').filter({single: true}).sortBy('nombre').value(), null, '\t'));
+                            break;
+                          case 'descendente':
+                            console.log(JSON.stringify(this.database.get('canciones').filter({single: true}).sortBy('nombre').reverse().value(), null, '\t'));
+                            break;
                         }
                       break;
                     }
@@ -241,75 +251,7 @@ export class App {
                 }
               });
               break;
-              /*
-              inquirer.prompt([
-                {
-                  type: 'list',
-                  name: 'visualizar',
-                  message: 'De qué manera deseas visualizar canciones?:',
-                  choices: ['Según nombre', 'Según año de lanzamiento', 'Según numero de reproducciones'],
-                }, 
-              ]).then((answers) => {
-                if (answers['visualizar'] !== 'Normal') {
-                  inquirer.prompt([
-                    {
-                      type: 'list',
-                      name: 'orden',
-                      message: 'ascendente o descendente:',
-                      choices: ['ascendente', 'descendente'],        
-                    },
-                  ]).then((option) => {
-                    switch (answers['visualizar']) {
-                      case 'Según nombre':
-                        switch (option['orden']) {
-                          case 'ascendente':
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').value(), null, '\t'));
-                            break;
-                          case 'descendente':
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').reverse().value(), null, '\t'));
-                            break;
-                        }
-                      break;
-                      
-                      case 'Según año de lanzamiento':
-                        switch (option['orden']) {
-                          case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('year').value(), null, '\t'));
-                          break;
-
-                          case 'descendente':
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('year').reverse().value(), null, '\t'));
-                          break;
-                        }
-                      break;
-                      
-                      case 'Según numero de reproducciones': //comprobar
-                        switch (option['orden']) {
-                          case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').value(), null, '\t'));
-                          break;
-
-                          case 'descendente':
-                            console.log(JSON.stringify(this.database.get('canciones').sortBy('numeroReproducciones').reverse().value(), null, '\t'));
-                          break;
-                        }
-                      break;
-
-                    inquirer.prompt([
-                      {
-                        type: 'list',
-                        name: 'continue',
-                        message: 'Desea hacer otra operacion canciones?:',
-                        choices: ['Yes', 'No'],
-                      },
-                    ]).then((answers) => {
-                      if (answers['continue'] == 'Yes') this.operacion('canciones');
-                      else this.userMenu();
-                    });
-                    break;*/
-
+              
             case 'generos':
               console.log(JSON.stringify(this.database.get('generos').values(), null, "\t"));
               inquirer.prompt([
@@ -340,8 +282,8 @@ export class App {
               });
               break;
 
-            case 'artista':
-              console.log(JSON.stringify(this.database.get('artista').values(), null, "\t"));
+            case 'artistas':
+              console.log(JSON.stringify(this.database.get('artistas').values(), null, "\t"));
               inquirer.prompt([
                 {
                   type: 'list',
@@ -815,10 +757,10 @@ export class App {
       },
     ]).then((answers) =>{
       const generoEliminar:string = answers['generoEliminar'];
-      console.log(JSON.stringify(this.database.get('generosMusical').find({nombre: generoEliminar}).value()));
-      if (this.database.get('generosMusical').find({nombre: generoEliminar}).value() !== undefined) {
+      console.log(JSON.stringify(this.database.get('generos').find({genero: generoEliminar}).value()));
+      if (this.database.get('generos').find({genero: generoEliminar}).value() !== undefined) {
         console.log(`Voy a borrar eliminar el género`);
-        this.database.get('generosMusical').remove({nombre: generoEliminar}).write();
+        this.database.get('generos').remove({genero: generoEliminar}).write();
       } else {
         console.log(`No existe dicho género`);
         this.borrarGenero();
