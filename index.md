@@ -1,5 +1,4 @@
-# Práctica  - Clases e interfaces genéricas. Principios SOLID
-
+# 07 - Digitalizando la colección de música de los abuelos
 ```
 Curso: 2021- 2022
 Universidad: Universidad de La laguna
@@ -7,8 +6,6 @@ Asignatura: Desarrollo de Sistemas Informaticos
 Herramienta: Visual Studio Code
 Lenguaje de programción: TypeScipt
 ```
-
-# 07 - Digitalizando la colección de música de los abuelos
 
 ```
 >>  PROYECTO: Un sistema de bibliteca musical
@@ -46,6 +43,8 @@ La biblioteca musical almacena la información necesaria para poder representar 
 - **Clase Gestora**: esta clase es la encargada de gestionar, como su nombre indica, las peticiones del programa. Se construye pasando como parámetro un array de `Playlist` que contiene todas las playlist de la aplicación. Seguidamente lo mapeará y almacenará sus características principales: `Canciones`, `Duracion` y `Generos`.
 También cuenta con un método de impresión, que muestra los datos de todas las playlist, y es usado en el método visualizar (prácticamente lo mismo, pero añadiendo que el menú aparezca una vez se impriman). Otras opciones implementadas son las de navegar una playlist y mostrar la información de la misma, así como crear, ordenarlas y eliminarlas. Todo ello se realiza desde `menuUser`, con un switch de comandos que hace uso de `Inquirer`.
 - **Clase jsonPlaylist**: esta clase es la encargada de gestionar la lectura y escritura en la base de datos json del programa, extentiendo de la `Clase Gestora`. Al constructor se le pasa un nombre de usuuario y todas las playlist de la aplicación. Si la base de datos ya tiene la playlist, entonces  se mapea; en caso contrario se escribe. 
+
+
 
 ### Documentación TypeDoc  
 Para la documentación de los ejercicios se utilizó la herramienta TypeDoc que convierte los comentarios en el código fuente de TypeScript en documentación HTML renderizada. A continuación, se adjunta el enlace a la página web creada mediante TypeDoc.  

@@ -6,6 +6,7 @@
 import inquirer from 'inquirer';
 import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
+import {PlaylistCollection} from './gestor';
 // import {PlaylistCollection} from './gestor';
 // import {Cancion} from './cancion';
 // import {Playlist} from './playlist';
@@ -16,7 +17,7 @@ enum appComandos {
   genero = 'Operacion con generos',
   grupo = 'Operacion con grupos',
   artista = 'Operacion con artistas',
-  playlist = 'Operacion con playlists',
+  playlist = 'Operacion especial con playlists',
   salir = 'Salir del programa'
 }
 
@@ -48,7 +49,7 @@ export class App {
         }).then((answers) => {
       switch (answers['option']) {
         case appComandos.album:
-          this.operacion('alumnes');
+          this.operacion('albumes');
           break;
         case appComandos.cancion:
           this.operacion('canciones');
@@ -63,7 +64,9 @@ export class App {
           this.operacion('artistas');
           break;
         case appComandos.playlist:
-          this.operacion('playlist');
+          // this.operacion('playlist');
+          const playlistOperacion = new PlaylistCollection([]);
+          playlistOperacion.menuUser();
           break;
         case appComandos.salir:
           console.log('Thank you for using our application');
@@ -79,7 +82,7 @@ export class App {
     inquirer.prompt({
       name: 'operacion',
       type: 'list',
-      message: 'Que operacion quieres hacer con' + option,
+      message: 'Que operacion quieres hacer con ' + option,
       choices: Object.values(operacionComandos),
     }).then((answers) => {
       console.log(answers['operacion'] + ` ` + option);
@@ -87,35 +90,91 @@ export class App {
         case operacionComandos.visualiza:
           // Visualizar 
           switch (option) {
-            case 'alumnes':
+            case 'albumes':
+              console.log(`visualizar albumes`);
               console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'continue',
+                  message: 'Desea hacer otra operacion albumes?:',
+                  choices: ['Yes', 'No'],
+                },
+              ]).then((answers) => {
+                if (answers['continue'] == 'Yes') this.operacion('albumes');
+                else this.userMenu();
+              });
               break;
-
+              
             case 'canciones':
               console.log(JSON.stringify(this.database.get('canciones').values(), null, "\t"));
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'continue',
+                  message: 'Desea hacer otra operacion canciones?:',
+                  choices: ['Yes', 'No'],
+                },
+              ]).then((answers) => {
+                if (answers['continue'] == 'Yes') this.operacion('canciones');
+                else this.userMenu();
+              });
               break;
-
+              
             case 'generos':
               console.log(JSON.stringify(this.database.get('generos').values(), null, "\t"));
-              break;
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'continue',
+                  message: 'Desea hacer otra operacion generos?:',
+                  choices: ['Yes', 'No'],
+                },
+              ]).then((answers) => {
+                if (answers['continue'] == 'Yes') this.operacion('generos');
+                else this.userMenu();
+              });
+            break;
 
             case 'grupos':
               console.log(JSON.stringify(this.database.get('grupos').values(), null, "\t"));
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'continue',
+                  message: 'Desea hacer otra operacion grupos?:',
+                  choices: ['Yes', 'No'],
+                },
+              ]).then((answers) => {
+                if (answers['continue'] == 'Yes') this.operacion('grupos');
+                else this.userMenu();
+              });
               break;
 
             case 'artista':
               console.log(JSON.stringify(this.database.get('artista').values(), null, "\t"));
+              inquirer.prompt([
+                {
+                  type: 'list',
+                  name: 'continue',
+                  message: 'Desea hacer otra operacion artistas?:',
+                  choices: ['Yes', 'No'],
+                },
+              ]).then((answers) => {
+                if (answers['continue'] == 'Yes') this.operacion('artista');
+                else this.userMenu();
+              });
               break;
 
             case 'playlist':
               console.log(JSON.stringify(this.database.get('playlist').values(), null, "\t"));
               break;
             }
+        break;
 
-            // this.userMenu();
         case operacionComandos.añadir:
           switch (option) {
-            case 'alumnes':
+            case 'albumes':
               this.addAlbum();
               break;
 
@@ -134,39 +193,68 @@ export class App {
             case 'artistas':
               this.addArtista();
               break;
-
-            case 'playlist':
-              // Operacion concreta con playlist llamando a la clase gestor
-              break;
-            
           }
+        break;
+
+        case operacionComandos.borrar:
+          switch (option) {
+
+          }  
+        break;
+
+        case operacionComandos.modificar:
+          switch (option) {
+            case 'albumes':
+              console.log(`Modificar albumes`);
+              this.modificarAlbumes();
+              break;
+            case 'canciones':
+              console.log(`Modificar canciones`);
+              this.modificarCancion();
+              break;
+            case 'generos':
+              console.log(`Modificar generos`);
+              this.modificarGenero();
+              break;
+            case 'artistas':
+              console.log(`Modificar artistas`);
+              this.modificarArtista();
+              break;
+            case 'grupos':
+              console.log(`Modificar grupos`);
+              this.modificarGrupo();
+              break;
+          }
+        break;
       }
     });
   }
+
+  // Procesos de añadir
   addAlbum():void {
     console.clear();
     console.log(`=================Proceso de añadir un album==================`);
     inquirer.prompt([
       {
-      type: 'input',
-      name: 'nombreAlbum',
-      message: 'Nombre de album:',
+        type: 'input',
+        name: 'nombreAlbum',
+        message: 'Nombre de album:',
       }, {
-      type: 'input',
-      name: 'artistaAlbum',
-      message: 'Artista de album:',
+        type: 'input',
+        name: 'artistaAlbum',
+        message: 'Artista de album:',
       }, {
-      type: 'input',
-      name: 'generosAlbum',
-      message: 'generos de Album:',
+        type: 'input',
+        name: 'generosAlbum',
+        message: 'generos de Album:',
       }, {
-      type: 'input',
-      name: 'fechaAlbum',
-      message: 'Fecha de album:',
+        type: 'input',
+        name: 'fechaAlbum',
+        message: 'Fecha de album:',
       }, {
-      type: 'input',
-      name: 'cancionesAlbum',
-      message: 'Canciones de album que tiene:',
+        type: 'input',
+        name: 'cancionesAlbum',
+        message: 'Canciones de album que tiene:',
       },
     ]).then((answers) => {
       // Falta la comprobacion
@@ -184,6 +272,354 @@ export class App {
     });
   }
 
+  addCancion():void {
+    console.log(`=================Proceso de añadir una Cancion==================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'nombreCancion',
+        message: 'Nombre de cancion:',
+      },
+      {
+        type: 'input',
+        name: 'cantantesCancion',
+        message: 'Cantantes de cancion:',
+      },
+      {
+        type: 'input',
+        name: 'duracionCancion',
+        message: 'Duracion de cancion:',
+      },
+      {
+        type: 'input',
+        name: 'generosCancion',
+        message: 'Generos de cancion:',
+      },
+      {
+        type: 'input',
+        name: 'numeroProCancion',
+        message: 'Nombre de cancion:',
+      },
+      {
+        type: 'input',
+        name: 'fechaCancion',
+        message: 'Fecha de cancion:',
+      },
+    ]).then((answers) => {
+      // Error
+      if (/\d+/.test(answers['fechaCancion'])) {
+        console.log(`Vuelve a introducir los datos con una fecha correcta`);
+        this.addCancion();
+      }
+      // Falta la comprobacion
+      console.log(`mi nuevo cancion se llama +` + answers['nombreCancion']);
+      console.log('Successfully created Cancion');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres agregar otro Cancion?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addCancion();
+        else this.userMenu();
+      });
+    });
+  }
+
+  addGrupo():void {
+    console.log(`=================Proceso de añadir un Grupo==================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'nombreGrupo',
+        message: 'Nombre de Grupo:',
+      },
+      {
+        type: 'input',
+        name: 'artistasGrupo',
+        message: 'Artistas de Grupo:',
+      },
+      {
+        type: 'input',
+        name: 'fechaGrupo',
+        message: 'Fecha de Grupo:',
+      },
+      {
+        type: 'input',
+        name: 'GenerosCancion',
+        message: 'Generos de Grupo:',
+      },
+      {
+        type: 'input',
+        name: 'AlbumnesCancion',
+        message: 'Nombre de Grupo:',
+      },
+      {
+        type: 'input',
+        name: 'oyenteCancion',
+        message: 'Oyentes mensuales de Grupo:',
+      },
+    ]).then((answers) => {
+      console.log(`fecha + ` + answers['fechaGrupo']);
+      if (/^\d+/.test(answers['fechaGrupo'])) {
+        console.log(`Vuelve a introducir los datos con una fecha correcta`);
+        this.addCancion();
+      }
+      // Falta la comprobacion
+      console.log(`mi nuevo cancion se llama +` + answers['nombreGrupo']);
+      console.log('Successfully created Grupo');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres agregar otro Grupo:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addGrupo();
+        else this.userMenu();
+      });
+    });
+  }
+
+  addArtista():void {
+    console.clear();
+    console.log(`=================Proceso de añadir un/una Artista==================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'nombreArtista',
+        message: 'Nombre del artista:', 
+      }, {
+        type: 'input',
+        name: 'grupoArtista',
+        message: 'Grupos del artista:',
+      }, {
+        type: 'input',
+        name: 'generosArtista',
+        message: 'Generos del artista:',
+      }, {
+        type: 'input',
+        name: 'albumArtista',
+        message: 'Albumes del artista:',
+      }, {
+        type: 'input',
+        name: 'cancionesArtista',
+        message: 'Canciones del artista:',
+      }, {
+        type: 'input',
+        name: 'oyentesArtista',
+        message: 'Oyentes del artista:',
+      },
+    ]).then((answers) => {
+      // Falta la comprobacion
+      console.log(`el nuevo artista se llama +` + answers['nombreArtista']);
+      console.log('Successfully created artista');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres agregar otro artista:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addArtista();
+        else this.userMenu();
+      });
+    });
+
+  }
+  
+  addGenero():void {
+    console.clear();
+    console.log(`=================Proceso de añadir un Genero==================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'nombreGenero',
+        message: 'Tipo de genero:',
+      }, {
+        type: 'input',
+        name: 'artistaGenero',
+        message: 'Grupos de artistas:',
+      }, {
+        type: 'input',
+        name: 'generosAlbum',
+        message: 'generos Albumes :',
+      }, {
+        type: 'input',
+        name: 'cancionesGeneros',
+        message: 'Canciones de dicho genero',
+      },
+    ]).then((answers) => {
+      // Falta la comprobacion
+      // if (/^\d+/.test(answers['fechaAlbum'])) {
+
+      // }
+      console.log(`mi nuevo genero se llama +` + answers['nombreGenero']);
+      console.log('Successfully created genero');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres agregar otro Genero?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addGenero();
+        else this.userMenu();
+      });
+    });
+  }
+
+  
+  
+  // Procesos de borrar
+
+  // Procesos de modificar
+  modificarAlbumes() {
+    console.log(`=====================Proceso de Modificar Album=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'albumMoficar',
+        message: 'Cuál album deseas modificar:',
+      },
+      {
+        type: 'list',
+        name: 'tipoAlbumMoficiar',
+        message: 'Qué datos de album quieres modificar:',
+        choices: ['artista', 'generos', 'nombre', 'año', 'canciones'],
+      },
+      {
+        type: 'input',
+        name: 'dataAlbumModificar',
+        message: 'Introduzca el dato que quieres actualizar:',
+      },
+    ]).then((answers) =>{
+      const albumMoficar:string = answers['albumMoficar'];
+      const tipoDatoMoficar:string = answers['tipoAlbumMoficiar'];
+      const dataMoficar:string = answers['dataAlbumModificar'];
+      console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumMoficar}).value()));
+      if (this.database.get('albumes').find({nombre: albumMoficar}).value() !== undefined) {
+        console.log(`Voy a modificar album`);
+        this.database.get('albumes').find({nombre: albumMoficar}).set(tipoDatoMoficar, dataMoficar).write();
+      } else {
+        console.log(`No existe dicho album`);
+        this.modificarAlbumes();
+      }
+      console.log(`modificar album + ` + answers['albumMoficar']);
+      // this.database.get('albumes')
+      console.log('Successfully modify album');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres Modificar otros datos de album?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.modificarAlbumes();
+        else this.userMenu();
+      });
+    });
+  }
+
+  modificarCancion() {
+    console.log(`=====================Proceso de Modificar Cancion=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'cancionModificar',
+        message: 'Qué cancion deseas modificar:',
+      },
+      {
+        type: 'list',
+        name: 'tipoCancionModificar',
+        message: 'Qué datos de la cancion quieres modificar:',
+        choices: ['nombre', 'cantantes', 'duracion', 'generos', 'single', 'reproducciones', 'fecha'],
+      },
+      {
+        type: 'input',
+        name: 'dataCancionModificar',
+        message: 'Introduzca el dato que quieres actualizar:',
+      },
+    ]).then((answers) =>{
+      const cancionModificar:string = answers['cancionModificar'];
+      const tipoDatoModificar:string = answers['tipoCancionModificar'];
+      const dataModificar:string = answers['dataCancionModificar'];
+      console.log(JSON.stringify(this.database.get('canciones').find({nombre: cancionModificar}).value()));
+      if (this.database.get('canciones').find({nombre: cancionModificar}).value() !== undefined) {
+        console.log(`Voy a modificar una cancion`);
+        this.database.get('canciones').find({nombre: cancionModificar}).set(tipoDatoModificar, dataModificar).write();
+      } else {
+        console.log(`No existe dicha cancion`);
+        this.modificarCancion();
+      }
+      console.log(`modificar cancion + ` + answers['cancionModificar']);
+      // this.database.get('albumes')
+      console.log('Successfully modify cancion');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres modificar otros datos de la cancion?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.modificarCancion();
+        else this.userMenu();
+      });
+    });
+  }
+
+  modificarGrupo() {
+    console.log(`=====================Proceso de Modificar Grupo=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'grupoModificar',
+        message: 'Qué grupo deseas modificar:',
+      },
+      {
+        type: 'list',
+        name: 'tipoGrupoModificar',
+        message: 'Qué datos del grupo quieres modificar:',
+        choices: ['nombre', 'artistas', 'año', 'generos', 'albumes', 'oyentes'],
+      },
+    ]).then((answers) =>{
+      console.log(`modificar grupo + ` + answers['grupoModificar']);
+    });
+  }
+
+  modificarArtista() {
+    console.log(`=====================Proceso de Modificar Artista=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'artistModificar',
+        message: 'Qué artista deseas modificar:',
+      },
+      {
+        type: 'list',
+        name: 'tipoArtistaModificar',
+        message: 'Qué datos del artista quieres modificar:',
+        choices: ['nombre', 'grupos', 'generos', 'albumes', 'canciones', 'oyentes'],
+      },
+    ]).then((answers) =>{
+      console.log(`modificar artista + ` + answers['artistaModificar']);
+    });
+  }
+
+  modificarGenero() {
+    console.log(`=====================Proceso de Modificar Genero=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'generoModificar',
+        message: 'Qué genero deseas modificar:',
+      },
+      {
+        type: 'list',
+        name: 'tipoGeneroModificar',
+        message: 'Qué datos del genero quieres modificar:',
+        choices: ['nombre', 'grupos', 'albumes', 'canciones'],
+      },
+    ]).then((answers) =>{
+      console.log(`modificar genero + ` + answers['generoModificar']);
+    });
+  }
+  
 }
 
 const app = new App();
