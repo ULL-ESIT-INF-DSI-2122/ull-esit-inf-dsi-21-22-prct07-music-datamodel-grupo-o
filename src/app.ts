@@ -198,8 +198,27 @@ export class App {
 
         case operacionComandos.borrar:
           switch (option) {
-
-          }  
+            case 'albumes':
+              console.log(`Modificar albumes`);
+              this.borrarAlbum();
+              break;
+            case 'canciones':
+              console.log(`Modificar canciones`);
+              this.borrarCancion();
+              break;
+            case 'generos':
+              console.log(`Modificar generos`);
+              this.borrarGenero();
+              break;
+            case 'artistas':
+              console.log(`Modificar artistas`);
+              this.borraArtista();
+              break;
+            case 'grupos':
+              console.log(`Modificar grupos`);
+              this.borrarGrupo();
+              break;
+          }
         break;
 
         case operacionComandos.modificar:
@@ -466,12 +485,59 @@ export class App {
     });
   }
 
-  
-  
+
   // Procesos de borrar
+  borrarAlbum() {
+    console.log(`=====================Proceso de Eliminar Album=================`);
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'albumEliminar',
+        message: 'Qué album deseas eliminar:',
+      },
+    ]).then((answers) =>{
+      const albumEliminar:string = answers['albumEliminar'];
+      console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumEliminar}).value()));
+      if (this.database.get('albumes').find({nombre: albumEliminar}).value() !== undefined) {
+        console.log(`Voy a borrar album`);
+
+        this.database.get('albumes').remove({nombre: albumEliminar}).write();
+
+      } else {
+        console.log(`No existe dicho album`);
+        this.borrarAlbum();
+      }
+      console.log(`eliminar album + ` + answers['albumMoficar']);
+      // this.database.get('albumes')
+
+      console.log('Successfully eliminar album');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres eliminar otro album?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarAlbum();
+        else this.userMenu();
+      });
+    });
+  }
+
+  
+  borrarCancion() {}
+  borrarGrupo() {}
+
+
+  // Noelia
+  borraArtista() {}
+  borrarGenero() {
+    console.log(`=====================Proceso de Eliminar Genero=================`);
+    
+  }
+
 
   // Procesos de modificar
-  modificarAlbumes() {
+  modificarAlbumes():void {
     console.log(`=====================Proceso de Modificar Album=================`);
     inquirer.prompt([
       {
@@ -517,7 +583,7 @@ export class App {
     });
   }
 
-  modificarCancion() {
+  modificarCancion():void {
     console.log(`=====================Proceso de Modificar Cancion=================`);
     inquirer.prompt([
       {
@@ -563,7 +629,7 @@ export class App {
     });
   }
 
-  modificarGrupo() {
+  modificarGrupo():void {
     console.log(`=====================Proceso de Modificar Grupo=================`);
     inquirer.prompt([
       {
@@ -577,12 +643,39 @@ export class App {
         message: 'Qué datos del grupo quieres modificar:',
         choices: ['nombre', 'artistas', 'año', 'generos', 'albumes', 'oyentes'],
       },
+      {
+        type: 'input',
+        name: 'dataGrupoModificar',
+        message: 'Introduzca el dato que quieres actualizar:',
+      },
     ]).then((answers) =>{
+      const grupoModificar:string = answers['grupoModificar'];
+      const tipoDatoModificar:string = answers['tipoGrupoModificar'];
+      const dataModificar:string = answers['dataGrupoModificar'];
+      console.log(JSON.stringify(this.database.get('grupos').find({nombre: grupoModificar}).value()));
+      if (this.database.get('canciones').find({nombre: grupoModificar}).value() !== undefined) {
+        console.log(`Voy a modificar un grupo`);
+        this.database.get('grupos').find({nombre: grupoModificar}).set(tipoDatoModificar, dataModificar).write();
+      } else {
+        console.log(`No existe dicho grupo`);
+        this.modificarCancion();
+      }
       console.log(`modificar grupo + ` + answers['grupoModificar']);
+      // this.database.get('albumes')
+      console.log('Successfully modify grupo');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres modificar otros datos del grupo?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.modificarGrupo();
+        else this.userMenu();
+      });
     });
   }
 
-  modificarArtista() {
+  modificarArtista():void {
     console.log(`=====================Proceso de Modificar Artista=================`);
     inquirer.prompt([
       {
@@ -596,12 +689,40 @@ export class App {
         message: 'Qué datos del artista quieres modificar:',
         choices: ['nombre', 'grupos', 'generos', 'albumes', 'canciones', 'oyentes'],
       },
+      {
+        type: 'input',
+        name: 'dataArtistaModificar',
+        message: 'Introduzca el dato que quieres actualizar:',
+      },
     ]).then((answers) =>{
       console.log(`modificar artista + ` + answers['artistaModificar']);
+
+      const artistaModificar:string = answers['artistModificar'];
+      const tipoDatoModificar:string = answers['tipoArtistaModificar'];
+      const dataModificar:string = answers['dataArtistaModificar'];
+      
+      console.log(JSON.stringify(this.database.get('grupos').find({nombre: artistaModificar}).value()));
+      if (this.database.get('canciones').find({nombre: artistaModificar}).value() !== undefined) {
+        console.log(`Voy a modificar un grupo`);
+        this.database.get('grupos').find({nombre: artistaModificar}).set(tipoDatoModificar, dataModificar).write();
+      } else {
+        console.log(`No existe dicho artista`);
+        this.modificarArtista();
+      }
+      console.log('Successfully modify artista');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres modificar otros datos del grupo?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.modificarCancion();
+        else this.userMenu();
+      });
     });
   }
 
-  modificarGenero() {
+  modificarGenero():void {
     console.log(`=====================Proceso de Modificar Genero=================`);
     inquirer.prompt([
       {
@@ -615,8 +736,35 @@ export class App {
         message: 'Qué datos del genero quieres modificar:',
         choices: ['nombre', 'grupos', 'albumes', 'canciones'],
       },
+      {
+        type: 'input',
+        name: 'dataGeneroModificar',
+        message: 'Introduzca el dato que quieres actualizar:',
+      },
     ]).then((answers) =>{
+      const generoModificar:string = answers['generoModificar'];
+      const tipoDatoModificar:string = answers['tipoGeneroModificar'];
+      const dataModificar:string = answers['dataGeneroModificar'];
+      console.log(JSON.stringify(this.database.get('generos').find({nombre: generoModificar}).value()));
+      if (this.database.get('generos').find({nombre: generoModificar}).value() !== undefined) {
+        console.log(`Voy a modificar un genero`);
+        this.database.get('generos').find({nombre: generoModificar}).set(tipoDatoModificar, dataModificar).write();
+      } else {
+        console.log(`No existe dicho genero`);
+        this.modificarCancion();
+      }
       console.log(`modificar genero + ` + answers['generoModificar']);
+      // this.database.get('albumes')
+      console.log('Successfully modify genero');
+      inquirer.prompt([{
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres modificar otros datos del genero?:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.modificarGenero();
+        else this.userMenu();
+      });
     });
   }
   
