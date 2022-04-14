@@ -92,6 +92,6 @@ export class Artistas {
       oyentesMensuales += this.cancionesArtista[i].getNumeroReproducciones();
     }
     oyentesMensuales /= 12;
-    return oyentesMensuales;
+    return parseFloat(oyentesMensuales.toFixed(2));
   }
 }
