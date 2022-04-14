@@ -4,10 +4,11 @@
 import inquirer from 'inquirer';
 import FileSync from 'lowdb/adapters/FileSync';
 import {Gestor} from './gestor';
-// import {PlaylistCollection} from './gestor';
-// import {Cancion} from './cancion';
-// import {Playlist} from './playlist';
 
+/**
+ * Enumeración de los comandos de la aplicación
+ * @enum
+ */
 enum appComandos {
   album = 'Operación con albumes',
   cancion = 'Operación con canciones',
@@ -18,6 +19,11 @@ enum appComandos {
   salir = 'Salir del programa'
 }
 
+
+/**
+ * Enumeración de los comandos de opeacion de la aplicación
+ * @enum
+ */
 enum operacionComandos {
   visualiza = 'Visualizar',
   añadir = 'Añadir',
@@ -33,6 +39,10 @@ export class App {
   private database = this.low(new FileSync('./src/json/jsonDatabase.json'));
   constructor() {
   }
+
+  /**
+   * Función menú del usuario
+   */
   userMenu():void {
     console.log(`===========================Bienvenido al XNSA Music==============================`);
     console.clear();
@@ -65,34 +75,28 @@ export class App {
           break;
         case appComandos.salir:
           console.log('Thank you for using our application');
-          return;
+          process.exit();
       }
     });
   }
 
+  /**
+   * Función que hace las operaciones de la aplicación
+   * @param option Sobre que se desea hacer la operacion (albumes, canciones, grupo, ...)
+   */
   operacion(option: string):void {
     console.clear();
-    // console.log(`opcion + ` + option);
     inquirer.prompt({
       name: 'operacion',
       type: 'list',
       message: 'Que operacion quieres hacer con ' + option,
       choices: Object.values(operacionComandos),
     }).then((answers) => {
-      // console.log(answers['operacion'] + ` ` + option);
       switch (answers['operacion']) {
+        // Opción de la operación de visualización
         case operacionComandos.visualiza:
-          // Visualizar
           switch (option) {
             case 'albumes':
-              // console.log(`visualizar albumes`);
-
-              // Alfabéticamente por título de la canción, ascendente y descendente.
-              // Por número de reproducciones totales, ascendente y descendente.
-              // Filtrar para mostrar únicamente los singles lanzados.
-
-              // Alfabéticamente por nombre de la playlist, ascendente y descendente.
-
               inquirer.prompt([
                 {
                   type: 'list',
@@ -125,10 +129,8 @@ export class App {
                       case 'Según año de lanzamiento':
                         switch (option['orden']) {
                           case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
                             console.log(JSON.stringify(this.database.get('albumes').sortBy('year').value(), null, '\t'));
                             break;
-
                           case 'descendente':
                             console.log(JSON.stringify(this.database.get('albumes').sortBy('year').reverse().value(), null, '\t'));
                             break;
@@ -140,7 +142,6 @@ export class App {
                           case 'ascendente':
                             console.log(JSON.stringify(this.database.get('albumes').sortBy('artista').value(), null, '\t'));
                             break;
-
                           case 'descendente':
                             console.log(JSON.stringify(this.database.get('albumes').sortBy('artista').reverse().value(), null, '\t'));
                             break;
@@ -185,7 +186,6 @@ export class App {
                       case 'Según nombre':
                         switch (option['orden']) {
                           case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('canciones').get({single: true}).value()));
                             console.log(JSON.stringify(this.database.get('canciones').sortBy('nombre').value(), null, '\t'));
                             break;
                           case 'descendente':
@@ -197,7 +197,6 @@ export class App {
                       case 'Según año de lanzamiento':
                         switch (option['orden']) {
                           case 'ascendente':
-                            // console.log(JSON.stringify(this.database.get('albumes').values(), null, "\t"));
                             console.log(JSON.stringify(this.database.get('canciones').sortBy('fecha').value(), null, '\t'));
                             break;
 
@@ -296,6 +295,7 @@ export class App {
           }
           break;
 
+        // Opción de la operación de añadir
         case operacionComandos.añadir:
           switch (option) {
             case 'albumes':
@@ -320,6 +320,7 @@ export class App {
           }
           break;
 
+        // Opción de la operación de borrar
         case operacionComandos.borrar:
           switch (option) {
             case 'albumes':
@@ -340,6 +341,7 @@ export class App {
           }
           break;
 
+        // Opción de la operación de modificar
         case operacionComandos.modificar:
           switch (option) {
             case 'albumes':
@@ -363,7 +365,10 @@ export class App {
     });
   }
 
-  // Procesos de añadir
+
+  /**
+   * Método que añade un album
+   */
   addAlbum():void {
     console.clear();
     console.log(`=================Proceso de añadir un album==================`);
@@ -371,23 +376,23 @@ export class App {
       {
         type: 'input',
         name: 'nombreAlbum',
-        message: 'Nombre de album:',
+        message: 'Nombre del album:',
       }, {
         type: 'input',
         name: 'artistaAlbum',
-        message: 'Artista de album:',
+        message: 'Artista del album:',
       }, {
         type: 'input',
         name: 'generosAlbum',
-        message: 'generos de Album:',
+        message: 'Generos del Album:',
       }, {
         type: 'input',
         name: 'fechaAlbum',
-        message: 'Fecha de album:',
+        message: 'Fecha del album:',
       }, {
         type: 'input',
         name: 'cancionesAlbum',
-        message: 'Canciones de album que tiene:',
+        message: 'Canciones que tiene el album:',
       },
     ]).then((answers) => {
       // Falta la comprobacion
@@ -398,8 +403,7 @@ export class App {
         canciones: answers['cancionesAlbum'],
         año: answers['fechaAlbum'],
       }).write();
-      console.log(`mi nuevo album se llama +` + answers['nombreAlbum']);
-      console.log('Successfully created album');
+      console.log(`El nuevo album se llama: ` + answers['nombreAlbum']);
       inquirer.prompt([{
         type: 'list',
         name: 'continue',
@@ -412,38 +416,41 @@ export class App {
     });
   }
 
+  /**
+   * Método que añade una cancion
+   */
   addCancion():void {
     console.log(`=================Proceso de añadir una Cancion==================`);
     inquirer.prompt([
       {
         type: 'input',
         name: 'nombreCancion',
-        message: 'Nombre de cancion:',
+        message: 'Nombre de la cancion:',
       },
       {
         type: 'input',
         name: 'cantantesCancion',
-        message: 'Cantantes de cancion:',
+        message: 'Cantantes de la cancion:',
       },
       {
         type: 'input',
         name: 'duracionCancion',
-        message: 'Duracion de cancion:',
+        message: 'Duracion de la cancion:',
       },
       {
         type: 'input',
         name: 'generosCancion',
-        message: 'Generos de cancion:',
+        message: 'Generos de la cancion:',
       },
       {
         type: 'input',
         name: 'numeroProCancion',
-        message: 'Nombre de cancion:',
+        message: 'Número de reproducciones de la cancion:',
       },
       {
         type: 'input',
         name: 'fechaCancion',
-        message: 'Fecha de cancion:',
+        message: 'Fecha de la cancion:',
       },
     ]).then((answers) => {
       // Error

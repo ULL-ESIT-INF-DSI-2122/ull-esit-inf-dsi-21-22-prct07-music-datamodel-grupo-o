@@ -152,7 +152,7 @@ export class Gestor {
   }
 
   /**
-   * Método que crea una playlist y le añade canciones
+   * Método que crea una playlist y añade canciones
    */
   async crear():Promise<void> {
     console.clear();
@@ -167,9 +167,7 @@ export class Gestor {
         type: 'input',
         message: 'Que canciones quieres agregar:',
       },
-    ]).then((answersCrear:any) => { // se añadió :any -> declaración correcta??
-      // console.log(answersCrear['addNombre']);
-      // console.log(answersCrear['cancion']);
+    ]).then((answersCrear:any) => {
       let poderCrear: boolean = true;
       this.playlists.forEach((element) => {
         if (element.getNombre() == answersCrear['addPlaylist']) {
@@ -197,24 +195,14 @@ export class Gestor {
           const cancionSingle:boolean = database.get('canciones').find({nombre: addCancionName}).get('single').value();
           const cancionNumeroReproducciones:number = database.get('canciones').find({nombre: addCancionName}).get('numeroReproducciones').value();
           const cancionFecha:number = database.get('canciones').find({nombre: addCancionName}).get('fecha').value();
-          // console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
           console.log(`${cancionNombre}`);
           console.log(`${cancionCantantes}`);
 
-          // Consultar la base de datos sobre canciones
-          // Un ejemplo.
           const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
           const coleccionCanciones:Cancion[] = [nuevaCancion];
           this.playlists.push(new Playlist(addPlaylistName, coleccionCanciones));
           this.itemMap.set(addPlaylistName, {canciones: coleccionCanciones, duracion: cancionDuracion, generos: cancionGeneros});
-          // {
-          //   name: 'addPlaylist',
-          //   type: 'input',
-          //   message: 'Introduzca el nombre de playlist que desea crear:',
-          // },
           console.log(`Desea agregar más opciones?:`);
-          // this.masCanciones();
-
           stop = true;
         }
       }
@@ -232,7 +220,7 @@ export class Gestor {
       name: 'borrar',
       type: 'input',
       message: 'Introduzca el nombre de la playlist que desea borrar: ',
-    }]).then((answersBorrar: any) => { // se añadió :any -> declaración correcta?
+    }]).then((answersBorrar: any) => {
       // console.log(answersBorrar);
       /* Esto funciona pero no guarda los cambios en JSON
       this.playlists.forEach((element) => {
