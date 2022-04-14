@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 /* eslint-disable no-unused-vars */
 import inquirer from 'inquirer';
 // import input from '@inquirer/input';
@@ -47,17 +48,15 @@ type playlistGestor = {
   generos: string[],
 }
 
-
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-
   protected itemMap = new Map<string, playlistGestor>();
 
   /**
    * Constructor de la clase Gestor
-   * @param playlists Array de playlists que contiene todas las playlist de la aplicación 
+   * @param playlists Array de playlists que contiene todas las playlist de la aplicación
    */
   constructor(protected playlists: Playlist[]) {
     this.playlists.forEach((pList) => {
@@ -181,9 +180,8 @@ export class Gestor {
           poderCrear = false;
         }
       });
-      
+
       if ((answersCrear['addPlaylist'])!== '' && poderCrear) {
-        
         const addPlaylistName:string = answersCrear['addPlaylist'];
         const addCancionName:string = answersCrear['cancion'];
         console.log(`llamar canciones.json + ${addCancionName}`);
@@ -192,31 +190,9 @@ export class Gestor {
         const low = require('lowdb');
         const database = low(new FileSync('./src/json/canciones.json'));
         console.log(database.get('canciones').find({nombre: addCancionName}).value());
-        // const d = async () => {
-        //   const answers = inquirer.prompt({
-        //     type: 'list',
-        //     name: 'command',
-        //     message: 'Elige una opción para mostrar canciones',
-        //     // choices: Object.values(Consulta),
-        //     choices: ['si', 'no'],
-        //   });
-        // }
-        // d();
 
-        // const CrearPlaylist = async () => {
-        //   await inquirer.prompt([
-        //     {
-        //       type: 'list',
-        //       name: 'option',
-        //       message: 'Desea agregar más canciones?:',
-        //       choices: ['si', 'no'],
-        //     },
-        //   ]).then(answers => {
-        //     console.info('Answer:', answers.option);
-        //   });
-        // }
         let stop:boolean = false;
-        while(stop == false) {
+        while (stop == false) {
           const cancionNombre:string = database.get('canciones').find({nombre: addCancionName}).get('nombre').value();
           const cancionCantantes:string[] = database.get('canciones').find({nombre: addCancionName}).get('cantantes').value();
           const cancionDuracion:number = database.get('canciones').find({nombre: addCancionName}).get('duracion').value();
@@ -227,7 +203,7 @@ export class Gestor {
           // console.log(`Qué cancion quieres añadir al playlist ${addPlaylistName}`)
           console.log(`${cancionNombre}`);
           console.log(`${cancionCantantes}`);
-  
+
           // Consultar la base de datos sobre canciones
           // Un ejemplo.
           const nuevaCancion = new Cancion(cancionNombre, cancionCantantes, cancionDuracion, cancionGeneros, cancionSingle, cancionNumeroReproducciones, cancionFecha);
@@ -241,10 +217,9 @@ export class Gestor {
           // },
           console.log(`Desea agregar más opciones?:`);
           // this.masCanciones();
-          
+
           stop = true;
         }
-        
       }
       // this.menuUser();
     });
@@ -285,17 +260,13 @@ export class Gestor {
       })
       */
       //
-      
-      const low = require('lowdb');
-      const database = low(new FileSync('./src/json/Playlist.json'));
-      const deletePlaylistName: string = answersBorrar['borrar'];
-      //console.log(deletePlaylistName);
-      ///console.log(database.get('playlistJ').find({nombre: deletePlaylistName}));
-      //const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
-      
-      
-      
-      
+
+      // const low = require('lowdb');
+      // const database = low(new FileSync('./src/json/Playlist.json'));
+      // const deletePlaylistName: string = answersBorrar['borrar'];
+      // console.log(deletePlaylistName);
+      // /console.log(database.get('playlistJ').find({nombre: deletePlaylistName}));
+      // const found = database.find((elem: any) => elem == answersBorrar["borrar"]);
     });
     this.menuUser();
   }
@@ -447,21 +418,3 @@ export class Gestor {
 
 // const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
 // gestor.menuUser();
-
-
-// steph
-// 3. Crear una nueva playlist
-// Entrar a base de datos, preguntar si crear nueva playlist o a partir de una existente, asignar nombre distinto
-
-// Noe
-// 4. Borrar y guardar playlist
-// Entrar a base de datos, preguntar si borrar o guardar (borrar solo propietario)
-// ATENCION: distinguir entre playlist usuarios y playlist cargadas en el sistema.
-
-// BBDD
-// Al menos 50 canciones distintas. Puede ayudarse del siguiente recurso o de la información extraída de Spotify para cumplimentar esta información si lo necesita.
-// Incluir al menos diez géneros musicales distintos. Las canciones deben estar uniformemente distribuidas entre estos diez géneros.
-// Un mínimo de cinco grupos musicales.
-// Al menos cinco artistas.
-// Entre cinco y diez álbumes musicales.
-// Incluir tres playlists distintas.

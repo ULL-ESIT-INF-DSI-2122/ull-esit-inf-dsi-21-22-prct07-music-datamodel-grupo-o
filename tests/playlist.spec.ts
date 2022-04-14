@@ -14,7 +14,7 @@ describe('Test para la clase Playlist', () => {
   it("Test para la clase Playlist", () => {
     expect(playlist1).not.to.be.null;
   });
-  
+
   it("Test añadir una de la lista de canciones", () => {
     expect(playlist1.addCanciones(badHabits));
     expect(playlist1.getCanciones()).to.deep.eq([stay, butter, badHabits]);

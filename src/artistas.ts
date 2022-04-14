@@ -44,6 +44,15 @@ export class Artistas {
     return this.generosArtista;
   }
 
+
+  /**
+   * Método que añade un género relacionado con un artistas
+   * @param newGenero Genero que se quiere añadir
+   */
+  setGenerosArtista(newGenero: string): void {
+    this.generosArtista.push(newGenero);
+  }
+
   /**
      * Método que devuelve los albumes en los que ha participado un artista
      * @returns albumes en los que ha participado
