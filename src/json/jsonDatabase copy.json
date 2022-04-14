@@ -1,6 +1,156 @@
 {
   "albumes": [
     {
+      "artista": "Don Omar",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
+      "nombre": "Let It Be",
+      "year": 2016,
+      "canciones": [
+        "Dile",
+        "Bandoleros"
+      ]
+    },
+    {
+      "artista": "Guy-Manuel de Homem-Christo",
+      "generos": [
+        "Electronica",
+        "House"
+      ],
+      "nombre": "Homework",
+      "year": 2020,
+      "canciones": [
+        "Dile",
+        "Bandoleros"
+      ]
+    },
+    {
+      "artista": "ABBA",
+      "generos": [
+        "Disco"
+      ],
+      "nombre": "Mamma Mia!",
+      "year": 2020,
+      "canciones": [
+        "Dile",
+        "Bandoleros"
+      ]
+    },
+    {
+      "artista": "Don Omar",
+      "generos": [
+        "Reggaeton"
+      ],
+      "nombre": "Los Bandoleros",
+      "year": 2020,
+      "canciones": [
+        "Dile",
+        "Bandoleros"
+      ]
+    },
+    {
+      "artista": "Don Omar",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
+      "nombre": "The Last Don",
+      "year": 2016,
+      "canciones": [
+        "Dile",
+        "Bandoleros"
+      ]
+    },
+    {
+      "artista": "Harry Styles",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
+      "nombre": "Fine Line",
+      "year": 2012,
+      "canciones": [
+        "Adore You"
+      ]
+    },
+    {
+      "artista": "Tom Odell",
+      "generos": [
+        "Soul",
+        "indie Pop",
+        "Folk pop"
+      ],
+      "nombre": "Long Way Down",
+      "year": 2012,
+      "canciones": [
+        "Can't Pretened"
+      ]
+    },
+    {
+      "artista": "Taylor Swift",
+      "generos": [
+        "Pop",
+        "Synth Pop",
+        "Country"
+      ],
+      "nombre": "1989",
+      "year": 2012,
+      "canciones": [
+        "All Too Well",
+        "Our Songs",
+        "Wildest Dreams"
+      ]
+    },
+    {
+      "artista": "Taylor Swift",
+      "generos": [
+        "Pop",
+        "Synth Pop",
+        "Country"
+      ],
+      "nombre": "Taylor Swift",
+      "year": 2012,
+      "canciones": [
+        "All Too Well",
+        "Our Songs",
+        "Wildest Dreams"
+      ]
+    },
+    {
+      "artista": "Justin Bieber",
+      "generos": [
+        "Pop",
+        "R&B",
+        "Hip Hop",
+        "Dance Pop"
+      ],
+      "nombre": "My World",
+      "year": 2012,
+      "canciones": [
+        "Ghost",
+        "Hold On",
+        "Off My Face"
+      ]
+    },
+    {
+      "artista": "Justin Bieber",
+      "generos": [
+        "Pop",
+        "R&B",
+        "Hip Hop",
+        "Dance Pop"
+      ],
+      "nombre": "Acoustic",
+      "year": 2012,
+      "canciones": [
+        "Ghost",
+        "Hold On",
+        "Off My Face"
+      ]
+    },
+    {
       "artista": "Imagine Dragons",
       "generos": [
         "Rock alternativo",
@@ -8,7 +158,7 @@
         "Pop rock"
       ],
       "nombre": "Night Visions",
-      "año": 2012,
+      "year": 2012,
       "canciones": [
         "Radioactive"
       ]
@@ -19,27 +169,23 @@
         "Indie rock"
       ],
       "nombre": "Copacabana",
-      "año": 2016,
+      "year": 2016,
       "canciones": [
-        "Copacabana",
         "En Aire y Hueso",
         "Pequeña Gran Revolucion"
       ]
     },
     {
       "artista": "Dua Lipa",
-      "generos": "Pop",
+      "generos": [
+        "Pop"
+      ],
       "nombre": "Dua Lipa",
-      "año": 2017,
+      "year": 2017,
       "canciones": [
         "New Love",
         "Be the one",
-        "Hotter than Hell",
-        "Blow Your Mind",
-        "Lost in Your Light",
-        "Homesick",
-        "New Rules",
-        "IDGAF"
+        "Hotter than Hell"
       ]
     },
     {
@@ -50,13 +196,10 @@
         "R&B"
       ],
       "nombre": "Beerbongs & Bentleys",
-      "año": 2018,
+      "year": 2018,
       "canciones": [
-        "Rockstart",
-        "Candy Paint",
-        "Psycho",
-        "Ball for Me",
-        "Better Now"
+        "Rockstar",
+        "Candy Paint"
       ]
     },
     {
@@ -68,7 +211,7 @@
         "Hip hop"
       ],
       "nombre": "Hollywood's Bleeding",
-      "año": 2019,
+      "year": 2019,
       "canciones": [
         "WOW",
         "Goodbyes",
@@ -83,16 +226,17 @@
     {
       "nombre": "Imagine Dragons",
       "artistas": [
-        "Dan Reynolds",
-        "Ben McKee",
-        "Daniel Wayne Sermon",
-        "Daniel Platzman"
+        "Dan Reynolds"
       ],
       "year": 2008,
       "generos": [
-        "Rock pop, Indie pop, Rock Alternativo"
+        "Rock pop", 
+        "Indie pop", 
+        "Rock Alternativo"
       ],
-      "albumnes": ["Night Visions"],
+      "albumnes": [
+        "Night Visions"
+      ],
       "oyentes": 59100146
     },
     {
@@ -106,9 +250,12 @@
       ],
       "year": 2010,
       "generos": [
-        "Indie pop, Rock Alternativo"
+        "Indie pop", 
+        "Rock Alternativo"
       ],
-      "albumnes": ["Copacabana"],
+      "albumnes": [
+        "Copacabana"
+      ],
       "oyentes": 9782346
     },
     {
@@ -123,7 +270,9 @@
       "generos": [
         "Rock pop"
       ],
-      "albumnes": ["Let It Be"],
+      "albumnes": [
+        "Let It Be"
+      ],
       "oyentes": 5109800347
     },
     {
@@ -139,7 +288,9 @@
         "Pop",
         "Disco"
       ],
-      "albumnes": ["Mamma Mia!"],
+      "albumnes": [
+        "Mamma Mia!"
+      ],
       "oyentes": 84003244
     },
     {
@@ -153,11 +304,366 @@
         "Electronica",
         "House"
       ],
-      "albumnes": ["Homework"],
+      "albumnes": [
+        "Homework"
+      ],
       "oyentes": 89234561
     }
   ],
   "canciones": [
+  {
+    "nombre": "Can't Pretened",
+    "cantantes": [
+      "Tom Odell"
+    ],
+    "duracion": 2.24,
+    "generos": [
+      "indie Pop"
+    ],
+    "single": false,
+    "numeroReproducciones": 2134657,
+    "fecha": 2012
+  },
+    {
+      "nombre": "Off My Face",
+      "cantantes": [
+        "Justin Bieber"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Hold On",
+      "cantantes": [
+        "Justin Bieber"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Ghost",
+      "cantantes": [
+        "Justin Bieber"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Wildest Dreams",
+      "cantantes": [
+        "Taylor Swift"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Our Songs",
+      "cantantes": [
+        "Taylor Swift"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "All Too Well",
+      "cantantes": [
+        "Taylor Swift"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Allergic",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Enemies",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.36,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2135468,
+      "fecha": 2019
+    },
+    {
+      "nombre": "Circles",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.36,
+      "generos": [
+        "Hip-hop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2135468,
+      "fecha": 2019
+    },
+    {
+      "nombre": "Candy Paint",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 3.52,
+      "generos": [
+        "Hip-hop"
+      ],
+      "single": false,
+      "numeroReproducciones": 6535468,
+      "fecha": 2017
+    },
+    {
+      "nombre": "Rockstar",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 4.18,
+      "generos": [
+        "Hip-hop"
+      ],
+      "single": false,
+      "numeroReproducciones": 1435468,
+      "fecha": 2018
+    },
+    {
+      "nombre": "Goodbyes",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.16,
+      "generos": [
+        "Hip-hop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2135468,
+      "fecha": 2020
+    },
+    {
+      "nombre": "WOW",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.16,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2135468,
+      "fecha": 2020
+    },
+    {
+      "nombre": "Take What You Want",
+      "cantantes": [
+        "Post Malone"
+      ],
+      "duracion": 2.46,
+      "generos": [
+        "Pop",
+        "Rock"
+      ],
+      "single": true,
+      "numeroReproducciones": 3214552,
+      "fecha": 2019
+    },
+    {
+      "nombre": "Hotter than Hell",
+      "cantantes": [
+        "Dua Lipa"
+      ],
+      "duracion": 2.36,
+      "generos": [
+        "Pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 3214552,
+      "fecha": 2018
+    },
+    {
+      "nombre": "Be the one",
+      "cantantes": [
+        "Dua Lipa"
+      ],
+      "duracion": 2.36,
+      "generos": [
+        "Synth pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 3211456,
+      "fecha": 2015
+    },
+    {
+      "nombre": "New Love",
+      "cantantes": [
+        "Dua Lipa"
+      ],
+      "duracion": 2.45,
+      "generos": [
+        "Pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 3216548,
+      "fecha": 2015
+    },
+    {
+      "nombre": "No Roots",
+      "cantantes": [
+        "Alice Merton"
+      ],
+      "duracion": 2.56,
+      "generos": [
+        "Soul"
+      ],
+      "single": true,
+      "numeroReproducciones": 3216548,
+      "fecha": 2016
+    },
+    {
+      "nombre": "Why'd You Only Call Me When You're High",
+      "cantantes": [
+        "Arctic Monkeys"
+      ],
+      "duracion": 2.45,
+      "generos": [
+        "Indie rock"
+      ],
+      "single": false,
+      "numeroReproducciones": 3215484,
+      "fecha": 2013
+    },
+    {
+      "nombre": "Glamorous Indie Rock & Roll",
+      "cantantes": [
+        "The Killers"
+      ],
+      "duracion": 3.15,
+      "generos": [
+        "Indie rock"
+      ],
+      "single": false,
+      "numeroReproducciones": 3215484,
+      "fecha": 2004
+    },
+    {
+      "nombre": "Pequeña Gran Revolucion",
+      "cantantes": [
+        "Izal"
+      ],
+      "duracion": 4.15,
+      "generos": [
+        "Indie rock"
+      ],
+      "single": false,
+      "numeroReproducciones": 3214562,
+      "fecha": 2015
+    },
+    {
+      "nombre": "Radioactive",
+      "cantantes": [
+        "Imagine Dragons"
+      ],
+      "duracion": 4.21,
+      "generos": [
+        "Rock",
+        "Indie rock"
+      ],
+      "single": false,
+      "numeroReproducciones": 3214566,
+      "fecha": 2012
+    },
+    {
+      "nombre": "Supermassive Black Hole",
+      "cantantes": [
+        "Muse"
+      ],
+      "duracion": 3.24,
+      "generos": [
+        "Rock alternativo"
+      ],
+      "single": false,
+      "numeroReproducciones": 5241269,
+      "fecha": 2006
+    },
+    {
+      "nombre": "A change of heart",
+      "cantantes": [
+        "The 1975"
+      ],
+      "duracion": 4.47,
+      "generos": [
+        "Synth Pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 21365447,
+      "fecha": 2016
+    },
+    {
+      "nombre": "A-punk",
+      "cantantes": [
+        "Vampire Weekend"
+      ],
+      "duracion": 2.17,
+      "generos": [
+        "Indie Pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 2154872,
+      "fecha": 2008
+    },
+    {
+      "nombre": "Another Love",
+      "cantantes": [
+        "Tom Odell"
+      ],
+      "duracion": 4.04,
+      "generos": [
+        "Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 1457892,
+      "fecha": 2012
+    },
     {
       "nombre": "Angels Like You",
       "cantantes": [
@@ -176,7 +682,7 @@
       "cantantes": [
         "Imagine Dragons"
       ],
-      "duracion": "2.54",
+      "duracion": 2.54,
       "generos": [
         "Rock"
       ],
@@ -213,7 +719,9 @@
     },
     {
       "nombre": "En Aire y Hueso",
-      "cantantes": "Izal",
+      "cantantes": [
+        "Izal"
+      ],
       "duracion": 4.5,
       "generos": [
         "Rock",
@@ -266,7 +774,9 @@
     },
     {
       "nombre": "Jealousy",
-      "cantantes": "Alice Merton",
+      "cantantes": [
+        "Alice Merton"
+      ],
       "duracion": 3.39,
       "generos": [
         "Pop",
@@ -314,7 +824,8 @@
         "Reggaeton"
       ],
       "single": false,
-      "numeroReproducciones": 210011575
+      "numeroReproducciones": 210011575,
+      "fecha": 2015
     },
     {
       "nombre": "Gasolina",
@@ -448,7 +959,9 @@
     },
     {
       "nombre": "Hurt",
-      "cantantes": "Johnny Cash",
+      "cantantes": [
+        "Johnny Cash"
+      ],
       "duracion": 3.36,
       "generos": [
         "Country"
@@ -571,7 +1084,9 @@
     },
     {
       "nombre": "Limbo",
-      "cantantes": "Royal Blood",
+      "cantantes": [
+        "Royal Blood"
+      ],
       "duracion": 4.53,
       "generos": [
         "Disco",
@@ -583,7 +1098,9 @@
     },
     {
       "nombre": "Mamma Mia",
-      "cantantes": "ABBA",
+      "cantantes": [
+        "ABBA"
+      ],
       "duracion": 3.33,
       "generos": [
         "Disco"
@@ -637,7 +1154,9 @@
     },
     {
       "nombre": "Hey Boy Hey Girl",
-      "cantantes": "The Chemical Brothers",
+      "cantantes": [
+        "The Chemical Brothers"
+      ],
       "duracion": 4.5,
       "generos": [
         "Electronica"
@@ -704,7 +1223,9 @@
     },
     {
       "nombre": "Slow Acid",
-      "cantantes": "Calvin Harris",
+      "cantantes": [
+        "Calvin Harris"
+      ],
       "duracion": 3.41,
       "generos": [
         "House"
@@ -846,7 +1367,6 @@
         "Tom Odell"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Another Love"
@@ -859,7 +1379,6 @@
         "Vampire Weekend"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Another Love",
@@ -874,7 +1393,6 @@
         "Taylor Swift"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Can't Pretend",
@@ -888,7 +1406,6 @@
         "Harry Styles"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "As It Was"
@@ -901,7 +1418,8 @@
         "Alice Merton"
       ],
       "generoAlbumes": [
-        " "
+        "Night Visions",
+        "Hollywood's Bleeding"
       ],
       "canciones": [
         "Adore You",
@@ -915,7 +1433,8 @@
         "Izal"
       ],
       "generoAlbumes": [
-        " "
+        "Night Visions",
+        "Copacabana"
       ],
       "canciones": [
         "Why'd You Only Call Me When You're High",
@@ -930,7 +1449,7 @@
         "Arctic Monkeys"
       ],
       "generoAlbumes": [
-        " "
+        "Beerbongs & Bentleys"
       ],
       "canciones": [
         "Why'd You Only Call Me When You're High"
@@ -944,7 +1463,7 @@
         "The Killers"
       ],
       "generoAlbumes": [
-        " "
+        "Hollywood's Bleeding"
       ],
       "canciones": [
         "Angels Like You",
@@ -958,7 +1477,8 @@
         "Miley Cyrus"
       ],
       "generoAlbumes": [
-        " "
+        "Beerbongs & Bentleys",
+        "Hollywood's Bleeding"
       ],
       "canciones": [
         "Wrecking Ball"
@@ -972,7 +1492,8 @@
         "Billie Eilish"
       ],
       "generoAlbumes": [
-        " "
+        "Dua Lipa",
+        "Beerbongs & Bentleys"
       ],
       "canciones": [
         "Wrecking Ball",
@@ -987,7 +1508,6 @@
         "Miley Cyrus"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Wrecking Ball"
@@ -1000,7 +1520,7 @@
         "Muse"
       ],
       "generoAlbumes": [
-        " "
+        "Night Visions"
       ],
       "canciones": [
         "Radioactive",
@@ -1014,7 +1534,6 @@
         "Johnny Cash"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
@@ -1027,7 +1546,6 @@
         "The 1975"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "A change of heart"
@@ -1039,7 +1557,6 @@
         "Royal Blood"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Limbo"
@@ -1052,7 +1569,7 @@
         "ABBA"
       ],
       "generoAlbumes": [
-        " "
+        "Mamma Mia!"
       ],
       "canciones": [
         "Limbo",
@@ -1065,7 +1582,6 @@
         "Calvin Harris"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Slow Acid"
@@ -1074,10 +1590,10 @@
     {
       "genero": "Electronica",
       "gruposArtistas": [
-        "The Chemical Brothers"
+        "The Chemical Brothers",
+        "Martin Garrix"
       ],
       "generoAlbumes": [
-        " "
       ],
       "canciones": [
         "Hey Boy Hey Girl"
@@ -1095,12 +1611,7 @@
       ],
       "albumesArtista": [
         "My World",
-        "Acoustic",
-        "Never Say Never",
-        "Under the Mistleteo",
-        "Believe",
-        "Journals",
-        "Purpose"
+        "Acoustic"
       ],
       "cancionesArtista": [
         "Ghost",
@@ -1121,7 +1632,7 @@
         "1989"
       ],
       "cancionesArtista": [
-        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "All Too Well",
         "Our Songs",
         "Wildest Dreams"
       ],
@@ -1175,116 +1686,61 @@
   ],
   "playlists": [
     {
-      "nombre": "hola",
+      "nombre": "playlistFavorito",
       "cancionesColeccion": [
         {
-          "nombre": "Cesde mis Ojos",
+          "nombre": "Let It Be",
           "cantantes": [
-            "Chris Lebron"
+            "The Beatles"
           ],
-          "duracion": 1.8,
+          "duracion": 4.03,
           "generos": [
-            "Reggaeton",
-            "trap"
+            "Rock"
           ],
-          "single": false,
-          "numeroReproducciones": 5237187
+          "single": true,
+          "numeroReproducciones": 451071152,
+          "fecha": 1970
         },
         {
-          "nombre": "Ajos",
+          "nombre": "Wildest Dreams",
           "cantantes": [
-            "Lebron",
-            "Max"
+            "Taylor Swift"
           ],
-          "duracion": 2.49,
+          "duracion": 3.4,
           "generos": [
-            "Hip"
+            "Pop",
+            "Synth pop"
           ],
-          "single": false,
-          "numeroReproducciones": 15537187
+          "single": true,
+          "numeroReproducciones": 508110410,
+          "fecha": 2014
         }
       ],
-      "duracion": 4.29,
+      "duracion": 7.43,
       "generos": [
-        "Reggaeton",
-        "trap",
-        "Hip"
+        "Pop",
+        "Synth pop",
+        "Rock"
       ]
     },
     {
-      "nombre": "mundo",
+      "nombre": "playlist01",
       "cancionesColeccion": [
         {
-          "nombre": "Ajos",
+          "nombre": "Angels Like You",
           "cantantes": [
-            "Lebron",
-            "Max"
+            "Miley Cyrus"
           ],
-          "duracion": 2.49,
+          "duracion": 3.16,
           "generos": [
-            "Hip"
+            "Rock"
           ],
-          "single": false,
-          "numeroReproducciones": 15537187
+          "single": true,
+          "numeroReproducciones": 192789258,
+          "fecha": 2020
         }
       ],
-      "duracion": 2.49,
-      "generos": [
-        "Hip"
-      ]
-    },
-    {
-      "nombre": "pruebaplay3",
-      "cancionesColeccion": [
-        {
-          "nombre": "Desde",
-          "cantantes": [
-            "Chris Lebron"
-          ],
-          "duracion": 2.49,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 5237187
-        },
-        {
-          "nombre": "Ajos",
-          "cantantes": [
-            "Lebron",
-            "Max"
-          ],
-          "duracion": 2.49,
-          "generos": [
-            "Hip"
-          ],
-          "single": false,
-          "numeroReproducciones": 15537187
-        }
-      ],
-      "duracion": 4.98,
-      "generos": [
-        "Reggaeton",
-        "Hip"
-      ]
-    },
-    {
-      "nombre": "pruebaplay4",
-      "cancionesColeccion": [
-        {
-          "nombre": "Prueba",
-          "cantantes": [
-            "Lebron"
-          ],
-          "duracion": 2.49,
-          "generos": [
-            "Hip"
-          ],
-          "single": false,
-          "numeroReproducciones": 5237187
-        }
-      ],
-      "duracion": 2.49,
+      "duracion": 3.16,
       "generos": [
         "Hip"
       ]

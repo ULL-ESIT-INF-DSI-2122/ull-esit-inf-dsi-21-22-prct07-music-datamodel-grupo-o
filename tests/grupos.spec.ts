@@ -8,8 +8,8 @@ import {Cancion} from '../src/cancion';
 describe('Test de la clase Grupos', () => {
   const cancion1 = new Cancion('16 añitos', ['Dani Martin'], 4.13, ['pop rock', 'rock en español'], false, 17020329, 2021);
   const cancion2 = new Cancion('Zapatillas', ['Dani Martin'], 2.52, ['rock en español'], false, 46992557, 2005);
-  const album1 = new Album('Pequeño', 2010, [cancion1]);
-  const album2 = new Album('Zapatillas', 2005, [cancion2]);
+  const album1 = new Album('Pequeño', 2010, [cancion1], 'Dani Martin');
+  const album2 = new Album('Otero y yo', 2020, [cancion2], 'David Otero');
 
   const artista1 = new Artistas('Dani Martin', ['pop rock', 'rock en español'], [album1, album2], [cancion1, cancion2], 3105602);
   const artista2 = new Artistas('David Otero', ['pop rock', 'rock'], [album2], [cancion2], 1926306);

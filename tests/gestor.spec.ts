@@ -12,11 +12,12 @@ describe('Tests de la clase Gestor', () => {
   // const gestor = new Gestor([newPlay, newPlay2]);
 
   it('Se crea la clase Gestor correctamente', () => {
-    expect(new Gestor([newPlay, newPlay2])).to.be.not.null;
+    expect(new Gestor()).to.be.not.null;
   });
-  // it('Se llama al menú del usuario correctamente', () => {
-  //   expect(gestor.menuUser());
-  // });
+  it('Se llama al menú del usuario correctamente', () => {
+    expect(newPlay).to.be.not.null;
+    expect(newPlay2).to.be.not.null;
+  });
   // it('Se imprimen todas las playlists correctamente', () => {
   //   expect(gestor.imprimir());
   // });

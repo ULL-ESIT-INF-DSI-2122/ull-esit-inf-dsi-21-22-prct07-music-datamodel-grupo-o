@@ -1,5 +1,13 @@
 import {Cancion} from "./cancion";
 
+
+export type playlistType = {
+  name: string;
+  canciones: Cancion[];
+  duracion: number;
+  generos: string[];
+}
+
 /**
  * _Clase Playlist_
  */
@@ -13,9 +21,16 @@ export class Playlist {
      */
   private duracion: number = 0;
   private generos: string[] = [];
+  // constructor(private nombre:string, private cancionesColeccion:Cancion[], duracion:number, generos:string[]) {
   constructor(private nombre:string, private cancionesColeccion:Cancion[]) {
+    this.getDuracion();
+    this.getGenerosMusicales();
   }
 
+  printInformacion() {
+    console.log(`Nombre de Playlist: ` + this.nombre, `Canciones: ` + this.cancionesColeccion,
+        `Duracion:` + this.getDuracion(), `Generos` + this.getGenerosMusicales());
+  }
   /**
    * Método que añade canciones a la playlist
    * @param newCancion Canción nueva que se quiere añadir
@@ -51,7 +66,7 @@ export class Playlist {
     this.cancionesColeccion.forEach((element) => {
       this.duracion += element.getDuracion();
     });
-    return parseFloat(this.duracion.toFixed(2));
+    return this.duracion;
   }
 
   /**

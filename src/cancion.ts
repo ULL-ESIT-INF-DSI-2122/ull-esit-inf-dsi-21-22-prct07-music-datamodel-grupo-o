@@ -1,7 +1,29 @@
+
+/**
+ * Tipo de datos que definen a una canción
+ */
+export type cancionType = {
+  name: string;
+  cantantes: string[];
+  duracion: number;
+  generos: string[];
+  single: boolean;
+  numeroReproduccion: number;
+}
+
 /**
  * Implementación de la clase cancion para almacenar todas las canciones
  */
 export class Cancion {
+  /**
+   * Constructor de la clase Cancion
+   * @param nombre Nombre de la cancion
+   * @param cantantes Array de cadenas con los cantantes de la canción
+   * @param duracion Duracion de la cancion
+   * @param generos Array de cadenas con los generos de la cancion
+   * @param numeroReproducciones Nº de reproducciones de la cancion
+   * @param fecha Año de lanzamiento de la cancion
+   */
   constructor(private nombre:string, private cantantes:string[], private duracion:number,
     private generos: string[], private single:boolean, private numeroReproducciones:number, private fecha: number) {
   }

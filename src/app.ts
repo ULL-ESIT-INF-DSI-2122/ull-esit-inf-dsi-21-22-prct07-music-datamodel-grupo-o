@@ -4,6 +4,7 @@
 import inquirer from 'inquirer';
 import FileSync from 'lowdb/adapters/FileSync';
 import {Gestor} from './gestor';
+import {JsonPlaylist} from './jsonPlaylistCollection';
 
 /**
  * Enumeración de los comandos de la aplicación
@@ -37,7 +38,9 @@ enum operacionComandos {
 export class App {
   private low = require('lowdb');
   private database = this.low(new FileSync('./src/json/jsonDatabase.json'));
+  private colection: JsonPlaylist;
   constructor() {
+    this.colection = new JsonPlaylist();
   }
 
   /**
@@ -70,8 +73,8 @@ export class App {
           this.operacion('artistas');
           break;
         case appComandos.playlist:
-          const playlistOperacion = new Gestor([]);
-          playlistOperacion.menuUser();
+          const playlistOperacion = new Gestor();
+          playlistOperacion.promptPlalistMenu();
           break;
         case appComandos.salir:
           console.log('Thank you for using our application');

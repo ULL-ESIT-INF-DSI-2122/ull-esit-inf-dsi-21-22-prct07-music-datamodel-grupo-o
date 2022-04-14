@@ -1,3 +1,6 @@
+/* eslint-disable indent */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-unused-vars */
 import inquirer from 'inquirer';
 import lowdb from 'lowdb';
@@ -38,13 +41,13 @@ export class Collection {
    * @param year Fecha de publicacion
    * @param canciones Canciones que tiene el album
    */
-  addAlbum(nombreAlbum:string, year:number, canciones:string[]) {
+  addAlbum(nombreAlbum:string, year:number, canciones:string[], artista:string) {
     const cancionesAlbum:Cancion[] = [];
     canciones.forEach((cancion) => {
       cancionesAlbum.push(this.itemMapCancion.get(cancion) as Cancion);
     });
 
-    const nuevoAlbum = new Album(nombreAlbum, year, cancionesAlbum);
+    const nuevoAlbum = new Album(nombreAlbum, year, cancionesAlbum, artista);
     this.itemMapAlbum.set(nombreAlbum, nuevoAlbum);
   }
 
@@ -112,7 +115,7 @@ export class Collection {
       canciones.push(this.itemMapCancion.get(cancion) as Cancion);
     });
 
-    const nuevoGenero = new GenerosMusicales(nombreGenero, artistaGenero, albumGenero, canciones);
+    const nuevoGenero = new GenerosMusicales(nombreGenero, gruposArtistas, albumGenero, canciones);
     this.itemMapGenero.set(nombreGenero, nuevoGenero);
   }
 
@@ -151,13 +154,35 @@ export class Collection {
    */
   addPlaylist(nombrePlaylist: string, nombreCancion:string[]) {
     const canciones:Cancion[] = [];
+
     nombreCancion.forEach((cancion) => {
       canciones.push(this.itemMapCancion.get(cancion) as Cancion);
     });
+
     const nuevoPlaylist = new Playlist(nombrePlaylist, canciones);
     this.itemMapPlaylist.set(nuevoPlaylist.getNombre(), nuevoPlaylist);
   }
 
+  getPlaylist(playlistName:string): Playlist | undefined {
+    return this.itemMapPlaylist.get(playlistName);
+  }
+
+  /**
+   * Método que elimina una playlist de la colección
+   * @param nombrePlaylist Nombre de la playlist a eliminar
+   */
+  eliminarPlaylist(nombrePlaylist: string) {
+    this.itemMapPlaylist.delete(nombrePlaylist);
+  }
+
+  /**
+   * Método que devuelve todas las playlists
+   */
+  getAllPlaylist(): Playlist[] {
+    return [...this.itemMapPlaylist.values()];
+  }
+
+  
 
   /**
    * Método que elimina un album de la colección
@@ -199,80 +224,11 @@ export class Collection {
     this.itemMapPlaylist.delete(nombreArtista);
   }
 
-  /**
-   * Método que elimina una playlist de la colección
-   * @param nombrePlaylist Nombre de la playlist a eliminar
-   */
-  eliminarPlaylist(nombrePlaylist: string) {
-    this.itemMapPlaylist.delete(nombrePlaylist);
-  }
-
-
-  /**
-   * Método que retorna los albumes de la colección
-   * @returns Albumes de la colección
-   */
-  getAlbumMap(): Map<string, Album> {
-    return this.itemMapAlbum;
-  }
-
-  /**
-   * Método que retorna las canciones de la colección
-   * @returns Canciones de la colección
-   */
-  getCancionMap(): Map<string, Cancion> {
-    return this.itemMapCancion;
-  }
-
-  /**
-   * Método que retorna los generos de la colección
-   * @returns Generos de la colección
-   */
-  getGeneroMap(): Map<string, GenerosMusicales> {
-    return this.itemMapGenero;
-  }
-
-  /**
-   * Método que retorna los grupos de la colección
-   * @returns Grupos de la colección
-   */
-  getGrupoMap(): Map<string, Grupos> {
-    return this.itemMapGrupo;
-  }
-
-  /**
-   * Método que retorna los artistas de la colección
-   * @returns Artistas de la colección
-   */
-  getArtistaMap(): Map<string, Artistas> {
-    return this.itemMapArtista;
-  }
-
-  /**
-   * Método que retorna los albumes de la colección
-   * @returns Albumes de la colección
-   */
-  getPlaylistMap(): Map<string, Playlist> {
-    return this.itemMapPlaylist;
-  }
-
-
-  getAlbum(): Album[] {
-    return [...this.itemMapAlbum.values()];
-  }
-  getCancion(): Cancion[] {
-    return [...this.itemMapCancion.values()];
-  }
-  getGrupo(): Grupos[] {
-    return [...this.itemMapGrupo.values()];
-  }
-  getGenero(): GenerosMusicales[] {
-    return [...this.itemMapGenero.values()];
-  }
-  getArtista(): Artistas[] {
-    return [...this.itemMapArtista.values()];
-  }
-  getPlaylist(): Playlist[] {
-    return [...this.itemMapPlaylist.values()];
-  }
+  // /**
+  //  * Método que elimina una playlist de la colección
+  //  * @param nombrePlaylist Nombre de la playlist a eliminar
+  //  */
+  // eliminarPlaylist(nombrePlaylist: string) {
+  //   this.itemMapPlaylist.delete(nombrePlaylist);
+  // }
 }

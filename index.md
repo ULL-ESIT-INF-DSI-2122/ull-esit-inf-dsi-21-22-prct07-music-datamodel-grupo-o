@@ -61,7 +61,58 @@ También cuenta con un método de impresión, que muestra los datos de todas las
 Esta clase es la encargada de gestionar la lectura y escritura en la base de datos json del programa, extentiendo de la `Clase Gestora`. Al constructor se le pasa un nombre de usuario y todas las playlist de la aplicación. Si la base de datos ya tiene la playlist, entonces  se mapea; en caso contrario se escribe. Los métodos implementados que se encontrarán en dicha clase son los necesarios para guardar las `Playlists` y eliminar los `Albumes`, `Canciones`, `Grupos`, `Generos`, `Artistas` y también las mismas `Playlists`. Además, el método `getAllPlaylist()`, es el encargado de retornar el contenido de todas las playlists almacenadas en la base de datos. 
 
 
-### 3.9. Clase Collecction  
+### 3.9. Clase Collecction
+Esta clase en la encargada de gestionar las colecciones creadas por cada clase (Album, Cancion, Grupos, GenerosMusicales, Artistas, Playlist), como podemos observar en el constructor de la propia clase usando la clase `Map` para guardar cada coleccion:
+
+```
+constructor() {
+    this.itemMapAlbum = new Map<string, Album>();
+    this.itemMapCancion = new Map<string, Cancion>();
+    this.itemMapGrupo = new Map<string, Grupos>();
+    this.itemMapGenero = new Map<string, GenerosMusicales>();
+    this.itemMapArtista = new Map<string, Artistas>();
+    this.itemMapPlaylist = new Map<string, Playlist>();
+}
+```
+Además, se definen e implementan todos los métodos usados por dichas clases. Como por ejemplo, los métodos pertenecientes a la clase `Playlist` que se muestran a continuación:
+
+```
+  /**
+   * Método que añade una playlist a la colección
+   * @param nombrePlaylist Nombre de la playlist
+   * @param nombreCancion Nombre de todas las canciones de la playlist
+   */
+  addPlaylist(nombrePlaylist: string, nombreCancion:string[]) {
+    const canciones:Cancion[] = [];
+
+    nombreCancion.forEach((cancion) => {
+      canciones.push(this.itemMapCancion.get(cancion) as Cancion);
+    });
+
+    const nuevoPlaylist = new Playlist(nombrePlaylist, canciones);
+    this.itemMapPlaylist.set(nuevoPlaylist.getNombre(), nuevoPlaylist);
+  }
+
+  getPlaylist(playlistName:string): Playlist | undefined {
+    return this.itemMapPlaylist.get(playlistName);
+  }
+
+  /**
+   * Método que elimina una playlist de la colección
+   * @param nombrePlaylist Nombre de la playlist a eliminar
+   */
+  eliminarPlaylist(nombrePlaylist: string) {
+    this.itemMapPlaylist.delete(nombrePlaylist);
+  }
+
+  /**
+   * Método que devuelve todas las playlists
+   */
+  getAllPlaylist(): Playlist[] {
+    return [...this.itemMapPlaylist.values()];
+  }
+```
+
 
 ### 3.10. Clase App  
 La clase App es la encargada de inicializar la aplicación, el funcionaimiento de la aplicacion consiste en la `class app`, donde en el constructor inicializa y accede a la base de datos existente `JsonDatabase.json`, en la que están los álbumnes, las canciones, los grupos, las artistas, los generos y todas los playlist.  
@@ -95,7 +146,7 @@ Para la documentación de los ejercicios se utilizó la herramienta TypeDoc que 
 
 ### Testing  
 Para la realización del testing de los ejercicios se utilizaron las herramientas Mocha y Chai.  
-Se han realizado pruebas sobre todas las clases implementadas para el correcto funcionamiento de la aplicación, en las cuales se comprueba que los valores pasados por parámetro dan el resultado esperado o al contrario, es decir, se comprueba que no dan el resultado esperado. Para ello se ha creado un fichero clase.spec.ts para cada clase y se han añadido algunas pruebas de todas las funciones utilizadas.  
+Se han realizado pruebas sobre todas las clases implementadas para el correcto funcionamiento de la aplicación, en las cuales se comprueba que los valores pasados por parámetro dan el resultado esperado o al contrario, es decir, se comprueba que no dan el resultado esperado. Para ello se ha creado un fichero `clase.spec.ts` para cada clase y se han añadido algunas pruebas de todas las funciones utilizadas.  
 
 A continuación se muestra la salida en la terminal al ejecutar el test.  
 ```
@@ -108,8 +159,7 @@ Además, al ser un trabajo de grandes dimensiones y mucho trabajo en grupo, se h
 
 En cuanto a las dificultades que hemos tenido realizando la práctica, lo que cabe destacar ha sido el uso de `lowdb` ya que es una herramienta que no habíamos utilizado con anterioridad y al principio nos pareció complicada de entender, pero al final con el desarollo de la práctica pudimos comprender su uso.  
 
-Por otra parte, en cuanto al trabajo realizado, fue un trabajo en grupo en el que la mayor parte de las veces nos conectamos todos los miembros del grupo mediante Live Share, de manera que hicimos el trabajo totalmente colaborativo. Solo hubieron ciertas tareas que nos repartimos para hacer cada una por 
-separado.  
+Por otra parte, en cuanto al trabajo realizado, fue un trabajo en grupo en el que la mayor parte de las veces nos conectamos todos los miembros del grupo mediante Live Share, de manera que hicimos el trabajo totalmente colaborativo. Solo hubieron ciertas tareas que nos repartimos para hacer cada una por separado.  
 
 ## 5. Bibliografía
 - [Clases abstractas e interfaces](https://ifgeekthen.everis.com/es/clases-abstractas-e-interfaces)
