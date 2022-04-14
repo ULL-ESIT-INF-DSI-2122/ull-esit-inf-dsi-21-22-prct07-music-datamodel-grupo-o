@@ -249,8 +249,8 @@ export class Collection {
   }
 
   /**
-   * Método que retorna las playlists de la colección
-   * @returns Playlists de la colección
+   * Método que retorna los albumes de la colección
+   * @returns Albumes de la colección
    */
   getPlaylistMap(): Map<string, Playlist> {
     return this.itemMapPlaylist;
