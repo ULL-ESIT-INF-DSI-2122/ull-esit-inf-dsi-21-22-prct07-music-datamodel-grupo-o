@@ -69,9 +69,6 @@ export class Gestor {
    * Método que muestra todas las playlist
    */
   imprimir():void {
-    // this.itemMap.forEach((element) => {
-    //   console.log();
-    // })
     this.playlists.forEach((element) => {
       process.stdout.write(`
         Nombre de la playlist: ${element.getNombre()}`);
@@ -226,20 +223,6 @@ export class Gestor {
   }
 
 
-  // async masCanciones(): Promise<void> {
-  //   console.clear();
-  //   const masOperacion = await inquirer.prompt([{
-  //       type: 'confirm',
-  //       name: 'option',
-  //       message: 'Elige una opción para mostrar canciones',
-  //       default: false
-  //   }]).then((masOperacion:any) => {
-  //     console.log(`anser` + masOperacion['option']);
-  //     if(masOperacion['option'] == 'si') {
-  //       return true;
-  //     }
-  //   });
-  // }
   /**
    * Método que elimina una playlist elegida por el usuario
    */
@@ -405,16 +388,3 @@ export class Gestor {
     }
   }
 }
-
-// const cancion = new Cancion('Cesde mis Ojos', ['Chris Lebron'], 1.8, ['Reggaeton', 'trap'], false, 5237187); // pensar cómo agregar las canciones
-// const cancion2 = new Cancion('Ajos', ['Lebron', 'Max'], 2.49, ['Hip'], false, 15537187); // pensar cómo agregar las canciones
-// const newPlay = new Playlist("hola", [cancion, cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
-// const newPlay2 = new Playlist("mundo", [cancion2]); // se crea una playlist pero luego hay que agregarla a la base de datos con algún método
-
-// const cancion3 = new Cancion('Desde', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187);
-// const cancion4 = new Cancion('Prueba', ['Lebron'], 2.49, ['Hip'], false, 5237187);
-// const newPlay3 = new Playlist("pruebaplay3", [cancion3, cancion2]);
-// const newPlay4 = new Playlist("pruebaplay4", [cancion4]);
-
-// const gestor = new Gestor([newPlay, newPlay2, newPlay3, newPlay4]);
-// gestor.menuUser();

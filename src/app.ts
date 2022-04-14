@@ -26,7 +26,7 @@ enum operacionComandos {
 }
 
 /**
- * Clase Gestora de la aplicación
+ * Clase App de la aplicación
  */
 export class App {
   private low = require('lowdb');
@@ -323,23 +323,18 @@ export class App {
         case operacionComandos.borrar:
           switch (option) {
             case 'albumes':
-              console.log(`Modificar albumes`);
               this.borrarAlbum();
               break;
             case 'canciones':
-              console.log(`Modificar canciones`);
               this.borrarCancion();
               break;
             case 'generos':
-              console.log(`Modificar generos`);
               this.borrarGenero();
               break;
             case 'artistas':
-              console.log(`Modificar artistas`);
               this.borraArtista();
               break;
             case 'grupos':
-              console.log(`Modificar grupos`);
               this.borrarGrupo();
               break;
           }
@@ -348,23 +343,18 @@ export class App {
         case operacionComandos.modificar:
           switch (option) {
             case 'albumes':
-              console.log(`Modificar albumes`);
               this.modificarAlbumes();
               break;
             case 'canciones':
-              console.log(`Modificar canciones`);
               this.modificarCancion();
               break;
             case 'generos':
-              console.log(`Modificar generos`);
               this.modificarGenero();
               break;
             case 'artistas':
-              console.log(`Modificar artistas`);
               this.modificarArtista();
               break;
             case 'grupos':
-              console.log(`Modificar grupos`);
               this.modificarGrupo();
               break;
           }
@@ -630,8 +620,7 @@ export class App {
       const albumEliminar:string = answers['albumEliminar'];
       console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumEliminar}).value()));
       if (this.database.get('albumes').find({nombre: albumEliminar}).value() !== undefined) {
-        console.log(`Voy a borrar album`);
-
+        console.log(`Voy a borrar un album`);
         this.database.get('albumes').remove({nombre: albumEliminar}).write();
       } else {
         console.log(`No existe dicho album`);

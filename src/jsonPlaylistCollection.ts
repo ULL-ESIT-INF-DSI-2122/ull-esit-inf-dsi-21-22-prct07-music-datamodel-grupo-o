@@ -18,13 +18,6 @@ type schemaType = {
   cancion: Cancion[],
   artista: Artistas[],
   playlist: Playlist[],
-
-  // playlistJ:{
-  //   nombre: string;
-  //   canciones: Cancion[];
-  //   duracion: number;
-  //   generos: string[];
-  // }[];
 }
 
 /**
@@ -60,40 +53,82 @@ export class jsonPlaylist extends Collection {
     // }
   }
 
+  /**
+   * Método que añade una playlist a la base de datos
+   * @param nombrePlaylist Nombre de la playlist
+   * @param playlist Array con todos los nombres de las canciones de la playlist
+   */
   addPlaylist(nombrePlaylist:string, playlist:string[]):void {
     super.addPlaylist(nombrePlaylist, playlist);
     this.store('playlist');
   }
 
+  /**
+   * Método que elimina un album de la base de datos
+   * @param nombreAlbum Nombre del album a eliminar
+   */
   removeAlbumm(nombreAlbum:string):void {
     super.eliminarAlbum(nombreAlbum);
     this.store('album');
   }
+
+  /**
+   * Método que elimina una cancion de la base de datos
+   * @param nombreCancion Nombre de la canción a eliminar
+   */
   removeCancion(nombreCancion:string):void {
     super.eliminarCancion(nombreCancion);
     this.store('cancion');
   }
+
+  /**
+   * Método que elimina un grupo de la base de datos
+   * @param nombreGrupo Nombre del grupo a eliminar
+   */
   removeGrupo(nombreGrupo:string):void {
     super.eliminarGrupo(nombreGrupo);
     this.store('grupo');
   }
+
+  /**
+   * Método que elimina un genero de la base de datos
+   * @param nombreGenero Nombre del genero a eliminar
+   */
   removeGenero(nombreGenero:string):void {
     super.eliminarGenero(nombreGenero);
     this.store('genero');
   }
+
+  /**
+   * Método que elimina un artista de la base de datos
+   * @param nombreArtista Nombre del artista a eliminar
+   */
   removeArtista(nombreArtista:string):void {
     super.eliminarArtista(nombreArtista);
     this.store('artista');
   }
+
+  /**
+   * Método que elimina una playlist de la base de datos
+   * @param nombrePlaylist Nombre de la playlist a eliminar
+   */
   removePlaylist(nombrePlaylist:string):void {
     super.eliminarPlaylist(nombrePlaylist);
     this.store('playlist');
   }
 
+  /**
+   * Método que accede a todas las playlists existentes en la base de datos
+   * @returns Todas las playlists existentes
+   */
   getAllPlaylist() {
     return this.database;
   }
 
+  /**
+   * Método que almacena en la base de datos
+   * @param type Tipo a almacenar
+   */
   private store(type:string) {
     switch (type) {
       case 'album':
