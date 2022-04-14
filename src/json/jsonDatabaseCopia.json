@@ -30,7 +30,7 @@
       "artista": "Dua Lipa",
       "generos": "Pop",
       "nombre": "Dua Lipa",
-      "año": "2017",
+      "año": 2017,
       "canciones": [
         "New Love",
         "Be the one",
@@ -92,8 +92,69 @@
       "generos": [
         "Rock pop, Indie pop, Rock Alternativo"
       ],
-      "albumnes": [],
+      "albumnes": ["Night Visions"],
       "oyentes": 59100146
+    },
+    {
+      "nombre": "Izal",
+      "artistas": [
+        "Mikel Izal",
+        "Alejandro Jordá",
+        "Emanuel Pérez",
+        "Alberto Pérez",
+        "Iván Mella"
+      ],
+      "year": 2010,
+      "generos": [
+        "Indie pop, Rock Alternativo"
+      ],
+      "albumnes": ["Copacabana"],
+      "oyentes": 9782346
+    },
+    {
+      "nombre": "The Beatles",
+      "artistas": [
+        "John Lennon",
+        "Paul McCartney",
+        "George Harrinson",
+        "Ringo Starr"
+      ],
+      "year": 1960,
+      "generos": [
+        "Rock pop"
+      ],
+      "albumnes": ["Let It Be"],
+      "oyentes": 5109800347
+    },
+    {
+      "nombre": "ABBA",
+      "artistas": [
+        "Agnetha Fältskog",
+        "Björn Ulvaeus",
+        "Benny Andersson",
+        "Anni-Frid Lyngstad"
+      ],
+      "year": 1972,
+      "generos": [
+        "Pop",
+        "Disco"
+      ],
+      "albumnes": ["Mamma Mia!"],
+      "oyentes": 84003244
+    },
+    {
+      "nombre": "Daft Punk",
+      "artistas": [
+        "Guy-Manuel de Homem-Christo",
+        "Thomas Bangalter"
+      ],
+      "year": 1993,
+      "generos": [
+        "Electronica",
+        "House"
+      ],
+      "albumnes": ["Homework"],
+      "oyentes": 89234561
     }
   ],
   "canciones": [
@@ -1042,100 +1103,77 @@
         "Purpose"
       ],
       "cancionesArtista": [
-        ""
+        "Ghost",
+        "Hold On",
+        "Off My Face"
       ],
-      "oyentesArtista": 12355678
+      "oyentesArtista": 39245678
     },
     {
-      "nombre": "Justin Bieber",
+      "nombre": "Taylor Swift",
       "generosArtistas": [
         "Pop",
-        "R&B",
-        "Hip Hop",
-        "Dance Pop"
+        "Synth Pop",
+        "Country"
       ],
       "albumesArtista": [
-        "My World",
-        "Acoustic",
-        "Never Say Never",
-        "Under the Mistleteo",
-        "Believe",
-        "Journals",
-        "Purpose"
+        "Taylor Swift",
+        "1989"
       ],
       "cancionesArtista": [
-        ""
+        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "Our Songs",
+        "Wildest Dreams"
       ],
-      "oyentesArtista": 12355678
+      "oyentesArtista": 89235634
     },
     {
-      "nombre": "Justin Bieber",
+      "nombre": "Harry Styles",
       "generosArtistas": [
         "Pop",
-        "R&B",
-        "Hip Hop",
-        "Dance Pop"
+        "Synth Pop"
       ],
       "albumesArtista": [
-        "My World",
-        "Acoustic",
-        "Never Say Never",
-        "Under the Mistleteo",
-        "Believe",
-        "Journals",
-        "Purpose"
+        "Fine Line"
       ],
       "cancionesArtista": [
-        ""
+        "As It Was",
+        "Adore You"
       ],
-      "oyentesArtista": 12355678
+      "oyentesArtista": 23563463
     },
     {
-      "nombre": "Justin Bieber",
+      "nombre": "Tom Odell",
       "generosArtistas": [
-        "Pop",
-        "R&B",
-        "Hip Hop",
-        "Dance Pop"
+        "Soul",
+        "indie Pop",
+        "Folk pop"
       ],
       "albumesArtista": [
-        "My World",
-        "Acoustic",
-        "Never Say Never",
-        "Under the Mistleteo",
-        "Believe",
-        "Journals",
-        "Purpose"
+        "Long Way Down"
       ],
       "cancionesArtista": [
-        ""
+        "Can't Pretened"
       ],
-      "oyentesArtista": 12355678
+      "oyentesArtista": 4523467
     },
     {
-      "nombre": "Justin Bieber",
+      "nombre": "Don Omar",
       "generosArtistas": [
-        "Pop",
-        "R&B",
-        "Hip Hop",
-        "Dance Pop"
+        "Reggaeton"
       ],
       "albumesArtista": [
-        "My World",
-        "Acoustic",
-        "Never Say Never",
-        "Under the Mistleteo",
-        "Believe",
-        "Journals",
-        "Purpose"
+        "The Last Don",
+        "Los Bandoleros"
       ],
       "cancionesArtista": [
-        ""
+        "Dile",
+        "Bandoleros"
       ],
-      "oyentesArtista": 12355678
+      "oyentesArtista": 923563463
     }
   ],
-  "playlistJ": [
+  "playlists": [
     {
       "nombre": "hola",
       "cancionesColeccion": [

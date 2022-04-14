@@ -8,6 +8,7 @@
         "./src/gestor.ts",
         "./src/grupos.ts",
         "./src/playlist.ts",
-        "./src/jsonPlaylistCollection.ts"
+        "./src/jsonPlaylistCollection.ts",
+        "./src/app.ts"
     ]        
 }

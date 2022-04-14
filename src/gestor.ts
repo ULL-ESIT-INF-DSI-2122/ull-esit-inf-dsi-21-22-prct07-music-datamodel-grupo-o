@@ -51,7 +51,7 @@ type playlistGestor = {
 /**
  * Clase Gestora de la aplicación
  */
-export class PlaylistCollection {
+export class Gestor {
   protected itemMap = new Map<string, playlistGestor>();
 
   /**
