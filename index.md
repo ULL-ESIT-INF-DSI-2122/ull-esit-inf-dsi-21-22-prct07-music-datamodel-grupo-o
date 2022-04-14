@@ -55,22 +55,24 @@ Esta clase es la encargada de representar una playlist, los atributos que permit
 
 ### 3.7. Clase Gestor
 Esta clase es la encargada de gestionar, como su nombre indica, las peticiones del programa. Se construye pasando como parámetro un array de `Playlist` que contiene todas las playlist de la aplicación. Seguidamente lo mapeará y almacenará sus características principales: `Canciones`, `Duracion` y `Generos`.
-También cuenta con un método de impresión, que muestra los datos de todas las playlist, y es usado en el método visualizar (prácticamente lo mismo, pero añadiendo que el menú aparezca una vez se impriman). Otras opciones implementadas son las de navegar una playlist y mostrar la información de la misma, así como crear, ordenarlas y eliminarlas. Todo ello se realiza desde `menuUser`, con un switch de comandos que hace uso de `Inquirer`.
+También cuenta con un método de impresión, que muestra los datos de todas las playlist, y es usado en el método visualizar (prácticamente lo mismo, pero añadiendo que el menú aparezca una vez se impriman). Otras opciones implementadas son las de navegar una playlist y mostrar la información de la misma, así como crear, ordenarlas y eliminarlas. Todo ello se realiza desde `menuUser`, con un switch de comandos que hace uso de `Inquirer`. Otra de las opciones disponibles, e implementadas en el método `ordenPlaylist()`, es la de ordenar las canciones de una playlist según unos parámetros (ascendente o descendentemente). El tipo de orden será según el título, el autor, el año, la duracion, etc.
 
 ### 3.8. Clase jsonPlaylist
-Esta clase es la encargada de gestionar la lectura y escritura en la base de datos json del programa, extentiendo de la `Clase Gestora`. Al constructor se le pasa un nombre de usuuario y todas las playlist de la aplicación. Si la base de datos ya tiene la playlist, entonces  se mapea; en caso contrario se escribe.  
+Esta clase es la encargada de gestionar la lectura y escritura en la base de datos json del programa, extentiendo de la `Clase Gestora`. Al constructor se le pasa un nombre de usuario y todas las playlist de la aplicación. Si la base de datos ya tiene la playlist, entonces  se mapea; en caso contrario se escribe. 
+
+Aquí también se encontrarán los métodos para guardar las `Playlists` y eliminar los `Albumes`, `Canciones`, `Grupos`, `Generos`, `Artistas` y también las mismas `Playlists`. También el método `getAllPlaylist()`, que retornará el contenido de todas las playlists almacenadas en la base de datos. 
 
 ### 3.9. Clase App ( Donde inicializa la aplicacion )
 El funcionaimiento de la aplicacion consiste en la `class app`, donde en el constructor inicializa a acceder un database que ya existe `JsonDatabase.json`, en él estan los albumnes, las canciones, los grupos, las artistas, los generos y todos los playlist.
-En la funcion `userMenu()` es la parte que usa **inquirer** para interactual con usuario. Inicialmente se pregunta al usuario `Qué operacion quieres hacer`:
+En la funcion `userMenu()` se usará **inquirer** para interactuar con el usuario. Inicialmente se pregunta al usuario `Qué operacion quieres hacer`:
 > - **Operacion con albumnes**
 > - **Operacion con canciones**
 > - **Operacion con generos**
 > - **Operacion con grupos**
 > - **Operacion con artistas**
-> - **Operaciones avanzadas con playlist** (aqui utilizará la gestor)
+> - **Operaciones avanzadas con playlist** (aqui utilizará la clase gestora)
 
-Dependiendo de la opcion que elija el usuario, entramos el método `operacion(option:string)`, dicho método pregunta al usuario que operacio  deseas hacer: 
+Dependiendo de la opcion que elija el usuario, entramos el método `operacion(option:string)`, dicho método pregunta al usuario que operación desea hacer: 
 > - **Visualizar**
 > - **Añadir**
 > - **Borrar**
@@ -78,19 +80,17 @@ Dependiendo de la opcion que elija el usuario, entramos el método `operacion(op
 
 En el método `Visualizar()`, simplemente usando la funcion que proporciona **lowdb** `JSON.stringify()` se puede mostrar los datos según el tipo de datos que desea el usuario.
 
-En el método `add()`, usando **inquirer** para preguntar al usuario los datos que quieres agregar. Comprobamos que no existe en la `jsonDataBase.json` y que los datos introducidos son validos. y Usando cada clase creamos objetos y añadimos a la colecion.
+En el método `add()`, se usa **inquirer** para preguntar al usuario los datos que quiere agregar. Comprobamos que no existe en la `jsonDataBase.json` y que los datos introducidos son validos. Usando cada clase creamos objetos y añadimos a la colecion.
 
-En el método `borrar()`, igual que el método anterior, usando **inquirer** para preguntar al usuario el nombre del objeto que desea eliminar, usa la funcion **por ejemplo en el caso de album**: `this.database.get('canciones').remove({nombre: cancionEliminar}).write();` elimina directaente el objeto que está dentro de `canciones` y según el nombre `cancionEliminar` que introduce el usuario **(en este caso el nombre es el dato unico)** eliminar el objeto de cancion.
+En el método `borrar()`, igual que el método anterior, se usa **inquirer** para preguntar al usuario el nombre del objeto que desea eliminar, usa la funcion **por ejemplo en el caso de album**: `this.database.get('canciones').remove({nombre: cancionEliminar}).write();` elimina directaente el objeto que está dentro de `canciones` y según el nombre `cancionEliminar` que introduce el usuario **(en este caso el nombre es el dato unico)** eliminar el objeto de cancion.
 
-En el método `Modificar()`, usamos **inquirer** preguntamos qué **(album, cancion, genero, artista, grupo)** desea cambiar el dato.
-**por ejemplo en le caso de album**: 
+En el método `Modificar()`, usamos **inquirer** para preguntar en qué **(album, cancion, genero, artista, grupo)** se desea modificar los datos.
+**por ejemplo en el caso de album**: 
 `this.database.get('albumes').find({nombre: albumMoficar}).set(tipoDatoMoficar, dataMoficar).write();`
-`get()` para acceder **albumnes**, 
+`get()` para acceder a **albumes**, 
 `find()` para encontrar el objeto con el nombre introducido
-`set()` para modificar el datos que desea cambiar el usuario
+`set()` para modificar el dato que desea cambiar el usuario
 `write()` para guardar el cambio.
-
-
 
 ### Documentación TypeDoc  
 Para la documentación de los ejercicios se utilizó la herramienta TypeDoc que convierte los comentarios en el código fuente de TypeScript en documentación HTML renderizada. A continuación, se adjunta el enlace a la página web creada mediante TypeDoc.  
@@ -106,7 +106,9 @@ A continuación se muestra la salida en la terminal al ejecutar el test.
 
 ##  4. Conclusiones
 
-En esta práctica, he aprendido más cosas que están relacionado con
+Con esta práctica se ha podido aprender a utilizar herramientas como `Inquirer`, bastante útil y estéticamente formal para programas de terminal; también se ha tenido que practicar la creación de una base de datos por medio de `Lowdb` y JSONs, algo de vital importancia para la permanencia de datos y una salida fácil y rápida para una aplicación sencilla.
+
+Además, al ser un trabajo de grandes dimensiones y mucho trabajo en grupo, se ha podido experimentar muy por encima lo que podría llegar a ser un proyecto de la vida real. Con una división de trabajos, un tiempo límite y un producto de utilidad en el día a día (como vendría a ser una colección musical).
 
 ## 5. Bibliografía
 - [Clases abstractas e interfaces](https://ifgeekthen.everis.com/es/clases-abstractas-e-interfaces)
@@ -114,3 +116,5 @@ En esta práctica, he aprendido más cosas que están relacionado con
 - [Clases y métodos](https://lenguajejs.com/javascript/caracteristicas/clases-es6/)
 - [Apuntes de la clases](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/)
 - [Guión de la práctica](https://ull-esit-inf-dsi-2122.github.io/prct07-music-dataModel/)
+- [Inquirer.js](https://www.npmjs.com/package/inquirer)
+- [Lowdb](https://www.npmjs.com/package/lowdb)
