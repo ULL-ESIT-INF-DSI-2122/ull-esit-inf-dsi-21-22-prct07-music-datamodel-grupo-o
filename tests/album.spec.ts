@@ -9,8 +9,7 @@ const Good4U = new Cancion('Good 4 U', ['Olivia Rodrigo'], 2.58, ['Pop punk',
   'pop rock', 'teen pop'], false, 1339674630, 2021);
 const Traitor = new Cancion('Traitor', ['Olivia Rodrigo'], 2.58, ['Pop punk',
   'pop rock', 'teen pop'], false, 702172687, 2021);
-const Sour = new Album('Sour', 2021,
-    [DriversLicense, Good4U]);
+const Sour = new Album('Sour', 2021, [DriversLicense, Good4U], 'Olivia Rodrigo');
 
 describe('Test para la clase Album', () => {
   it("Test GetNombre => Sour", () => {

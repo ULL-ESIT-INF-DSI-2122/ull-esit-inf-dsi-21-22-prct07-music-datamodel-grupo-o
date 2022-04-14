@@ -31,4 +31,8 @@ describe('Test para la clase Playlist', () => {
   it("Test obtener generos de la lista", () => {
     expect(playlist1.getGenerosMusicales()).to.deep.eq(["pop-rock", "hip-hop", "dance-pop", "k-pop", "synth pop"]);
   });
+
+  it("Test printInformacion() => to not throw", () => {
+    expect(playlist1.printInformacion()).to.not.throw;
+  });
 });

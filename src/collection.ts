@@ -182,8 +182,6 @@ export class Collection {
     return [...this.itemMapPlaylist.values()];
   }
 
-  
-
   /**
    * Método que elimina un album de la colección
    * @param nombreAlbum Nombre del album a eliminar

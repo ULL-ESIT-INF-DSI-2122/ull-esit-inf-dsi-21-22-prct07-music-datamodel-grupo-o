@@ -58,14 +58,11 @@ export class Gestor {
 
   visualizar():void {
     console.log(`visualizar`);
-    console.log(this.colection.getAllPlaylist());
-    if (this.nextPromt()) {
-      this.promptPlalistMenu();
-    }
+    this.colection.getPlaylistMap();
   }
   
   promptPlalistMenu() {
-    console.clear();
+    // console.clear();
 
     inquirer.prompt({
       name: 'optionPlaylist',
@@ -76,6 +73,7 @@ export class Gestor {
       switch (answers['optionPlaylist']) {
         case playlistCommands.visualizar:
           this.visualizar();
+          this.promptPlalistMenu();
         break;
         case playlistCommands.navegar:
         

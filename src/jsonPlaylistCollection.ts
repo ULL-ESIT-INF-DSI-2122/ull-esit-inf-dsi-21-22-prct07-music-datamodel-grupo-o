@@ -92,8 +92,9 @@ export class JsonPlaylist extends Collection {
    * Método que retorna los albumes de la colección
    * @returns Albumes de la colección
    */
-  getPlaylistMap(): Map<string, Playlist> {
-    return this.itemMapPlaylist;
+  getPlaylistMap(): void {
+    console.log(JSON.stringify(this.database.get('playlists').value(), null, 2));
+    console.log(`termina funcion`);
   }
   
 

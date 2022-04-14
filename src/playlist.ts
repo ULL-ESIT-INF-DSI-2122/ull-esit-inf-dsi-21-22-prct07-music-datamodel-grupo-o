@@ -27,7 +27,7 @@ export class Playlist {
     this.getGenerosMusicales();
   }
 
-  printInformacion() {
+  printInformacion():void {
     console.log(`Nombre de Playlist: ` + this.nombre, `Canciones: ` + this.cancionesColeccion,
         `Duracion:` + this.getDuracion(), `Generos` + this.getGenerosMusicales());
   }
