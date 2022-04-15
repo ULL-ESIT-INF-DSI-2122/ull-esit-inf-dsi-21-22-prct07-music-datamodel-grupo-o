@@ -1,9 +1,3 @@
-/* eslint-disable eol-last */
-/* eslint-disable padded-blocks */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable indent */
-/* eslint-disable semi */
-/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
@@ -434,7 +428,6 @@ export class App {
         if (answers['continue'] == 'Yes') this.addAlbum();
         else this.userMenu();
       });
-
   }
 
   /**
@@ -489,13 +482,13 @@ export class App {
       cantantes.push(answers['cantantesCancion']);
       generos.push(answers['generosCancion']);
       this.colectionMain.addCancion(
-        answers['nombreCancion'], 
-        cantantes, 
-        answers['duracionCancion'], 
-        generos, 
-        answers['single'], 
-        answers['numeroProCancion'], 
-        answers['fechaCancion'], 
+        answers['nombreCancion'],
+        cantantes,
+        answers['duracionCancion'],
+        generos,
+        answers['single'],
+        answers['numeroProCancion'],
+        answers['fechaCancion'],
         );
       console.log(`Se ha agreado la cancion: ` + answers['nombreCancion']);
       inquirer.prompt([{

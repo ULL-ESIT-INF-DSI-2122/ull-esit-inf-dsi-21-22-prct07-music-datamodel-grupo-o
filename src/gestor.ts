@@ -402,6 +402,3 @@ export class Gestor {
     });
   }
 }
-
-// const a = new Gestor();
-// a.promptPlalistMenu();
