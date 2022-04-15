@@ -71,31 +71,48 @@ describe('Test para la clase Playlists Collection', () => {
   });
 
   it("Test addAlbum => not to throw", () => {
-    expect(jsonPlaylist.addAlbum('Los Bandoleros', 2020, "Dile", "Don Omar")).to.not.throw;
+    expect(jsonPlaylist.addAlbum('Los Bandoleros 2', 2020, "Dile", "Don Omar")).to.not.throw;
   });
 
   it("Test addCancion => not to throw", () => {
-    expect(jsonPlaylist.addCancion("Dile", ["Don Omar"], 3.24, ["Reggaeton"], true, 306730425, 2003)).to.not.throw;
+    expect(jsonPlaylist.addCancion("Pa tu casa", ["Don Omar"], 3.24, ["Reggaeton"], true, 306730425, 2003)).to.not.throw;
   });
 
-  // it("Test removeAlbum => not to throw", () => {
-  //   expect(jsonPlaylist.removeAlbumm('Let It Be')).to.not.throw;
-  // });
-  // it("Test removeCancion => not to throw", () => {
-  //   expect(jsonPlaylist.removeCancion('Dile')).to.not.throw;
-  // });
-  // it("Test removeGrupo => not to throw", () => {
-  //   expect(jsonPlaylist.removeGrupo('Imagine Dragons')).to.not.throw;
-  // });
-  // it("Test removeGenero => not to throw", () => {
-  //   expect(jsonPlaylist.removeGenero('Rock')).to.not.throw;
-  // });
-  // it("Test removeArtista => not to throw", () => {
-  //   expect(jsonPlaylist.removeArtista('Miley Cyrus')).to.not.throw;
-  // });
-  // it("Test removePlaylist => not to throw", () => {
-  //   expect(jsonPlaylist.removePlaylist('playlistFavorito')).to.not.throw;
-  // });
+  it("Test addArtista => not to throw", () => {
+    expect(jsonPlaylist.addArtista("Chopin", ["Clasica"], ["Composiciones"], ["Preludio"], 123456789)).to.not.throw;
+  });
+
+  it("Test addGenero => not to throw", () => {
+    expect(jsonPlaylist.addGenero("Clasica", ["Chopin"], ["Composiciones"], ["Preludio"])).to.not.throw;
+  });
+
+  it("Test removeAlbum => not to throw", () => {
+    expect(jsonPlaylist.removeAlbumm('Los Bandoleros 2')).to.not.throw;
+  });
+
+  it("Test removeCancion => not to throw", () => {
+    expect(jsonPlaylist.removeCancion('Pa tu casa')).to.not.throw;
+  });
+
+  it("Test addGrupo => not to throw", () => {
+    expect(jsonPlaylist.addGrupo("Pignoise", ["Manolo", "Pepe"], 2003, ["Pop rock"], ["Fisica o quimica"], 1234567876)).to.not.throw;
+  });
+
+  it("Test removeGrupo => not to throw", () => {
+    expect(jsonPlaylist.removeGrupo('Pignoise')).to.not.throw;
+  });
+
+  it("Test removeGenero => not to throw", () => {
+    expect(jsonPlaylist.removeGenero('Clasica')).to.not.throw;
+  });
+
+  it("Test removeArtista => not to throw", () => {
+    expect(jsonPlaylist.removeArtista('Chopin')).to.not.throw;
+  });
+
+  it("Test removePlaylist => not to throw", () => {
+    expect(jsonPlaylist.removePlaylist('Exitos Don Omar')).to.not.throw;
+  });
 
 
 

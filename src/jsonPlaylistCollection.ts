@@ -150,9 +150,6 @@ export class JsonPlaylist extends Collection {
 
         this.itemMapCancion.set(aux.getNombre(), aux);
       });
-      // console.log(this.itemMapCancion);
-    } else {
-      this.database.set('canciones', []).write();
     }
   }
 
@@ -176,8 +173,6 @@ export class JsonPlaylist extends Collection {
         this.itemMapAlbum.set(aux.getNombre(), aux);
       });
       // console.log(this.itemMapAlbum);
-    } else {
-      this.database.set('albumes', []).write();
     }
   }
 
@@ -199,8 +194,6 @@ export class JsonPlaylist extends Collection {
         aux = new Playlist(element.nombre, auxCanciones);
         this.itemMapPlaylist.set(aux.getNombre(), aux);
       });
-    } else {
-      this.database.set('playlists', []).write();
     }
   }
 
@@ -235,8 +228,6 @@ export class JsonPlaylist extends Collection {
         aux = new Artistas(element.nombre, auxGeneros, auxAlbumes, auxCanciones, element.oyentesArtista);
         this.itemMapArtista.set(aux.getNombreArtista(), aux);
       });
-    } else {
-      this.database.set('artistas', []).write();
     }
   }
 
@@ -270,8 +261,6 @@ export class JsonPlaylist extends Collection {
         aux = new GenerosMusicales(element.genero, auxArtistasGeneros, auxAlbumGeneros, auxCancionesGeneros);
         this.itemMapGenero.set(aux.getGenero(), aux);
       });
-    } else {
-      this.database.set('generos', []).write();
     }
   }
 
@@ -302,8 +291,6 @@ export class JsonPlaylist extends Collection {
         aux = new Grupos(element.nombre, auxArtistas, element.year, auxGeneros, auxAlbum, element.oyentes);
         this.itemMapGrupo.set(aux.getNombre(), aux);
       });
-    } else {
-      this.database.set('grupos', []).write();
     }
   }
 
