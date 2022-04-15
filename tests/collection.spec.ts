@@ -26,9 +26,6 @@ describe('Test para la clase Collection', () => {
   it('eliminarPlaylist => to not throw', () => {
     expect(colleccion.eliminarPlaylist('nueva playlist')).to.not.throw;
   });
-  it('getAllPlaylist => to not be null', () => {
-    expect(colleccion.getAllPlaylist()).to.not.be.null;
-  });
   it('eliminarAlbum => to not throw', () => {
     expect(colleccion.eliminarAlbum('Let It Be')).to.not.throw;
   });

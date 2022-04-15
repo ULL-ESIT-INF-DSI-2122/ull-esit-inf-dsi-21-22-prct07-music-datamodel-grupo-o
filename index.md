@@ -150,6 +150,110 @@ Se han realizado pruebas sobre todas las clases implementadas para el correcto f
 
 A continuación se muestra la salida en la terminal al ejecutar el test.  
 ```
+  Test para la clase Album
+    ✔ Test GetNombre => Sour
+    ✔ Test GetArtista => Olivia Rodrigo
+    ✔ Test GetYear =>  2021
+    ✔ Test getCanciones =>  Good 4 U and Drivers License
+    ✔ Test AddCancion = > to not throw
+    ✔ Test getCanciones = > Good 4 U, Drivers License & Traitor
+    ✔ Test setGeneros = > not throw
+    ✔ Test addGenerosAllSongs => not to throw
+    ✔ Test GetGeneros = > Todos los géneros de las canciones
+
+  Test para la clase Artista
+    ✔ Se crea la clase correctamente
+    ✔ Test nombre del artista
+    ✔ Test grupos del artista
+    ✔ Test género del artista
+    ✔ Test albumes del artista
+    ✔ Test canciones del artista
+    ✔ Test oyentes mensuales del artista
+    ✔ Test calcular oyentes mensuales del artista
+    ✔ Test añade un nuevo genero al artista
+
+  Tests de la clase Cancion
+    ✔ Se crea correctamente la clase
+    ✔ Se accede al nombre de la cancion correctamente
+    ✔ Se accede al autor de la cancion correctamente
+    ✔ Se accede a los cantantes de la cancion correctamente
+    ✔ Se accede a la fecha de lanzamiento de la cancion correctamente
+    ✔ Se accede a la duracion de la cancion correctamente
+    ✔ Se accede a los géneros musicales de la cancion correctamente
+    ✔ Se accede al género musical principal de la cancion correctamente
+    ✔ La canción no es un single
+    ✔ Se accede al número de reproducciones de la cancion correctamente
+    ✔ Se modifica el número de reproducciones de la cancion correctamente
+
+  Test para la clase Collection
+    ✔ addCancion => to not throw
+    ✔ addGrupo => to not throw
+    ✔ addGenero => to not throw
+    ✔ addArtista => to not throw
+    ✔ getPlaylist => to not throw
+    ✔ eliminarPlaylist => to not throw
+    ✔ eliminarAlbum => to not throw
+    ✔ eliminarCancion => to not throw
+    ✔ eliminarGenero => to not throw
+    ✔ eliminarGrupo => to not throw
+    ✔ eliminarArtista => to not throw
+
+  Test para la clase Generos Musicales
+    ✔ Se crea la clase correctamente
+    ✔ Test nombre del género
+    ✔ Test nombre artistas/grupos de ese género 
+    ✔ Test nombre albumes de ese género 
+    ✔ Test nombre canciones de ese género 
+
+  Tests de la clase Gestor
+    ✔ Se crea la clase Gestor correctamente
+    ✔ Se llama al menú del usuario correctamente
+
+  Test de la clase Grupos
+    ✔ Se crea la clase correctamente
+    ✔ Se obtiene el nombre del grupo correctamente
+    ✔ Se obtienen los artistas del grupo correctamente
+    ✔ Se obtiene el año de creación del grupo correctamente
+    ✔ Se obtiene el genero del grupo correctamente
+    ✔ Se obtienen los albumes del grupo correctamente
+    ✔ Se obtiene el numero de oyentes mensuales del grupo correctamente
+    ✔ Se modifica el numero de oyentes mensuales del grupo correctamente
+    ✔ Se añade un artista al grupo correctamente
+    ✔ Se añade un album al grupo correctamente
+    ✔ Se añade un genero musical al grupo correctamente
+
+  Test para la clase Playlist
+    ✔ Test para la clase Playlist
+    ✔ Test añadir una de la lista de canciones
+    ✔ Test obtener nombre de la lista
+    ✔ Test obtener la duracion de la lista
+    ✔ Test obtener generos de la lista
+    ✔ Test printInformacion() => to not throw
+
+  Test para la clase Playlists Collection
+    ✔ Test getPlaylistMap => Playlist de la colección
+    ✔ Test getAlbumMap => Albumes de la colección
+    ✔ Test getCancionMap => Canciones de la colección
+    ✔ Test getGeneroMap => Generos de la colección
+    ✔ Test getGrupoMap => Grupos de la colección
+    ✔ Test getArtistaMap => Artistas de la colección
+    ✔ Test getPlaylistMap => Playlists de la colección
+    ✔ Test loadCancion => not to throw
+    ✔ Test loadAlbum => not to throw
+    ✔ Test loadPlaylist => not to throw
+    ✔ Test loadArtista => not to throw
+    ✔ Test loadGenero => not to throw
+    ✔ Test loadGrupo => not to throw
+    ✔ Test addPlaylist => not to throw
+    ✔ Test removeAlbum => not to throw
+    ✔ Test removeCancion => not to throw
+    ✔ Test removeGrupo => not to throw
+    ✔ Test removeGenero => not to throw
+    ✔ Test removeArtista => not to throw
+    ✔ Test removePlaylist => not to throw
+
+
+  84 passing (93ms)
 ```
 
 ##  4. Conclusiones

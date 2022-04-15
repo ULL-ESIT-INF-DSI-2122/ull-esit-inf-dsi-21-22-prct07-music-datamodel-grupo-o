@@ -1,10 +1,13 @@
 import 'mocha';
 import {expect} from 'chai';
 import {JsonPlaylist} from "../src/jsonPlaylistCollection";
-const jsonPlaylistCollection = new JsonPlaylist();
+import { Cancion } from '../src/cancion';
 
 console.log = function() {};
 describe('Test para la clase Playlists Collection', () => {
+  const jsonPlaylistCollection = new JsonPlaylist();
+  const cancion1 = new Cancion("Dile", ["Don Omar"], 3.24, ["Reggaeton"], true, 306730425, 2003);
+  const cancion2 = new Cancion("Bandoleros", ["Don Omar", "Tego Calderon"], 5.05, ["Reggaeton"], false, 210011575, 2015);
   it("Test getPlaylistMap => Playlist de la colección", () => {
     expect(jsonPlaylistCollection.getPlaylistMap()).to.not.throw;
     expect(jsonPlaylistCollection.getPlaylistMap()).to.not.be.null;
@@ -52,7 +55,7 @@ describe('Test para la clase Playlists Collection', () => {
     expect(jsonPlaylistCollection.loadGrupo()).to.not.throw;
   });
   it("Test addPlaylist => not to throw", () => {
-    expect(jsonPlaylistCollection.addPlaylist('Exitos Don Omar', ['Dile', 'Bandoleros'])).to.not.throw;
+    expect(jsonPlaylistCollection.addPlaylist('Exitos Don Omar', [cancion1, cancion2])).to.not.throw;
   });
   it("Test removeAlbum => not to throw", () => {
     expect(jsonPlaylistCollection.removeAlbumm('Let It Be')).to.not.throw;
