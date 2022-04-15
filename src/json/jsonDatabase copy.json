@@ -1,7 +1,7 @@
 {
   "albumes": [
     {
-      "artista": "Don Omar",
+      "artista": "The Beatles",
       "generos": [
         "Pop",
         "Synth Pop"
@@ -230,8 +230,8 @@
       ],
       "year": 2008,
       "generos": [
-        "Rock pop", 
-        "Indie pop", 
+        "Rock pop",
+        "Indie pop",
         "Rock Alternativo"
       ],
       "albumnes": [
@@ -250,7 +250,7 @@
       ],
       "year": 2010,
       "generos": [
-        "Indie pop", 
+        "Indie pop",
         "Rock Alternativo"
       ],
       "albumnes": [
@@ -311,19 +311,19 @@
     }
   ],
   "canciones": [
-  {
-    "nombre": "Can't Pretened",
-    "cantantes": [
-      "Tom Odell"
-    ],
-    "duracion": 2.24,
-    "generos": [
-      "indie Pop"
-    ],
-    "single": false,
-    "numeroReproducciones": 2134657,
-    "fecha": 2012
-  },
+    {
+      "nombre": "Can't Pretened",
+      "cantantes": [
+        "Tom Odell"
+      ],
+      "duracion": 2.24,
+      "generos": [
+        "indie Pop"
+      ],
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
+    },
     {
       "nombre": "Off My Face",
       "cantantes": [
@@ -944,20 +944,6 @@
       "fecha": 2021
     },
     {
-      "nombre": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
-      "cantantes": [
-        "Taylor Swift"
-      ],
-      "duracion": 10.13,
-      "generos": [
-        "Country",
-        "Pop"
-      ],
-      "single": true,
-      "numeroReproducciones": 262562428,
-      "fecha": 2012
-    },
-    {
       "nombre": "Hurt",
       "cantantes": [
         "Johnny Cash"
@@ -1366,8 +1352,7 @@
       "gruposArtistas": [
         "Tom Odell"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Another Love"
       ]
@@ -1378,8 +1363,7 @@
         "Tom Odell",
         "Vampire Weekend"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Another Love",
         "Can't Pretend",
@@ -1392,8 +1376,7 @@
         "Tom Odell",
         "Taylor Swift"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Can't Pretend",
         "Adore You",
@@ -1405,8 +1388,7 @@
       "gruposArtistas": [
         "Harry Styles"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "As It Was"
       ]
@@ -1497,7 +1479,7 @@
       ],
       "canciones": [
         "Wrecking Ball",
-        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "All Too Well",
         "Wildest Dreams",
         "Happier Than Ever"
       ]
@@ -1507,8 +1489,7 @@
       "gruposArtistas": [
         "Miley Cyrus"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Wrecking Ball"
       ]
@@ -1533,10 +1514,9 @@
         "Taylor Swift",
         "Johnny Cash"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
-        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "All Too Well",
         "Hurt"
       ]
     },
@@ -1545,8 +1525,7 @@
       "gruposArtistas": [
         "The 1975"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "A change of heart"
       ]
@@ -1556,8 +1535,7 @@
       "gruposArtistas": [
         "Royal Blood"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Limbo"
       ]
@@ -1581,8 +1559,7 @@
       "gruposArtistas": [
         "Calvin Harris"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Slow Acid"
       ]
@@ -1591,10 +1568,10 @@
       "genero": "Electronica",
       "gruposArtistas": [
         "The Chemical Brothers",
+        "Avicii",
         "Martin Garrix"
       ],
-      "generoAlbumes": [
-      ],
+      "generoAlbumes": [],
       "canciones": [
         "Hey Boy Hey Girl"
       ]
@@ -1686,7 +1663,7 @@
   ],
   "playlists": [
     {
-      "nombre": "playlistFavorito",
+      "nombre": "123",
       "cancionesColeccion": [
         {
           "nombre": "Let It Be",
@@ -1718,9 +1695,9 @@
       ],
       "duracion": 7.43,
       "generos": [
+        "Rock",
         "Pop",
-        "Synth pop",
-        "Rock"
+        "Synth pop"
       ]
     },
     {
@@ -1742,7 +1719,7 @@
       ],
       "duracion": 3.16,
       "generos": [
-        "Hip"
+        "Rock"
       ]
     }
   ]

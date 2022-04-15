@@ -40,11 +40,17 @@ export class JsonPlaylist extends Collection {
     super();
     const low = require('lowdb');
     this.database = low(new FileSync('./src/json/jsonDatabase.json'));
+    // console.log(`loadcancion`);
     this.loadCancion();
+    // console.log(`loadalbum`);
     this.loadAlbum();
+    // console.log(`loadArtista`);
     this.loadArtista();
+    // console.log(`loadgenero`);
     this.loadGenero();
+    // console.log(`load1grupos`);
     this.loadGrupo();
+    // console.log(`load1playlist`);
     this.loadPlaylist();
   }
 
@@ -161,15 +167,17 @@ export class JsonPlaylist extends Collection {
       let auxCanciones: Cancion[];
       dbItem.forEach((element: any) => {
         auxCanciones = [];
+
         element.canciones.forEach((cancion: any) => {
-          console.log(this.itemMapCancion.get(cancion));
-          // Está dando error este push, mete undefined en vez de las canciones
+          console.log(cancion);
+          
           auxCanciones.push(this.itemMapCancion.get(cancion) as Cancion);
-          console.log(auxCanciones);
         });
+
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);   
       });
+      console.log(this.itemMapAlbum);
     } else {
       this.database.set('albumes', []).write();
     }
@@ -215,6 +223,7 @@ export class JsonPlaylist extends Collection {
         auxGeneros = [];
         
         element.generosArtistas.forEach((genero:any) => {
+          console.log(genero);
           auxGeneros.push(genero as string);
         });
 
@@ -260,7 +269,7 @@ export class JsonPlaylist extends Collection {
         element.gruposArtistas.forEach((item:any) => {
           auxArtistasGeneros.push(item as string);
         });
-
+      
         aux = new GenerosMusicales(element.genero, auxArtistasGeneros, auxAlbumGeneros, auxCancionesGeneros);
         this.itemMapGenero.set(aux.getGenero(), aux);
       });
@@ -285,13 +294,15 @@ export class JsonPlaylist extends Collection {
         auxArtistas = [];
         auxGeneros = [];
         auxAlbum = [];
-
+        
         element.albumnes.forEach((album:any) => {
-          auxAlbum.push(this.itemMapAlbum.get(album) as Album);
+          auxAlbum.push(this.itemMapAlbum.get(album.nombre) as Album);
         });
+
         element.generos.forEach((genero:any) => {
           auxGeneros.push(genero);
         });
+
         aux = new Grupos(element.nombre, auxArtistas, element.year, auxGeneros, auxAlbum, element.oyentes);
         this.itemMapGrupo.set(aux.getNombre(), aux);
       });

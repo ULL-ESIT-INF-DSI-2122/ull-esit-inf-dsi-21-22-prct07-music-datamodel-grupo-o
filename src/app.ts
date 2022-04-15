@@ -1,3 +1,9 @@
+/* eslint-disable eol-last */
+/* eslint-disable padded-blocks */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable indent */
+/* eslint-disable semi */
+/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
@@ -428,6 +434,7 @@ export class App {
         if (answers['continue'] == 'Yes') this.addAlbum();
         else this.userMenu();
       });
+
   }
 
   /**
@@ -482,13 +489,13 @@ export class App {
       cantantes.push(answers['cantantesCancion']);
       generos.push(answers['generosCancion']);
       this.colectionMain.addCancion(
-        answers['nombreCancion'],
-        cantantes,
-        answers['duracionCancion'],
-        generos,
-        answers['single'],
-        answers['numeroProCancion'],
-        answers['fechaCancion'],
+        answers['nombreCancion'], 
+        cantantes, 
+        answers['duracionCancion'], 
+        generos, 
+        answers['single'], 
+        answers['numeroProCancion'], 
+        answers['fechaCancion'], 
         );
       console.log(`Se ha agreado la cancion: ` + answers['nombreCancion']);
       inquirer.prompt([{
@@ -810,7 +817,8 @@ export class App {
       console.log(JSON.stringify(this.database.get('generos').find({genero: generoEliminar}).value()));
       if (this.database.get('generos').find({genero: generoEliminar}).value() !== undefined) {
         console.log(`Voy a borrar el género`);
-        this.database.get('generos').remove({genero: generoEliminar}).write();
+        // this.database.get('generos').remove({genero: generoEliminar}).write();
+        this.colectionMain.removeGenero(answers['generoEliminar']);
       } else {
         console.log(`No existe dicho género`);
         this.borrarGenero();
@@ -859,6 +867,7 @@ export class App {
       if (this.database.get('albumes').find({nombre: albumMoficar}).value() !== undefined) {
         console.log(`Voy a modificar el album`);
         this.database.get('albumes').find({nombre: albumMoficar}).set(tipoDatoMoficar, dataMoficar).write();
+        this.colectionMain.loadAlbum();
       } else {
         console.log(`No existe dicho album`);
         this.modificarAlbumes();
@@ -906,6 +915,7 @@ export class App {
       if (this.database.get('canciones').find({nombre: cancionModificar}).value() !== undefined) {
         console.log(`Voy a modificar la cancion`);
         this.database.get('canciones').find({nombre: cancionModificar}).set(tipoDatoModificar, dataModificar).write();
+        this.colectionMain.loadCancion();
       } else {
         console.log(`No existe dicha cancion`);
         this.modificarCancion();
@@ -953,6 +963,7 @@ export class App {
       if (this.database.get('canciones').find({nombre: grupoModificar}).value() !== undefined) {
         console.log(`Voy a modificar el grupo`);
         this.database.get('grupos').find({nombre: grupoModificar}).set(tipoDatoModificar, dataModificar).write();
+        this.colectionMain.loadGrupo();
       } else {
         console.log(`No existe dicho grupo`);
         this.modificarCancion();
@@ -1001,6 +1012,7 @@ export class App {
       if (this.database.get('canciones').find({nombre: artistaModificar}).value() !== undefined) {
         console.log(`Voy a modificar el artista`);
         this.database.get('grupos').find({nombre: artistaModificar}).set(tipoDatoModificar, dataModificar).write();
+        this.colectionMain.loadArtista();
       } else {
         console.log(`No existe dicho artista`);
         this.modificarArtista();
@@ -1047,6 +1059,7 @@ export class App {
       if (this.database.get('generos').find({nombre: generoModificar}).value() !== undefined) {
         console.log(`Voy a modificar el genero`);
         this.database.get('generos').find({nombre: generoModificar}).set(tipoDatoModificar, dataModificar).write();
+        this.colectionMain.loadGenero();
       } else {
         console.log(`No existe dicho genero`);
         this.modificarCancion();
