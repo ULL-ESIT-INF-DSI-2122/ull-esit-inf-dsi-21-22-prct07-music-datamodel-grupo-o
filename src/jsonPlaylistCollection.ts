@@ -35,22 +35,22 @@ export class JsonPlaylist extends Collection {
     super();
     const low = require('lowdb');
     this.database = low(new FileSync('./src/json/jsonDatabase.json'));
-    console.log(`loadcancion`);
+    // console.log(`loadcancion`);
     this.loadCancion();
 
-    console.log(`loadAlbum`);
+    // console.log(`loadAlbum`);
     this.loadAlbum();
 
-    console.log(`loadartista`);
+    // console.log(`loadartista`);
     this.loadArtista();
 
-    console.log(`loadGenero`);
+    // console.log(`loadGenero`);
     this.loadGenero();
 
-    console.log(`loadGrupo`);
+    // console.log(`loadGrupo`);
     this.loadGrupo();
 
-    console.log(`loadPlaylist`);
+    // console.log(`loadPlaylist`);
     this.loadPlaylist();
   }
 
@@ -175,7 +175,7 @@ export class JsonPlaylist extends Collection {
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);
       });
-      console.log(this.itemMapAlbum);
+      // console.log(this.itemMapAlbum);
     } else {
       this.database.set('albumes', []).write();
     }
@@ -399,8 +399,8 @@ export class JsonPlaylist extends Collection {
    */
   removeAlbumm(nombreAlbum:string):void {
     super.eliminarAlbum(nombreAlbum);
-    console.log(this.itemMapAlbum.values());
-    console.log(`Modificar ddbb`);
+    // console.log(this.itemMapAlbum.values());
+    console.log(`Modificar DataBase...`);
     this.store('album');
   }
 
