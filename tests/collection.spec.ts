@@ -1,10 +1,9 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Collection} from '../src/collection';
-const colleccion = new Collection();
-// const jsonPlaylistColection = new ();
 
 describe('Test para la clase Collection', () => {
+  const colleccion = new Collection();
   it('addCancion => to not throw', () => {
     expect(colleccion.addCancion('Drivers License', ['Olivia Rodrigo'], 2.56, ['Pop'], true, 154213421, 2022)).to.not.throw;
   });

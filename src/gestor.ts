@@ -89,7 +89,7 @@ export class Gestor {
   }
 
   /**
-   * Método que Visualiza playlists segun distintos tipos
+   * Método que muestra una playlist segun su nombre
    * @param nombre nombre de playlist que visualiza
    * @param optionCancion segun cancion
    * @param orden orden ascendente y descendente
@@ -323,7 +323,7 @@ export class Gestor {
   }
 
   /**
-   * Método que elimina un playlist a la colecion y la base de datos
+   * Método que elimina una playlist a la colecion y la base de datos
    */
   async borrarPlaylist() {
     console.clear();

@@ -144,17 +144,16 @@ export class Collection {
    * @param nombreCancion Nombre de todas las canciones de la playlist
    */
   addPlaylist(nombrePlaylist: string, nombreCancion:Cancion[]) {
-    // const canciones:Cancion[] = [];
-
-    // nombreCancion.forEach((cancion) => {
-    //   canciones.push(this.itemMapCancion.get(cancion) as Cancion);
-    // });
-
     const nuevoPlaylist = new Playlist(nombrePlaylist, nombreCancion);
     this.itemMapPlaylist.set(nuevoPlaylist.getNombre(), nuevoPlaylist);
   }
 
 
+  /**
+   * Método que obtiene una playlist de la colección
+   * @param playlistName Nombre de la playlist a buscar
+   * @returns Retorna la playlist si la encontró y sino retorna undefined
+   */
   getPlaylist(playlistName:string): Playlist | undefined {
     return this.itemMapPlaylist.get(playlistName);
   }

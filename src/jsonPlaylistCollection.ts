@@ -14,7 +14,8 @@ import {Grupos} from './grupos';
 import {Artistas} from './artistas';
 
 /**
- * @type {schemaType} Tipo de datos de un array de playlists
+ * Tipo de datos de un array de playlists
+ * @type {schemaType}
  */
 type schemaType = {
   album: Album[],
@@ -97,8 +98,7 @@ export class JsonPlaylist extends Collection {
   }
 
   /**
-   * Método que retorna los albumes de la colección
-   * @returns Albumes de la colección
+   * Método que imprime las playlists
    */
   getPlaylistPrint(): void {
     this.itemMapPlaylist.forEach((playlist: Playlist) => {
@@ -115,6 +115,9 @@ export class JsonPlaylist extends Collection {
     });
   }
 
+  /**
+   * Método que carga una canción en la base de datos
+   */
   loadCancion() {
     if (this.database.has('canciones').value()) {
       const dbItem = this.database.get('canciones').value();
@@ -142,14 +145,15 @@ export class JsonPlaylist extends Collection {
           element.fecha as number);
 
         this.itemMapCancion.set(aux.getNombre(), aux);
-        // console.log(this.itemMapCancion);
       });
     } else {
       this.database.set('canciones', []).write();
     }
   }
 
-
+  /**
+   * Método que carga un album en la base de datos
+   */
   loadAlbum() {
     if (this.database.has('albumes').value()) {
       const dbItem = this.database.get('albumes').value();
@@ -164,14 +168,15 @@ export class JsonPlaylist extends Collection {
 
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);   
-        // console.log(this.itemMapAlbum);
       });
     } else {
       this.database.set('albumes', []).write();
     }
   }
 
-
+  /**
+   * Método que carga una playlist en la base de datos
+   */
   loadPlaylist() {
     if (this.database.has('playlists').value()) {
       const dbItem = this.database.get('playlists').value();
@@ -186,14 +191,15 @@ export class JsonPlaylist extends Collection {
 
         aux = new Playlist(element.nombre, auxCanciones);
         this.itemMapPlaylist.set(aux.getNombre(), aux);      
-        // console.log(this.itemMapPlaylist);
       });
     } else {
       this.database.set('playlists', []).write();
     }
   }
 
-
+  /**
+   * Método que carga un artista en la base de datos
+   */
   loadArtista() {
     if (this.database.has('artistas').value()) {
       const dbItem = this.database.get('artistas').value();
@@ -221,14 +227,15 @@ export class JsonPlaylist extends Collection {
 
         aux = new Artistas(element.nombre, auxGeneros, auxAlbumes, auxCanciones, element.oyentesArtista);
         this.itemMapArtista.set(aux.getNombreArtista(), aux);        
-        // console.log(this.itemMapArtista);
       });
     } else {
       this.database.set('artistas', []).write();
     }
   }
 
-
+  /**
+   * Método que carga un genero en la base de datos
+   */
   loadGenero() {
     if (this.database.has('generos').value()) {
       const dbItem = this.database.get('generos').value();
@@ -253,11 +260,8 @@ export class JsonPlaylist extends Collection {
           auxArtistasGeneros.push(item as string);
         });
 
-        // console.log(auxAlbumGeneros);
-
         aux = new GenerosMusicales(element.genero, auxArtistasGeneros, auxAlbumGeneros, auxCancionesGeneros);
         this.itemMapGenero.set(aux.getGenero(), aux);
-        // console.log(this.itemMapGenero);
       });
     } else {
       this.database.set('generos', []).write();
@@ -265,6 +269,9 @@ export class JsonPlaylist extends Collection {
   }
 
 
+  /**
+   * Método que carga un grupo en la base de datos
+   */
   loadGrupo() {
     if (this.database.has('grupos').value()) {
       const dbItem = this.database.get('grupos').value();
@@ -281,14 +288,11 @@ export class JsonPlaylist extends Collection {
         element.albumnes.forEach((album:any) => {
           auxAlbum.push(this.itemMapAlbum.get(album) as Album);
         });
-        // console.log(auxAlbum);
-
         element.generos.forEach((genero:any) => {
           auxGeneros.push(genero);
         });
         aux = new Grupos(element.nombre, auxArtistas, element.year, auxGeneros, auxAlbum, element.oyentes);
         this.itemMapGrupo.set(aux.getNombre(), aux);
-        // console.log(this.itemMapGrupo);
       });
     } else {
       this.database.set('grupos', []).write();

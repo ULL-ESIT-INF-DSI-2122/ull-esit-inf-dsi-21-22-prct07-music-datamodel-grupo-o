@@ -5,8 +5,6 @@ import {Cancion} from '../src/cancion';
 
 describe('Tests de la clase Cancion', () => {
   const cancion1 = new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], false, 5237187, 2022);
-  // const cantantes = new Artistas();
-
 
   it('Se crea correctamente la clase', () => {
     expect(new Cancion('Desde mis Ojos', ['Chris Lebron'], 2.49, ['Reggaeton'], true, 5237187, 2022));

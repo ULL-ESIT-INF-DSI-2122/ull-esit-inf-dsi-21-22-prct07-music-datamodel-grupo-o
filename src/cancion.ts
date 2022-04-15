@@ -1,6 +1,7 @@
 
 /**
  * Tipo de datos que definen a una canción
+ * @type {cancionType}
  */
 export type cancionType = {
   name: string;

@@ -1,7 +1,5 @@
 import {Album} from "./album";
-// import {Artistas} from "./artistas";
 import {Cancion} from "./cancion";
-// import {Grupos} from "./grupos";
 
 export class GenerosMusicales {
   /**

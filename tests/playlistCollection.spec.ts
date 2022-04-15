@@ -1,7 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {JsonPlaylist} from "../src/jsonPlaylistCollection";
-import { Cancion } from '../src/cancion';
+import {Cancion} from '../src/cancion';
 
 console.log = function() {};
 describe('Test para la clase Playlists Collection', () => {

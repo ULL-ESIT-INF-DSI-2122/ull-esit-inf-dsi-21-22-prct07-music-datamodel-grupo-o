@@ -4,7 +4,6 @@ import {Cancion} from "./cancion";
  * Implementación clase álbum para almacenar todos los álbumes de la colección
  */
 export class Album {
-  // private artista:string;
   private generos:string[] = [];
   /**
    * Constructor de la clase Album
@@ -53,7 +52,6 @@ export class Album {
      * Método que retorna los géneros de un álbum en concreto
      * @returns géneros del álbum
      */
-
   public getGeneros():string[] {
     return this.generos;
   }

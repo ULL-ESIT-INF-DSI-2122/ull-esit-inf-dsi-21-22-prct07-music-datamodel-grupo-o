@@ -30,7 +30,7 @@ export class Artistas {
 
   /**
      * Método que devuelve los grupos a los que pertenece un artista
-     * @returns grupos a los que pertenece un artista
+     * @returns grupos a los que pertenece un artista o undefined si no pertenece a ninguno
      */
   getGruposArtista(): Grupos[] | undefined {
     return this.gruposArtista;

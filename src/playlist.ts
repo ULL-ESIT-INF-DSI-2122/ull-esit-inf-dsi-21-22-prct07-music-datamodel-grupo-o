@@ -1,6 +1,8 @@
 import {Cancion} from "./cancion";
 
-
+/**
+ * @type {playlistType} Tipo de dato de una playlist
+ */
 export type playlistType = {
   name: string;
   canciones: Cancion[];
@@ -21,12 +23,14 @@ export class Playlist {
      */
   private duracion: number = 0;
   private generos: string[] = [];
-  // constructor(private nombre:string, private cancionesColeccion:Cancion[], duracion:number, generos:string[]) {
   constructor(private nombre:string, private cancionesColeccion:Cancion[]) {
     this.getDuracion();
     this.getGenerosMusicales();
   }
 
+  /**
+   * Método que imprime por pantalla los datos de una playlist
+   */
   printInformacion():void {
     console.log(`Nombre de Playlist: ` + this.nombre, `Canciones: ` + this.cancionesColeccion,
         `Duracion:` + this.getDuracion(), `Generos` + this.getGenerosMusicales());
@@ -39,7 +43,6 @@ export class Playlist {
     this.cancionesColeccion.push(newCancion);
   }
 
-  /* Getters */
   /**
      * _Getter para obtener nombre de la lista_
      * @returns
