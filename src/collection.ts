@@ -46,7 +46,7 @@ export class Collection {
     canciones.forEach((cancion) => {
       cancionesAlbum.push(this.itemMapCancion.get(cancion) as Cancion);
     });
-
+    console.log(cancionesAlbum);
     const nuevoAlbum = new Album(nombreAlbum, year, cancionesAlbum, artista);
     this.itemMapAlbum.set(nombreAlbum, nuevoAlbum);
   }

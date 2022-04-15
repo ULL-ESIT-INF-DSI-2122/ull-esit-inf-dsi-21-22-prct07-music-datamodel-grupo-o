@@ -944,20 +944,6 @@
       "fecha": 2021
     },
     {
-      "nombre": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
-      "cantantes": [
-        "Taylor Swift"
-      ],
-      "duracion": 10.13,
-      "generos": [
-        "Country",
-        "Pop"
-      ],
-      "single": true,
-      "numeroReproducciones": 262562428,
-      "fecha": 2012
-    },
-    {
       "nombre": "Hurt",
       "cantantes": [
         "Johnny Cash"
@@ -1497,7 +1483,7 @@
       ],
       "canciones": [
         "Wrecking Ball",
-        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "All Too Well",
         "Wildest Dreams",
         "Happier Than Ever"
       ]
@@ -1536,7 +1522,7 @@
       "generoAlbumes": [
       ],
       "canciones": [
-        "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+        "All Too Well",
         "Hurt"
       ]
     },
@@ -1687,7 +1673,7 @@
   ],
   "playlists": [
     {
-      "nombre": "playlistFavorito",
+      "nombre": "123",
       "cancionesColeccion": [
         {
           "nombre": "Let It Be",

@@ -51,6 +51,7 @@ enum Consulta {
 export class Gestor {
   
   private colection: JsonPlaylist;
+  itemMapPlaylist: any;
 
   constructor() {
     this.colection = new JsonPlaylist();
@@ -58,12 +59,206 @@ export class Gestor {
 
   visualizar():void {
     console.log(`visualizar`);
-    this.colection.getPlaylistMap();
+    this.colection.getPlaylistPrint();
+    this.promptPlalistMenu();
   }
-  
-  promptPlalistMenu() {
-    // console.clear();
 
+  async navegar():Promise<void> {
+    console.clear();
+    const answersNavegar = await inquirer.prompt([{
+      name: 'nombre',
+      type: 'input',
+      message: 'Elige un playlist existente para navegar: ',
+    }]);
+    const answers = await inquirer.prompt({
+      type: 'list',
+      name: 'command',
+      message: 'Elige una opción para mostrar canciones',
+      choices: Object.values(Consulta),
+    });
+    const orden = await inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'De manera ascendente o descendente',
+      choices: ['ascendente', 'descendente'],
+    });
+    this.getPlaylistByName(answersNavegar['nombre'], answers['command'], orden['option']);
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'continue',
+        message: 'Desea visualizar otro playlist?:',
+        choices: ['Yes', 'No'],
+      },
+    ]).then((answers) => {
+      if (answers['continue'] == 'Yes') this.navegar();
+      else this.promptPlalistMenu();
+    });
+  }
+
+  getPlaylistByName(nombre: string, optionCancion:string, orden:string) {
+    if (this.colection.getPlaylistMap().get(nombre) !== undefined) {
+      const cancionesMap = new Map<string, Cancion>();
+      
+      switch (optionCancion) {
+        case "Visualizar por título de la canción":
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((canciones) => {
+              cancionesMap.set(canciones.getNombre(), canciones);
+            });
+          });
+          const unsortArray = [...cancionesMap];
+          switch (orden) {
+            case "ascendente":
+              unsortArray.sort();
+              unsortArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              unsortArray.sort().reverse();
+              unsortArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+  
+        case "Visualizar por nombre del grupo/artista":
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((cancion) => {
+              cancionesMap.set(cancion.getAutor(), cancion);
+            });
+          });
+          const unSArray = [...cancionesMap];
+          switch (orden) {
+            case "ascendente":
+              unSArray.sort();
+              unSArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              unSArray.sort().reverse();
+              unSArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+        break;
+
+        case "Visualizar por año de lanzamiento":
+          const cancionesNumMap = new Map<number, Cancion>();
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((cancion) => {
+              cancionesNumMap.set(cancion.getFecha(), cancion);
+            });
+          });
+          const playlistArray = [...cancionesNumMap];
+          switch (orden) {
+            case "ascendente":
+              playlistArray.sort();
+              playlistArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              playlistArray.sort().reverse();
+              playlistArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+        break;
+
+        case "Visualizar por género musical":
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((cancion) => {
+              cancionesMap.set(cancion.getGenero(), cancion);
+            });
+          });
+          const playlistGeneroArray = [...cancionesMap];
+          switch (orden) {
+            case "ascendente":
+              playlistGeneroArray.sort();
+              playlistGeneroArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              playlistGeneroArray.sort().reverse();
+              playlistGeneroArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+        break;
+        
+        case "Visualizar por duración de la canción":
+          const cancionesNum2Map = new Map<number, Cancion>();
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((cancion) => {
+              cancionesNum2Map.set(cancion.getDuracion(), cancion);
+            });
+          });
+          const playlistDuracionArray = [...cancionesNum2Map];
+          switch (orden) {
+            case "ascendente":
+              playlistDuracionArray.sort();
+              playlistDuracionArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              playlistDuracionArray.sort().reverse();
+              playlistDuracionArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+        break;
+
+        case "Visualizar por número de reproducciones totales":
+          const cancionesNum3Map = new Map<number, Cancion>();
+          this.colection.getPlaylistMap().forEach((element) => {
+            element.getCanciones().forEach((cancion) => {
+              cancionesNum3Map.set(cancion.getNumeroReproducciones(), cancion);
+            });
+          });
+          const playlistReproArray = [...cancionesNum3Map];
+          switch (orden) {
+            case "ascendente":
+              playlistReproArray.sort();
+              playlistReproArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+              
+            case "descendente":
+              playlistReproArray.sort().reverse();
+              playlistReproArray.forEach((element) => {
+                console.log(element);
+              });
+              break;
+          };
+          break;
+        break;
+      }
+    } else {
+      console.log(`No existe dicho playlist`);
+    }
+  }
+
+  promptPlalistMenu() {
     inquirer.prompt({
       name: 'optionPlaylist',
       type: 'list',
@@ -72,11 +267,11 @@ export class Gestor {
     }).then((answers) => {
       switch (answers['optionPlaylist']) {
         case playlistCommands.visualizar:
+          console.clear();
           this.visualizar();
-          this.promptPlalistMenu();
         break;
         case playlistCommands.navegar:
-        
+          this.navegar();
         case playlistCommands.crear:
         
         case playlistCommands.borrar:
@@ -87,21 +282,6 @@ export class Gestor {
     });
   }
 
-  nextPromt(): boolean {
-    let option: boolean = false;
-    inquirer.prompt([
-      {
-        type: 'list',
-        name: 'continue',
-        message: 'Desea hacer otra operacion canciones?:',
-        choices: ['Yes', 'No'],
-      },
-    ]).then((answers) => {
-      if (answers['continue'] == 'Yes') option = true;
-      else option = false;
-    });
-    return option;
-  }
 }
 
 const a = new Gestor();

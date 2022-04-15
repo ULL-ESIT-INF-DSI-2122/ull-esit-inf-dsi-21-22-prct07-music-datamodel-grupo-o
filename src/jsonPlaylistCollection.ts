@@ -88,11 +88,15 @@ export class JsonPlaylist extends Collection {
     return this.itemMapArtista;
   }
 
+  getPlaylistMap(): Map<string, Playlist> {
+    return this.itemMapPlaylist;
+  }
+
   /**
    * Método que retorna los albumes de la colección
    * @returns Albumes de la colección
    */
-  getPlaylistMap(): void {
+  getPlaylistPrint(): void {
     this.itemMapPlaylist.forEach((playlist: Playlist) => {
       console.log(
         `>> nombre: ` + playlist.getNombre(),
@@ -106,8 +110,6 @@ export class JsonPlaylist extends Collection {
         process.stdout.write("\n");
     });
   }
-  
-
 
   loadCancion() {
     if (this.database.has('canciones').value()) {

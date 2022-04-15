@@ -1,5 +1,5 @@
-/* eslint-disable semi */
-/* eslint-disable no-unused-vars */
+// /* eslint-disable semi */
+// /* eslint-disable no-unused-vars */
 
 // import inquirer from 'inquirer';
 // import FileSync from 'lowdb/adapters/FileSync';
