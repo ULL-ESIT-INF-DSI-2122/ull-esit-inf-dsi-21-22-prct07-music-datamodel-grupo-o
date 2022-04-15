@@ -296,7 +296,6 @@ export class JsonPlaylist extends Collection {
   }
 
 
-
   /**
    * Método que añade una playlist a la base de datos
    * @param nombrePlaylist Nombre de la playlist
@@ -362,7 +361,6 @@ export class JsonPlaylist extends Collection {
     this.store('playlist');
   }
 
-
   /**
    * Método que almacena en la base de datos
    * @param type Tipo a almacenar
@@ -370,30 +368,17 @@ export class JsonPlaylist extends Collection {
   private store(type:string) {
     switch (type) {
       case 'album':
-        // this.database.set("albumnes", this.getAlbum()).write();
+        this.database.set("albumes", [...this.itemMapAlbum.values()]).write();
       case 'cancion':
+        this.database.set("canciones", [...this.itemMapCancion.values()]).write();
       case 'grupo':
+        this.database.set("grupos", [...this.itemMapGrupo.values()]).write();
       case 'genero':
+        this.database.set("generos", [...this.itemMapGenero.values()]).write();
       case 'artista':
+        this.database.set("artistas", [...this.itemMapArtista.values()]).write();
       case 'playlist':
         this.database.set("playlists", [...this.itemMapPlaylist.values()]).write();
     }
   }
 }
-
-
-// Comproba que si la bbdd json esta vacio
-// if (this.database.has('playlistJ').value()) {
-//   // Si ya existe el valor playlistJ, entonces lo guardamos en el map
-//   const dbItem = this.database.get('playlistJ').value();
-//   dbItem.forEach((item) =>{
-//     this.itemMap.set(item.nombre,
-//         {canciones: item.canciones, duracion: item.duracion, generos: item.generos});
-//   });
-// } else {
-//   this.database.set('playlistJ', this.playlists).write();
-//   this.playlists.forEach((ele) =>{
-//     this.itemMap.set(ele.getNombre(), {canciones: ele.getCanciones(),
-//       duracion: ele.getDuracion(), generos: ele.getGenerosMusicales()});
-//   });
-// }

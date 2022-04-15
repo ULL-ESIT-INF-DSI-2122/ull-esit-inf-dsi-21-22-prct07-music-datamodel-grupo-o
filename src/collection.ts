@@ -168,13 +168,6 @@ export class Collection {
   }
 
   /**
-   * Método que devuelve todas las playlists
-   */
-  getAllPlaylist(): Playlist[] {
-    return [...this.itemMapPlaylist.values()];
-  }
-
-  /**
    * Método que elimina un album de la colección
    * @param nombreAlbum Nombre del album a eliminar
    */
@@ -213,12 +206,4 @@ export class Collection {
   eliminarArtista(nombreArtista: string) {
     this.itemMapPlaylist.delete(nombreArtista);
   }
-
-  // /**
-  //  * Método que elimina una playlist de la colección
-  //  * @param nombrePlaylist Nombre de la playlist a eliminar
-  //  */
-  // eliminarPlaylist(nombrePlaylist: string) {
-  //   this.itemMapPlaylist.delete(nombrePlaylist);
-  // }
 }

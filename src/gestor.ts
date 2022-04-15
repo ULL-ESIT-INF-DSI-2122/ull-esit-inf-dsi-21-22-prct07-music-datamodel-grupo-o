@@ -371,7 +371,7 @@ export class Gestor {
   /**
    * Método principal de la clase Gestor que inicializa operaciones avanzadas de playlists
    */
-  promptPlalistMenu() {
+  promptPlalistMenu():void {
     inquirer.prompt({
       name: 'optionPlaylist',
       type: 'list',
@@ -402,6 +402,3 @@ export class Gestor {
     });
   }
 }
-
-const a = new Gestor();
-a.promptPlalistMenu();

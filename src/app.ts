@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
 
@@ -38,16 +39,16 @@ enum operacionComandos {
 export class App {
   private low = require('lowdb');
   private database = this.low(new FileSync('./src/json/jsonDatabase.json'));
-  private colection: JsonPlaylist;
+  private colectionMain: JsonPlaylist;
   constructor() {
-    this.colection = new JsonPlaylist();
+    this.colectionMain = new JsonPlaylist();
   }
 
   /**
    * Función menú del usuario
    */
   userMenu():void {
-    console.log(`===========================Bienvenido al XNSA Music==============================`);
+    console.log(`===========================Bienvenido al SANX Music==============================`);
     console.clear();
     inquirer.prompt(
         {
@@ -96,7 +97,6 @@ export class App {
       choices: Object.values(operacionComandos),
     }).then((answers) => {
       switch (answers['operacion']) {
-        // Opción de la operación de visualización
         case operacionComandos.visualiza:
           switch (option) {
             case 'albumes':
@@ -372,7 +372,7 @@ export class App {
   /**
    * Método que añade un album
    */
-  addAlbum():void {
+  async addAlbum() {
     console.clear();
     console.log(`=================Proceso de añadir un album==================`);
     inquirer.prompt([
@@ -382,40 +382,42 @@ export class App {
         message: 'Nombre del album:',
       }, {
         type: 'input',
-        name: 'artistaAlbum',
-        message: 'Artista del album:',
-      }, {
-        type: 'input',
-        name: 'generosAlbum',
-        message: 'Generos del Album:',
-      }, {
-        type: 'input',
         name: 'fechaAlbum',
         message: 'Fecha del album:',
       }, {
         type: 'input',
-        name: 'cancionesAlbum',
-        message: 'Canciones que tiene el album:',
+        name: 'artistaAlbum',
+        message: 'Artista del album:',
       },
-    ]).then((answers) => {
-      // Falta la comprobacion
-      this.database.get('albumes').push({
-        nombre: answers['nombreAlbum'],
-        artista: answers['artistaAlbum'],
-        generos: answers['generosAlbum'],
-        canciones: answers['cancionesAlbum'],
-        año: answers['fechaAlbum'],
-      }).write();
-      console.log(`El nuevo album se llama: ` + answers['nombreAlbum']);
+    ]).then((answer) => {
+      const choise:string[] = [];
+        this.colectionMain.getCancionMap().forEach((cancion) => {
+          if (cancion.getAutor() == answer['artistaAlbum']) {
+            choise.push(cancion.getNombre());
+          }
+        });
+        choise.sort();
+        console.log(choise);
       inquirer.prompt([{
-        type: 'list',
-        name: 'continue',
-        message: 'Quieres agregar otro album:',
-        choices: ['Yes', 'No'],
-      }]).then((answers) => {
-        if (answers['continue'] == 'Yes') this.addAlbum();
-        else this.userMenu();
-      });
+          type: 'list',
+          name: 'cancionesAlbum',
+          message: 'Canciones que tiene el album:',
+          choices: choise,
+        },
+      ])
+      // ]).then((answers:any) => {
+      //   this.colectionMain.addAlbum(answers['nombreAlbum'], answers['artistaAlbum'], answers['generosAlbum'], answers['cancionesAlbum']);
+      //   console.log(`Album Agregado`);
+      //   inquirer.prompt([{
+      //     type: 'list',
+      //     name: 'continue',
+      //     message: 'Quieres agregar otro album:',
+      //     choices: ['Yes', 'No'],
+      //   }]).then((answers) => {
+      //     if (answers['continue'] == 'Yes') this.addAlbum();
+      //     else this.userMenu();
+      //   });
+      // });
     });
   }
 
