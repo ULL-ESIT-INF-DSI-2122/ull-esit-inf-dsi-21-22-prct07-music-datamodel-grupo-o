@@ -33,6 +33,7 @@ enum Consulta {
  * Clase Gestora de la aplicación
  */
 export class Gestor {
+  [x: string]: any;
   private colection: JsonPlaylist;
 
   /**

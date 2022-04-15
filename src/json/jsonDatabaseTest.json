@@ -53,6 +53,20 @@
           "single": true,
           "numeroReproducciones": 306730425,
           "fecha": 2003
+        },
+        {
+          "nombre": "Bandoleros",
+          "cantantes": [
+            "Don Omar",
+            "Tego Calderon"
+          ],
+          "duracion": 5.05,
+          "generos": [
+            "Reggaeton"
+          ],
+          "single": false,
+          "numeroReproducciones": 210011575,
+          "fecha": 2015
         }
       ],
       "artista": "Don Omar",
@@ -680,12 +694,12 @@
       "cantantes": [
         "Don Omar"
       ],
-      "duracion": 3.24,
+      "duracion": 2.14,
       "generos": [
         "Reggaeton"
       ],
-      "single": true,
-      "numeroReproducciones": 306730425,
+      "single": false,
+      "numeroReproducciones": 3215487,
       "fecha": 2003
     },
     {

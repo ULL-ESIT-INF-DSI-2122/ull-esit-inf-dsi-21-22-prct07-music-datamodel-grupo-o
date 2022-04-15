@@ -10,5 +10,5 @@
         "./src/playlist.ts",
         "./src/jsonPlaylistCollection.ts",
         "./src/app.ts"
-    ]        
+    ]
 }
