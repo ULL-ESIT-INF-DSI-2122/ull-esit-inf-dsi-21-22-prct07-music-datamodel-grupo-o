@@ -160,12 +160,13 @@ export class JsonPlaylist extends Collection {
       let aux: Album;
       let auxCanciones: Cancion[];
       dbItem.forEach((element: any) => {
-        // console.log(element.canciones);
         auxCanciones = [];
-        element.canciones.forEach((cancion:any) => {
+        element.canciones.forEach((cancion: any) => {
+          console.log(this.itemMapCancion.get(cancion));
+          // Está dando error este push, mete undefined en vez de las canciones
           auxCanciones.push(this.itemMapCancion.get(cancion) as Cancion);
+          console.log(auxCanciones);
         });
-
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);   
       });
