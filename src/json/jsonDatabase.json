@@ -602,58 +602,106 @@
   ],
   "grupos": [
     {
+      "nombre": "Imagine Dragons",
+      "artistas": [
+        "Dan Reynolds"
+      ],
+      "year": 2008,
+      "generos": [
+        "Rock pop",
+        "Indie pop",
+        "Rock Alternativo"
+      ],
+      "albumnes": [
+        "Night Visions"
+      ],
+      "oyentes": 59100146
+    },
+    {
       "nombre": "Izal",
-      "artistas": [],
+      "artistas": [
+        "Mikel Izal",
+        "Alejandro Jordá",
+        "Emanuel Pérez",
+        "Alberto Pérez",
+        "Iván Mella"
+      ],
       "year": 2010,
       "generos": [
         "Indie pop",
         "Rock Alternativo"
       ],
-      "albumes": [
-        null
+      "albumnes": [
+        "Copacabana"
       ],
       "oyentes": 9782346
     },
     {
       "nombre": "The Beatles",
-      "artistas": [],
+      "artistas": [
+        "John Lennon",
+        "Paul McCartney",
+        "George Harrinson",
+        "Ringo Starr"
+      ],
       "year": 1960,
       "generos": [
         "Rock pop"
       ],
-      "albumes": [
-        null
+      "albumnes": [
+        "Let It Be"
       ],
       "oyentes": 5109800347
     },
     {
       "nombre": "ABBA",
-      "artistas": [],
+      "artistas": [
+        "Agnetha Fältskog",
+        "Björn Ulvaeus",
+        "Benny Andersson",
+        "Anni-Frid Lyngstad"
+      ],
       "year": 1972,
       "generos": [
         "Pop",
         "Disco"
       ],
-      "albumes": [
-        null
+      "albumnes": [
+        "Mamma Mia!"
       ],
       "oyentes": 84003244
     },
     {
       "nombre": "Daft Punk",
-      "artistas": [],
+      "artistas": [
+        "Guy-Manuel de Homem-Christo",
+        "Thomas Bangalter"
+      ],
       "year": 1993,
       "generos": [
         "Electronica",
         "House"
       ],
-      "albumes": [
-        null
+      "albumnes": [
+        "Homework"
       ],
       "oyentes": 89234561
     }
   ],
   "canciones": [
+    {
+      "nombre": "Dile",
+      "cantantes": [
+        "Don Omar"
+      ],
+      "duracion": 2.14,
+      "generos": [
+        "Reggaeton"
+      ],
+      "single": false,
+      "numeroReproducciones": 3215487,
+      "fecha": 2003
+    },
     {
       "nombre": "Can't Pretened",
       "cantantes": [
