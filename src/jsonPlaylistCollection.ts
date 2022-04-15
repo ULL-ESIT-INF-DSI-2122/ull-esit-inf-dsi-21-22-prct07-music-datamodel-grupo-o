@@ -93,12 +93,22 @@ export class JsonPlaylist extends Collection {
    * @returns Albumes de la colección
    */
   getPlaylistMap(): void {
-    console.log(JSON.stringify(this.database.get('playlists').value(), null, 2));
-    console.log(`termina funcion`);
+    this.itemMapPlaylist.forEach((playlist: Playlist) => {
+      console.log(
+        `>> nombre: ` + playlist.getNombre(),
+        `\n>> duracion: ` + playlist.getDuracion(),
+        `\n>> generos: ` + playlist.getGenerosMusicales(),
+        `\n>> canciones: `,
+        );
+        playlist.getCanciones().forEach((cancion: Cancion) => {
+          console.log(`\t-` + cancion.getNombre());
+        });
+        process.stdout.write("\n");
+    });
   }
   
 
-  // hecho
+
   loadCancion() {
     if (this.database.has('canciones').value()) {
       const dbItem = this.database.get('canciones').value();
@@ -133,7 +143,7 @@ export class JsonPlaylist extends Collection {
     }
   }
 
-  // hecho
+
   loadAlbum() {
     if (this.database.has('albumes').value()) {
       const dbItem = this.database.get('albumes').value();
@@ -155,7 +165,7 @@ export class JsonPlaylist extends Collection {
     }
   }
 
-  // hecho
+
   loadPlaylist() {
     if (this.database.has('playlists').value()) {
       const dbItem = this.database.get('playlists').value();
@@ -177,7 +187,7 @@ export class JsonPlaylist extends Collection {
     }
   }
 
-  // hecho
+
   loadArtista() {
     if (this.database.has('artistas').value()) {
       const dbItem = this.database.get('artistas').value();
@@ -212,7 +222,7 @@ export class JsonPlaylist extends Collection {
     }
   }
 
-  // hecho
+
   loadGenero() {
     if (this.database.has('generos').value()) {
       const dbItem = this.database.get('generos').value();
