@@ -155,9 +155,33 @@ A continuación se muestra la salida en la terminal al ejecutar el test.
 
 
 ## Resultado final
-Una vez ejecutamos nuestro programa, nos aparecerá un menú inicial como el siguiente, donde nos 
-**Proceso de crear un playlist nuevo**
+*Nota: el funcionamiento de los demás apartados son similares al mostrado en el ejemplo.*
+A continuación se muestra un ejemplo del funciomamiento de añadir y borrar playlist:
+
+**Menú principal**
+
+![test1](img/Menu.png)
+
+**Menú 'Operación especial con playlists'** 
+
+![test1](img/menuplaylist.png)
+
+**Proceso de crear una playlist nueva**
+
 ![test1](img/adda.png)
+
+**Proceso creación de una playlist finalizado**
+
+![test1](img/addd.png)
+
+**Proceso de borrado de una playlist**
+
+![test1](img/borrara.png)
+
+**Proceso de borrado de una playlist finalizado**
+
+*'Playlist03' eliminada*
+![test1](img/borrard.png)
 
 ##  4. Conclusiones
 Con la realización de esta práctica se ha podido aprender a utilizar herramientas como `Inquirer`, bastante útil y estéticamente formal para programas de terminal; también se ha tenido que practicar la creación de una base de datos por medio de `Lowdb` y JSONs, algo de vital importancia para la permanencia de datos y una salida fácil y rápida para una aplicación sencilla.  
