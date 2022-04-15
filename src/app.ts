@@ -398,8 +398,6 @@ export class App {
         });
         choiseArtista.sort();
         const unicosArista = Array.from(new Set(choiseArtista));
-        // console.log(unicosArista);
-        // console.log(choiseArtista);
     const answerArtista = await inquirer.prompt([
       {
         type: 'list',
@@ -680,13 +678,12 @@ export class App {
       const albumEliminar:string = answers['albumEliminar'];
       console.log(JSON.stringify(this.database.get('albumes').find({nombre: albumEliminar}).value()));
       if (this.database.get('albumes').find({nombre: albumEliminar}).value() !== undefined) {
-        console.log(`Voy a borrar el album`);
-        this.database.get('albumes').remove({nombre: albumEliminar}).write();
+        console.log(`Eliminando album.....`);
+        this.colectionMain.removeAlbumm(albumEliminar);
       } else {
         console.log(`No existe dicho album`);
-        this.borrarAlbum();
       }
-      console.log(`Album eliminado: ` + answers['albumEliminar']);
+      console.log(`Album eliminado: ` + albumEliminar);
       inquirer.prompt([{
         type: 'list',
         name: 'continue',
@@ -714,8 +711,8 @@ export class App {
       const cancionEliminar:string = answers['cancionEliminar'];
       console.log(JSON.stringify(this.database.get('canciones').find({nombre: cancionEliminar}).value()));
       if (this.database.get('canciones').find({nombre: cancionEliminar}).value() !== undefined) {
-        console.log(`Voy a borrar la canción`);
-        this.database.get('canciones').remove({nombre: cancionEliminar}).write();
+        console.log(`Eliminando cancion.....`);
+        this.colectionMain.removeCancion(cancionEliminar);
       } else {
         console.log(`No existe dicha canción`);
         this.borrarCancion();
@@ -749,7 +746,7 @@ export class App {
       console.log(JSON.stringify(this.database.get('grupos').find({nombre: grupoEliminar}).value()));
       if (this.database.get('grupos').find({nombre: grupoEliminar}).value() !== undefined) {
         console.log(`Voy a borrar el grupo`);
-        this.database.get('grupos').remove({nombre: grupoEliminar}).write();
+        this.colectionMain.removeGrupo(grupoEliminar);
       } else {
         console.log(`No existe dicho grupo`);
         this.borrarGrupo();
@@ -783,7 +780,7 @@ export class App {
       console.log(JSON.stringify(this.database.get('artistas').find({nombre: artistaEliminar}).value()));
       if (this.database.get('artistas').find({nombre: artistaEliminar}).value() !== undefined) {
         console.log(`Voy a borrar el artista`);
-        this.database.get('artistas').remove({nombre: artistaEliminar}).write();
+        this.colectionMain.removeArtista(artistaEliminar);
       } else {
         console.log(`No existe dicho artista`);
         this.borraArtista();
@@ -817,8 +814,7 @@ export class App {
       console.log(JSON.stringify(this.database.get('generos').find({genero: generoEliminar}).value()));
       if (this.database.get('generos').find({genero: generoEliminar}).value() !== undefined) {
         console.log(`Voy a borrar el género`);
-        // this.database.get('generos').remove({genero: generoEliminar}).write();
-        this.colectionMain.removeGenero(answers['generoEliminar']);
+        this.colectionMain.removeGenero(generoEliminar);
       } else {
         console.log(`No existe dicho género`);
         this.borrarGenero();

@@ -1058,7 +1058,7 @@
       "cantantes": [
         "Stevie Wonder"
       ],
-      "duracion": 7.08,
+      "duracion": 2.08,
       "generos": [
         "Soul",
         "R&B",
@@ -1720,6 +1720,80 @@
       "duracion": 3.16,
       "generos": [
         "Rock"
+      ]
+    },
+    {
+      "nombre": "Music",
+      "cancionesColeccion": [
+        {
+          "nombre": "Enemy",
+          "cantantes": [
+            "Imagine Dragons"
+          ],
+          "duracion": 2.54,
+          "generos": [
+            "Rock"
+          ],
+          "single": true,
+          "numeroReproducciones": 101288456,
+          "fecha": 2021
+        },
+        {
+          "nombre": "Allergic",
+          "cantantes": [
+            "Post Malone"
+          ],
+          "duracion": 2.24,
+          "generos": [
+            "Pop"
+          ],
+          "single": false,
+          "numeroReproducciones": 2134657,
+          "fecha": 2012
+        }
+      ],
+      "duracion": 4.78,
+      "generos": [
+        "Rock",
+        "Pop"
+      ]
+    },
+    {
+      "nombre": "ok",
+      "cancionesColeccion": [
+        {
+          "nombre": "Achy Breaky Heart",
+          "cantantes": [
+            "Billy Ray Cyrus"
+          ],
+          "duracion": 3.23,
+          "generos": [
+            "Country"
+          ],
+          "single": false,
+          "numeroReproducciones": 90446026,
+          "fecha": 1992
+        },
+        {
+          "nombre": "Adore You",
+          "cantantes": [
+            "Harry Styles"
+          ],
+          "duracion": 3.27,
+          "generos": [
+            "Soul",
+            "Pop rock"
+          ],
+          "single": true,
+          "numeroReproducciones": 1065536992,
+          "fecha": 2019
+        }
+      ],
+      "duracion": 6.5,
+      "generos": [
+        "Country",
+        "Soul",
+        "Pop rock"
       ]
     }
   ]

@@ -172,7 +172,15 @@ export class Collection {
    * @param nombreAlbum Nombre del album a eliminar
    */
   eliminarAlbum(nombreAlbum: string) {
-    this.itemMapPlaylist.delete(nombreAlbum);
+    console.log(`antes`);
+    this.itemMapAlbum.forEach((element) => {
+      element.getNombre();
+    });
+    this.itemMapAlbum.delete(nombreAlbum);
+    console.log(`despues`);
+    this.itemMapAlbum.forEach((element) => {
+      element.getNombre();
+    });
   }
 
   /**
@@ -180,7 +188,7 @@ export class Collection {
    * @param nombreCancion Nombre de la canción a eliminar
    */
   eliminarCancion(nombreCancion: string) {
-    this.itemMapPlaylist.delete(nombreCancion);
+    this.itemMapCancion.delete(nombreCancion);
   }
 
   /**
@@ -188,7 +196,7 @@ export class Collection {
    * @param nombreGenero Nombre del genero a eliminar
    */
   eliminarGenero(nombreGenero: string) {
-    this.itemMapPlaylist.delete(nombreGenero);
+    this.itemMapGenero.delete(nombreGenero);
   }
 
   /**
@@ -196,7 +204,7 @@ export class Collection {
    * @param nombreGrupo Nombre del grupo a eliminar
    */
   eliminarGrupo(nombreGrupo: string) {
-    this.itemMapPlaylist.delete(nombreGrupo);
+    this.itemMapGrupo.delete(nombreGrupo);
   }
 
   /**
@@ -204,6 +212,6 @@ export class Collection {
    * @param nombreArtista Nombre del artista a eliminar
    */
   eliminarArtista(nombreArtista: string) {
-    this.itemMapPlaylist.delete(nombreArtista);
+    this.itemMapArtista.delete(nombreArtista);
   }
 }

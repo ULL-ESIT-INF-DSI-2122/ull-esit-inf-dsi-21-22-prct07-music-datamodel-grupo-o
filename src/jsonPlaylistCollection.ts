@@ -40,17 +40,11 @@ export class JsonPlaylist extends Collection {
     super();
     const low = require('lowdb');
     this.database = low(new FileSync('./src/json/jsonDatabase.json'));
-    // console.log(`loadcancion`);
     this.loadCancion();
-    // console.log(`loadalbum`);
     this.loadAlbum();
-    // console.log(`loadArtista`);
     this.loadArtista();
-    // console.log(`loadgenero`);
     this.loadGenero();
-    // console.log(`load1grupos`);
     this.loadGrupo();
-    // console.log(`load1playlist`);
     this.loadPlaylist();
   }
 
@@ -136,11 +130,9 @@ export class JsonPlaylist extends Collection {
         element.cantantes.forEach((element:string) => {
           cantantesDb.push(element);
         });
-        
         element.generos.forEach((element:string) => {
           generosDb.push(element);
         });
-
         aux = new Cancion(
           element.nombre as string, 
           cantantesDb, 
@@ -152,6 +144,7 @@ export class JsonPlaylist extends Collection {
 
         this.itemMapCancion.set(aux.getNombre(), aux);
       });
+      // console.log(this.itemMapCancion);
     } else {
       this.database.set('canciones', []).write();
     }
@@ -169,15 +162,13 @@ export class JsonPlaylist extends Collection {
         auxCanciones = [];
 
         element.canciones.forEach((cancion: any) => {
-          console.log(cancion);
-          
-          auxCanciones.push(this.itemMapCancion.get(cancion) as Cancion);
+          auxCanciones.push(this.itemMapCancion.get(cancion.nombre) as Cancion);
         });
-
+        
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);   
       });
-      console.log(this.itemMapAlbum);
+      // console.log(this.itemMapAlbum);
     } else {
       this.database.set('albumes', []).write();
     }
@@ -221,9 +212,8 @@ export class JsonPlaylist extends Collection {
         auxCanciones = [];
         auxAlbumes = [];
         auxGeneros = [];
-        
+
         element.generosArtistas.forEach((genero:any) => {
-          console.log(genero);
           auxGeneros.push(genero as string);
         });
 
@@ -403,6 +393,8 @@ export class JsonPlaylist extends Collection {
    */
   removeAlbumm(nombreAlbum:string):void {
     super.eliminarAlbum(nombreAlbum);
+    console.log(this.itemMapAlbum.values());
+    console.log(`Modificar ddbb`);
     this.store('album');
   }
 
@@ -459,16 +451,22 @@ export class JsonPlaylist extends Collection {
     switch (type) {
       case 'album':
         this.database.set("albumes", [...this.itemMapAlbum.values()]).write();
+        break;
       case 'cancion':
         this.database.set("canciones", [...this.itemMapCancion.values()]).write();
+        break;
       case 'grupo':
         this.database.set("grupos", [...this.itemMapGrupo.values()]).write();
+        break;
       case 'genero':
         this.database.set("generos", [...this.itemMapGenero.values()]).write();
+        break;
       case 'artista':
         this.database.set("artistas", [...this.itemMapArtista.values()]).write();
+        break;
       case 'playlist':
         this.database.set("playlists", [...this.itemMapPlaylist.values()]).write();
+        break;
     }
   }
 }

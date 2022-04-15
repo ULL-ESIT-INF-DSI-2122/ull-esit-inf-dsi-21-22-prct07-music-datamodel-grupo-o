@@ -285,7 +285,6 @@ export class Gestor {
         cancionesAdd.push(this.colection.getCancionMap().get(addPlaylistCancion['cancion']) as Cancion);
 
         console.log(`Cancion [${addPlaylistCancion['cancion']}] añadida. \n`);
-
         const stopOption = await inquirer.prompt([{
           name: 'decicion',
           type: 'list',
@@ -293,6 +292,9 @@ export class Gestor {
           choices: ['Yes', 'No'],
         }]);
         if (stopOption['decicion'] == 'No') {
+          cancionesAdd.forEach((cancion) => {
+            cancion.getDuracion();
+          });
           this.colection.addPlaylist(answerAdd['addPlaylist'], cancionesAdd);
           this.colection.getPlaylistPrint();
           ask = false;
