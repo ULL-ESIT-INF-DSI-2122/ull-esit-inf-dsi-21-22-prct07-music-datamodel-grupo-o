@@ -172,15 +172,7 @@ export class Collection {
    * @param nombreAlbum Nombre del album a eliminar
    */
   eliminarAlbum(nombreAlbum: string) {
-    console.log(`antes`);
-    this.itemMapAlbum.forEach((element) => {
-      element.getNombre();
-    });
     this.itemMapAlbum.delete(nombreAlbum);
-    console.log(`despues`);
-    this.itemMapAlbum.forEach((element) => {
-      element.getNombre();
-    });
   }
 
   /**

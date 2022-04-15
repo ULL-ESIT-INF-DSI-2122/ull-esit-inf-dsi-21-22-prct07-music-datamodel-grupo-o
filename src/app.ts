@@ -54,8 +54,8 @@ export class App {
    * Función menú del usuario
    */
   userMenu():void {
-    console.log(`===========================Bienvenido al SANX Music==============================`);
     console.clear();
+    console.log(`===========================Bienvenido al SANX Music==============================`);
     inquirer.prompt(
         {
           name: 'option',

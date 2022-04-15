@@ -47,7 +47,7 @@ export class Gestor {
    * Método que visualiza todas las playlists
    */
   visualizar():void {
-    console.log(`visualizar`);
+    console.log(`============================Visualizar Playlist===========================`);
     this.colection.getPlaylistPrint();
     this.promptPlalistMenu();
   }
@@ -256,6 +256,7 @@ export class Gestor {
    */
   async addPlaylist() {
     console.clear();
+    console.log(`===========================Proceso de añadir Playlit============================`);
     process.stdout.write("Los playlists son los siguiente:\n");
     this.colection.getPlaylistPrint();
     process.stdout.write("Recomendacion: NO creas un playlist con el mismo nombre.\n");
@@ -329,6 +330,7 @@ export class Gestor {
    */
   async borrarPlaylist() {
     console.clear();
+    console.log(`===========================Proceso de eliminar Playlit============================`);
     process.stdout.write("Los playlists son los siguiente:\n");
     this.colection.getPlaylistPrint();
     process.stdout.write("Recomendacion: Eliges un playlist existente para borrar\n");
