@@ -318,6 +318,80 @@ export class JsonPlaylist extends Collection {
     this.store('playlist');
   }
 
+  /**
+   * Método que añade un album a la coleccion
+   * @param nombreAlbum Nombre del album
+   * @param year Fecha de publicacion
+   * @param canciones Canciones que tiene el album
+   */
+  addAlbum(nombreAlbum:string, year:number, cancion:string, artista:string):void {
+    super.addAlbum(nombreAlbum, year, cancion, artista);
+    this.store('album');
+  }
+
+  /**
+   * Método que añade una cancion a la coleccion
+   * @param nombreCancion Nombre de la canción
+   * @param cantantesCancion Artistas de la canción
+   * @param duracion Tiempo que dura la cancion
+   * @param generos Generos musicales de la canción
+   * @param single Si la canción es un single o no
+   * @param numeroReproducciones Número de reproducciones total
+   * @param fecha Fecha de publicación de la canción
+   */
+  addCancion(nombreCancion:string, cantantesCancion:string[], duracion:number,
+    generos:string[], single:boolean, numeroReproducciones:number, fecha:number) {
+    super.addCancion(nombreCancion, cantantesCancion, duracion,
+      generos, single, numeroReproducciones, fecha);
+    this.store('cancion');
+  }
+  
+  /**
+   * Método que añade un artista a la colección
+   * @param nombreArtista Nombre del artista
+   * @param generosArtista Generos musicales del artista
+   * @param albumesArtista Albumes en los que aparece el artista
+   * @param cancionesArtista Canciones del artista
+   * @param oyentesArtista Oyentes mensuales del artista
+   * @param gruposArtista Grupos en los que aparece el artista
+   */
+  addArtista(nombreArtista: string, generosArtista: string[], 
+    albumesArtista: string[], cancionesArtista: string[], 
+    oyentesArtista: number, gruposArtista?: string[]): void {
+      super.addArtista(nombreArtista, generosArtista, 
+        albumesArtista, cancionesArtista, oyentesArtista, gruposArtista = []);
+      this.store('artista');
+  }
+
+  /**
+   * Método que añade un genero musical a la coleccion
+   * @param nombreGenero Nombre del genero musical
+   * @param gruposArtistas Grupos o Artistas que hacen música de ese genero
+   * @param generoAlbumes Albumes que tienen ese género musical
+   * @param cancionGenero Canciones que tienen ese género musical
+   */
+  addGenero(nombreGenero: string, gruposArtistas: string[], 
+    generoAlbumes: string[], cancionGenero: string[]): void {
+      super.addGenero(nombreGenero, gruposArtistas, 
+        generoAlbumes, cancionGenero);
+    this.store('genero');
+  }
+
+  /**
+   * Método que añade un grupo a la coleccion
+   * @param nombreGrupo Nombre del grupo
+   * @param artistas Artistas que pertenecen al grupo
+   * @param year Año de creación del grupo
+   * @param generos Generos musicales que publica el grupo
+   * @param albumes Albumes publicados por el grupo
+   * @param oyentes Oyentes mensuales
+   */
+  addGrupo(nombreGrupo: string, artistas: string[], year: number, 
+    generos: string[], albumes: string[], oyentes: number): void {
+      super.addGrupo(nombreGrupo, artistas, year, 
+        generos, albumes, oyentes);
+      this.store('grupo');
+  }
 
   /**
    * Método que elimina un album de la base de datos

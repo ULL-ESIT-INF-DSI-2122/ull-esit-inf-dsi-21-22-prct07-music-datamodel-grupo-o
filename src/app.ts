@@ -381,7 +381,7 @@ export class App {
   async addAlbum() {
     console.clear();
     console.log(`=================Proceso de añadir un album==================`);
-    inquirer.prompt([
+    const answerNombre = await inquirer.prompt([
       {
         type: 'input',
         name: 'nombreAlbum',
@@ -390,41 +390,51 @@ export class App {
         type: 'input',
         name: 'fechaAlbum',
         message: 'Fecha del album:',
-      }, {
-        type: 'input',
-        name: 'artistaAlbum',
-        message: 'Artista del album:',
       },
-    ]).then((answer) => {
-      const choise:string[] = [];
+    ]);
+    const choiseArtista:string[] = [];
         this.colectionMain.getCancionMap().forEach((cancion) => {
-          if (cancion.getAutor() == answer['artistaAlbum']) {
-            choise.push(cancion.getNombre());
-          }
+          choiseArtista.push(cancion.getAutor());
         });
-        choise.sort();
-        console.log(choise);
+        choiseArtista.sort();
+        const unicosArista = Array.from(new Set(choiseArtista));
+        // console.log(unicosArista);
+        // console.log(choiseArtista);
+    const answerArtista = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'artistaAlbum',
+        message: 'Eliges una artista',
+        choices: unicosArista,
+      },
+    ]);
+    const choiseCancion:string[] = [];
+      this.colectionMain.getCancionMap().forEach((cancion) => {
+        if (cancion.getAutor() == answerArtista['artistaAlbum']) {
+          choiseCancion.push(cancion.getNombre());
+        }
+      });
+      choiseCancion.sort();
+      const unicosCancion = Array.from(new Set(choiseCancion));
+      const answerCancion = await inquirer.prompt([{
+        type: 'list',
+        name: 'cancionesAlbum',
+        message: 'Canciones que tiene artista:',
+        choices: unicosCancion,
+      },
+    ])
+      this.colectionMain.addAlbum(answerNombre['nombreAlbum'], answerNombre['fechaAlbum'], answerCancion['cancionesAlbum'], answerArtista['artistaAlbum'] );
+      console.log(`Album Agregado`);
       inquirer.prompt([{
-          type: 'list',
-          name: 'cancionesAlbum',
-          message: 'Canciones que tiene el album:',
-          choices: choise,
-        },
-      ])
-      // ]).then((answers:any) => {
-      //   this.colectionMain.addAlbum(answers['nombreAlbum'], answers['artistaAlbum'], answers['generosAlbum'], answers['cancionesAlbum']);
-      //   console.log(`Album Agregado`);
-      //   inquirer.prompt([{
-      //     type: 'list',
-      //     name: 'continue',
-      //     message: 'Quieres agregar otro album:',
-      //     choices: ['Yes', 'No'],
-      //   }]).then((answers) => {
-      //     if (answers['continue'] == 'Yes') this.addAlbum();
-      //     else this.userMenu();
-      //   });
-      // });
-    });
+        type: 'list',
+        name: 'continue',
+        message: 'Quieres agregar otro album:',
+        choices: ['Yes', 'No'],
+      }]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addAlbum();
+        else this.userMenu();
+      });
+
   }
 
   /**
@@ -454,6 +464,11 @@ export class App {
         message: 'Generos de la cancion:',
       },
       {
+        type: 'confirm',
+        name: 'single',
+        message: 'Es single?',
+      },
+      {
         type: 'input',
         name: 'numeroProCancion',
         message: 'Número de reproducciones de la cancion:',
@@ -463,14 +478,26 @@ export class App {
         name: 'fechaCancion',
         message: 'Fecha de la cancion:',
       },
+      {
+        type: 'input',
+        name: 'fechaCancion',
+        message: 'Fecha de la cancion:',
+      },
     ]).then((answers) => {
-      // Error
-      if (/\d+/.test(answers['fechaCancion'])) {
-        console.log(`Vuelve a introducir los datos con una fecha correcta`);
-        this.addCancion();
-      }
-      // Falta la comprobacion
-      console.log(`La nueva cancion se llama: ` + answers['nombreCancion']);
+      const cantantes:string[] = [];
+      const generos:string[] = [];
+      cantantes.push(answers['cantantesCancion']);
+      generos.push(answers['generosCancion']);
+      this.colectionMain.addCancion(
+        answers['nombreCancion'], 
+        cantantes, 
+        answers['duracionCancion'], 
+        generos, 
+        answers['single'], 
+        answers['numeroProCancion'], 
+        answers['fechaCancion'], 
+        );
+      console.log(`Se ha agreado la cancion: ` + answers['nombreCancion']);
       inquirer.prompt([{
         type: 'list',
         name: 'continue',
@@ -486,9 +513,9 @@ export class App {
   /**
    * Método que añade un grupo
    */
-  addGrupo():void {
+  async addGrupo() {
     console.log(`=================Proceso de añadir un Grupo==================`);
-    inquirer.prompt([
+    const answer = await inquirer.prompt([
       {
         type: 'input',
         name: 'nombreGrupo',
@@ -519,14 +546,23 @@ export class App {
         name: 'oyenteGrupo',
         message: 'Oyentes mensuales de Grupo:',
       },
-    ]).then((answers) => {
-      console.log(`fecha + ` + answers['fechaGrupo']);
-      if (/^\d+/.test(answers['fechaGrupo'])) {
-        console.log(`Vuelve a introducir los datos con una fecha correcta`);
-        this.addCancion();
-      }
-      // Falta la comprobacion
-      console.log(`El nuevo grupo se llama: ` + answers['nombreGrupo']);
+    ]);
+    // Son tipos de datos arrya
+    const artista:string[] = [];
+    const generos:string[] = [];
+    const albumes:string[] = [];
+    artista.push(answer['artistasGrupo']);
+    generos.push(answer['generosGancion']);
+    albumes.push(answer['albumnesGancion']);
+      this.colectionMain.addGrupo(
+        answer['nombreGrupo'],
+        artista,
+        answer['fechaGrupo'],
+        generos,
+        albumes,
+        answer['oyenteGrupo'],
+      );
+      console.log(`Se ha agreado el grupo: ` + answer['nombreGrupo']);
       inquirer.prompt([{
         type: 'list',
         name: 'continue',
@@ -536,21 +572,16 @@ export class App {
         if (answers['continue'] == 'Yes') this.addGrupo();
         else this.userMenu();
       });
-    });
   }
 
-  addArtista():void {
+  async addArtista() {
     console.clear();
     console.log(`=================Proceso de añadir un/ artista==================`);
-    inquirer.prompt([
+    const answer = await inquirer.prompt([
       {
         type: 'input',
         name: 'nombreArtista',
         message: 'Nombre del artista:',
-      }, {
-        type: 'input',
-        name: 'grupoArtista',
-        message: 'Grupos del artista:',
       }, {
         type: 'input',
         name: 'generosArtista',
@@ -568,18 +599,29 @@ export class App {
         name: 'oyentesArtista',
         message: 'Oyentes del artista:',
       },
-    ]).then((answers) => {
-      // Falta la comprobacion
-      console.log(`El nuevo artista se llama: ` + answers['nombreArtista']);
-      inquirer.prompt([{
-        type: 'list',
-        name: 'continue',
-        message: 'Quieres agregar otro artista:',
-        choices: ['Yes', 'No'],
-      }]).then((answers) => {
-        if (answers['continue'] == 'Yes') this.addArtista();
-        else this.userMenu();
-      });
+    ]);
+    const canciones:string[] = [];
+    const generos:string[] = [];
+    const albumes:string[] = [];
+    canciones.push(answer['artistasGrupo']);
+    generos.push(answer['generosGancion']);
+    albumes.push(answer['albumnesGancion']);
+      this.colectionMain.addArtista(
+        answer['nombreArtista'],
+        generos,
+        albumes,
+        canciones,
+        answer['oyentesArtista'],
+      );
+    console.log(`El nuevo artista se llama: ` + answer['nombreArtista']);
+    inquirer.prompt([{
+      type: 'list',
+      name: 'continue',
+      message: 'Quieres agregar otro artista:',
+      choices: ['Yes', 'No'],
+    }]).then((answers) => {
+      if (answers['continue'] == 'Yes') this.addArtista();
+      else this.userMenu();
     });
   }
 

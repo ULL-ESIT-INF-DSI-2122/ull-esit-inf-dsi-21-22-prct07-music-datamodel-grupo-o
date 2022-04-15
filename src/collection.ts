@@ -34,11 +34,11 @@ export class Collection {
    * @param year Fecha de publicacion
    * @param canciones Canciones que tiene el album
    */
-  addAlbum(nombreAlbum:string, year:number, canciones:string[], artista:string) {
+  addAlbum(nombreAlbum:string, year:number, cancion:string, artista:string) {
     const cancionesAlbum:Cancion[] = [];
-    canciones.forEach((cancion) => {
-      cancionesAlbum.push(this.itemMapCancion.get(cancion) as Cancion);
-    });
+    // canciones.forEach((cancion) => {
+    cancionesAlbum.push(this.itemMapCancion.get(cancion) as Cancion);
+    // });
     console.log(cancionesAlbum);
     const nuevoAlbum = new Album(nombreAlbum, year, cancionesAlbum, artista);
     this.itemMapAlbum.set(nombreAlbum, nuevoAlbum);
@@ -134,7 +134,8 @@ export class Collection {
     });
 
     const grupoArtista:Grupos[] = [];
-    const nuevoArtista = new Artistas(nombreArtista, generosArtista, albumArtista, cancionArtista, oyentesArtista, grupoArtista);
+    const nuevoArtista = new Artistas(nombreArtista, generosArtista,
+        albumArtista, cancionArtista, oyentesArtista, grupoArtista);
     this.itemMapArtista.set(nombreArtista, nuevoArtista);
   }
 

@@ -1,911 +1,311 @@
 {
   "albumes": [
     {
+      "artista": "The Beatles",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
       "nombre": "Let It Be",
       "year": 2016,
       "canciones": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "artista": "The Beatles",
-      "generos": [
-        "Reggaeton"
+        "Dile",
+        "Bandoleros"
       ]
     },
     {
+      "artista": "Guy-Manuel de Homem-Christo",
+      "generos": [
+        "Electronica",
+        "House"
+      ],
       "nombre": "Homework",
       "year": 2020,
       "canciones": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "artista": "Guy-Manuel de Homem-Christo",
-      "generos": [
-        "Reggaeton"
+        "Dile",
+        "Bandoleros"
       ]
     },
     {
+      "artista": "ABBA",
+      "generos": [
+        "Disco"
+      ],
       "nombre": "Mamma Mia!",
       "year": 2020,
       "canciones": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "artista": "ABBA",
-      "generos": [
-        "Reggaeton"
+        "Dile",
+        "Bandoleros"
       ]
     },
     {
+      "artista": "Don Omar",
+      "generos": [
+        "Reggaeton"
+      ],
       "nombre": "Los Bandoleros",
       "year": 2020,
       "canciones": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "artista": "Don Omar",
-      "generos": [
-        "Reggaeton"
+        "Dile",
+        "Bandoleros"
       ]
     },
     {
+      "artista": "Don Omar",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
       "nombre": "The Last Don",
       "year": 2016,
       "canciones": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "artista": "Don Omar",
-      "generos": [
-        "Reggaeton"
+        "Dile",
+        "Bandoleros"
       ]
     },
     {
+      "artista": "Harry Styles",
+      "generos": [
+        "Pop",
+        "Synth Pop"
+      ],
       "nombre": "Fine Line",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "Adore You",
-          "cantantes": [
-            "Harry Styles"
-          ],
-          "duracion": 3.27,
-          "generos": [
-            "Soul",
-            "Pop rock"
-          ],
-          "single": true,
-          "numeroReproducciones": 1065536992,
-          "fecha": 2019
-        }
-      ],
-      "artista": "Harry Styles",
-      "generos": [
-        "Soul",
-        "Pop rock"
+        "Adore You"
       ]
     },
     {
+      "artista": "Tom Odell",
+      "generos": [
+        "Soul",
+        "indie Pop",
+        "Folk pop"
+      ],
       "nombre": "Long Way Down",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "Can't Pretened",
-          "cantantes": [
-            "Tom Odell"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "indie Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        }
-      ],
-      "artista": "Tom Odell",
-      "generos": [
-        "indie Pop"
+        "Can't Pretened"
       ]
     },
     {
+      "artista": "Taylor Swift",
+      "generos": [
+        "Pop",
+        "Synth Pop",
+        "Country"
+      ],
       "nombre": "1989",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "All Too Well",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Our Songs",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Wildest Dreams",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 3.4,
-          "generos": [
-            "Pop",
-            "Synth pop"
-          ],
-          "single": true,
-          "numeroReproducciones": 508110410,
-          "fecha": 2014
-        }
-      ],
-      "artista": "Taylor Swift",
-      "generos": [
-        "Pop",
-        "Synth pop"
+        "All Too Well",
+        "Our Songs",
+        "Wildest Dreams"
       ]
     },
     {
+      "artista": "Taylor Swift",
+      "generos": [
+        "Pop",
+        "Synth Pop",
+        "Country"
+      ],
       "nombre": "Taylor Swift",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "All Too Well",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Our Songs",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Wildest Dreams",
-          "cantantes": [
-            "Taylor Swift"
-          ],
-          "duracion": 3.4,
-          "generos": [
-            "Pop",
-            "Synth pop"
-          ],
-          "single": true,
-          "numeroReproducciones": 508110410,
-          "fecha": 2014
-        }
-      ],
-      "artista": "Taylor Swift",
-      "generos": [
-        "Pop",
-        "Synth pop"
+        "All Too Well",
+        "Our Songs",
+        "Wildest Dreams"
       ]
     },
     {
+      "artista": "Justin Bieber",
+      "generos": [
+        "Pop",
+        "R&B",
+        "Hip Hop",
+        "Dance Pop"
+      ],
       "nombre": "My World",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "Ghost",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Hold On",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Off My Face",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        }
-      ],
-      "artista": "Justin Bieber",
-      "generos": [
-        "Pop"
+        "Ghost",
+        "Hold On",
+        "Off My Face"
       ]
     },
     {
+      "artista": "Justin Bieber",
+      "generos": [
+        "Pop",
+        "R&B",
+        "Hip Hop",
+        "Dance Pop"
+      ],
       "nombre": "Acoustic",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "Ghost",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Hold On",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Off My Face",
-          "cantantes": [
-            "Justin Bieber"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        }
-      ],
-      "artista": "Justin Bieber",
-      "generos": [
-        "Pop"
+        "Ghost",
+        "Hold On",
+        "Off My Face"
       ]
     },
     {
+      "artista": "Imagine Dragons",
+      "generos": [
+        "Rock alternativo",
+        "Indie rock",
+        "Pop rock"
+      ],
       "nombre": "Night Visions",
       "year": 2012,
       "canciones": [
-        {
-          "nombre": "Radioactive",
-          "cantantes": [
-            "Imagine Dragons"
-          ],
-          "duracion": 4.21,
-          "generos": [
-            "Rock",
-            "Indie rock"
-          ],
-          "single": false,
-          "numeroReproducciones": 3214566,
-          "fecha": 2012
-        }
-      ],
-      "artista": "Imagine Dragons",
-      "generos": [
-        "Rock",
-        "Indie rock"
+        "Radioactive"
       ]
     },
     {
+      "artista": "Izal",
+      "generos": [
+        "Indie rock"
+      ],
       "nombre": "Copacabana",
       "year": 2016,
       "canciones": [
-        {
-          "nombre": "En Aire y Hueso",
-          "cantantes": [
-            "Izal"
-          ],
-          "duracion": 4.5,
-          "generos": [
-            "Rock",
-            "Indie rock"
-          ],
-          "single": false,
-          "numeroReproducciones": 14336078,
-          "fecha": 2015
-        },
-        {
-          "nombre": "Pequeña Gran Revolucion",
-          "cantantes": [
-            "Izal"
-          ],
-          "duracion": 4.15,
-          "generos": [
-            "Indie rock"
-          ],
-          "single": false,
-          "numeroReproducciones": 3214562,
-          "fecha": 2015
-        }
-      ],
-      "artista": "Izal",
-      "generos": [
-        "Rock",
-        "Indie rock"
+        "En Aire y Hueso",
+        "Pequeña Gran Revolucion"
       ]
     },
     {
+      "artista": "Dua Lipa",
+      "generos": [
+        "Pop"
+      ],
       "nombre": "Dua Lipa",
       "year": 2017,
       "canciones": [
-        {
-          "nombre": "New Love",
-          "cantantes": [
-            "Dua Lipa"
-          ],
-          "duracion": 2.45,
-          "generos": [
-            "Pop"
-          ],
-          "single": true,
-          "numeroReproducciones": 3216548,
-          "fecha": 2015
-        },
-        {
-          "nombre": "Be the one",
-          "cantantes": [
-            "Dua Lipa"
-          ],
-          "duracion": 2.36,
-          "generos": [
-            "Synth pop"
-          ],
-          "single": true,
-          "numeroReproducciones": 3211456,
-          "fecha": 2015
-        },
-        {
-          "nombre": "Hotter than Hell",
-          "cantantes": [
-            "Dua Lipa"
-          ],
-          "duracion": 2.36,
-          "generos": [
-            "Pop"
-          ],
-          "single": true,
-          "numeroReproducciones": 3214552,
-          "fecha": 2018
-        }
-      ],
-      "artista": "Dua Lipa",
-      "generos": [
-        "Pop",
-        "Synth pop"
+        "New Love",
+        "Be the one",
+        "Hotter than Hell"
       ]
     },
     {
+      "artista": "Post Malone",
+      "generos": [
+        "Hip hop",
+        "pop",
+        "R&B"
+      ],
       "nombre": "Beerbongs & Bentleys",
       "year": 2018,
       "canciones": [
-        {
-          "nombre": "Rockstar",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 4.18,
-          "generos": [
-            "Hip-hop"
-          ],
-          "single": false,
-          "numeroReproducciones": 1435468,
-          "fecha": 2018
-        },
-        {
-          "nombre": "Candy Paint",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 3.52,
-          "generos": [
-            "Hip-hop"
-          ],
-          "single": false,
-          "numeroReproducciones": 6535468,
-          "fecha": 2017
-        }
-      ],
-      "artista": "Post Malone",
-      "generos": [
-        "Hip-hop"
+        "Rockstar",
+        "Candy Paint"
       ]
     },
     {
+      "artista": "Post Malone",
+      "generos": [
+        "Pop rock",
+        "Trap",
+        "Rock",
+        "Hip hop"
+      ],
       "nombre": "Hollywood's Bleeding",
       "year": 2019,
       "canciones": [
-        {
-          "nombre": "WOW",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.16,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2135468,
-          "fecha": 2020
-        },
-        {
-          "nombre": "Goodbyes",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.16,
-          "generos": [
-            "Hip-hop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2135468,
-          "fecha": 2020
-        },
-        {
-          "nombre": "Circles",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.36,
-          "generos": [
-            "Hip-hop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2135468,
-          "fecha": 2019
-        },
-        {
-          "nombre": "Enemies",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.36,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2135468,
-          "fecha": 2019
-        },
-        {
-          "nombre": "Allergic",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.24,
-          "generos": [
-            "Pop"
-          ],
-          "single": false,
-          "numeroReproducciones": 2134657,
-          "fecha": 2012
-        },
-        {
-          "nombre": "Take What You Want",
-          "cantantes": [
-            "Post Malone"
-          ],
-          "duracion": 2.46,
-          "generos": [
-            "Pop",
-            "Rock"
-          ],
-          "single": true,
-          "numeroReproducciones": 3214552,
-          "fecha": 2019
-        }
-      ],
-      "artista": "Post Malone",
-      "generos": [
-        "Pop",
-        "Hip-hop",
-        "Rock"
+        "WOW",
+        "Goodbyes",
+        "Circles",
+        "Enemies",
+        "Allergic",
+        "Take What You Want"
       ]
     }
   ],
   "grupos": [
     {
       "nombre": "Imagine Dragons",
-      "artistas": [],
+      "artistas": [
+        "Dan Reynolds"
+      ],
       "year": 2008,
       "generos": [
         "Rock pop",
         "Indie pop",
         "Rock Alternativo"
       ],
-      "albumes": [
-        {
-          "nombre": "Night Visions",
-          "year": 2012,
-          "canciones": [
-            {
-              "nombre": "Radioactive",
-              "cantantes": [
-                "Imagine Dragons"
-              ],
-              "duracion": 4.21,
-              "generos": [
-                "Rock",
-                "Indie rock"
-              ],
-              "single": false,
-              "numeroReproducciones": 3214566,
-              "fecha": 2012
-            }
-          ],
-          "artista": "Imagine Dragons",
-          "generos": [
-            "Rock",
-            "Indie rock"
-          ]
-        }
+      "albumnes": [
+        "Night Visions"
       ],
       "oyentes": 59100146
     },
     {
       "nombre": "Izal",
-      "artistas": [],
+      "artistas": [
+        "Mikel Izal",
+        "Alejandro Jordá",
+        "Emanuel Pérez",
+        "Alberto Pérez",
+        "Iván Mella"
+      ],
       "year": 2010,
       "generos": [
         "Indie pop",
         "Rock Alternativo"
       ],
-      "albumes": [
-        {
-          "nombre": "Copacabana",
-          "year": 2016,
-          "canciones": [
-            {
-              "nombre": "En Aire y Hueso",
-              "cantantes": [
-                "Izal"
-              ],
-              "duracion": 4.5,
-              "generos": [
-                "Rock",
-                "Indie rock"
-              ],
-              "single": false,
-              "numeroReproducciones": 14336078,
-              "fecha": 2015
-            },
-            {
-              "nombre": "Pequeña Gran Revolucion",
-              "cantantes": [
-                "Izal"
-              ],
-              "duracion": 4.15,
-              "generos": [
-                "Indie rock"
-              ],
-              "single": false,
-              "numeroReproducciones": 3214562,
-              "fecha": 2015
-            }
-          ],
-          "artista": "Izal",
-          "generos": [
-            "Rock",
-            "Indie rock"
-          ]
-        }
+      "albumnes": [
+        "Copacabana"
       ],
       "oyentes": 9782346
     },
     {
       "nombre": "The Beatles",
-      "artistas": [],
+      "artistas": [
+        "John Lennon",
+        "Paul McCartney",
+        "George Harrinson",
+        "Ringo Starr"
+      ],
       "year": 1960,
       "generos": [
         "Rock pop"
       ],
-      "albumes": [
-        {
-          "nombre": "Let It Be",
-          "year": 2016,
-          "canciones": [
-            {
-              "nombre": "Dile",
-              "cantantes": [
-                "Don Omar"
-              ],
-              "duracion": 3.24,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": true,
-              "numeroReproducciones": 306730425,
-              "fecha": 2003
-            },
-            {
-              "nombre": "Bandoleros",
-              "cantantes": [
-                "Don Omar",
-                "Tego Calderon"
-              ],
-              "duracion": 5.05,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": false,
-              "numeroReproducciones": 210011575,
-              "fecha": 2015
-            }
-          ],
-          "artista": "The Beatles",
-          "generos": [
-            "Reggaeton"
-          ]
-        }
+      "albumnes": [
+        "Let It Be"
       ],
       "oyentes": 5109800347
     },
     {
       "nombre": "ABBA",
-      "artistas": [],
+      "artistas": [
+        "Agnetha Fältskog",
+        "Björn Ulvaeus",
+        "Benny Andersson",
+        "Anni-Frid Lyngstad"
+      ],
       "year": 1972,
       "generos": [
         "Pop",
         "Disco"
       ],
-      "albumes": [
-        {
-          "nombre": "Mamma Mia!",
-          "year": 2020,
-          "canciones": [
-            {
-              "nombre": "Dile",
-              "cantantes": [
-                "Don Omar"
-              ],
-              "duracion": 3.24,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": true,
-              "numeroReproducciones": 306730425,
-              "fecha": 2003
-            },
-            {
-              "nombre": "Bandoleros",
-              "cantantes": [
-                "Don Omar",
-                "Tego Calderon"
-              ],
-              "duracion": 5.05,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": false,
-              "numeroReproducciones": 210011575,
-              "fecha": 2015
-            }
-          ],
-          "artista": "ABBA",
-          "generos": [
-            "Reggaeton"
-          ]
-        }
+      "albumnes": [
+        "Mamma Mia!"
       ],
       "oyentes": 84003244
     },
     {
       "nombre": "Daft Punk",
-      "artistas": [],
+      "artistas": [
+        "Guy-Manuel de Homem-Christo",
+        "Thomas Bangalter"
+      ],
       "year": 1993,
       "generos": [
         "Electronica",
         "House"
       ],
-      "albumes": [
-        {
-          "nombre": "Homework",
-          "year": 2020,
-          "canciones": [
-            {
-              "nombre": "Dile",
-              "cantantes": [
-                "Don Omar"
-              ],
-              "duracion": 3.24,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": true,
-              "numeroReproducciones": 306730425,
-              "fecha": 2003
-            },
-            {
-              "nombre": "Bandoleros",
-              "cantantes": [
-                "Don Omar",
-                "Tego Calderon"
-              ],
-              "duracion": 5.05,
-              "generos": [
-                "Reggaeton"
-              ],
-              "single": false,
-              "numeroReproducciones": 210011575,
-              "fecha": 2015
-            }
-          ],
-          "artista": "Guy-Manuel de Homem-Christo",
-          "generos": [
-            "Reggaeton"
-          ]
-        }
+      "albumnes": [
+        "Homework"
       ],
       "oyentes": 89234561
     }
@@ -968,14 +368,13 @@
       "cantantes": [
         "Taylor Swift"
       ],
-      "duracion": 3.4,
+      "duracion": 2.24,
       "generos": [
-        "Pop",
-        "Synth pop"
+        "Pop"
       ],
-      "single": true,
-      "numeroReproducciones": 508110410,
-      "fecha": 2014
+      "single": false,
+      "numeroReproducciones": 2134657,
+      "fecha": 2012
     },
     {
       "nombre": "Our Songs",
@@ -1331,6 +730,20 @@
       "single": false,
       "numeroReproducciones": 14336078,
       "fecha": 2015
+    },
+    {
+      "nombre": "Wildest Dreams",
+      "cantantes": [
+        "Taylor Swift"
+      ],
+      "duracion": 3.4,
+      "generos": [
+        "Pop",
+        "Synth pop"
+      ],
+      "single": true,
+      "numeroReproducciones": 508110410,
+      "fecha": 2014
     },
     {
       "nombre": "Happier Than Ever",
@@ -1941,7 +1354,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "Another Love"
       ]
     },
     {
@@ -1952,9 +1365,9 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null,
-        null,
-        null
+        "Another Love",
+        "Can't Pretend",
+        "A-punk"
       ]
     },
     {
@@ -1965,9 +1378,9 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null,
-        null,
-        null
+        "Can't Pretend",
+        "Adore You",
+        "Wildest Dreams"
       ]
     },
     {
@@ -1977,7 +1390,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "As It Was"
       ]
     },
     {
@@ -1987,12 +1400,12 @@
         "Alice Merton"
       ],
       "generoAlbumes": [
-        null,
-        null
+        "Night Visions",
+        "Hollywood's Bleeding"
       ],
       "canciones": [
-        null,
-        null
+        "Adore You",
+        "No Roots"
       ]
     },
     {
@@ -2002,14 +1415,14 @@
         "Izal"
       ],
       "generoAlbumes": [
-        null,
-        null
+        "Night Visions",
+        "Copacabana"
       ],
       "canciones": [
-        null,
-        null,
-        null,
-        null
+        "Why'd You Only Call Me When You're High",
+        "Copacabana",
+        "Pequeña Gran Revolucion",
+        "En Aire y Hueso"
       ]
     },
     {
@@ -2018,10 +1431,10 @@
         "Arctic Monkeys"
       ],
       "generoAlbumes": [
-        null
+        "Beerbongs & Bentleys"
       ],
       "canciones": [
-        null
+        "Why'd You Only Call Me When You're High"
       ]
     },
     {
@@ -2032,12 +1445,12 @@
         "The Killers"
       ],
       "generoAlbumes": [
-        null
+        "Hollywood's Bleeding"
       ],
       "canciones": [
-        null,
-        null,
-        null
+        "Angels Like You",
+        "Enemy",
+        "Glamorous Indie Rock & Roll"
       ]
     },
     {
@@ -2046,11 +1459,11 @@
         "Miley Cyrus"
       ],
       "generoAlbumes": [
-        null,
-        null
+        "Beerbongs & Bentleys",
+        "Hollywood's Bleeding"
       ],
       "canciones": [
-        null
+        "Wrecking Ball"
       ]
     },
     {
@@ -2061,14 +1474,14 @@
         "Billie Eilish"
       ],
       "generoAlbumes": [
-        null,
-        null
+        "Dua Lipa",
+        "Beerbongs & Bentleys"
       ],
       "canciones": [
-        null,
-        null,
-        null,
-        null
+        "Wrecking Ball",
+        "All Too Well",
+        "Wildest Dreams",
+        "Happier Than Ever"
       ]
     },
     {
@@ -2078,7 +1491,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "Wrecking Ball"
       ]
     },
     {
@@ -2088,11 +1501,11 @@
         "Muse"
       ],
       "generoAlbumes": [
-        null
+        "Night Visions"
       ],
       "canciones": [
-        null,
-        null
+        "Radioactive",
+        "Supermassive Black Hole"
       ]
     },
     {
@@ -2103,8 +1516,8 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null,
-        null
+        "All Too Well",
+        "Hurt"
       ]
     },
     {
@@ -2114,7 +1527,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "A change of heart"
       ]
     },
     {
@@ -2124,7 +1537,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "Limbo"
       ]
     },
     {
@@ -2134,11 +1547,11 @@
         "ABBA"
       ],
       "generoAlbumes": [
-        null
+        "Mamma Mia!"
       ],
       "canciones": [
-        null,
-        null
+        "Limbo",
+        "Mamma Mia"
       ]
     },
     {
@@ -2148,7 +1561,7 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "Slow Acid"
       ]
     },
     {
@@ -2160,22 +1573,90 @@
       ],
       "generoAlbumes": [],
       "canciones": [
-        null
+        "Hey Boy Hey Girl"
       ]
     }
   ],
   "artistas": [
     {
-      "generosArtista": [
+      "nombre": "Justin Bieber",
+      "generosArtistas": [
+        "Pop",
+        "R&B",
+        "Hip Hop",
+        "Dance Pop"
+      ],
+      "albumesArtista": [
+        "My World",
+        "Acoustic"
+      ],
+      "cancionesArtista": [
+        "Ghost",
+        "Hold On",
+        "Off My Face"
+      ],
+      "oyentesArtista": 39245678
+    },
+    {
+      "nombre": "Taylor Swift",
+      "generosArtistas": [
+        "Pop",
+        "Synth Pop",
+        "Country"
+      ],
+      "albumesArtista": [
+        "Taylor Swift",
+        "1989"
+      ],
+      "cancionesArtista": [
+        "All Too Well",
+        "Our Songs",
+        "Wildest Dreams"
+      ],
+      "oyentesArtista": 89235634
+    },
+    {
+      "nombre": "Harry Styles",
+      "generosArtistas": [
+        "Pop",
+        "Synth Pop"
+      ],
+      "albumesArtista": [
+        "Fine Line"
+      ],
+      "cancionesArtista": [
+        "As It Was",
+        "Adore You"
+      ],
+      "oyentesArtista": 23563463
+    },
+    {
+      "nombre": "Tom Odell",
+      "generosArtistas": [
+        "Soul",
+        "indie Pop",
+        "Folk pop"
+      ],
+      "albumesArtista": [
+        "Long Way Down"
+      ],
+      "cancionesArtista": [
+        "Can't Pretened"
+      ],
+      "oyentesArtista": 4523467
+    },
+    {
+      "nombre": "Don Omar",
+      "generosArtistas": [
         "Reggaeton"
       ],
       "albumesArtista": [
-        null,
-        null
+        "The Last Don",
+        "Los Bandoleros"
       ],
       "cancionesArtista": [
-        null,
-        null
+        "Dile",
+        "Bandoleros"
       ],
       "oyentesArtista": 923563463
     }
@@ -2239,42 +1720,6 @@
       "duracion": 3.16,
       "generos": [
         "Rock"
-      ]
-    },
-    {
-      "nombre": "Exitos Don Omar",
-      "cancionesColeccion": [
-        {
-          "nombre": "Dile",
-          "cantantes": [
-            "Don Omar"
-          ],
-          "duracion": 3.24,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": true,
-          "numeroReproducciones": 306730425,
-          "fecha": 2003
-        },
-        {
-          "nombre": "Bandoleros",
-          "cantantes": [
-            "Don Omar",
-            "Tego Calderon"
-          ],
-          "duracion": 5.05,
-          "generos": [
-            "Reggaeton"
-          ],
-          "single": false,
-          "numeroReproducciones": 210011575,
-          "fecha": 2015
-        }
-      ],
-      "duracion": 8.29,
-      "generos": [
-        "Reggaeton"
       ]
     }
   ]
