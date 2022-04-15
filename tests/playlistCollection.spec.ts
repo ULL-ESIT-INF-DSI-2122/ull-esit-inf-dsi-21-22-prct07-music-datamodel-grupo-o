@@ -32,10 +32,6 @@ describe('Test para la clase Playlists Collection', () => {
     expect(jsonPlaylistCollection.getArtistaMap()).to.not.throw;
     expect(jsonPlaylistCollection.getArtistaMap()).to.not.be.null;
   });
-  it("Test getPlaylistMap => Playlists de la colección", () => {
-    expect(jsonPlaylistCollection.getPlaylistMap()).to.not.throw;
-    expect(jsonPlaylistCollection.getArtistaMap()).to.not.be.null;
-  });
   it("Test loadCancion => not to throw", () => {
     expect(jsonPlaylistCollection.loadCancion()).to.not.throw;
   });

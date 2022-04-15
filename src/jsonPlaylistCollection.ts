@@ -161,15 +161,17 @@ export class JsonPlaylist extends Collection {
       let auxCanciones: Cancion[];
       dbItem.forEach((element: any) => {
         auxCanciones = [];
+
         element.canciones.forEach((cancion: any) => {
-          console.log(this.itemMapCancion.get(cancion));
-          // Está dando error este push, mete undefined en vez de las canciones
-          auxCanciones.push(this.itemMapCancion.get(cancion) as Cancion);
-          console.log(auxCanciones);
+          
+          // console.log(`album` + JSON.stringify(cancion));
+          auxCanciones.push(this.itemMapCancion.get(cancion.nombre) as Cancion);
         });
+
         aux = new Album(element.nombre, element.year, auxCanciones, element.artista);
         this.itemMapAlbum.set(aux.getNombre(), aux);   
       });
+      // console.log(this.itemMapAlbum);
     } else {
       this.database.set('albumes', []).write();
     }
@@ -214,7 +216,7 @@ export class JsonPlaylist extends Collection {
         auxAlbumes = [];
         auxGeneros = [];
         
-        element.generosArtistas.forEach((genero:any) => {
+        element.generosArtista.forEach((genero:any) => {
           auxGeneros.push(genero as string);
         });
 
@@ -256,11 +258,14 @@ export class JsonPlaylist extends Collection {
         element.generoAlbumes.forEach((album:any) => {
           auxAlbumGeneros.push(this.itemMapAlbum.get(album) as Album);
         });
+        // console.log(auxAlbumGeneros);
         
         element.gruposArtistas.forEach((item:any) => {
           auxArtistasGeneros.push(item as string);
         });
-
+        // console.log(auxArtistasGeneros);
+        // private genero: string, private gruposArtistas:string[],
+        // private generoAlbumes: Album[], private canciones: Cancion[]
         aux = new GenerosMusicales(element.genero, auxArtistasGeneros, auxAlbumGeneros, auxCancionesGeneros);
         this.itemMapGenero.set(aux.getGenero(), aux);
       });
@@ -286,12 +291,14 @@ export class JsonPlaylist extends Collection {
         auxGeneros = [];
         auxAlbum = [];
 
-        element.albumnes.forEach((album:any) => {
-          auxAlbum.push(this.itemMapAlbum.get(album) as Album);
+        element.albumes.forEach((album:any) => {
+          auxAlbum.push(this.itemMapAlbum.get(album.nombre) as Album);
         });
+
         element.generos.forEach((genero:any) => {
           auxGeneros.push(genero);
         });
+
         aux = new Grupos(element.nombre, auxArtistas, element.year, auxGeneros, auxAlbum, element.oyentes);
         this.itemMapGrupo.set(aux.getNombre(), aux);
       });
