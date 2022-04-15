@@ -1,10 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable no-unused-vars */
-import inquirer from 'inquirer';
-import lowdb from 'lowdb';
-import FileSync from 'lowdb/adapters/FileSync';
 import {Album} from './album';
 import {Artistas} from './artistas';
 import {Cancion} from './cancion';
@@ -50,7 +43,6 @@ export class Collection {
     const nuevoAlbum = new Album(nombreAlbum, year, cancionesAlbum, artista);
     this.itemMapAlbum.set(nombreAlbum, nuevoAlbum);
   }
-
 
   /**
    * Método que añade una cancion a la coleccion
@@ -104,7 +96,6 @@ export class Collection {
    * @param cancionGenero Canciones que tienen ese género musical
    */
   addGenero(nombreGenero:string, gruposArtistas:string[], generoAlbumes:string[], cancionGenero:string[]) {
-    const artistaGenero:(Artistas|Grupos)[] = [];
     const albumGenero:Album[] = [];
     generoAlbumes.forEach((album) => {
       albumGenero.push(this.itemMapAlbum.get(album) as Album);
@@ -152,16 +143,17 @@ export class Collection {
    * @param nombrePlaylist Nombre de la playlist
    * @param nombreCancion Nombre de todas las canciones de la playlist
    */
-  addPlaylist(nombrePlaylist: string, nombreCancion:string[]) {
-    const canciones:Cancion[] = [];
+  addPlaylist(nombrePlaylist: string, nombreCancion:Cancion[]) {
+    // const canciones:Cancion[] = [];
 
-    nombreCancion.forEach((cancion) => {
-      canciones.push(this.itemMapCancion.get(cancion) as Cancion);
-    });
+    // nombreCancion.forEach((cancion) => {
+    //   canciones.push(this.itemMapCancion.get(cancion) as Cancion);
+    // });
 
-    const nuevoPlaylist = new Playlist(nombrePlaylist, canciones);
+    const nuevoPlaylist = new Playlist(nombrePlaylist, nombreCancion);
     this.itemMapPlaylist.set(nuevoPlaylist.getNombre(), nuevoPlaylist);
   }
+
 
   getPlaylist(playlistName:string): Playlist | undefined {
     return this.itemMapPlaylist.get(playlistName);

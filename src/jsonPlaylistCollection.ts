@@ -88,6 +88,10 @@ export class JsonPlaylist extends Collection {
     return this.itemMapArtista;
   }
 
+  /**
+   * Método que retorna los playlist de la colección
+   * @returns playlist de la colección
+   */
   getPlaylistMap(): Map<string, Playlist> {
     return this.itemMapPlaylist;
   }
@@ -298,10 +302,11 @@ export class JsonPlaylist extends Collection {
    * @param nombrePlaylist Nombre de la playlist
    * @param playlist Array con todos los nombres de las canciones de la playlist
    */
-  addPlaylist(nombrePlaylist:string, playlist:string[]):void {
+  addPlaylist(nombrePlaylist:string, playlist:Cancion[]):void {
     super.addPlaylist(nombrePlaylist, playlist);
     this.store('playlist');
   }
+
 
   /**
    * Método que elimina un album de la base de datos
@@ -371,6 +376,7 @@ export class JsonPlaylist extends Collection {
       case 'genero':
       case 'artista':
       case 'playlist':
+        this.database.set("playlists", [...this.itemMapPlaylist.values()]).write();
     }
   }
 }

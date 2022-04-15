@@ -1,24 +1,8 @@
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable indent */
-/* eslint-disable padded-blocks */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable eol-last */
 /* eslint-disable no-unused-vars */
 import inquirer from 'inquirer';
-// import input from '@inquirer/input';
-// import { Low, JSONFile } from 'lowdb';
-// import { join } from 'path';
-import lowdb from 'lowdb';
-import FileSync from 'lowdb/adapters/FileSync';
 import {Cancion} from './cancion';
-import {Playlist} from "./playlist";
-import {Collection} from "./collection";
 import {JsonPlaylist} from './jsonPlaylistCollection';
 
-/**
- * Variable global que almanacena una playlist específica
- */
-const myPlaylist: Playlist = new Playlist('', []);
 
 /**
  * Enumeración de las opciones del menú para realizar sobre las canciones de una playlist
@@ -42,27 +26,35 @@ enum Consulta {
   navegar = "Navegar una playlist",
   crear = "Crear una playlist",
   borrar = "Borrar una playlist",
-  salir = "Salir del programa"
+  salir = "Salir operaciones avanzadas de playlist"
 }
 
 /**
  * Clase Gestora de la aplicación
  */
 export class Gestor {
-  
   private colection: JsonPlaylist;
-  itemMapPlaylist: any;
 
+  /**
+     * Constructor de la clase Gestor
+     * Inicializa con un objeto JsonPlaylist
+     */
   constructor() {
     this.colection = new JsonPlaylist();
   }
 
+  /**
+   * Método que visualiza todas las playlists
+   */
   visualizar():void {
     console.log(`visualizar`);
     this.colection.getPlaylistPrint();
     this.promptPlalistMenu();
   }
 
+  /**
+   * Método que navega una playlist y visualiza de segun distintos tipos
+   */
   async navegar():Promise<void> {
     console.clear();
     const answersNavegar = await inquirer.prompt([{
@@ -96,10 +88,16 @@ export class Gestor {
     });
   }
 
+  /**
+   * Método que Visualiza playlists segun distintos tipos
+   * @param nombre nombre de playlist que visualiza
+   * @param optionCancion segun cancion
+   * @param orden orden ascendente y descendente
+   */
   getPlaylistByName(nombre: string, optionCancion:string, orden:string) {
     if (this.colection.getPlaylistMap().get(nombre) !== undefined) {
       const cancionesMap = new Map<string, Cancion>();
-      
+
       switch (optionCancion) {
         case "Visualizar por título de la canción":
           this.colection.getPlaylistMap().forEach((element) => {
@@ -115,7 +113,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               unsortArray.sort().reverse();
               unsortArray.forEach((element) => {
@@ -124,7 +122,7 @@ export class Gestor {
               break;
           };
           break;
-  
+
         case "Visualizar por nombre del grupo/artista":
           this.colection.getPlaylistMap().forEach((element) => {
             element.getCanciones().forEach((cancion) => {
@@ -139,7 +137,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               unSArray.sort().reverse();
               unSArray.forEach((element) => {
@@ -148,7 +146,6 @@ export class Gestor {
               break;
           };
           break;
-        break;
 
         case "Visualizar por año de lanzamiento":
           const cancionesNumMap = new Map<number, Cancion>();
@@ -165,7 +162,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               playlistArray.sort().reverse();
               playlistArray.forEach((element) => {
@@ -174,7 +171,6 @@ export class Gestor {
               break;
           };
           break;
-        break;
 
         case "Visualizar por género musical":
           this.colection.getPlaylistMap().forEach((element) => {
@@ -190,7 +186,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               playlistGeneroArray.sort().reverse();
               playlistGeneroArray.forEach((element) => {
@@ -199,8 +195,7 @@ export class Gestor {
               break;
           };
           break;
-        break;
-        
+
         case "Visualizar por duración de la canción":
           const cancionesNum2Map = new Map<number, Cancion>();
           this.colection.getPlaylistMap().forEach((element) => {
@@ -216,7 +211,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               playlistDuracionArray.sort().reverse();
               playlistDuracionArray.forEach((element) => {
@@ -225,7 +220,6 @@ export class Gestor {
               break;
           };
           break;
-        break;
 
         case "Visualizar por número de reproducciones totales":
           const cancionesNum3Map = new Map<number, Cancion>();
@@ -242,7 +236,7 @@ export class Gestor {
                 console.log(element);
               });
               break;
-              
+
             case "descendente":
               playlistReproArray.sort().reverse();
               playlistReproArray.forEach((element) => {
@@ -251,13 +245,132 @@ export class Gestor {
               break;
           };
           break;
-        break;
       }
     } else {
       console.log(`No existe dicho playlist`);
     }
   }
 
+  /**
+   * Método que añade un playlist a la colecion y la base de datos
+   */
+  async addPlaylist() {
+    console.clear();
+    process.stdout.write("Los playlists son los siguiente:\n");
+    this.colection.getPlaylistPrint();
+    process.stdout.write("Recomendacion: NO creas un playlist con el mismo nombre.\n");
+
+    const answerAdd = await inquirer.prompt([
+      {
+        name: 'addPlaylist',
+        type: 'input',
+        message: 'Introduzca el nombre de playlist que desea crear:',
+      },
+    ]);
+    if (this.colection.getPlaylistMap().get(answerAdd['addPlaylist']) == undefined) {
+      const choise:string[] = [];
+      this.colection.getCancionMap().forEach((cancion) => {
+        choise.push(cancion.getNombre());
+      });
+      choise.sort();
+      let ask:boolean = true;
+      const cancionesAdd:Cancion[] = [];
+      while (ask) {
+        const addPlaylistCancion = await inquirer.prompt([{
+          name: 'cancion',
+          type: 'list',
+          message: 'Que canciones quieres agregar:',
+          choices: choise,
+        }]);
+        cancionesAdd.push(this.colection.getCancionMap().get(addPlaylistCancion['cancion']) as Cancion);
+
+        console.log(`Cancion [${addPlaylistCancion['cancion']}] añadida. \n`);
+
+        const stopOption = await inquirer.prompt([{
+          name: 'decicion',
+          type: 'list',
+          message: 'Deseas agregar más?',
+          choices: ['Yes', 'No'],
+        }]);
+        if (stopOption['decicion'] == 'No') {
+          this.colection.addPlaylist(answerAdd['addPlaylist'], cancionesAdd);
+          this.colection.getPlaylistPrint();
+          ask = false;
+        }
+      }
+      const otherAddPlaylist = await inquirer.prompt([{
+        name: 'decicion',
+        type: 'list',
+        message: 'Deseas agregar otro playlist nuevo?',
+        choices: ['Yes', 'No'],
+      }]);
+      if (otherAddPlaylist['list'] == 'Yes') this.addPlaylist();
+      else this.promptPlalistMenu();
+    } else {
+      console.log(`No puede crear un playlist con el mismo nombre`);
+      inquirer.prompt([
+        {
+          type: 'list',
+          name: 'continue',
+          message: 'Desea volver a crear un nuevo playlist?:',
+          choices: ['Yes', 'No'],
+        },
+      ]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.addPlaylist();
+        else this.promptPlalistMenu();
+      });
+    }
+  }
+
+  /**
+   * Método que elimina un playlist a la colecion y la base de datos
+   */
+  async borrarPlaylist() {
+    console.clear();
+    process.stdout.write("Los playlists son los siguiente:\n");
+    this.colection.getPlaylistPrint();
+    process.stdout.write("Recomendacion: Eliges un playlist existente para borrar\n");
+
+    const answerDetele = await inquirer.prompt([
+      {
+        name: 'deletePlaylist',
+        type: 'input',
+        message: 'Introduzca el nombre de playlist que desea borrar:',
+      },
+    ]);
+    if (this.colection.getPlaylistMap().get(answerDetele['deletePlaylist']) !== undefined) {
+      this.colection.removePlaylist(answerDetele['deletePlaylist']);
+      this.colection.getPlaylistPrint();
+      inquirer.prompt([
+        {
+          type: 'list',
+          name: 'continue',
+          message: 'Desea borrar otro playlist?:',
+          choices: ['Yes', 'No'],
+        },
+      ]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarPlaylist();
+        else this.promptPlalistMenu();
+      });
+    } else {
+      console.log(`Operacion denegada, No existe playlist llamado [${answerDetele['deletePlaylist']}]`);
+      inquirer.prompt([
+        {
+          type: 'list',
+          name: 'continue',
+          message: 'Desea volver a borrar un playlist?:',
+          choices: ['Yes', 'No'],
+        },
+      ]).then((answers) => {
+        if (answers['continue'] == 'Yes') this.borrarPlaylist();
+        else this.promptPlalistMenu();
+      });
+    }
+  }
+
+  /**
+   * Método principal de la clase Gestor que inicializa operaciones avanzadas de playlists
+   */
   promptPlalistMenu() {
     inquirer.prompt({
       name: 'optionPlaylist',
@@ -269,19 +382,25 @@ export class Gestor {
         case playlistCommands.visualizar:
           console.clear();
           this.visualizar();
-        break;
+          break;
+
         case playlistCommands.navegar:
           this.navegar();
+          break;
+
         case playlistCommands.crear:
-        
+          this.addPlaylist();
+          break;
+
         case playlistCommands.borrar:
-        
+          this.borrarPlaylist();
+          break;
 
+        case playlistCommands.salir:
+          break;
       }
-
     });
   }
-
 }
 
 const a = new Gestor();
